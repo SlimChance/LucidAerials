@@ -1,0 +1,43 @@
+@import 'vars';
+@media (min-width: 500px) {
+    .main-picture-wrapper {
+        position: relative;
+        height: auto;
+        width: 100%;
+        padding: 20px 0px;
+        text-align: center;
+        background-color: $light-blue;
+        box-shadow: $material-shadow;
+    }
+}
+@media (max-width: 500px) {
+    .pictures-wrapper {
+        position: relative;
+        top: 55px;
+        height: 100%;
+        width: 100%;
+        .main-picture-wrapper {
+            position: relative;
+            height: auto;
+            width: 100%;
+            padding: 20px 0px;
+            text-align: center;
+            background-color: $light-blue;
+            box-shadow: $material-shadow;
+        }
+        .picture-feed-wrapper {
+            text-align: center;
+            background-color: white;
+            .picture-repeat {
+                width: calc(100% - 20px);
+                padding: 10px;
+                margin: 20px auto;
+                background: $light-blue;
+                box-shadow: $material-shadow;
+            }
+            .picture-description {
+                color: white;
+            }
+        }
+    }
+}

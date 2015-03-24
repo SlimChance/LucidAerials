@@ -1,0 +1,12 @@
+<div class="pictures-wrapper animated fadeInRight">
+    <div class="main-picture-wrapper">
+        <img class="main-picture" src="../images/NyeRanch.jpg" alt="NyeRanch">
+    </div>
+
+    <div class="picture-feed-wrapper">
+        <div class="picture-repeat" ng-repeat="picture in pictures">
+            <img ng-attr-src="{{picture.source}}" ng-attr-alt="{{picture.alt}}">
+            <p class="picture-description">{{picture.description}}</p>
+        </div>
+    </div>
+</div>

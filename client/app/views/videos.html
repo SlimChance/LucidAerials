@@ -1,0 +1,37 @@
+<div class="videos-wrapper">
+    <div class="main-video-wrapper">
+        <h2 class="main-video-title">Rock Climbing and Views Along Hwy 70</h2>
+        <span play-button class="play-button glyphicon glyphicon-play" ng-click="play()"></span>
+        <!-- <video controls class="main-video" poster="../images/RockClimbing.jpg">
+            <source src="../videos/RockClimbing.webm" type="video/webm">
+            <source src="../videos/RockClimbing.mp4" type="video/mp4">
+        </video> -->
+        <iframe class="main-video" src="https://www.youtube.com/embed/6ZqioJpOBqM?enablejsapi=1" frameborder="0"></iframe>
+        <!-- <iframe width="100%" height="315" src="" frameborder="0" allowfullscreen></iframe>
+ -->
+    </div>
+
+    <!-- VIDEOS LIKE GIANTBOMB -->
+    <div class="first-three-wrapper">
+        <div class="first-three-video-wrapper" ng-repeat="video in firstThree">
+            <h3 class="first-three-title">{{video.title}}</h3>
+            <div class="video-filter">
+                <video class="first-three-video" preload="none" class="" ng-attr-poster="{{video.poster}}">
+                    <source ng-attr-src="{{video.webmURL}}" type="video/webm">
+                        <source ng-attr-src="{{video.mp4URL}}" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <div class="video-feed-wrapper">
+        <div class="video-repeat lazyload" ng-repeat="video in videos">
+            <h2 class="video-title">{{video.title}}</h2>
+            <video controls preload="none" class="feed-videos" ng-attr-poster="{{video.poster}}">
+                <source ng-attr-src="{{video.webmURL}}" type="video/webm">
+                    <source ng-attr-src="{{video.mp4URL}}" type="video/mp4">
+            </video>
+            <p class="video-description">{{video.description}}</p>
+        </div>
+    </div>
+</div>

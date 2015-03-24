@@ -1,0 +1,164 @@
+<!doctype html>
+<html class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <title>Lucid Aerials</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Lucid Aerials">
+    <meta name="apple-mobile-web-app-title" content="Lucid Aerials">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- icon in the highest resolution we need it for -->
+    <link rel="icon" sizes="228x228" href="images/Logo.jpg">
+    <!-- reuse same icon for Safari -->
+    <link rel="apple-touch-icon" href="images/Logo.jpg">
+    <!-- multiple icons for IE -->
+    <meta name="msapplication-square70x70logo" content="images/Logo.jpg">
+    <meta name="msapplication-square150x150logo" content="images/Logo.jpg">
+    <meta name="msapplication-wide310x150logo" content="images/Logo.jpg">
+    <meta name="msapplication-square310x310logo" content="images/Logo.jpg">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="shortcut icon" href="images/Logo.jpg">
+    <script src="scripts/pace.js"></script>
+    <link rel="stylesheet" href="styles/pace.css">
+    <link rel="stylesheet" href="styles/index.css">
+    <!-- <link rel="stylesheet" media="screen and (min-width: 500px)" href="styles/main.css">
+ -->
+    <!-- <link rel="stylesheet" media="screen and (max-width: 500px)" href="styles/phoneStyle.css"> -->
+    <link rel="stylesheet" href="styles/animate.css">
+    <link rel="stylesheet" href="styles/waves.min.css">
+    <!-- <link rel="stylesheet" media="(max-width: 640px)" href="max-640px.css">
+    <link rel="stylesheet" media="(min-width: 640px)" href="min-640px.css">
+    <link rel="stylesheet" media="(orientation: portrait)" href="portrait.css">
+    <link rel="stylesheet" media="(orientation: landscape)" href="landscape.css"> -->
+    <!-- endbuild -->
+</head>
+
+<body ng-app="clientApp" ng-controller="IndexCtrl">
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" toggle-mobile-menu>
+        <div class="nav-wrapper" scroll-hide-menu>
+            <div class="mobile-logo-wrapper" data-ng-click="navigateTo('/')">
+                <!-- <img class="mobile-logo" src="images/transparent-logo.png" alt="Lucid Aerials Logo"> -->
+                <h3 class="mobile-site-title">Lucid Aerials</h3>
+            </div>
+            <div class="menu-wrapper">
+                <div class="menu-bar1"></div>
+                <div class="menu-bar2"></div>
+                <div class="menu-bar3"></div>
+            </div>
+        </div>
+        <nav class="navbar-animate">
+            <div class="nav-home" data-ng-click="navigateTo('/');">
+                <h3 class="nav-text">Home</h3>
+            </div>
+            <div class="nav-videos" data-ng-click="navigateTo('/videos');">
+                <h3 class="nav-text">Videos</h3>
+            </div>
+            <div class="nav-pictures" ng-click="navigateTo('/pictures');">
+                <h3 class="nav-text">Pictures</h3>
+            </div>
+            <div class="nav-contact" ng-click="navigateTo('/contact');">
+                <h3 class="nav-text">Contact</h3>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Desktop Navigation -->
+    <div class="desktop-nav" toggle-menu>
+        <nav class="navbar-animate nav-wrapper navbar navbar-fixed-top" ng-show="toggled === true">
+            <div class="nav-item nav-home" data-ng-click="navigateTo('/');">
+                <h3 class="text-center">Home</h3>
+            </div>
+            <div class="nav-item nav-videos" data-ng-click="navigateTo('/videos');">
+                <h3 class="text-center">Videos</h3>
+            </div>
+            <div class="nav-item nav-pictures" ng-click="navigateTo('/pictures');">
+                <h3 class="text-center">Pictures</h3>
+            </div>
+            <div class="nav-item nav-contact" ng-click="navigateTo('/contact');">
+                <h3 class="text-center">Contact</h3>
+            </div>
+        </nav>
+        <div class="menu-wrapper" ng-click="">
+            <div class="menu-bar-wrapper">
+                <div class="menu-bar1"></div>
+                <div class="menu-bar2"></div>
+                <div class="menu-bar3"></div>
+            </div>
+            <div class="menu-title-wrapper">
+                <h3 class="menu-title">Menu</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="view" ng-view="" ng-click="viewClicked()"></div>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+    <script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-XXXXX-X');
+    ga('send', 'pageview');
+    </script>
+
+    <!-- build:js(.) scripts/oldieshim.js -->
+    <!--[if lt IE 9]>
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/json3/lib/json3.js"></script>
+    <![endif]-->
+    <!-- endbuild -->
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <!-- endbower -->
+    <script src="scripts/waves.min.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/indexCtrl.js"></script>
+    <script src="scripts/controllers/homeCtrl.js"></script>
+    <script src="scripts/controllers/videosCtrl.js"></script>
+    <script src="scripts/controllers/picturesCtrl.js"></script>
+    <script src="scripts/directives/mainDirective.js"></script>
+    <script type="text/javascript">
+    Waves.displayEffect();
+    </script>
+    <!-- endbuild -->
+</body>
+
+</html>
