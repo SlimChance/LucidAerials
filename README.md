@@ -1,1 +1,1 @@
-This is a website for Lucid Aerials.
+This is a website for Lucid Aerials written in Angular.
