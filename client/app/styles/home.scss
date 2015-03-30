@@ -98,6 +98,21 @@
                 outline: 0;
                 transition: opacity 0.5s ease-out;
             }
+            .md-primary {
+                margin-top: 15px;
+                padding: 10px 20px;
+                border-radius: 5px;
+                background: $light-blue;
+                color: white;
+                border: none;
+                opacity: 1;
+                outline: 0;
+                transition: opacity 0.5s ease-out;
+                &:active {
+                    background-color: $dark-blue;
+                    transition: all 100ms ease-out 30ms;
+                }
+            }
         }
         .home-video-filter {
             opacity: 0.65;

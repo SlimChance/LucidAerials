@@ -82,11 +82,12 @@ angular.module('clientApp')
             restrict: 'A',
             link: function(scope, element) {
                 var siteTitle = element.children('.site-title');
-                var button = element.children('button.b-play-video');
+                var button = element.children('button.md-primary');
                 var filter = element.next('.home-video-filter');
                 var video = element.next('.home-video-filter').children('home-video');
 
                 button.bind('click', function() {
+                    console.log(button);
                     siteTitle.css('opacity', '0');
                     element.css('opacity', '0');
                     filter.css('opacity', '1');
@@ -99,10 +100,9 @@ angular.module('clientApp')
         return {
             restrict: 'A',
             link: function(scope, element) {
-                var videoWrapper = element.parent('.main-video-wrapper');
-                var video = element.next('.main-video');
-
                 element.bind('click', function() {
+                    var videoWrapper = element.parent('.main-video-wrapper');
+                    var video = element.next('.main-video');
                     videoWrapper.css('background', 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/nye.jpg")');
                     videoWrapper.css('background-position', 'center');
                     element.css('opacity', '0');

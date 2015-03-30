@@ -65,29 +65,7 @@ angular.module('clientApp')
             'description': 'The Annual Thanksgiving Turkey Bowl at Wraith Field.'
         }];
 
-        function doYT() {
-            $window.player = new YT.Player('video_player', {
-                width: '768',
-                height: '432',
-                videoId: '6ZqioJpOBqM',
-                events: {
-                    'onReady': onPlayerReady
-                }
-            });
+        $scope.play = function() {
+            $window.player.playVideo();
         }
-
-        $window.YT && doYT() || function() {
-            var a = document.createElement("script");
-            a.setAttribute("type", "text/javascript");
-            a.setAttribute("src", "http://www.youtube.com/player_api");
-            a.onload = doYT;
-            a.onreadystatechange = function() {
-                if (this.readyState == "complete" || this.readyState == "loaded") doYT()
-            };
-            (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(a)
-        }();
-
-        function onPlayerReady(event) {
-            event.target.playVideo();
-        };
     });
