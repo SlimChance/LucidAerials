@@ -56,53 +56,15 @@
         top: 55px;
         height: 100%;
         width: 100%;
-        .main-video-wrapper {
-            position: relative;
-            height: auto;
-            width: 100%;
-            padding: 20px 0px;
-            text-align: center;
-            background: url('../images/nye.jpg');
-            // Just image opacity. Use :before
-            background-position: center;
-            box-shadow: $material-shadow;
-            transition: background 0.5s ease-out;
-            .main-video-title {
-                color: white;
-                margin: 10px 10px 20px 10px;
-            }
-            .play-button {
-                opacity: 1;
-                position: relative;
-                top: 75px;
-                z-index: 2;
-                color: white;
-                font-size: 4em;
-                transition: opacity 0.5s ease-out;
-            }
-            .main-video {
-                //min-width: 480px;
-                max-width: 100%;
-                min-height: 200px;
-                width: 100%;
-                object-fit: contain;
-                opacity: 0;
-                position: relative;
-                bottom: 50px;
-                transition: opacity 0.25s ease-out;
-                transition-delay: 0.25s;
-            }
-        }
-        .first-three-wrapper {
+        .top-videos-wrapper {
             height: auto;
             width: auto;
             margin: 0px;
             padding: 0px;
             background: rgba(0, 0, 0, .65);
-            .first-three-video-wrapper {
+            .top-video-repeat0, .top-video-repeat1, .top-video-repeat2, .top-video-repeat3, {
                 height: 110px;
                 width: 100%;
-                background: black;
                 margin: 0px;
                 padding: 0px;
                 overflow: hidden;
@@ -111,40 +73,66 @@
                 &:first-child {
                     border-top: 1px solid rgba(255, 255, 255, .5);
                 }
-                // &:before {
-                //     content: '';
-                //     position: relative;
-                //     top: calc(110px - 50px);
-                //     height: 50px;
-                //     width: 100%;
-                //     z-index: 3;
-                //     display: block;
-                //     background: url('../images/fade-up.png') left bottom repeat-x;
-                // }
-                .first-three-title {
+                .top-video-title {
                     color: white;
-                    position: absolute;
+                    position: relative;
                     z-index: 1;
+                    font-weight: normal;
+                    font-size: 1.3em;
                     margin-top: 55px;
+                    padding: 0px 10px 0px 10px;
                 }
-                .video-filter {
-                    opacity: .65;
-                    .first-three-video {
-                        width: 100%;
-                        //object-fit: fill;
-                    }
+                .play-button {
+                    display: none;
+                }
+                .top-video {
+                    display: none;
+                }
+            }
+            .expanded {
+                height: auto;
+                width: 100%;
+                padding: 20px 0px 0px 0px;
+                text-align: center;
+                background-position: center;
+                .top-video-title {
+                    font-size: 1.75em;
+                    color: white;
+                    margin: 10px 20px 20px 20px;
+                }
+                .play-button {
+                    display: block;
+                    opacity: 1;
+                    position: relative;
+                    top: 75px;
+                    z-index: 2;
+                    color: white;
+                    font-size: 4em;
+                    transition: opacity 0.5s ease-out;
+                }
+                .top-video {
+                    display: block;
+                    //min-width: 480px;
+                    max-width: 100%;
+                    min-height: 200px;
+                    width: 100%;
+                    object-fit: contain;
+                    opacity: 0;
+                    position: relative;
+                    bottom: 50px;
+                    transition: opacity 0.25s ease-out;
+                    transition-delay: 0.25s;
                 }
             }
         }
         .video-feed-wrapper {
             text-align: center;
             .video-repeat {
-                width: 100%;
+                width: calc(100%-20px);
                 padding: 10px;
-                margin: 0px auto;
+                margin: 20px auto;
                 background: $light-blue;
                 box-shadow: $material-shadow;
-                border-bottom: 1px solid white;
                 .video-title, .video-description {
                     color: white;
                 }

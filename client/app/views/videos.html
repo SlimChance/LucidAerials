@@ -1,26 +1,16 @@
 <div class="videos-wrapper">
-    <div class="main-video-wrapper">
-        <h2 class="main-video-title">Rock Climbing and Views Along Hwy 70</h2>
-        <span play-button class="play-button glyphicon glyphicon-play" ng-click="play()"></span>
-        <div class="main-video" id="ytplayer"></div>
-    </div>
-
-    <!-- VIDEOS LIKE GIANTBOMB -->
-    <div class="first-three-wrapper">
-        <div class="first-three-video-wrapper" ng-repeat="video in firstThree">
-            <h3 class="first-three-title">{{video.title}}</h3>
-            <div class="video-filter">
-                <video class="first-three-video" preload="none" class="" ng-attr-poster="{{video.poster}}">
-                    <source ng-attr-src="{{video.webmURL}}" type="video/webm">
-                        <source ng-attr-src="{{video.mp4URL}}" type="video/mp4">
-                </video>
-            </div>
+    <!-- Top videos -->
+    <div class="top-videos-wrapper">
+        <div class="video-wrap top-video-repeat{{$index}}" ng-repeat="video in topVideos" ng-class="{ 'expanded': expanded == {{$index}} }" ng-click="expand($index)" style="background: {{video.poster}}; background-position: center">
+            <h3 class="top-video-title">{{video.title}}</h3>
+            <span play-button class="play-button glyphicon glyphicon-play" ng-click="play($index)"></span>
+            <div class="top-video" id="ytplayer{{$index}}"></div>
         </div>
     </div>
 
     <div class="video-feed-wrapper">
         <div class="video-repeat lazyload" ng-repeat="video in videos">
-            <h2 class="video-title">{{video.title}}</h2>
+            <h3 class="video-title">{{video.title}}</h3>
             <video controls preload="none" class="feed-videos" ng-attr-poster="{{video.poster}}">
                 <source ng-attr-src="{{video.webmURL}}" type="video/webm">
                     <source ng-attr-src="{{video.mp4URL}}" type="video/mp4">

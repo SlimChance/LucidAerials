@@ -1,0 +1,9 @@
+@import 'vars';
+@media (min-width: 500px) {
+}
+@media (max-width: 500px) {
+	.twitter-timeline {
+		position: absolute;
+		top: 50px;
+	}
+}

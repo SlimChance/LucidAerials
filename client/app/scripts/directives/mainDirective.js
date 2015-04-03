@@ -101,8 +101,8 @@ angular.module('clientApp')
             restrict: 'A',
             link: function(scope, element) {
                 element.bind('click', function() {
-                    var videoWrapper = element.parent('.main-video-wrapper');
-                    var video = element.next('.main-video');
+                    var videoWrapper = element.parent('.video-wrap');
+                    var video = element.next('.top-video');
                     videoWrapper.css('background', 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/nye.jpg")');
                     videoWrapper.css('background-position', 'center');
                     element.css('opacity', '0');

@@ -221,7 +221,7 @@ body {
             transition: max-height 0.30s ease-out;
             .nav-home, .nav-videos, .nav-pictures, .nav-contact {
                 color: white;
-                background-color: #435B6F;
+                background-color: $dark-blue;
                 border-bottom: 1px solid rgba(255, 255, 255, 0.25);
                 outline: 0;
                 height: 48px;
@@ -229,7 +229,7 @@ body {
                 text-align: center;
                 &:hover {
                     cursor: pointer;
-                    background: #5C7C98;
+                    background: $light-blue;
                 }
                 &:last-child {
                     box-shadow: $material-shadow;
