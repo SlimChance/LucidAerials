@@ -1,21 +1,16 @@
 <div class="videos-wrapper">
-    <!-- Top videos -->
-    <div class="top-videos-wrapper">
-        <div class="video-wrap top-video-repeat{{$index}}" ng-repeat="video in topVideos" ng-class="{ 'expanded': expanded == {{$index}} }" ng-click="expand($index)" style="background: {{video.poster}}; background-position: center">
-            <h3 class="top-video-title">{{video.title}}</h3>
-            <span play-button class="play-button glyphicon glyphicon-play" ng-click="play($index)"></span>
-            <div class="top-video" id="ytplayer{{$index}}"></div>
-        </div>
-    </div>
-
-    <div class="video-feed-wrapper">
-        <div class="video-repeat lazyload" ng-repeat="video in videos">
-            <h3 class="video-title">{{video.title}}</h3>
-            <video controls preload="none" class="feed-videos" ng-attr-poster="{{video.poster}}">
-                <source ng-attr-src="{{video.webmURL}}" type="video/webm">
-                    <source ng-attr-src="{{video.mp4URL}}" type="video/mp4">
-            </video>
-            <p class="video-description">{{video.description}}</p>
+    <div class="video-wrapper">
+        <div ng-class="{ 'video-wrap top-video-repeat{{$index}}': checkIndex($index), 'video-repeat video-repeat{{$index}}': !checkIndex($index), 'expanded': checkExpanded($index) }" ng-repeat="video in videos" ng-click="expand($index)" style="background-image: {{video.poster}}; background-position: center">
+            <h3 ng-class="{ 'top-video-title': checkIndex($index), 'video-title': !checkIndex($index) }">{{video.title}}</h3>
+            <span top-video-play-button class="play-button glyphicon glyphicon-play" ng-click="play($index)" ng-show="checkIndex($index)"></span>
+            <span video-play-button class="play-button glyphicon glyphicon-play" ng-click="play($index)" ng-show="!checkIndex($index)"></span>
+            <div class="video" id="ytplayer{{$index}}">
+                <div class="placeholder-image" style="background-image: {{video.poster}}; background-position: center" ng-show="!checkIndex($index)">
+                </div>
+            </div>
+            <p class="video-description" ng-show="!checkIndex($index)">{{video.description}}</p>
         </div>
     </div>
 </div>
+
+

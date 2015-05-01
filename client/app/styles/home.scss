@@ -114,8 +114,11 @@
                 }
             }
         }
+        .blue-background {
+            background-color: $light-blue;
+        }
         .home-video-filter {
-            opacity: 0.65;
+            opacity: 0.70;
             z-index: 1;
             position: relative;
             transition: opacity 0.5s ease-out;

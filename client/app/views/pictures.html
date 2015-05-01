@@ -1,12 +1,23 @@
 <div class="pictures-wrapper">
-    <div class="main-picture-wrapper">
-        <img class="main-picture" src="../images/NyeRanch.jpg" alt="NyeRanch">
-    </div>
-
     <div class="picture-feed-wrapper">
         <div class="picture-repeat" ng-repeat="picture in pictures">
-            <img ng-attr-src="{{picture.source}}" ng-attr-alt="{{picture.alt}}">
+            <img modal-click data-toggle="modal" data-target="#picModal{{$index}}" ng-attr-src="{{picture.source}}" ng-attr-alt="{{picture.alt}}" ng-click="checkArrow($index)">
             <p class="picture-description">{{picture.description}}</p>
+
+            <div class="modal fade" id="picModal{{$index}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						</div>
+					  	<div class="modal-body modal-body{{$index}}">
+					  		<span class="picArrow glyphicon glyphicon-chevron-left" ng-click="prevPic($index);checkArrow($index - 1)" ng-class="{'vis-hidden': hidePrev}"></span>
+					    	<img ng-attr-src="{{picture.source}}" ng-attr-alt="{{picture.alt}}">
+					    	<span class="picArrow glyphicon glyphicon-chevron-right" ng-click="nextPic($index);checkArrow($index + 1)" ng-class="{'vis-hidden': hideNext}"></span>
+					  	</div>
+					</div>
+				</div>
+			</div>
         </div>
     </div>
 </div>

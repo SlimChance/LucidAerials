@@ -16,27 +16,74 @@
         top: 55px;
         height: 100%;
         width: 100%;
+        .blue-background {
+            background-color: $light-blue;
+        }
         .main-picture-wrapper {
             position: relative;
             height: auto;
             width: 100%;
-            padding: 20px 0px;
-            text-align: center;
-            background-color: $light-blue;
-            box-shadow: $material-shadow;
+            opacity: 0.65;
+            overflow: hidden;
+            box-shadow: material-shadow;
+            .main-picture {
+                height: 100%;
+                width: 100%;
+                object-fit: fill;
+            }
         }
         .picture-feed-wrapper {
             text-align: center;
             background-color: white;
             .picture-repeat {
-                width: calc(100% - 20px);
+                width: 100%;
                 padding: 10px;
-                margin: 20px auto;
+                margin: 10px 0px;
                 background: $light-blue;
                 box-shadow: $material-shadow;
-            }
-            .picture-description {
-                color: white;
+                .picture-description {
+                    color: white;
+                }
+                .modal-dialog {
+                    transform: rotate(90deg) translateX(7px) translateY(-3px);
+                    height: auto;
+                    width: auto;
+                    margin: 0px;
+                    .modal-content {
+                        height: 100%;
+                        width: 100%;
+                        overflow: hidden;
+                        background-color: $dark-grey;
+                        .modal-header {
+                            border-bottom: 1px solid $light-blue;
+                            button.close {
+                                margin: -14px 0px 0px 0px;
+                                color: $light-blue;
+                                text-shadow: none;
+                                opacity: 1;
+                                font-size: 28px;
+                            }
+                        }
+                        .modal-body {
+                            height: calc(100% - 40px);
+                            width: 100%;
+                            padding: 10px;
+                            .picArrow {
+                                font-size: 25px;
+                                padding: 7px;
+                                color: $light-blue;
+                            }
+                            .vis-hidden {
+                                    visibility: hidden;
+                            }
+                            img {
+                                max-height: 100%;
+                                max-width: 100%;
+                                height: calc(100%);
+                            }  
+                        }
+                    }
+                }
             }
         }
     }

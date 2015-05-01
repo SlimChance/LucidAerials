@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('clientApp')
-    .directive('toggleMobileMenu', function($window) {
+    .directive('toggleMobileMenu', function() {
         return {
             restrict: 'A',
             link: function(scope, element) {
@@ -56,23 +56,23 @@ angular.module('clientApp')
     .directive('scrollHideMenu', function($window) {
         return {
             restrict: 'A',
-            link: function(scope, element, attrs) {
+            link: function(scope, element) {
                 var lastScroll = 0;
                 angular.element($window).bind('scroll', function() {
                     var scroll = this.scrollY;
                     var menuWrapper = element.children('.menu-wrapper');
                     if (!menuWrapper.hasClass('menu-wrapper-toggled')) {
                         if (scroll < lastScroll) {
-                            if (element.css('transform') != 'matrix(1, 0, 0, 1, 0, 0)') {
+                            if (element.css('transform') !== 'matrix(1, 0, 0, 1, 0, 0)') {
                                 element.css('transform', 'translateY(0px)');
-                            };
+                            }
                         } else if (scroll > 55) {
-                            if (element.css('transform') == 'matrix(1, 0, 0, 1, 0, 0)') {
+                            if (element.css('transform') === 'matrix(1, 0, 0, 1, 0, 0)') {
                                 element.css('transform', 'translateY(-55px)');
-                            };
+                            }
                         }
                         lastScroll = scroll;
-                    };
+                    }
                 });
             }
         };
@@ -96,17 +96,49 @@ angular.module('clientApp')
             }
         };
     })
-    .directive('playButton', function() {
+    .directive('topVideoPlayButton', function() {
         return {
             restrict: 'A',
             link: function(scope, element) {
                 element.bind('click', function() {
                     var videoWrapper = element.parent('.video-wrap');
-                    var video = element.next('.top-video');
-                    videoWrapper.css('background', 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/nye.jpg")');
-                    videoWrapper.css('background-position', 'center');
+                    var video = element.next('.play-button').next('.video');
+                    console.log(video);
+                    videoWrapper.css('background-color', 'linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6))');
+                    // videoWrapper.css('background-position', 'center');
                     element.css('opacity', '0');
                     video.css('opacity', '1');
+                });
+            }
+        };
+    })
+    .directive('videoPlayButton', function() {
+        return {
+            restrict: 'A',
+            link: function(scope, element) {
+                element.bind('click', function() {
+                    var placeholderImage = element.next('.video').children('.placeholder-image');
+                    var video = element.next('.video');
+
+                    element.css('opacity', '0');
+                    placeholderImage.css('opacity', '0');
+                    video.css('opacity', '1');
+                });
+            }
+        };
+    })
+    .directive('modalClick', function($window) {
+        return {
+            restrict: 'A',
+            link: function(scope, element) {
+                element.bind('click', function() {
+                    var modalContent = element.next().next().children('.modal-dialog').children('.modal-content'),
+                        windowHeight = $window.innerHeight - 20,
+                        windowWidth = $window.innerWidth - 15;
+
+                    // Grab modal content
+                    modalContent.css({'height': windowWidth, 'width': windowHeight});
+                    // Change height and width to fullscreen
                 });
             }
         };
