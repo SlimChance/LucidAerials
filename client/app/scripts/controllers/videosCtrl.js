@@ -1,7 +1,6 @@
 'use strict';
 
-angular.module('clientApp')
-    .controller('VideosCtrl', function($scope, $window, $timeout, videoService) {
+lucidAerials.controller('VideosCtrl', function($scope, $window, $timeout, videoService, videoPlayerService) {
         $scope.expanded = 0;
 
         // array with 9 indices
@@ -52,40 +51,40 @@ angular.module('clientApp')
             }
         };
 
-        /***** Move this to service ******/
-        $scope.player = {
-            // Grab api and load first video
-            init: function() {
-                var tag = document.createElement('script');
+        // /***** Move this to service ******/
+        // $scope.player = {
+        //     // Grab api and load first video
+        //     init: function() {
+        //         var tag = document.createElement('script');
 
-                tag.src = 'https://www.youtube.com/iframe_api';
-                var firstScriptTag = document.getElementsByTagName('script')[0];
-                firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        //         tag.src = 'https://www.youtube.com/iframe_api';
+        //         var firstScriptTag = document.getElementsByTagName('script')[0];
+        //         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-                // Load in first video once API loaded
-                $window.onYouTubeIframeAPIReady = function() {
-                    //players = [9];
-                    $scope.YTPlayer = new YT.Player('ytplayer0', {
-                        videoId: $scope.videos[0].id
-                    });
+        //         // Load in first video once API loaded
+        //         $window.onYouTubeIframeAPIReady = function() {
+        //             //players = [9];
+        //             $scope.YTPlayer = new YT.Player('ytplayer0', {
+        //                 videoId: $scope.videos[0].id
+        //             });
 
-                    players.splice(0, 1, $scope.YTPlayer);
+        //             players.splice(0, 1, $scope.YTPlayer);
                     
-                    console.log("init array: " + players);
-                }
-            },
-            // Create the video and add it to dom. Must go through expand
-            createPlayer: function(element, index) {
-                $scope.YTPlayer = new YT.Player(element, {
-                    videoId: $scope.videos[index].id,
-                    playerVars: {
-                        autoplay: 0
-                    }
-                });
+        //             console.log("init array: " + players);
+        //         }
+        //     },
+        //     // Create the video and add it to dom. Must go through expand
+        //     createPlayer: function(element, index) {
+        //         $scope.YTPlayer = new YT.Player(element, {
+        //             videoId: $scope.videos[index].id,
+        //             playerVars: {
+        //                 autoplay: 0
+        //             }
+        //         });
 
-                players.splice(index, 1, $scope.YTPlayer);
-            }
-        };
-        // Initialize player api on page load
-        $scope.player.init();
+        //         players.splice(index, 1, $scope.YTPlayer);
+        //     }
+        // };
+        // // Initialize player api on page load
+        // $scope.player.init();
     });

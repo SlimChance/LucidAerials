@@ -1,7 +1,6 @@
 'use strict';
 
-angular.module('clientApp')
-    .controller('ContactCtrl', function($scope, $http) {
+lucidAerials.controller('ContactCtrl', function($scope, $http) {
         $scope.result = 'hidden'
 	    $scope.resultMessage;
 	    $scope.formData; //formData is an object holding the name, email, subject, and message

@@ -1,7 +1,6 @@
 'use strict';
 
-angular.module('clientApp')
-    .directive('toggleMobileMenu', function() {
+lucidAerials.directive('toggleMobileMenu', function() {
         return {
             restrict: 'A',
             link: function(scope, element) {

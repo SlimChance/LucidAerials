@@ -1,7 +1,6 @@
 'use strict';
 
-angular.module('clientApp')
-    .service('videoService', function ($resource) {
+lucidAerials.service('videoService', function ($resource) {
     	var resource = $resource('/data/videos.json');
 
     	return {
@@ -9,4 +8,4 @@ angular.module('clientApp')
     			return resource.query();
     		}
     	}
-    })
+    });

@@ -1,38 +1,10 @@
 'use strict';
 
-angular.module('clientApp')
-    .controller('PicturesCtrl', function($scope, $window) {
+lucidAerials.controller('PicturesCtrl', function($scope, $window, pictureService) {
         $scope.hidePrev = false;
         $scope.hideNext = false;
 
-        $scope.pictures = [{
-            'source': '../images/NyeRanch.jpg',
-            'description': 'Some Aerial shots of/around Burnsville and Butte Creek Canyon.'
-        }, {
-            'source': '../images/Burnsville.jpg',
-            'description': 'Some Aerial shots of/around Burnsville and Butte Creek Canyon.'
-        }, {
-            'source': '../images/ButteCreek.jpg',
-            'description': 'Some Aerial shots of/around Burnsville and Butte Creek Canyon.'
-        }, {
-            'source': '../images/ChristmasLights.jpg',
-            'description': 'Some Aerial shots of/around Burnsville and Butte Creek Canyon.'
-        }, {
-            'source': '../images/DuckHunting.jpg',
-            'description': 'Some Aerial shots of/around Burnsville and Butte Creek Canyon.'
-        }, {
-            'source': '../images/HighlightVideo.jpg',
-            'description': 'Some Aerial shots of/around Burnsville and Butte Creek Canyon.'
-        }, {
-            'source': '../images/MountainBiking.jpg',
-            'description': 'Some Aerial shots of/around Burnsville and Butte Creek Canyon.'
-        }, {
-            'source': '../images/RockClimbing.jpg',
-            'description': 'Some Aerial shots of/around Burnsville and Butte Creek Canyon.'
-        }, {
-            'source': '../images/SnowDay.jpg',
-            'description': 'Some Aerial shots of/around Burnsville and Butte Creek Canyon.'
-        }];
+        $scope.pictures = pictureService.getPictures();
 
         $scope.nextPic = function(index) {
             // Grab elements
