@@ -1,39 +1,45 @@
 'use strict';
 
-lucidAerials.controller('VideosCtrl', function($scope, $window, $timeout, videoService, videoPlayerService) {
+lucidAerials.controller('VideosCtrl', function($scope, $window, $timeout, videoService) {
         $scope.expanded = 0;
+        $scope.player = videoService.player;
+        $scope.videos = videoService.videos;
+        $scope.playReady = true;
 
-        // array with 9 indices
-        var players = [,,,,,,,,,];
-
-        // Videos array.
-        $scope.videos = videoService.getVideos();
+        videoService.init();
 
         $scope.expand = function(index) {
             if (index !== $scope.expanded) {
-                // Check if playing, pause video
-                if (players[$scope.expanded].getPlayerState() === 1) {
+                // Check if playing, if it is pause video
+                if ($scope.player[$scope.expanded].getPlayerState() === 1) {
                     $scope.pause($scope.expanded);
                 }
 
                 $scope.expanded = index;
 
-                console.log("Create player?: " + !players[index] + index);
-                
-                // Don't block animation render
-                $window.setTimeout(function() { 
-                    if (!players[index]) {
+                // disable play button until video is ready
+                $scope.playReady = false;
+
+                if (!$scope.player[index]) {
+                    // Don't block animation render
+                    $timeout(function() {
                         var element = 'ytplayer' + index;
-                        $scope.player.createPlayer(element, index);    
-                    }
-                }, 500);
+                        videoService.createPlayer(element, index).then(function () {
+                            $scope.playReady = true;
+                        });
+                    }, 500);
+                } else if ($scope.player[index]) {
+                    $scope.playReady = true;
+                } else {
+                    console.log('Failed to expand video');
+                }
             }
         };
-        
+
         $scope.play = function(index) {
-            if (players[index]) {
-                if (players[index].getPlayerState() !== 1) {
-                    players[index].playVideo();
+            if ($scope.player[index]) {
+                if ($scope.player[index].getPlayerState() !== 1) {
+                    $scope.player[index].playVideo();
                 }
             } else {
                 console.log('Failed to play video ' + index);
@@ -42,49 +48,10 @@ lucidAerials.controller('VideosCtrl', function($scope, $window, $timeout, videoS
 
         $scope.pause = function(index) {
             console.log("pause: " + index);
-            if (players[index]) {
-                if (players[index].getPlayerState() === 1) {
-                    players[index].pauseVideo();
-                }
+            if ($scope.player[index]) {
+                $scope.player[index].pauseVideo();
             } else {
                 console.log('Failed to pause video ' + index);
             }
         };
-
-        // /***** Move this to service ******/
-        // $scope.player = {
-        //     // Grab api and load first video
-        //     init: function() {
-        //         var tag = document.createElement('script');
-
-        //         tag.src = 'https://www.youtube.com/iframe_api';
-        //         var firstScriptTag = document.getElementsByTagName('script')[0];
-        //         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-        //         // Load in first video once API loaded
-        //         $window.onYouTubeIframeAPIReady = function() {
-        //             //players = [9];
-        //             $scope.YTPlayer = new YT.Player('ytplayer0', {
-        //                 videoId: $scope.videos[0].id
-        //             });
-
-        //             players.splice(0, 1, $scope.YTPlayer);
-                    
-        //             console.log("init array: " + players);
-        //         }
-        //     },
-        //     // Create the video and add it to dom. Must go through expand
-        //     createPlayer: function(element, index) {
-        //         $scope.YTPlayer = new YT.Player(element, {
-        //             videoId: $scope.videos[index].id,
-        //             playerVars: {
-        //                 autoplay: 0
-        //             }
-        //         });
-
-        //         players.splice(index, 1, $scope.YTPlayer);
-        //     }
-        // };
-        // // Initialize player api on page load
-        // $scope.player.init();
     });

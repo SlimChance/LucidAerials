@@ -133,7 +133,7 @@ lucidAerials.directive('toggleMobileMenu', function() {
 
                     element.css('opacity', '0');
                     gradient.css({ 'opacity': '0.8', 'z-index': '1' });
-                    video.css('opacity', '1');
+                    video.css({ 'display': 'block', 'opacity': '1', 'z-index': '2' });
                 });
             }
         };

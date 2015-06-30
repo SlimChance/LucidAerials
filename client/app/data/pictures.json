@@ -1,38 +1,38 @@
-[       
+[
     {
-        "source": "../images/NyeRanch.jpg",
+        "source": "url('../images/NyeRanch.jpg')",
         "description": "Some Aerial shots of/around Burnsville and Butte Creek Canyon."
-    }, 
+    },
     {
-        "source": "../images/Burnsville.jpg",
+        "source": "url('../images/Burnsville.jpg')",
         "description": "Some Aerial shots of/around Burnsville and Butte Creek Canyon."
-    }, 
+    },
     {
-        "source": "../images/ButteCreek.jpg",
+        "source": "url('../images/ButteCreek.jpg')",
         "description": "Some Aerial shots of/around Burnsville and Butte Creek Canyon."
-    }, 
+    },
     {
-        "source": "../images/ChristmasLights.jpg",
+        "source": "url('../images/ChristmasLights.jpg')",
         "description": "Some Aerial shots of/around Burnsville and Butte Creek Canyon."
-    }, 
+    },
     {
-        "source": "../images/DuckHunting.jpg",
+        "source": "url('../images/DuckHunting.jpg')",
         "description": "Some Aerial shots of/around Burnsville and Butte Creek Canyon."
-    }, 
+    },
     {
-        "source": "../images/HighlightVideo.jpg",
+        "source": "url('../images/HighlightVideo.jpg')",
         "description": "Some Aerial shots of/around Burnsville and Butte Creek Canyon."
-    }, 
+    },
     {
-        "source": "../images/MountainBiking.jpg",
+        "source": "url('../images/MountainBiking.jpg')",
         "description": "Some Aerial shots of/around Burnsville and Butte Creek Canyon."
-    }, 
+    },
     {
-        "source": "../images/RockClimbing.jpg",
+        "source": "url('../images/RockClimbing.jpg')",
         "description": "Some Aerial shots of/around Burnsville and Butte Creek Canyon."
-    }, 
+    },
     {
-        "source": "../images/SnowDay.jpg",
+        "source": "url('../images/SnowDay.jpg')",
         "description": "Some Aerial shots of/around Burnsville and Butte Creek Canyon."
     }
 ]

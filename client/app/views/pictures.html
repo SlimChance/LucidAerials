@@ -1,4 +1,4 @@
-<div class="pictures-wrapper">
+<!-- <div class="pictures-wrapper">
     <div class="picture-feed-wrapper">
         <div class="picture-repeat" ng-repeat="picture in pictures">
             <img modal-click data-toggle="modal" data-target="#picModal{{$index}}" ng-attr-src="{{picture.source}}" ng-attr-alt="{{picture.alt}}" ng-click="checkArrow($index)">
@@ -20,4 +20,10 @@
 			</div>
         </div>
     </div>
+</div> -->
+
+<div class="picture-wrapper">
+    <div class="picture-repeat picture-repeat{{$index}}" ng-class="{ 'expanded': expanded == $index }" ng-repeat="picture in pictures" ng-click="expand($index)" style="background-image: {{picture.source}}; background-position: center">
+    </div>
+    <p class="picture-description">{{picture.description}}</p>
 </div>
