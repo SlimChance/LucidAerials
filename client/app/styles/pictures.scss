@@ -41,45 +41,66 @@
                 margin: 10px 0px;
                 background: $light-blue;
                 box-shadow: $material-shadow;
+                &:first-child {
+                    margin-top: 0px;
+                }
                 .picture-description {
                     color: white;
                 }
                 .modal-dialog {
-                    transform: rotate(90deg) translateX(7px) translateY(-3px);
+                    transform: rotate(90deg) translateX(20px);
                     height: auto;
                     width: auto;
-                    margin: 0px;
+                    margin: auto;
+                    position: relative;
                     .modal-content {
-                        height: 100%;
-                        width: 100%;
                         overflow: hidden;
                         background-color: $dark-grey;
+                        position: relative;
                         .modal-header {
                             border-bottom: 1px solid $light-blue;
+                            padding: 0px;
+                            height: 30px;
                             button.close {
-                                margin: -14px 0px 0px 0px;
+                                margin-right: 10px;
                                 color: $light-blue;
                                 text-shadow: none;
                                 opacity: 1;
-                                font-size: 28px;
+                                font-size: 35px;
                             }
                         }
                         .modal-body {
-                            height: calc(100% - 40px);
+                            height: calc(100% - 30px);
+                            display: block;
                             width: 100%;
                             padding: 10px;
-                            .picArrow {
-                                font-size: 25px;
-                                padding: 7px;
+                            overflow: hidden;
+                            position: relative;
+                            .prevPicArrow, .nextPicArrow {
+                                font-size: 28px;
+                                margin: auto 10px;
                                 color: $light-blue;
+                                position: absolute;
+                                height: 28px;
+                                width: 28px;
+                            }
+                            .prevPicArrow {
+                                left: 0px;
+                                top: 0px;
+                                bottom: 0px;
+                            }
+                            .nextPicArrow {
+                                right: 0px;
+                                top: 0px;
+                                bottom: 0px;
                             }
                             .vis-hidden {
-                                    visibility: hidden;
+                                visibility: hidden;
                             }
                             img {
                                 max-height: 100%;
                                 max-width: 100%;
-                                height: calc(100%);
+                                width: calc(100% - 90px);
                             }  
                         }
                     }

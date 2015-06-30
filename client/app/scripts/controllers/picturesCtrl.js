@@ -41,15 +41,15 @@ angular.module('clientApp')
                 modalElem = angular.element(modal),
                 nextModalElem = angular.element('.picture-repeat').children(nextModal),
                 modalContent = nextModalElem.children('.modal-dialog').children('.modal-content'),
-                windowHeight = $window.innerHeight - 20,
-                windowWidth = $window.innerWidth - 15;
+                windowHeight = document.documentElement.clientHeight - 20;
+                //windowWidth = document.documentElement.clientWidth - 20;
 
             // Hide current modal
             modalElem.modal('hide');
 
             // Go to next picture
             if (index < 8) {
-                modalContent.css({'height': windowWidth, 'width': windowHeight});
+                modalContent.css({'height': 'auto', 'width': windowHeight});
                 nextModalElem.modal('show'); 
             }
         };
@@ -61,15 +61,15 @@ angular.module('clientApp')
                 modalElem = angular.element(modal),
                 prevModalElem = angular.element('.picture-repeat').children(prevModal),
                 modalContent = prevModalElem.children('.modal-dialog').children('.modal-content'),
-                windowHeight = $window.innerHeight - 20,
-                windowWidth = $window.innerWidth - 15;
+                windowHeight = document.documentElement.clientHeight - 20;
+                //windowWidth = document.documentElement.clientWidth - 20;
 
             // Hide current modal
             modalElem.modal('hide');
 
             // Go to previous picture
             if (index > 0) {
-                modalContent.css({'height': windowWidth, 'width': windowHeight});
+                modalContent.css({'height': 'auto', 'width': windowHeight});
                 prevModalElem.modal('show');
             }
         };

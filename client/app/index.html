@@ -36,7 +36,6 @@
  -->
     <!-- <link rel="stylesheet" media="screen and (max-width: 500px)" href="styles/phoneStyle.css"> -->
     <link rel="stylesheet" href="styles/animate.css">
-    <link rel="stylesheet" href="styles/waves.min.css">
     <!-- <link rel="stylesheet" media="(max-width: 640px)" href="max-640px.css">
     <link rel="stylesheet" media="(min-width: 640px)" href="min-640px.css">
     <link rel="stylesheet" media="(orientation: portrait)" href="portrait.css">
@@ -63,71 +62,46 @@
             </div>
         </div>
         <nav class="navbar-animate">
-            <div class="nav-home" data-ng-click="navigateTo('/');">
+            <div class="nav-home" data-ng-click="navigateTo('/'); closeNav()">
                 <h3 class="nav-text">Home</h3>
             </div>
-            <div class="nav-videos" data-ng-click="navigateTo('/videos');">
+            <div class="nav-videos" data-ng-click="navigateTo('/videos'); closeNav()">
                 <h3 class="nav-text">Videos</h3>
             </div>
-            <div class="nav-pictures" ng-click="navigateTo('/pictures');">
+            <div class="nav-pictures" ng-click="navigateTo('/pictures'); closeNav()">
                 <h3 class="nav-text">Pictures</h3>
             </div>
-            <div class="nav-contact" ng-click="navigateTo('/contact');">
+            <div class="nav-contact" ng-click="navigateTo('/contact'); closeNav()">
                 <h3 class="nav-text">Contact</h3>
             </div>
         </nav>
     </div>
 
     <!-- Desktop Navigation -->
-    <div class="desktop-nav" toggle-menu>
-        <nav class="navbar-animate nav-wrapper navbar navbar-fixed-top" ng-show="toggled === true">
-            <div class="nav-item nav-home" data-ng-click="navigateTo('/');">
+    <div class="desktop-nav" toggle-desktop-menu>
+        <div class="menu-wrapper" ng-click="toggleNav()">
+            <div class="menu-bar1"></div>
+            <div class="menu-bar2"></div>
+            <div class="menu-bar3"></div>
+            <span class="menu-title">Menu</span>
+        </div>
+        <nav class="navbar-animate">
+            <div class="nav-item nav-home" data-ng-click="navigateTo('/'); closeNav()">
                 <h3 class="text-center">Home</h3>
             </div>
-            <div class="nav-item nav-videos" data-ng-click="navigateTo('/videos');">
+            <div class="nav-item nav-videos" data-ng-click="navigateTo('/videos'); closeNav()">
                 <h3 class="text-center">Videos</h3>
             </div>
-            <div class="nav-item nav-pictures" ng-click="navigateTo('/pictures');">
+            <div class="nav-item nav-pictures" ng-click="navigateTo('/pictures'); closeNav()">
                 <h3 class="text-center">Pictures</h3>
             </div>
-            <div class="nav-item nav-contact" ng-click="navigateTo('/contact');">
+            <div class="nav-item nav-contact" ng-click="navigateTo('/contact'); closeNav()">
                 <h3 class="text-center">Contact</h3>
             </div>
         </nav>
-        <div class="menu-wrapper" ng-click="">
-            <div class="menu-bar-wrapper">
-                <div class="menu-bar1"></div>
-                <div class="menu-bar2"></div>
-                <div class="menu-bar3"></div>
-            </div>
-            <div class="menu-title-wrapper">
-                <h3 class="menu-title">Menu</h3>
-            </div>
-        </div>
     </div>
 
-    <div class="view" ng-view="" ng-click="viewClicked()"></div>
-
-    <!-- Youtube API -->
-    <!-- <script>
-        var tag = document.createElement('script');
-
-        tag.src = "https://www.youtube.com/iframe_api";
-        var firstScriptTag = document.getElementsByTagName('script')[1];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-        // replace 'ytplayer' element with iframe
-        var player;
-        var players = [];
-        function onYouTubeIframeAPIReady() {
-            player = new YT.Player('ytplayer0', {
-                height: '100%',
-                width: '100%',
-                videoId: '6ZqioJpOBqM'
-            });
-            players.push(player);
-        };
-    </script> -->
+    <div class="view" ng-view="" ng-click="closeNav(); toggleFalse()"></div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
@@ -169,7 +143,6 @@
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-material/angular-material.js"></script>
     <!-- endbower -->
-    <script src="scripts/waves.min.js"></script>
     <!-- endbuild -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
@@ -180,9 +153,7 @@
     <script src="scripts/controllers/picturesCtrl.js"></script>
     <script src="scripts/controllers/contactCtrl.js"></script>
     <script src="scripts/directives/mainDirective.js"></script>
-    <script type="text/javascript">
-    Waves.displayEffect();
-    </script>
+    <script src="scripts/services/videoService.js"></script>
     <!-- endbuild -->
 </body>
 

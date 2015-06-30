@@ -1,10 +1,11 @@
 $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+@import 'normalize.css';
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 @import 'vars';
 @import 'home';
 @import 'videos';
 @import 'pictures';
-@import url(http://fonts.googleapis.com/css?family=Roboto);
+@import 'contact';
 * {
     box-sizing: border-box;
     padding: 0px;
@@ -27,123 +28,108 @@ body {
     font-family: $roboto-font;
 }
 @media (min-width: 500px) {
-    .header-nav {
-        position: relative;
-    }
     .mobile-nav {
         display: none;
     }
-    .nav-wrapper {
-        display: flex;
+    .desktop-nav {
         position: fixed;
+        top: 0px;
+        display: block;
+        height: auto;
         width: 100%;
-        z-index: 1000;
-        border: none;
-        box-shadow: rgba(0, 0, 0, 0.258824) 0px 2px 5px 0px;
-        & > div > div {
-            display: inline-block;
+        z-index: 3;
+        transition: transform 0.2s ease;
+        .menu-wrapper {
+            height: 62px;
+            width: 150px;
+            overflow: hidden;
+            transform: translateY(0px);
+            transition: transform 0.2s ease-in-out;
+            position: fixed;
+            outline: 0;
+            padding: 12px 0px 0px 20px;
+            &:hover {
+                cursor: pointer;
+            }
+            .menu-bar1, .menu-bar2, .menu-bar3 {
+                width: 45px;
+                border-top: 5px solid white;
+                margin: 8px 0px 0px 0px;
+                opacity: 1;
+                transform: rotate(0deg) translate(0);
+                transition: all 0.30s ease-out;
+            }
+            .menu-title {
+                position: absolute;
+                top: 15px;
+                right: 0px;
+                font-size: 2.2em;
+                color: white;
+                margin: 0px;
+            }
         }
-    }
-    .nav-item {
-        width: 25%;
-        padding: 15px;
-        outline: 0;
-    }
-    .navbar-animate {
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
-        transition: transform 0.15s ease-out;
-    }
-    .navbar-animate.ng-hide-add, .navbar-animate.ng-hide-add-active, .navbar-animate.ng-hide-remove, .navbar-animate.ng-hide-remove-active {
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
-        transition: -webkit-transform 0.15s ease-out;
-        transition: transform 0.15s ease-out;
-    }
-    .navbar-animate.ng-hide {
-        -webkit-transform: translateY(-85px);
-        transform: translateY(-85px);
-        transition: -webkit-transform 0.75s ease-out;
-        transition: transform 0.75s ease-out;
-    }
-    .nav-home, .nav-videos, .nav-pictures, .nav-contact {
-        color: white;
-        background-color: #435B6F;
-        border-right: 1px solid white;
-        &:hover {
-            cursor: pointer;
-            background: #5C7C98;
+        .menu-wrapper-toggled {
+            transform: translateY(73px);
+            transition: transform 0.2s ease-in-out;
+            .menu-bar1-toggled {
+                position: relative;
+                transform: rotate(-45deg) translate(-8px, 8px);
+                transition: transform 0.25s ease-out;
+            }
+            .menu-bar2-toggled {
+                opacity: 0;
+                transition: opacity 0.25s ease-out;
+            }
+            .menu-bar3-toggled {
+                position: relative;
+                transform: rotate(45deg) translate(-10px, -10px);
+                transition: transform 0.25s ease-out;
+            }
         }
-        &:last-child {
-            border-right: none;
+        .navbar-animate {
+            height: 70px;
+            overflow: hidden;
+            z-index: 3;
+            transform: translateY(-85px);
+            box-shadow: $material-shadow;
+            transition: transform 0.30s ease-out;
+            .nav-home, .nav-videos, .nav-pictures, .nav-contact {
+                background-color: $dark-blue;
+                display: inline-block;
+                outline: 0;
+                height: 100%;
+                margin-right: -3px;
+                width: 25%;
+                text-align: center;
+                & h3 {
+                    color: white;
+                    font-size: 1.8em;
+                    font-family: $roboto-font;
+                    font-weight: 400;
+                    margin-top: 23px;
+                    margin-bottom: 23px;
+                }
+                &:hover {
+                    cursor: pointer;
+                    background: $light-blue;
+                }
+                .nav-text {
+                    position: relative;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: auto;
+                    height: auto;
+                    margin: 0px;
+                }
+            }
+            .nav-home {
+                margin-right: -4px;
+            }
         }
-    }
-    .menu-wrapper {
-        top: 20px;
-        position: fixed;
-        -webkit-transform: translate(0);
-        transform: translate(0);
-        transition: transform 0.5s ease-out;
-        -webkit-transition: -webkit-transform 0.75s ease-out;
-        outline: 0;
-        z-index: 1000;
-        &:hover {
-            cursor: pointer;
+        .navbar-animate-toggled {
+            transform: translateY(0px);
+            transition: transform 0.25s ease-out;
         }
-    }
-    .menu-wrapper-toggled {
-        -webkit-transform: translateY(75px);
-        transform: translateY(75px);
-        transition: transform 0.15s ease-out;
-        -webkit-transition: -webkit-transform 0.15s ease-out;
-    }
-    .menu-title {
-        color: white;
-        margin-top: 5px;
-        margin-left: -15px;
-        text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.258824);
-    }
-    .menu-bar1, .menu-bar2, .menu-bar3 {
-        width: 34px;
-        border-top: 5px solid white;
-        margin: 5px 0px 5px 25px;
-        -webkit-transform: rotate(0deg) translate(0);
-        transform: rotate(0deg) translate(0);
-        transition: transform 0.75s ease-out;
-        -webkit-transition: -webkit-transform 0.75s ease-out;
-        box-shadow: rgba(0, 0, 0, 0.258824) 0px 2px 5px 0px;
-    }
-    .menu-bar2 {
-        opacity: 1;
-        filter: alpha(opacity=1);
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
-        transition: all 0.75s ease-out;
-        -webkit-transition: all 0.75s ease-out;
-        -webkit-transition-delay: .25s;
-        transition-delay: .25s;
-    }
-    .menu-bar1-toggled {
-        position: absolute;
-        -webkit-transform: rotate(-45deg) translate(-5px, 10px);
-        transform: rotate(-45deg) translate(-5px, 10px);
-        transition: transform 0.15s ease-out;
-        -webkit-transition: -webkit-transform 0.15s ease-out;
-    }
-    .menu-bar2-toggled {
-        opacity: 0;
-        filter: alpha(opacity=0);
-        -webkit-transform: translateY(12%);
-        transform: translateY(12%);
-        transition: all 0.15s;
-        -webkit-transition: all 0.15s;
-    }
-    .menu-bar3-toggled {
-        position: absolute;
-        -webkit-transform: rotate(45deg) translate(0px, -5px);
-        transform: rotate(45deg) translate(0px, -5px);
-        transition: transform 0.15s ease-out;
-        -webkit-transition: -webkit-transform 0.15s ease-out;
     }
 }
 @media (max-width: 500px) {
@@ -186,7 +172,6 @@ body {
                 top: 3px;
                 padding: 10px;
                 float: right;
-                border-radius: 100%;
                 &:hover {
                     cursor: pointer;
                 }

@@ -5,16 +5,15 @@ angular.module('clientApp')
         return {
             restrict: 'A',
             link: function(scope, element) {
-                var menuWrapper = element.children('.nav-wrapper').children('.menu-wrapper');
-                var navWrapper = element.children('.nav-wrapper');
-                var menu1 = menuWrapper.children('.menu-bar1');
-                var menu2 = menuWrapper.children('.menu-bar2');
-                var menu3 = menuWrapper.children('.menu-bar3');
-                var navbar = element.children('.navbar-animate');
+                var menuWrapper = element.children('.nav-wrapper').children('.menu-wrapper'),
+                    navWrapper = element.children('.nav-wrapper'),
+                    menu1 = menuWrapper.children('.menu-bar1'),
+                    menu2 = menuWrapper.children('.menu-bar2'),
+                    menu3 = menuWrapper.children('.menu-bar3'),
+                    navbar = element.children('.navbar-animate');
 
-                scope.viewClicked = function() {
-                    if (menuWrapper.hasClass('menu-wrapper-toggled')) {
-                        menuWrapper.removeClass('menu-wrapper-toggled');
+                scope.closeNav = function() {
+                    if (navWrapper.hasClass('navbar-animate-toggled')) {
                         menu1.removeClass('menu-bar1-toggled');
                         menu2.removeClass('menu-bar2-toggled');
                         menu3.removeClass('menu-bar3-toggled');
@@ -24,16 +23,45 @@ angular.module('clientApp')
                 };
 
                 menuWrapper.bind('click', function() {
-                    menuWrapper.toggleClass('menu-wrapper-toggled');
                     menu1.toggleClass('menu-bar1-toggled');
                     menu2.toggleClass('menu-bar2-toggled');
                     menu3.toggleClass('menu-bar3-toggled');
                     navbar.toggleClass('navbar-animate-toggled');
-                    if (menuWrapper.hasClass('menu-wrapper-toggled')) {
+                    if (navWrapper.hasClass('navbar-animate-toggled')) {
                         navWrapper.css('box-shadow', 'none');
                     } else {
                         navWrapper.css('box-shadow', '0px 2px 5px 0px rgba(0, 0, 0, 0.258824');
                     }
+                });
+            }
+        };
+    })
+    .directive('toggleDesktopMenu', function() {
+        return {
+            restrict: 'A',
+            link: function(scope, element) {
+                var menuWrapper = element.children('.menu-wrapper'),
+                    navWrapper = menuWrapper.next('.navbar-animate'),
+                    menu1 = menuWrapper.children('.menu-bar1'),
+                    menu2 = menuWrapper.children('.menu-bar2'),
+                    menu3 = menuWrapper.children('.menu-bar3');
+
+                scope.closeNav = function() {
+                    if (menuWrapper.hasClass('menu-wrapper-toggled')) {
+                        menuWrapper.removeClass('menu-wrapper-toggled');
+                        menu1.removeClass('menu-bar1-toggled');
+                        menu2.removeClass('menu-bar2-toggled');
+                        menu3.removeClass('menu-bar3-toggled');
+                        navWrapper.removeClass('navbar-animate-toggled');
+                    }
+                };
+
+                menuWrapper.bind('click', function() {
+                    menuWrapper.toggleClass('menu-wrapper-toggled');
+                    menu1.toggleClass('menu-bar1-toggled');
+                    menu2.toggleClass('menu-bar2-toggled');
+                    menu3.toggleClass('menu-bar3-toggled');
+                    navWrapper.toggleClass('navbar-animate-toggled');
                 });
             }
         };
@@ -96,32 +124,16 @@ angular.module('clientApp')
             }
         };
     })
-    .directive('topVideoPlayButton', function() {
-        return {
-            restrict: 'A',
-            link: function(scope, element) {
-                element.bind('click', function() {
-                    var videoWrapper = element.parent('.video-wrap');
-                    var video = element.next('.play-button').next('.video');
-                    console.log(video);
-                    videoWrapper.css('background-color', 'linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6))');
-                    // videoWrapper.css('background-position', 'center');
-                    element.css('opacity', '0');
-                    video.css('opacity', '1');
-                });
-            }
-        };
-    })
     .directive('videoPlayButton', function() {
         return {
             restrict: 'A',
             link: function(scope, element) {
                 element.bind('click', function() {
-                    var placeholderImage = element.next('.video').children('.placeholder-image');
+                    var gradient = element.next('.video').next('.gradient');
                     var video = element.next('.video');
 
                     element.css('opacity', '0');
-                    placeholderImage.css('opacity', '0');
+                    gradient.css({ 'opacity': '0.8', 'z-index': '1' });
                     video.css('opacity', '1');
                 });
             }
@@ -133,11 +145,11 @@ angular.module('clientApp')
             link: function(scope, element) {
                 element.bind('click', function() {
                     var modalContent = element.next().next().children('.modal-dialog').children('.modal-content'),
-                        windowHeight = $window.innerHeight - 20,
-                        windowWidth = $window.innerWidth - 15;
+                        windowHeight = document.documentElement.clientHeight - 20;
+                        //windowWidth = document.documentElement.clientWidth - 20;
 
                     // Grab modal content
-                    modalContent.css({'height': windowWidth, 'width': windowHeight});
+                    modalContent.css({'height': 'auto', 'width': windowHeight});
                     // Change height and width to fullscreen
                 });
             }

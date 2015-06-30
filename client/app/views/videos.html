@@ -1,14 +1,14 @@
 <div class="videos-wrapper">
     <div class="video-wrapper">
-        <div ng-class="{ 'video-wrap top-video-repeat{{$index}}': checkIndex($index), 'video-repeat video-repeat{{$index}}': !checkIndex($index), 'expanded': checkExpanded($index) }" ng-repeat="video in videos" ng-click="expand($index)" style="background-image: {{video.poster}}; background-position: center">
-            <h3 ng-class="{ 'top-video-title': checkIndex($index), 'video-title': !checkIndex($index) }">{{video.title}}</h3>
-            <span top-video-play-button class="play-button glyphicon glyphicon-play" ng-click="play($index)" ng-show="checkIndex($index)"></span>
-            <span video-play-button class="play-button glyphicon glyphicon-play" ng-click="play($index)" ng-show="!checkIndex($index)"></span>
+        <div class="video-repeat video-repeat{{$index}}" ng-class="{ 'expanded': expanded == $index }" ng-repeat="video in videos" ng-click="expand($index)" style="background-image: {{video.poster}}; background-position: center;">
+            <h3 class="video-title">{{video.title}}</h3>
+            <span video-play-button class="play-button glyphicon glyphicon-play" ng-click="play($index)"></span>
             <div class="video" id="ytplayer{{$index}}">
-                <div class="placeholder-image" style="background-image: {{video.poster}}; background-position: center" ng-show="!checkIndex($index)">
+                <div class="placeholder-image" style="background-image: {{video.poster}}; background-position: center">
                 </div>
             </div>
-            <p class="video-description" ng-show="!checkIndex($index)">{{video.description}}</p>
+            <div class="gradient"></div>
+            <p class="video-description">{{video.description}}</p>
         </div>
     </div>
 </div>

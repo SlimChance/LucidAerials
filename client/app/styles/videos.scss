@@ -1,53 +1,127 @@
 @import 'vars';
 @media (min-width: 500px) {
     .videos-wrapper {
-        position: relative;
-        width: 100%;
-        height: auto;
-        margin-right: auto;
-        margin-left: auto;
+        background-color: $light-blue;
     }
-    .main-video {
-        width: 50%;
-        height: auto;
-        display: block;
-        margin: 105px auto;
-        position: relative;
-        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.258824);
-    }
-    .video-feed-wrapper {
-        background-color: #E8F5FB;
-        width: 100%;
-        height: auto;
-        padding-top: 20px;
-        position: relative;
+    .video-wrapper {
         display: flex;
-        flex-flow: row wrap;
+        flex-direction: row;
+        flex-wrap: wrap;
         justify-content: space-around;
+        align-items: flex-end;
+        text-align: center;
+        background-color: $light-blue;
+        height: auto;
     }
     .video-repeat {
-        min-width: 48%;
-        max-width: 48%;
-        height: auto;
-        margin: 10px 10px 10px 10px;
-        padding: 20px;
-        background-color: #54728B;
-        display: flex;
-        flex-flow: column wrap;
-        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.258824);
+        position: relative;
+        top: 650px;
+        order: 1;
+        width: 32%;
+        margin: 5px;
+        overflow: hidden;
+        height: 325px;
+        background-size: cover;
+        background-position: center;
+        box-shadow: $material-shadow;
+        &:hover {
+            width: calc(32% + 10px);
+            height: 330px;
+            margin: 0px;
+            transition: height .2s ease-in-out, width .2s ease-in-out, margin .2s ease-in-out;
+        }
     }
     .video-title {
         color: white;
+        position: absolute;
+        height: 50px;
+        bottom: 12%;
+        left: 50%;
+        transform: translate(-50%, 0);
+        width: calc(100% - 20px);
+        opacity: 1;
+        margin: 0px;
+        font-weight: 400;
+        font-size: 1.85em;
+        z-index: 1;
+        opacity: .9;
     }
-    .feed-videos {
-        position: relative;
-        height: auto;
-        width: 80%;
-        margin: 20px 0px;
-        align-self: center;
+    .play-button {
+        display: none;
+    }
+    .video {
+        display: none;
     }
     .video-description {
-        color: white;
+        display: none;
+    }
+    .gradient {
+        opacity: .95;
+        background: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0));
+        height: 60%;
+        width: calc(100% + 10px);
+        position: absolute;
+        bottom: 0px;
+        left: -10px;
+    }
+    .videos-wrapper {
+        .expanded {
+            order: 0;
+            height: 650px;
+            width: 100%;
+            margin: 0px 0px 10px 0px;
+            transition: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            &:hover {
+                width: 100%;
+                height: 650px;
+                margin: 0px 0px 10px 0px;
+            }
+            .video-title {
+                opacity: 1;
+                top: 100px;
+                left: 50%;
+                font-size: 3em;
+                color: white;
+                font-family: $lora-font;
+            }
+            .play-button {
+                display: block;
+                opacity: 1;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 2;
+                color: white;
+                font-size: 4em;
+                transition: opacity 0.5s ease-out;
+            }
+            .video {
+                z-index: 3;
+                display: block;
+                //min-width: 480px;
+                max-width: 100%;
+                min-height: 200px;
+                margin: 20px auto;
+                margin-top: 175px;
+                width: 750px;
+                height: 455px;
+                opacity: 0;
+                transition: opacity 0.3s ease-out;
+                transition-delay: 0.3s;
+            }
+            .gradient {
+                z-index: -1;
+                opacity: 0;
+                background: radial-gradient(circle, rgba(0,0,0,0), rgba(0,0,0,1));
+                height: 100%;
+                width: calc(100% + 10px);
+                transition: opacity 0.3s ease-out;
+            }
+        }
     }
 }
 @media (max-width: 500px) {

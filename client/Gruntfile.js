@@ -388,9 +388,9 @@ module.exports = function(grunt) {
 
 
     grunt.registerTask('serve', 'Compile then start a connect web server', function(target) {
-        if (target === 'dist') {
-            return grunt.task.run(['build', 'connect:dist:keepalive']);
-        }
+        // if (target === 'dist') {
+        //     return grunt.task.run(['build', 'connect:dist:keepalive']);
+        // }
 
         grunt.task.run([
             'clean:server',
@@ -407,13 +407,13 @@ module.exports = function(grunt) {
         grunt.task.run(['serve:' + target]);
     });
 
-    grunt.registerTask('test', [
-        'clean:server',
-        'concurrent:test',
-        'autoprefixer',
-        'connect:test',
-        'karma'
-    ]);
+    // grunt.registerTask('test', [
+    //     'clean:server',
+    //     'concurrent:test',
+    //     'autoprefixer',
+    //     'connect:test',
+    //     'karma'
+    // ]);
 
     grunt.registerTask('build', [
         'clean:dist',
