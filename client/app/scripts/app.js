@@ -9,7 +9,8 @@ var lucidAerials = angular.module('LucidAerials', [
         'ngRoute',
         'ngSanitize',
         'ngTouch',
-        'ngMaterial'
+        'ngMaterial',
+        'smoothScroll'
     ])
     .config(function($routeProvider, $locationProvider) {
         $routeProvider

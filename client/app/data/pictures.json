@@ -1,38 +1,52 @@
 [
     {
-        "source": "url('../images/NyeRanch.jpg')",
+        "smallImage": "url(https://placeimg.com/800/500/animals)",
+        "largeImage": "url(https://placeimg.com/1280/900/animals)",
         "description": "Some Aerial shots of/around Burnsville and Butte Creek Canyon."
     },
     {
-        "source": "url('../images/Burnsville.jpg')",
+        "smallImage": "url(https://placeimg.com/800/500/architecture)",
+        "largeImage": "url(https://placeimg.com/1280/900/architecture)",
         "description": "Some Aerial shots of/around Burnsville and Butte Creek Canyon."
     },
     {
-        "source": "url('../images/ButteCreek.jpg')",
+        "smallImage": "url(https://placeimg.com/800/500/people)",
+        "largeImage": "url(https://placeimg.com/1280/900/people)",
         "description": "Some Aerial shots of/around Burnsville and Butte Creek Canyon."
     },
     {
-        "source": "url('../images/ChristmasLights.jpg')",
+        "smallImage": "url(https://placeimg.com/800/500/nature)",
+        "largeImage": "url(https://placeimg.com/1280/900/nature)",
         "description": "Some Aerial shots of/around Burnsville and Butte Creek Canyon."
     },
     {
-        "source": "url('../images/DuckHunting.jpg')",
+        "smallImage": "url(https://placeimg.com/800/500/tech)",
+        "largeImage": "url(https://placeimg.com/1280/900/tech)",
         "description": "Some Aerial shots of/around Burnsville and Butte Creek Canyon."
     },
     {
-        "source": "url('../images/HighlightVideo.jpg')",
+        "smallImage": "url(https://placeimg.com/800/500/animals)",
+        "largeImage": "url(https://placeimg.com/1280/900/animals)",
         "description": "Some Aerial shots of/around Burnsville and Butte Creek Canyon."
     },
     {
-        "source": "url('../images/MountainBiking.jpg')",
+        "smallImage": "url(https://placeimg.com/800/500/architecture)",
+        "largeImage": "url(https://placeimg.com/1280/900/architecture)",
         "description": "Some Aerial shots of/around Burnsville and Butte Creek Canyon."
     },
     {
-        "source": "url('../images/RockClimbing.jpg')",
+        "smallImage": "url(https://placeimg.com/800/500/people)",
+        "largeImage": "url(https://placeimg.com/1280/900/people)",
         "description": "Some Aerial shots of/around Burnsville and Butte Creek Canyon."
     },
     {
-        "source": "url('../images/SnowDay.jpg')",
+        "smallImage": "url(https://placeimg.com/800/500/nature)",
+        "largeImage": "url(https://placeimg.com/1280/900/nature)",
+        "description": "Some Aerial shots of/around Burnsville and Butte Creek Canyon."
+    },
+    {
+        "smallImage": "url(https://placeimg.com/800/500/tech)",
+        "largeImage": "url(https://placeimg.com/1280/900/tech)",
         "description": "Some Aerial shots of/around Burnsville and Butte Creek Canyon."
     }
 ]

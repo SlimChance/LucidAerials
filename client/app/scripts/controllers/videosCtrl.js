@@ -1,12 +1,12 @@
 'use strict';
 
-lucidAerials.controller('VideosCtrl', function($scope, $window, $timeout, videoService) {
+lucidAerials.controller('VideosCtrl', function($scope, $timeout, videoService) {
         $scope.expanded = 0;
         $scope.player = videoService.player;
         $scope.videos = videoService.videos;
         $scope.playReady = true;
 
-        videoService.init();
+        videoService.initYTPlayer();
 
         $scope.expand = function(index) {
             if (index !== $scope.expanded) {
@@ -20,6 +20,7 @@ lucidAerials.controller('VideosCtrl', function($scope, $window, $timeout, videoS
                 // disable play button until video is ready
                 $scope.playReady = false;
 
+                /**** Check if type div, if it is recreate the video ****/
                 if (!$scope.player[index]) {
                     // Don't block animation render
                     $timeout(function() {
@@ -33,6 +34,14 @@ lucidAerials.controller('VideosCtrl', function($scope, $window, $timeout, videoS
                 } else {
                     console.log('Failed to expand video');
                 }
+            }
+        };
+
+        $scope.getImage = function (index, video) {
+            if ($scope.expanded == index) {
+                return video.largeImage;
+            } else {
+                return video.smallImage;
             }
         };
 

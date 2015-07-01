@@ -1,61 +1,71 @@
 [
     {
         "title": "Rock Climbing and Views Along Hwy 70",
-        "poster": "url(http://lorempixel.com/1920/900/sports/1)",
+        "smallImage": "url(https://placeimg.com/800/500/any)",
+        "largeImage": "url(https://placeimg.com/1280/900/any)",
         "description": "Rock Climbing and Views Along Hwy 70",
         "id": "6ZqioJpOBqM"
     },
     {
         "title": "Quadcopter Footage of Burnsville",
-        "poster": "url(http://lorempixel.com/1920/900/sports/2)",
+        "smallImage": "url(https://placeimg.com/800/500/animals)",
+        "largeImage": "url(https://placeimg.com/1280/900/animals)",
         "description": "Some Aerial shots of/around Burnsville and Butte Creek Canyon.",
         "id": "yOE9-gaiJn4"
-    }, 
+    },
     {
         "title": "Butte Creek Canyon",
-        "poster": "url(http://lorempixel.com/1920/900/sports/3)",
+        "smallImage": "url(https://placeimg.com/800/500/nature)",
+        "largeImage": "url(https://placeimg.com/1280/900/nature)",
         "description": "Butte creek canyon captured with a gopro and quadcopter.",
         "id": "RFcto_jIc8o"
-    }, 
+    },
     {
         "title": "Christmas Lights at Meadow Brook in Chico, California.",
-        "poster": "url(http://lorempixel.com/1920/900/sports/4)",
+        "smallImage": "url(https://placeimg.com/800/500/architecture)",
+        "largeImage": "url(https://placeimg.com/1280/900/architecture)",
         "description": "Christmas Lights at Meadow Brook Models in Chico, CA.",
         "id": "-yl2vT7CCMA"
-    }, 
+    },
     {
         "title": "Duck Hunting Adventures",
-        "poster": "url(http://lorempixel.com/1920/1080/sports/5)",
+        "smallImage": "url(https://placeimg.com/800/500/tech)",
+        "largeImage": "url(https://placeimg.com/1280/900/tech)",
         "description": "Duck Hunting Adventures with a GoPro and Quadcopter",
         "id": "WrdT2xFSRLw"
-    }, 
+    },
     {
         "title": "Lucid Aerials 2014 Highlight Video",
-        "poster": "url(http://lorempixel.com/1920/1080/abstract/1)",
+        "smallImage": "url(https://placeimg.com/800/500/people)",
+        "largeImage": "url(https://placeimg.com/1280/900/people)",
         "description": "A Highlight video of some of Lucid Aerials 2014 adventures/experiences.",
         "id": "l4EIbGzH-YU"
-    }, 
+    },
     {
         "title": "Mountain Biking the Sierra Nevada Mountain Range",
-        "poster": "url(http://lorempixel.com/1920/1080/sports/7)",
+        "smallImage": "url(https://placeimg.com/800/500/animals)",
+        "largeImage": "url(https://placeimg.com/1280/900/animals)",
         "description": "Lucid Aerials Capture Matt Tuma Mountain Biking near De Sabla Reservoir in Magalia, CA",
         "id": "z1yuqKaS_6s"
-    }, 
+    },
     {
         "title": "Welcome to the Nye Ranch",
-        "poster": "url(http://lorempixel.com/1920/1080/sports/8)",
+        "smallImage": "url(https://placeimg.com/800/500/nature)",
+        "largeImage": "url(https://placeimg.com/1280/900/nature)",
         "description": "Fort Bragg November 2014",
         "id": "w4NcSnNkvOI"
-    }, 
+    },
     {
         "title": "Rock Climbing and views along Hwy 70",
-        "poster": "url(http://lorempixel.com/1920/1080/sports/9)",
+        "smallImage": "url(https://placeimg.com/800/500/architecture)",
+        "largeImage": "url(https://placeimg.com/1280/900/architecture)",
         "description": "Northern California views and activites filmed by Lucid Aerials. Shoutout to the climbers who allowed us to film them! Thank you again!",
         "id": "6ZqioJpOBqM"
-    }, 
+    },
     {
         "title": "A Day in the Snow",
-        "poster": "url(http://lorempixel.com/1920/1080/sports/10)",
+        "smallImage": "url(https://placeimg.com/800/500/tech)",
+        "largeImage": "url(https://placeimg.com/1280/900/tech)",
         "description": "A day in the snowy Sierra Nevadas",
         "id": "Xk8IcVwvd_U"
     }

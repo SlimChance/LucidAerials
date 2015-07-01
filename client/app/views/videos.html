@@ -1,5 +1,5 @@
-<div class="video-wrapper">
-    <div class="video-repeat video-repeat{{$index}}" ng-class="{ 'expanded': expanded == $index }" ng-repeat="video in videos" ng-click="expand($index)" style="background-image: {{video.poster}}; background-position: center;" role="presentation">
+<div class="video-wrapper" id="top">
+    <div class="video-repeat" ng-class="{ 'expanded': expanded == $index }" ng-repeat="video in videos" ng-click="expand($index)" ng-style="{ 'background-image': getImage(index, video) }" scroll-to="top" easing="easeInOutQuart" role="presentation">
         <h3 class="video-title">{{video.title}}</h3>
         <span video-play-button class="play-button glyphicon glyphicon-play" ng-click="play($index)" ng-show="playReady"></span>
         <div class="video" id="ytplayer{{$index}}">

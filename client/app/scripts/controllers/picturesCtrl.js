@@ -9,6 +9,14 @@ lucidAerials.controller('PicturesCtrl', function($scope, $window, pictureService
         $scope.expand = function (index) {
             $scope.expanded = index;
         }
+
+        $scope.getImage = function (index, picture) {
+            if ($scope.expanded == index) {
+                return picture.largeImage;
+            } else {
+                return picture.smallImage;
+            }
+        };
         // $scope.nextPic = function(index) {
         //     // Grab elements
         //     var modal = '#picModal' + index,
