@@ -11,11 +11,8 @@
     <meta name="application-name" content="Lucid Aerials">
     <meta name="apple-mobile-web-app-title" content="Lucid Aerials">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <!-- icon in the highest resolution we need it for -->
     <link rel="icon" sizes="228x228" href="images/Logo.jpg">
-    <!-- reuse same icon for Safari -->
     <link rel="apple-touch-icon" href="images/Logo.jpg">
-    <!-- multiple icons for IE -->
     <meta name="msapplication-square70x70logo" content="images/Logo.jpg">
     <meta name="msapplication-square150x150logo" content="images/Logo.jpg">
     <meta name="msapplication-wide310x150logo" content="images/Logo.jpg">
@@ -50,57 +47,10 @@
     <![endif]-->
 
     <!-- Mobile Navigation -->
-    <div class="mobile-nav" toggle-mobile-menu>
-        <div class="nav-wrapper" scroll-hide-menu>
-            <div class="mobile-logo-wrapper" data-ng-click="navigateTo('/')">
-                <!-- <img class="mobile-logo" src="images/transparent-logo.png" alt="Lucid Aerials Logo"> -->
-                <h3 class="mobile-site-title">Lucid Aerials</h3>
-            </div>
-            <div class="menu-wrapper">
-                <div class="menu-bar1"></div>
-                <div class="menu-bar2"></div>
-                <div class="menu-bar3"></div>
-            </div>
-        </div>
-        <nav class="navbar-animate">
-            <div class="nav-home" data-ng-click="navigateTo('/'); closeNav()">
-                <h3 class="nav-text">Home</h3>
-            </div>
-            <div class="nav-videos" data-ng-click="navigateTo('/videos'); closeNav()">
-                <h3 class="nav-text">Videos</h3>
-            </div>
-            <div class="nav-pictures" ng-click="navigateTo('/pictures'); closeNav()">
-                <h3 class="nav-text">Pictures</h3>
-            </div>
-            <div class="nav-contact" ng-click="navigateTo('/contact'); closeNav()">
-                <h3 class="nav-text">Contact</h3>
-            </div>
-        </nav>
-    </div>
+    <mobile-nav></mobile-nav>
 
     <!-- Desktop Navigation -->
-    <div class="desktop-nav" toggle-desktop-menu>
-        <div class="menu-wrapper" ng-click="toggleNav()">
-            <div class="menu-bar1"></div>
-            <div class="menu-bar2"></div>
-            <div class="menu-bar3"></div>
-            <span class="menu-title">Menu</span>
-        </div>
-        <nav class="navbar-animate">
-            <div class="nav-item nav-home" data-ng-click="navigateTo('/'); closeNav()">
-                <h3 class="text-center">Home</h3>
-            </div>
-            <div class="nav-item nav-videos" data-ng-click="navigateTo('/videos'); closeNav()">
-                <h3 class="text-center">Videos</h3>
-            </div>
-            <div class="nav-item nav-pictures" ng-click="navigateTo('/pictures'); closeNav()">
-                <h3 class="text-center">Pictures</h3>
-            </div>
-            <div class="nav-item nav-contact" ng-click="navigateTo('/contact'); closeNav()">
-                <h3 class="text-center">Contact</h3>
-            </div>
-        </nav>
-    </div>
+    <desktop-nav></desktop-nav>
 
     <div class="view" ng-view="" ng-click="closeNav(); toggleFalse()" role="presentation"></div>
 
@@ -154,7 +104,10 @@
     <script src="scripts/controllers/videosCtrl.js"></script>
     <script src="scripts/controllers/picturesCtrl.js"></script>
     <script src="scripts/controllers/contactCtrl.js"></script>
-    <script src="scripts/directives/mainDirective.js"></script>
+    <script src="scripts/directives/indexDirective.js"></script>
+    <script src="scripts/directives/homeDirective.js"></script>
+    <script src="scripts/directives/picturesDirective.js"></script>
+    <script src="scripts/directives/videosDirective.js"></script>
     <script src="scripts/services/videoService.js"></script>
     <script src="scripts/services/pictureService.js"></script>
     <!-- endbuild -->

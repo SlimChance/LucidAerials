@@ -1,6 +1,6 @@
 'use strict';
 
-lucidAerials.service('videoService', function ($window, $q, $resource) {
+lucidAerials.service('videoService', function ($window, $q, $resource, $rootScope) {
     var me = this;
     var resource = $resource('/data/videos.json');
 
@@ -22,7 +22,10 @@ lucidAerials.service('videoService', function ($window, $q, $resource) {
         // Must be global. YT looks at the window scope once the script tag is initialized. Loads in first video
         $window.onYouTubeIframeAPIReady = function() {
             var YTPlayer = new YT.Player('ytplayer0', {
-                videoId: me.videos[0].id
+                videoId: me.videos[0].id,
+                events: {
+                    'onStateChange': me.playerStateChange
+                }
             });
 
             me.player.splice(0, 1, YTPlayer);
@@ -38,6 +41,9 @@ lucidAerials.service('videoService', function ($window, $q, $resource) {
                 videoId: me.videos[index].id,
                 playerVars: {
                     autoplay: 0
+                },
+                events: {
+                    'onStateChange': me.playerStateChange
                 }
             });
 
@@ -49,4 +55,23 @@ lucidAerials.service('videoService', function ($window, $q, $resource) {
 
         return deferred.promise;
     };
+
+    me.playerStateChange = function (event) {
+        if (event.data == 0) {
+            var iframeId = event.target.f.id;
+            var indexPattern = /\d+/g;
+            var index = iframeId.match(indexPattern)[0];
+            var nextVideo = parseInt(index) + 1;
+
+            if (me.player[nextVideo]) {
+                // play next video
+            } else {
+                var element = 'ytplayer' + nextVideo;
+                me.createPlayer(element, nextVideo);
+                // .then play video
+            }
+
+            $rootScope.$broadcast('playNext', nextVideo);
+        }
+    }
 });

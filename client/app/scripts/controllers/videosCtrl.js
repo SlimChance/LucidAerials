@@ -1,10 +1,11 @@
 'use strict';
 
-lucidAerials.controller('VideosCtrl', function($scope, $timeout, videoService) {
+lucidAerials.controller('VideosCtrl', function($scope, $timeout, $interval, videoService) {
         $scope.expanded = 0;
         $scope.player = videoService.player;
         $scope.videos = videoService.videos;
         $scope.playReady = true;
+        $scope.seconds = 5;
 
         videoService.initYTPlayer();
 
@@ -63,4 +64,19 @@ lucidAerials.controller('VideosCtrl', function($scope, $timeout, videoService) {
                 console.log('Failed to pause video ' + index);
             }
         };
+
+        $scope.$on('playNext', function (event, index) {
+            // Show countdown Timer
+            angular.element('.countdown-timer').css({ 'display': 'block' });
+            $interval(function () {
+                $scope.seconds--
+                if ($scope.seconds === 0) {
+                    $scope.expand(index);
+                    angular.element('.countdown-timer').css({ 'display': 'none' });
+                    $scope.$apply();
+                }
+            }, 1000);
+
+            /////// CANCEL THIS!
+        });
     });
