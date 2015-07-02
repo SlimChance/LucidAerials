@@ -1,0 +1,22 @@
+<div class="desktop-nav" toggle-desktop-menu>
+    <div class="menu-wrapper" ng-click="toggleNav()">
+        <div class="menu-bar1"></div>
+        <div class="menu-bar2"></div>
+        <div class="menu-bar3"></div>
+        <span class="menu-title">Menu</span>
+    </div>
+    <nav class="navbar-animate">
+        <div class="nav-item nav-home" ng-click="navigateTo('/'); closeNav()">
+            <h3 class="text-center">Home</h3>
+        </div>
+        <div class="nav-item nav-videos" ng-click="navigateTo('/videos'); closeNav()">
+            <h3 class="text-center">Videos</h3>
+        </div>
+        <div class="nav-item nav-pictures" ng-click="navigateTo('/pictures'); closeNav()">
+            <h3 class="text-center">Pictures</h3>
+        </div>
+        <div class="nav-item nav-contact" ng-click="navigateTo('/contact'); closeNav()">
+            <h3 class="text-center">Contact</h3>
+        </div>
+    </nav>
+</div>

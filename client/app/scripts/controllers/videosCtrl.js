@@ -1,6 +1,6 @@
 'use strict';
 
-lucidAerials.controller('VideosCtrl', function($scope, $timeout, $interval, videoService) {
+lucidAerials.controller('VideosCtrl', function($scope, $timeout, $interval, $rootScope, videoService) {
         $scope.expanded = 0;
         $scope.player = videoService.player;
         $scope.videos = videoService.videos;
@@ -21,7 +21,7 @@ lucidAerials.controller('VideosCtrl', function($scope, $timeout, $interval, vide
                 // disable play button until video is ready
                 $scope.playReady = false;
 
-                /**** Check if type div, if it is recreate the video ****/
+                /***** Check if type div, if it is recreate the video *****/
                 if (!$scope.player[index]) {
                     // Don't block animation render
                     $timeout(function() {
@@ -65,18 +65,21 @@ lucidAerials.controller('VideosCtrl', function($scope, $timeout, $interval, vide
             }
         };
 
+        $scope.cancelTimer = function (intervalPromise) {
+            $interval.cancel(intervalPromise);
+        }
+
+        // Listens for videoService broadcast when video ends. Kicks off a countdown timer and autoplays next video
         $scope.$on('playNext', function (event, index) {
-            // Show countdown Timer
-            angular.element('.countdown-timer').css({ 'display': 'block' });
-            $interval(function () {
+            var timerElem = angular.element('.expanded .countdown-timer').css({ 'display': 'block' });
+            var intervalPromise = $interval(function () {
                 $scope.seconds--
                 if ($scope.seconds === 0) {
                     $scope.expand(index);
-                    angular.element('.countdown-timer').css({ 'display': 'none' });
-                    $scope.$apply();
+                    timerElem.css({ 'display': 'none' });
+                    $scope.play(index);
+                    $scope.cancelTimer(intervalPromise);
                 }
             }, 1000);
-
-            /////// CANCEL THIS!
         });
     });
