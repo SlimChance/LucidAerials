@@ -23,7 +23,7 @@
 </div> -->
 
 <div class="picture-wrapper">
-    <div class="picture-repeat" ng-class="{ 'expanded': expanded == $index }" ng-repeat="picture in pictures" ng-click="expand($index)" ng-style="{ 'background-image': getImage(index, picture) }">
+    <div image-dropdown class="picture-repeat" index="$index" ng-class="{ 'expanded': expanded == $index }" ng-repeat="picture in pictures" ng-click="expand($index)" ng-style="{ 'background-image': picture.smallImage }">
+        <p class="picture-description">{{picture.description}}</p>
     </div>
-    <p class="picture-description">{{picture.description}}</p>
 </div>

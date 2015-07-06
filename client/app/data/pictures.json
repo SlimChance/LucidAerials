@@ -43,10 +43,5 @@
         "smallImage": "url(https://placeimg.com/800/500/nature)",
         "largeImage": "url(https://placeimg.com/1280/900/nature)",
         "description": "Some Aerial shots of/around Burnsville and Butte Creek Canyon."
-    },
-    {
-        "smallImage": "url(https://placeimg.com/800/500/tech)",
-        "largeImage": "url(https://placeimg.com/1280/900/tech)",
-        "description": "Some Aerial shots of/around Burnsville and Butte Creek Canyon."
     }
 ]

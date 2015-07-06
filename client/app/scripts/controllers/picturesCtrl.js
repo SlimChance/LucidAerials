@@ -3,7 +3,7 @@
 lucidAerials.controller('PicturesCtrl', function($scope, $window, pictureService) {
         // $scope.hidePrev = false;
         // $scope.hideNext = false;
-        $scope.expanded = 0;
+        $scope.expanded = null;
         $scope.pictures = pictureService.getPictures();
 
         $scope.expand = function (index) {

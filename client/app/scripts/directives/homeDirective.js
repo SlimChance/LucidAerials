@@ -15,20 +15,20 @@ lucidAerials.directive('hideScroll', function($window) {
             }
         };
     })
-    .directive('fadeOut', function() {
+    .directive('fadeOverlay', function() {
         return {
             restrict: 'A',
             link: function(scope, element) {
-                var siteTitle = element.children('.site-title');
-                var button = element.children('button.md-primary');
-                var filter = element.next('.home-video-filter');
-                var video = element.next('.home-video-filter').children('home-video');
+                var siteTitle = angular.element('.site-title');
+                var filter = angular.element('.home-video-filter');
+                var video = filter.children('home-video');
+                var logo = angular.element('.logo');
 
-                button.bind('click', function() {
-                    console.log(button);
+                element.bind('click', function() {
                     siteTitle.css('opacity', '0');
                     element.css('opacity', '0');
                     filter.css('opacity', '1');
+                    logo.css('opacity', '0');
                     video.attr('controls');
                 });
             }
