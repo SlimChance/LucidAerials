@@ -4,96 +4,97 @@
         position: relative;
         height: 100%;
         width: 100%;
-        .home-video-wrapper {
-            position: relative;
-            background-color: $light-blue;
-            .video-overlay {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                z-index: 2;
-                opacity: 1;
-                text-align: center;
-                .site-title {
-                    font-family: $lora-font;
-                    width: auto;
-                    height: auto;
-                    color: #7B7773;
-                    text-shadow: 1px 1px #000;
-                    margin: 0px;
-                    opacity: 1;
-                    background-color: none;
-                    transition: opacity 0.5s ease-out;
-                    font-size: 4em;
-                }
-                img.logo {
-                    height: 150px;
-                    width: 150px;
-                    margin: 10px auto;
-                    display: block;
-                    clear: both;
-                }
-                .b-play-video {
-                    margin-top: 15px;
-                    padding: 10px 20px;
-                    border-radius: 5px;
-                    background: $light-blue;
-                    color: white;
-                    border: none;
-                    opacity: 1;
-                    outline: 0;
-                    transition: opacity 0.5s ease-out;
-                }
-                .md-primary {
-                    display: none;
-                }
-            }
-            .home-video-filter {
-                opacity: 0.75;
-                z-index: 1;
-                position: relative;
-                transition: opacity 0.5s ease-out;
-                video#bgvid {
-                    position: relative;
-                    top: 0;
-                    left: 0;
-                    display: block;
-                    object-fit: fill;
-                    overflow: hidden;
-                    opacity: 1;
-                    z-index: 0;
-                }
-            }
-            .scroll-arrow-wrapper {
-                height: auto;
-                width: auto;
-                position: absolute;
-                bottom: 0;
-                z-index: 2;
-                font-size: 4em;
-                color: white;
-                left: 50%;
-            }
-            .scroll-arrow {
-                position: relative;
-                left: -50%;
-            }
+    }
+    .home-video-wrapper {
+        position: relative;
+        background-color: $light-blue;
+    }
+    .video-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        opacity: 1;
+        text-align: center;
+    }
+    .site-title {
+        font-family: $lora-font;
+        width: auto;
+        height: auto;
+        color: $light-blue;
+        text-shadow: $text-shadow;
+        margin: 0px;
+        opacity: 1;
+        background-color: none;
+        transition: opacity 0.5s ease-out;
+        font-size: 7em;
+    }
+    img.logo {
+        height: 225px;
+        width: 225px;
+        margin: 60px auto;
+        display: block;
+        clear: both;
+    }
+    .b-play-video {
+        padding: 15px 30px;
+        border-radius: 5px;
+        background: $light-blue;
+        box-shadow: $material-shadow;
+        color: white;
+        border: none;
+        opacity: 1;
+        outline: 0;
+        font-size: 1.3em;
+        transition: opacity 0.5s ease-out;
+        &:hover {
+            background-color: $dark-blue;
         }
-        .bio-wrapper {
-            position: relative;
-            height: auto;
-            padding: 0px;
-            margin: 0px;
-            width: 100%;
-            background-color: $light-blue;
-            .bio-header, .bio-text {
-                color: white;
-                padding: 10px;
-                margin: 0px auto;
-                width: 800px;
-            }
-        }
+    }
+    .home-video-filter {
+        opacity: 0.75;
+        z-index: 1;
+        position: relative;
+        transition: opacity 0.5s ease-out;
+    }
+    video#bgvid {
+        position: relative;
+        top: 0;
+        left: 0;
+        display: block;
+        object-fit: fill;
+        overflow: hidden;
+        opacity: 1;
+        z-index: 0;
+    }
+    .scroll-arrow-wrapper {
+        height: auto;
+        width: auto;
+        position: absolute;
+        bottom: 0;
+        z-index: 2;
+        font-size: 4em;
+        color: white;
+        left: 50%;
+    }
+    .scroll-arrow {
+        position: relative;
+        left: -50%;
+    }
+    .bio-wrapper {
+        position: relative;
+        height: auto;
+        padding: 0px;
+        margin: 0px;
+        width: 100%;
+        background-color: $light-blue;
+    }
+    .bio-header, .bio-text {
+        color: white;
+        padding: 10px;
+        margin: 0px auto;
+        width: 800px;
     }
     .main-video-wrapper, .main-picture-wrapper {
         position: relative;

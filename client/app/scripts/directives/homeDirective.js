@@ -21,7 +21,7 @@ lucidAerials.directive('hideScroll', function($window) {
             link: function(scope, element) {
                 var siteTitle = angular.element('.site-title');
                 var filter = angular.element('.home-video-filter');
-                var video = filter.children('home-video');
+                var video = filter.children('.home-video-element');
                 var logo = angular.element('.logo');
 
                 element.bind('click', function() {
@@ -29,7 +29,7 @@ lucidAerials.directive('hideScroll', function($window) {
                     element.css('opacity', '0');
                     filter.css('opacity', '1');
                     logo.css('opacity', '0');
-                    video.attr('controls');
+                    video.attr('controls', true);
                 });
             }
         };

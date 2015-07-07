@@ -58,6 +58,7 @@ body {
                 opacity: 1;
                 transform: rotate(0deg) translate(0);
                 transition: all 0.30s ease-out;
+                box-shadow: $material-shadow;
             }
             .menu-title {
                 position: absolute;
@@ -66,6 +67,7 @@ body {
                 font-size: 2.2em;
                 color: white;
                 margin: 0px;
+                text-shadow: $text-shadow;
             }
         }
         .menu-wrapper-toggled {
@@ -89,12 +91,11 @@ body {
         .navbar-animate {
             height: 70px;
             overflow: hidden;
-            z-index: 3;
             transform: translateY(-85px);
             box-shadow: $material-shadow;
             transition: transform 0.30s ease-out;
             .nav-home, .nav-videos, .nav-pictures, .nav-contact {
-                background-color: $dark-blue;
+                background-color: $light-blue;
                 display: inline-block;
                 outline: 0;
                 height: 100%;
@@ -111,7 +112,7 @@ body {
                 }
                 &:hover {
                     cursor: pointer;
-                    background: $light-blue;
+                    background: $dark-blue;
                 }
                 .nav-text {
                     position: relative;
@@ -128,6 +129,7 @@ body {
         }
         .navbar-animate-toggled {
             transform: translateY(0px);
+            z-index: 3;
             transition: transform 0.25s ease-out;
         }
     }

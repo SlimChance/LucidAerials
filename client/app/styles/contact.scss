@@ -1,5 +1,32 @@
 @import 'vars';
 @media (min-width: 500px) {
+	.contact-container {
+		position: relative;
+		top: 65px;
+		height: 100%;
+		width: 100%;
+	}
+	.social-media-container {
+		background-color: blue;
+		box-shadow: $material-shadow;
+	}
+	.contact-info {
+		background-color: $light-blue;
+		box-shadow: $material-shadow;
+		padding: 10px;
+		width: 75%;
+		margin: 20px auto;
+	}
+	.contact-form input.ng-invalid.ng-touched {
+    	background-color: #FA787E;
+	}
+	.contact-form input.ng-valid.ng-touched {
+		background-color: #78FA89;
+	}
+	.submit-button {
+		float: right;
+		margin-right: 20px;
+	}
 }
 @media (max-width: 500px) {
 	.contact-container {
@@ -7,6 +34,7 @@
 		top: 55px;
 		height: 100%;
 		width: 100%;
+		background-color: $dark-blue;
 		.social-media-container {
 			background-color: blue;
 			box-shadow: $material-shadow;
@@ -21,6 +49,6 @@
 			.contact-form input.ng-valid.ng-touched {
 				background-color: #78FA89;
 			}
-		}		
+		}
 	}
 }

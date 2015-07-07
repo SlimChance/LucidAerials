@@ -8,7 +8,7 @@
         justify-content: space-around;
         align-items: flex-end;
         text-align: center;
-        background-color: rgb(60, 60, 60);
+        background-color: $dark-blue;
         height: auto;
         overflow: hidden;
         cursor: default;
@@ -89,6 +89,7 @@
                 color: white;
                 font-family: $lora-font;
                 z-index: 2;
+                text-shadow: $text-shadow
             }
             .play-button {
                 display: block;
@@ -99,7 +100,7 @@
                 transform: translate(-50%, -50%);
                 z-index: 2;
                 color: white;
-                font-size: 4em;
+                font-size: 5em;
                 transition: opacity 0.5s ease-out;
             }
             .video {
