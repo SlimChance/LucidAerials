@@ -1,10 +1,5 @@
 @import 'vars';
 @media (min-width: 500px) {
-    .home-wrapper {
-        position: relative;
-        height: 100%;
-        width: 100%;
-    }
     .home-video-wrapper {
         position: relative;
         background-color: $light-blue;
@@ -20,15 +15,12 @@
     }
     .site-title {
         font-family: $lora-font;
-        width: auto;
-        height: auto;
         color: $light-blue;
         text-shadow: $text-shadow;
         margin: 0px;
         opacity: 1;
-        background-color: none;
         transition: opacity 0.5s ease-out;
-        font-size: 7em;
+        font-size: 6.5em;
     }
     img.logo {
         height: 225px;
@@ -38,15 +30,15 @@
         clear: both;
     }
     .b-play-video {
-        padding: 15px 30px;
+        padding: 12px 25px;
         border-radius: 5px;
         background: $light-blue;
         box-shadow: $material-shadow;
         color: white;
-        border: none;
         opacity: 1;
         outline: 0;
-        font-size: 1.3em;
+        font-size: 1.25em;
+        border: none;
         transition: opacity 0.5s ease-out;
         &:hover {
             background-color: $dark-blue;
@@ -65,22 +57,15 @@
         display: block;
         object-fit: fill;
         overflow: hidden;
-        opacity: 1;
         z-index: 0;
     }
-    .scroll-arrow-wrapper {
-        height: auto;
-        width: auto;
+    .scroll-arrow {
         position: absolute;
-        bottom: 0;
+        display: block;
         z-index: 2;
         font-size: 4em;
         color: white;
-        left: 50%;
-    }
-    .scroll-arrow {
-        position: relative;
-        left: -50%;
+        top: -100%;
     }
     .bio-wrapper {
         position: relative;
@@ -95,25 +80,6 @@
         padding: 10px;
         margin: 0px auto;
         width: 800px;
-    }
-    .main-video-wrapper, .main-picture-wrapper {
-        position: relative;
-        height: auto;
-        width: 100%;
-        padding: 20px 0px;
-        text-align: center;
-        background-color: $light-blue;
-        box-shadow: $material-shadow;
-    }
-    .main-video-title {
-        color: white;
-        margin: 10px 10px 20px 10px;
-    }
-    .main-video {
-        max-width: 100%;
-        min-height: 190px;
-        width: 100%;
-        object-fit: contain;
     }
 }
 @media (max-width: 500px) {

@@ -25,12 +25,14 @@ lucidAerials.controller('VideosCtrl', function($scope, $timeout, $interval, $roo
                 if (!$scope.player[index]) {
                     // Don't block animation render
                     $timeout(function() {
+                        console.log('creating player');
                         var element = 'ytplayer' + index;
                         videoService.createPlayer(element, index).then(function () {
                             $scope.playReady = true;
                         });
                     }, 500);
                 } else if ($scope.player[index]) {
+                    console.log('passed create player');
                     $scope.playReady = true;
                 } else {
                     console.log('Failed to expand video');
@@ -50,9 +52,12 @@ lucidAerials.controller('VideosCtrl', function($scope, $timeout, $interval, $roo
             if ($scope.player[index]) {
                 if ($scope.player[index].getPlayerState() !== 1) {
                     $scope.player[index].playVideo();
+                } else {
+                    ////// FIX THIS ///////
+                    console.log('failure!');
                 }
             } else {
-                console.log('Failed to play video ' + index);
+                videoService.initYTPlayer();
             }
         };
 

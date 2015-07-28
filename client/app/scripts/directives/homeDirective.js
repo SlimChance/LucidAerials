@@ -5,7 +5,7 @@ lucidAerials.directive('hideScroll', function($window) {
             restrict: 'A',
             link: function(scope, element) {
                 angular.element($window).bind('scroll', function() {
-                    element.children('.scroll-arrow').css({
+                    element.css({
                         'opacity': '0',
                         'filter': 'alpha(opacity=0)',
                         'transition': 'opacity 0.5s ease-in-out',

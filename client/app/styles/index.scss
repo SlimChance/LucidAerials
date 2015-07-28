@@ -18,10 +18,7 @@ p {
     font-size: 16px;
 }
 body {
-    width: 100%;
-    height: 100%;
     overflow: hidden;
-    position: relative;
     background-color: white;
     overflow: scroll;
     margin: 0px;
@@ -77,6 +74,7 @@ body {
                 position: relative;
                 transform: rotate(-45deg) translate(-8px, 8px);
                 transition: transform 0.25s ease-out;
+                z-index: 1;
             }
             .menu-bar2-toggled {
                 opacity: 0;
@@ -86,41 +84,39 @@ body {
                 position: relative;
                 transform: rotate(45deg) translate(-10px, -10px);
                 transition: transform 0.25s ease-out;
+                z-index: 1;
             }
         }
         .navbar-animate {
-            height: 70px;
+            height: 60px;
+            display: flex;
+            flex-direction: row;
             overflow: hidden;
             transform: translateY(-85px);
             box-shadow: $material-shadow;
             transition: transform 0.30s ease-out;
             .nav-home, .nav-videos, .nav-pictures, .nav-contact {
                 background-color: $light-blue;
-                display: inline-block;
+                flex-grow: 1;
                 outline: 0;
                 height: 100%;
                 margin-right: -3px;
                 width: 25%;
                 text-align: center;
+                border-left: 2px solid white;
+                &:first-child {
+                    border-left: none;
+                }    
                 & h3 {
                     color: white;
                     font-size: 1.8em;
                     font-family: $roboto-font;
                     font-weight: 400;
-                    margin-top: 23px;
-                    margin-bottom: 23px;
+                    margin-top: 17px;
                 }
                 &:hover {
                     cursor: pointer;
                     background: $dark-blue;
-                }
-                .nav-text {
-                    position: relative;
-                    top: 50%;
-                    transform: translateY(-50%);
-                    width: auto;
-                    height: auto;
-                    margin: 0px;
                 }
             }
             .nav-home {

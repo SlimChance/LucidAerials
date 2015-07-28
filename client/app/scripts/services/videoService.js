@@ -6,29 +6,28 @@ lucidAerials.service('videoService', function ($window, $q, $resource, $rootScop
 
     me.player = [,,,,,,,,,];
 
-    me.getVideos = function () {
-        return resource.query();
-    }
-    me.videos = me.getVideos();
+    me.videos = resource.query();
 
     me.initYTPlayer = function () {
-        var tag = document.createElement('script');
+        if (!me.player[0]) {
+            var tag = document.createElement('script');
 
-        // YouTube API
-        tag.src = 'https://www.youtube.com/iframe_api';
-        var firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+            // YouTube API
+            tag.src = 'https://www.youtube.com/iframe_api';
+            var firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-        // Must be global. YT looks at the window scope once the script tag is initialized. Loads in first video
-        $window.onYouTubeIframeAPIReady = function() {
-            var YTPlayer = new YT.Player('ytplayer0', {
-                videoId: me.videos[0].id,
-                events: {
-                    'onStateChange': me.playerStateChange
-                }
-            });
+            // Must be global. YT looks at the window scope once the script tag is initialized. Loads in first video
+            $window.onYouTubeIframeAPIReady = function() {
+                var YTPlayer = new YT.Player('ytplayer0', {
+                    videoId: me.videos[0].id,
+                    events: {
+                        'onStateChange': me.playerStateChange
+                    }
+                });
 
-            me.player.splice(0, 1, YTPlayer);
+                me.player.splice(0, 1, YTPlayer);
+            }
         }
     };
 
@@ -37,18 +36,22 @@ lucidAerials.service('videoService', function ($window, $q, $resource, $rootScop
         var deferred = $q.defer();
 
         var createYTPlayer = function () {
-            var YTPlayer = new YT.Player(element, {
-                videoId: me.videos[index].id,
-                playerVars: {
-                    autoplay: 0
-                },
-                events: {
-                    'onStateChange': me.playerStateChange
-                }
-            });
+            if (YT) {
+               var YTPlayer = new YT.Player(element, {
+                    videoId: me.videos[index].id,
+                    playerVars: {
+                        autoplay: 0
+                    },
+                    events: {
+                        'onStateChange': me.playerStateChange
+                    }
+                });
 
-            console.log('create player called');
-            me.player.splice(index, 1, YTPlayer);
+                console.log('create player called');
+                me.player.splice(index, 1, YTPlayer); 
+            } else {
+                me.initYTPlayer();
+            }
         }
 
         deferred.resolve(createYTPlayer());
