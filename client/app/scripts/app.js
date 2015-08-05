@@ -10,8 +10,7 @@ var lucidAerials = angular.module('LucidAerials', [
         'ngSanitize',
         'ngTouch',
         'ngMaterial',
-        'smoothScroll',
-        'youtube-embed'
+        'smoothScroll'
     ])
     .config(function($routeProvider, $locationProvider) {
         $routeProvider

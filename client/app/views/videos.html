@@ -1,10 +1,8 @@
 <div class="video-wrapper" id="top">
-    <div class="video-repeat" ng-class="{ 'expanded': expanded == $index }" ng-repeat="video in videos" ng-click="expand($index)" ng-style="{ 'background-image': getImage(index, video) }" scroll-to="top" easing="easeInOutQuart" role="presentation">
-        <h3 class="video-title">{{video.title}}</h3>
+    <div class="video-repeat" ng-class="{ 'expanded': expanded == $index }" ng-repeat="youtubeVideo in videos" ng-click="expand($index)" ng-style="{ 'background-image': getImage(index, youtubeVideo) }" scroll-to="top" easing="easeInOutQuart" role="presentation">
+        <h3 class="video-title">{{youtubeVideo.title}}</h3>
         <span video-play-button class="play-button play-button{{$index}} glyphicon glyphicon-play" ng-click="play($index)" ng-show="playReady"></span>
-        <div class="video" id="ytplayer{{$index}}">
-            <youtube-video video-id="video.id" player="video.id"></youtube-video>
-        </div>
+        <!-- <youtube-video ng-repat="video in videos" video-id="{{video}}"></youtube-video> -->
         <div class="gradient"></div>
         <div class="countdown-timer">Autoplay Next Video: <br>{{seconds}}</p>
     </div>

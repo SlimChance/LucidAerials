@@ -14,4 +14,31 @@ lucidAerials.directive('videoPlayButton', function() {
                 });
             }
         };
+    })
+    .directive('youtubeVideo', function($window, $resource) {
+        return {
+            restrict: 'E',
+            scope: {
+                videoId: '='
+            },
+            template: '<div>{{.id}}</div>',
+            link: function(scope, element, attrs) {
+                var resource = $resource('/data/videos.json').query();
+                var tag = document.createElement('script');
+                tag.src = 'https://www.youtube.com/iframe_api';
+                var firstScriptTag = document.getElementsByTagName('script')[0];
+                firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+                var player;
+
+                $window.onYoutubeIframeAPIReady = function() {
+                    player = new YT.Player(element.children()[0], {
+                        videoId: scope.videoId,
+                        events: {
+                            'onStateChange': me.playerStateChange
+                        }
+                    })
+                }
+            }
+        }
     });
