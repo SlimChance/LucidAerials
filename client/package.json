@@ -2,6 +2,7 @@
   "name": "client",
   "version": "0.0.0",
   "dependencies": {
+    "angular-youtube-mb": "^1.0.3",
     "normalize.css": "^3.0.3"
   },
   "devDependencies": {

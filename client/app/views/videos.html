@@ -3,8 +3,7 @@
         <h3 class="video-title">{{video.title}}</h3>
         <span video-play-button class="play-button play-button{{$index}} glyphicon glyphicon-play" ng-click="play($index)" ng-show="playReady"></span>
         <div class="video" id="ytplayer{{$index}}">
-            <div class="placeholder-image" style="background-image: {{video.poster}}; background-position: center">
-            </div>
+            <youtube-video video-id="video.id" player="video.id"></youtube-video>
         </div>
         <div class="gradient"></div>
         <div class="countdown-timer">Autoplay Next Video: <br>{{seconds}}</p>

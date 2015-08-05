@@ -1,13 +1,10 @@
 'use strict';
 
-lucidAerials.controller('VideosCtrl', function($scope, $timeout, $interval, $rootScope, videoService) {
+lucidAerials.controller('VideosCtrl', function($window, $scope, $timeout, $interval, $rootScope, $resource) {
         $scope.expanded = 0;
-        $scope.player = videoService.player;
-        $scope.videos = videoService.videos;
         $scope.playReady = true;
         $scope.seconds = 5;
-
-        videoService.initYTPlayer();
+        $scope.videos = $resource('/data/videos.json');
 
         $scope.expand = function(index) {
             if (index !== $scope.expanded) {
@@ -49,11 +46,14 @@ lucidAerials.controller('VideosCtrl', function($scope, $timeout, $interval, $roo
         };
 
         $scope.play = function(index) {
+            console.log('Player: ' + $scope.player[index]);
             if ($scope.player[index]) {
+                console.log('Player state: ' + $scope.player[index].getPlayerState() !== 1);
                 if ($scope.player[index].getPlayerState() !== 1) {
-                    $scope.player[index].playVideo();
+                    $window.onYoutubeIframeAPIReady();
+                    //$scope.player[index].playVideo();
                 } else {
-                    ////// FIX THIS ///////
+                    
                     console.log('failure!');
                 }
             } else {

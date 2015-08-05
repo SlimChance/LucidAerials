@@ -2,17 +2,61 @@
 @media (min-width: 500px) {
 	.contact-container {
 		position: relative;
-		top: 65px;
+		top: -65px;
+		padding-top: 85px;
 		height: 100%;
 		width: 100%;
+		background-color: $light-blue;
 	}
 	.social-media-container {
-		background-color: blue;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		width: 100%;
+		padding: 20px;
+	}
+	.social-media-header {
+		display: block;
+		margin-top: 85px;
+		padding-bottom: 15px;
+		width: 100%;
+		color: white;
+		text-align: center;
+		font-weight: 500;
+		font-size: 3em;
+		font-family: $lora-font;
+	}
+	.facebook-logo, .twitter-logo, .instagram-logo, .youtube-logo {
+		background-image: url('../images/Social-Media-Flat-Icons-256px.png');
+		background-repeat: no-repeat;
+		margin: 10px;
+	}
+	.facebook-logo {
+		height: 256px;
+		width: 256px;
+		background-position: -320px -320px;
+		box-shadow: $material-shadow;
+	}
+	.twitter-logo {
+		height: 256px;
+		width: 256px;
+		background-position: -1072px -320px;
+		box-shadow: $material-shadow;
+	}
+	.instagram-logo {
+		height: 256px;
+		width: 256px;
+		background-position: -320px -1824px;
+		box-shadow: $material-shadow;
+	}
+	.youtube-logo {
+		height: 256px;
+		width: 256px;
+		background-position: -1072px -1824px;
 		box-shadow: $material-shadow;
 	}
 	.contact-info {
-		background-color: $light-blue;
-		box-shadow: $material-shadow;
 		padding: 10px;
 		width: 75%;
 		margin: 20px auto;
