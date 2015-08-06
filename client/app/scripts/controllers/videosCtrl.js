@@ -1,10 +1,13 @@
 'use strict';
 
-lucidAerials.controller('VideosCtrl', function($window, $scope, $timeout, $interval, $rootScope, $resource) {
+lucidAerials.controller('VideosCtrl', function($window, $scope, $timeout, $interval, $rootScope, videoService) {
         $scope.expanded = 0;
         $scope.playReady = true;
         $scope.seconds = 5;
-        $scope.videos = $resource('/data/videos.json');
+        $scope.videos = videoService.videos;
+        $scope.player = videoService.player;
+
+        videoService.initYTPlayer();
 
         $scope.expand = function(index) {
             if (index !== $scope.expanded) {
@@ -29,7 +32,6 @@ lucidAerials.controller('VideosCtrl', function($window, $scope, $timeout, $inter
                         });
                     }, 500);
                 } else if ($scope.player[index]) {
-                    console.log('passed create player');
                     $scope.playReady = true;
                 } else {
                     console.log('Failed to expand video');
@@ -38,7 +40,7 @@ lucidAerials.controller('VideosCtrl', function($window, $scope, $timeout, $inter
         };
 
         $scope.getImage = function (index, video) {
-            if ($scope.expanded == index) {
+            if ($scope.expanded == index) {                
                 return video.largeImage;
             } else {
                 return video.smallImage;
