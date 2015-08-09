@@ -1,32 +1,42 @@
 'use strict';
 
-lucidAerials.controller('VideosCtrl', function($window, $scope, $timeout, $interval, $rootScope, videoService) {
-        $scope.expanded = 0;
+lucidAerials.controller('VideosCtrl', function($window, $scope, $timeout, $interval, $rootScope, $cacheFactory, videoService) {
+        var cache = $cacheFactory.get('videos');
         $scope.playReady = true;
         $scope.seconds = 5;
-        $scope.videos = videoService.videos;
-        $scope.player = [];
+        $scope.expanded = 0;
+        videoService.resource.query().$promise.then(function (data) {
+            $scope.videos = data;
+        });
 
         //videoService.initYTPlayer();
 
+        // Controller:
+        //   play
+        //   pause
+        //   expand
+        //   playNext
+
+        // VideoService:
+        //   initPlayer
+        //   createPlayer
+        //   grabData
+        //   cache
+        //   playerStateChange
+
         $scope.expand = function(index) {
             var videoId = $scope.videos[index].id;
-            if (cache.get(videoId)) {
-                
-            }
+            console.log(videoId);
             if (index !== $scope.expanded) {
                 // Check if playing, if it is pause video
                 if ($scope.player[$scope.expanded].getPlayerState() === 1) {
                     $scope.pause($scope.expanded);
                 }
-
                 $scope.expanded = index;
 
-                // disable play button until video is ready
-                $scope.playReady = false;
+                if (!cache.get(videoId)) {
+                    $scope.playReady = false;
 
-                /***** Check if type div, if it is recreate the video *****/
-                if (!$scope.player[index]) {
                     // Don't block animation render
                     $timeout(function() {
                         console.log('creating player');
@@ -35,16 +45,14 @@ lucidAerials.controller('VideosCtrl', function($window, $scope, $timeout, $inter
                             $scope.playReady = true;
                         });
                     }, 500);
-                } else if ($scope.player[index]) {
+                } else if (cache.get(videoId)) {
                     $scope.playReady = true;
-                } else {
-                    console.log('Failed to expand video');
-                }
+                };
             }
         };
 
         $scope.getImage = function (index, video) {
-            if ($scope.expanded == index) {                
+            if ($scope.expanded == index) {
                 return video.largeImage;
             } else {
                 return video.smallImage;
@@ -56,7 +64,7 @@ lucidAerials.controller('VideosCtrl', function($window, $scope, $timeout, $inter
                 if ($scope.player[index].getPlayerState() !== 1) {
                     //$scope.player[index].playVideo();
                 } else {
-                    
+
                     console.log('failure!');
                 }
             }
@@ -103,4 +111,14 @@ lucidAerials.controller('VideosCtrl', function($window, $scope, $timeout, $inter
                 }
             }, 1000);
         });
+
+        function createFirstVideo() {
+            var element = 'ytplayer0';
+            var index = 0;
+            videoService.createPlayer(element, index).then(function () {
+                $scope.playReady = true;
+            });
+        };
+
+        createFirstVideo();
     });
