@@ -5,11 +5,15 @@ lucidAerials.controller('VideosCtrl', function($window, $scope, $timeout, $inter
         $scope.playReady = true;
         $scope.seconds = 5;
         $scope.videos = videoService.videos;
-        $scope.player = videoService.player;
+        $scope.player = [];
 
-        videoService.initYTPlayer();
+        //videoService.initYTPlayer();
 
         $scope.expand = function(index) {
+            var videoId = $scope.videos[index].id;
+            if (cache.get(videoId)) {
+                
+            }
             if (index !== $scope.expanded) {
                 // Check if playing, if it is pause video
                 if ($scope.player[$scope.expanded].getPlayerState() === 1) {
@@ -48,18 +52,13 @@ lucidAerials.controller('VideosCtrl', function($window, $scope, $timeout, $inter
         };
 
         $scope.play = function(index) {
-            console.log('Player: ' + $scope.player[index]);
             if ($scope.player[index]) {
-                console.log('Player state: ' + $scope.player[index].getPlayerState() !== 1);
                 if ($scope.player[index].getPlayerState() !== 1) {
-                    $window.onYoutubeIframeAPIReady();
                     //$scope.player[index].playVideo();
                 } else {
                     
                     console.log('failure!');
                 }
-            } else {
-                videoService.initYTPlayer();
             }
         };
 

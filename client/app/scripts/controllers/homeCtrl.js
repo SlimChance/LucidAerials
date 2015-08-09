@@ -1,7 +1,7 @@
 'use strict';
 
-lucidAerials.controller('HomeCtrl', function($scope, $window) {
-        var video = angular.element('video.home-video-element');
+lucidAerials.controller('HomeCtrl', function($scope, $window, videoService) {
+        var video = angular.element('div.home-video-element');
 
         $scope.resizeVideo = function() {
             var windowWidth = $window.innerWidth,

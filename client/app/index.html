@@ -71,6 +71,21 @@
     ga('create', 'UA-XXXXX-X');
     ga('send', 'pageview');
     </script>
+    <script>
+        var tag = document.createElement('script');
+
+        // YouTube API
+        tag.src = 'https://www.youtube.com/iframe_api';
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        // Must be global. YT looks at the window scope once the script tag is initialized. Loads in first video
+        window.onYouTubeIframeAPIReady = function() {
+            var YTPlayer = new YT.Player('homeVideo', {
+                videoId: '6ZqioJpOBqM',
+            });
+        }
+    </script>
 
     <!-- build:js(.) scripts/oldieshim.js -->
     <!--[if lt IE 9]>
