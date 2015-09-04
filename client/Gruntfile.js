@@ -180,7 +180,7 @@ module.exports = function(grunt) {
                 imagesDir: '<%= yeoman.app %>/images',
                 javascriptsDir: '<%= yeoman.app %>/scripts',
                 fontsDir: '<%= yeoman.app %>/styles/fonts',
-                importPath: './bower_components',
+                importPath: './bower_components', // need node???
                 httpImagesPath: '/images',
                 httpGeneratedImagesPath: '/images/generated',
                 httpFontsPath: '/styles/fonts',
@@ -190,7 +190,7 @@ module.exports = function(grunt) {
             },
             dist: {
                 options: {
-                    generatedImagesDir: '<%= yeoman.dist %>/images/generated'
+                    generatedImagesDir: '<%= yeoman.dist %>/images/generated' // need to transfer css???
                 }
             },
             server: {
@@ -206,7 +206,7 @@ module.exports = function(grunt) {
                 src: [
                     '<%= yeoman.dist %>/scripts/{,*/}*.js',
                     '<%= yeoman.dist %>/styles/{,*/}*.css',
-                    '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+                    //'<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
                     '<%= yeoman.dist %>/styles/fonts/*'
                 ]
             }
@@ -372,7 +372,7 @@ module.exports = function(grunt) {
             ],
             dist: [
                 'compass:dist',
-                'imagemin',
+                'imagemin:dist',
                 'svgmin'
             ]
         },
@@ -416,20 +416,20 @@ module.exports = function(grunt) {
     // ]);
 
     grunt.registerTask('build', [
-        'clean:dist',
-        'wiredep',
-        'useminPrepare',
-        'concurrent:dist',
-        'autoprefixer',
-        'concat',
-        'ngAnnotate',
-        'copy:dist',
-        'cdnify',
-        'cssmin',
-        'uglify',
-        'filerev',
-        'usemin',
-        'htmlmin'
+        'clean:dist', // empties folders to start fresh
+        'wiredep', // compass etc?
+        'useminPrepare', // point usemin to the right files? usemin at the end to wait for other tasks
+        'concurrent:dist', // Run some tasks in parallel for speed. (compass, imgmin, svgmin)
+        'autoprefixer', // Add vendor prefixed styles. Keeps it in .tmp
+        'concat', // Turned off?
+        'ngAnnotate', // Uses angular long form to make code safe for minification. Uses concat!!
+        'copy:dist', // Copies remaining files to be used by other tasks. Check if this misses anything
+        'cdnify', // Replace google cdn references
+        'cssmin', // useminPrep is turned on, which uses this step? Takes .tmp files and moves them to dist
+        'uglify', // Turned off. Check if JS is minified
+        'filerev', // Renames everything for cacheing. 
+        'usemin', // Performs rewrites based on filerev and the useminPrepare configuration
+        'htmlmin' // Minifies html
     ]);
 
     grunt.registerTask('default', [

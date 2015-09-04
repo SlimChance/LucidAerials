@@ -1,46 +1,17 @@
-<div class="contact-container">
-	<div class="social-media-container">
-        <h1 class="social-media-header">Connect with me</h1>
-		<a class="twitter-logo" href="https://twitter.com/LucidAerials" target="_blank"></a>
-		<a class="facebook-logo" href="https://www.facebook.com/LucidGaming" target="_blank"></a>
-		<a class="instagram-logo" href="https://instagram.com/lucidaerials/" target="_blank"></a>
-        <a class="youtube-logo" href="https://www.youtube.com/channel/UCQbzkrvwwjTs33cOcVt4AKA/featured" target="_blank"></a>
+<div class="contact-container" id="footer">
+	<div class="twitter-wrap">
+        <h3 class="contact-header">Shea Burns on Twitter</h3>
+        <hr />
+<a class="twitter-timeline" data-dnt="true" href="https://twitter.com/LucidAerials" data-widget-id="638019949932486657">Tweets by @LucidAerials</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 	</div>
-	<div class="contact-info">
-		<p>For business inquiries, contact:
-		<form ng-submit="submit(contactform)" name="contactform" method="post" class="form-horizontal" role="form">
-            <div class="form-group" ng-class="{ 'has-error': contactform.inputName.$invalid && submitted }">
-                <label for="inputName" class="col-lg-2 control-label">Name</label>
-                <div class="col-lg-10">
-                    <input ng-model="formData.inputName" type="text" class="form-control" id="inputName" name="inputName" placeholder="Your Name" required>
-                </div>
-            </div>
-            <div class="form-group" ng-class="{ 'has-error': contactform.inputEmail.$invalid && submitted }">
-                <label for="inputEmail" class="col-lg-2 control-label">Email</label>
-                <div class="col-lg-10">
-                    <input ng-model="formData.inputEmail" type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="Your Email" required>
-                </div>
-            </div>
-            <div class="form-group" ng-class="{ 'has-error': contactform.inputSubject.$invalid && submitted }">
-                <label for="inputSubject" class="col-lg-2 control-label">Subject</label>
-                <div class="col-lg-10">
-                    <input ng-model="formData.inputSubject" type="text" class="form-control" id="inputSubject" name="inputSubject" placeholder="Subject of Message" required>
-                </div>
-            </div>
-            <div class="form-group" ng-class="{ 'has-error': contactform.inputMessage.$invalid && submitted }">
-                <label for="inputMessage" class="col-lg-2 control-label">Message</label>
-                <div class="col-lg-10">
-                    <textarea ng-model="formData.inputMessage" class="form-control" rows="4" id="inputMessage" name="inputMessage" placeholder="Your message..." required></textarea>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="submit-button">
-                    <button type="submit" class="btn btn-default" ng-disabled="submitButtonDisabled">
-                        Send Message
-                    </button>
-                </div>
-            </div>
-        </form>
-        <p ng-class="result" style="padding: 15px; margin: 0;">{{ resultMessage }}</p>
-	</div>
+    <div class="contact-info">
+        <h3 class="contact-header">Business Inquiries</h3>
+        <hr/>
+        <p>For business inquiries, contact Shea Burns<br />
+           <a href="mailto:lucidaerials@gmail.com?Subject=Lucid%20Aerials">lucidaerials@gmail.com</a>
+        </p>
+        <img class="me-and-z" src="../images/me-and-z.jpg" alt="Shea Burns">
+    </div>
+    <footer class="last-item"></footer>
 </div>

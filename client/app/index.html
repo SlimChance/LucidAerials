@@ -28,6 +28,7 @@
     <script src="scripts/pace.js"></script>
     <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css">
     <link rel="stylesheet" href="styles/pace.css">
+    <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="styles/index.css">
     <!-- <link rel="stylesheet" media="screen and (min-width: 500px)" href="styles/main.css">
  -->
@@ -79,10 +80,11 @@
         var firstScriptTag = document.getElementsByTagName('script')[0];
         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
+
         // Must be global. YT looks at the window scope once the script tag is initialized. Loads in first video
-        window.onYouTubeIframeAPIReady = function() {
+        onYouTubeIframeAPIReady = function() {
             var YTPlayer = new YT.Player('homeVideo', {
-                videoId: '6ZqioJpOBqM',
+                videoId: '5vSaDoGuIoo'
             });
         }
     </script>
@@ -116,15 +118,16 @@
     <script src="scripts/app.js"></script>
     <script src="scripts/services/videoService.js"></script>
     <script src="scripts/services/pictureService.js"></script>
+    <script src="scripts/directives/indexDirective.js"></script>
+    <script src="scripts/directives/homeDirective.js"></script>
+    <script src="scripts/directives/picturesDirective.js"></script>
+    <script src="scripts/directives/videosDirective.js"></script>
+    <script src="scripts/directives/twitterDirective.js"></script>
     <script src="scripts/controllers/indexCtrl.js"></script>
     <script src="scripts/controllers/homeCtrl.js"></script>
     <script src="scripts/controllers/videosCtrl.js"></script>
     <script src="scripts/controllers/picturesCtrl.js"></script>
     <script src="scripts/controllers/contactCtrl.js"></script>
-    <script src="scripts/directives/indexDirective.js"></script>
-    <script src="scripts/directives/homeDirective.js"></script>
-    <script src="scripts/directives/picturesDirective.js"></script>
-    <script src="scripts/directives/videosDirective.js"></script>
     <!-- endbuild -->
 </body>
 

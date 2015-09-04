@@ -14,4 +14,16 @@ lucidAerials.directive('videoPlayButton', function() {
                 });
             }
         };
+    })
+    .directive('scrollToCenter', function() {
+        return {
+            restrict: 'A',
+            link: function(scope, element, attrs) {
+                element.bind('click', function() {
+                    window.scrollTo(0, element[0].offsetTop - 50);
+                    console.log(element[0]);
+                    console.log(document.documentElement.clientHeight)
+                });
+            }
+        }
     });

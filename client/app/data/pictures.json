@@ -1,47 +1,96 @@
-[
-    {
-        "smallImage": "url(https://placeimg.com/800/500/animals)",
-        "largeImage": "url(https://placeimg.com/1280/900/animals)",
-        "description": "Some Aerial shots of/around Burnsville and Butte Creek Canyon."
-    },
-    {
-        "smallImage": "url(https://placeimg.com/800/500/architecture)",
-        "largeImage": "url(https://placeimg.com/1280/900/architecture)",
-        "description": "Some Aerial shots of/around Burnsville and Butte Creek Canyon."
-    },
-    {
-        "smallImage": "url(https://placeimg.com/800/500/people)",
-        "largeImage": "url(https://placeimg.com/1280/900/people)",
-        "description": "Some Aerial shots of/around Burnsville and Butte Creek Canyon."
-    },
-    {
-        "smallImage": "url(https://placeimg.com/800/500/nature)",
-        "largeImage": "url(https://placeimg.com/1280/900/nature)",
-        "description": "Some Aerial shots of/around Burnsville and Butte Creek Canyon."
-    },
-    {
-        "smallImage": "url(https://placeimg.com/800/500/tech)",
-        "largeImage": "url(https://placeimg.com/1280/900/tech)",
-        "description": "Some Aerial shots of/around Burnsville and Butte Creek Canyon."
-    },
-    {
-        "smallImage": "url(https://placeimg.com/800/500/animals)",
-        "largeImage": "url(https://placeimg.com/1280/900/animals)",
-        "description": "Some Aerial shots of/around Burnsville and Butte Creek Canyon."
-    },
-    {
-        "smallImage": "url(https://placeimg.com/800/500/architecture)",
-        "largeImage": "url(https://placeimg.com/1280/900/architecture)",
-        "description": "Some Aerial shots of/around Burnsville and Butte Creek Canyon."
-    },
-    {
-        "smallImage": "url(https://placeimg.com/800/500/people)",
-        "largeImage": "url(https://placeimg.com/1280/900/people)",
-        "description": "Some Aerial shots of/around Burnsville and Butte Creek Canyon."
-    },
-    {
-        "smallImage": "url(https://placeimg.com/800/500/nature)",
-        "largeImage": "url(https://placeimg.com/1280/900/nature)",
-        "description": "Some Aerial shots of/around Burnsville and Butte Creek Canyon."
-    }
-]
+[{
+    "smallImage": "url('../images/instagram/feet.jpg')",
+    "description": "Some Aerial shots of around Burnsville and Butte Creek Canyon."
+},
+{
+    "smallImage": "url('../images/instagram/dogs2.jpg')",
+    "description": "Some Aerial shots of around Burnsville and Butte Creek Canyon."
+},
+{
+    "smallImage": "url('../images/instagram/landcruiser.jpg')",
+    "description": "Some Aerial shots of around Burnsville and Butte Creek Canyon."
+},
+{
+    "smallImage": "url('../images/instagram/feet2.jpg')",
+    "description": "Some Aerial shots of around Burnsville and Butte Creek Canyon."
+},
+{
+    "smallImage": "url('../images/instagram/wall.jpg')",
+    "description": "Some Aerial shots of around Burnsville and Butte Creek Canyon."
+},
+{
+    "smallImage": "url('../images/instagram/drones.jpg')",
+    "description": "Some Aerial shots of around Burnsville and Butte Creek Canyon."
+},
+{
+    "smallImage": "url('../images/instagram/sky.jpg')",
+    "description": "Some Aerial shots of around Burnsville and Butte Creek Canyon."
+},
+{
+    "smallImage": "url('../images/instagram/dogs.jpg')",
+    "description": "Some Aerial shots of around Burnsville and Butte Creek Canyon."
+},
+{
+    "smallImage": "url('../images/instagram/dog.jpg')",
+    "description": "Some Aerial shots of around Burnsville and Butte Creek Canyon."
+},
+{
+    "smallImage": "url('../images/instagram/river.jpg')",
+    "description": "Some Aerial shots of around Burnsville and Butte Creek Canyon."
+},
+{
+    "smallImage": "url('../images/instagram/brother.jpg')",
+    "description": "Some Aerial shots of around Burnsville and Butte Creek Canyon."
+},
+{
+    "smallImage": "url('../images/instagram/valley.jpg')",
+    "description": "Some Aerial shots of around Burnsville and Butte Creek Canyon."
+},
+{
+    "smallImage": "url('../images/instagram/sky2.jpg')",
+    "description": "Some Aerial shots of around Burnsville and Butte Creek Canyon."
+},
+{
+    "smallImage": "url('../images/instagram/ocean.jpg')",
+    "description": "Some Aerial shots of around Burnsville and Butte Creek Canyon."
+},
+{
+    "smallImage": "url('../images/instagram/prop.jpg')",
+    "description": "Some Aerial shots of around Burnsville and Butte Creek Canyon."
+},
+{
+    "smallImage": "url('../images/instagram/boardselfie.jpg')",
+    "description": "Some Aerial shots of around Burnsville and Butte Creek Canyon."
+},
+{
+    "smallImage": "url('../images/instagram/boards.jpg')",
+    "description": "Some Aerial shots of around Burnsville and Butte Creek Canyon."
+},
+{
+    "smallImage": "url('../images/instagram/drone.jpg')",
+    "description": "Some Aerial shots of around Burnsville and Butte Creek Canyon."
+},
+{
+    "smallImage": "url('../images/instagram/valley2.jpg')",
+    "description": "Some Aerial shots of around Burnsville and Butte Creek Canyon."
+},
+{
+    "smallImage": "url('../images/instagram/dronebrains.jpg')",
+    "description": "Some Aerial shots of around Burnsville and Butte Creek Canyon."
+},
+{
+    "smallImage": "url('../images/instagram/sky3.jpg')",
+    "description": "Some Aerial shots of around Burnsville and Butte Creek Canyon."
+},
+{
+    "smallImage": "url('../images/instagram/dogs3.jpg')",
+    "description": "Some Aerial shots of around Burnsville and Butte Creek Canyon."
+},
+{
+    "smallImage": "url('../images/instagram/valley3.jpg')",
+    "description": "Some Aerial shots of around Burnsville and Butte Creek Canyon."
+},
+{
+    "smallImage": "url('../images/instagram/motorcycle.jpg')",
+    "description": "Some Aerial shots of around Burnsville and Butte Creek Canyon."
+}]

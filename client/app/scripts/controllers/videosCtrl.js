@@ -1,81 +1,103 @@
 'use strict';
 
-lucidAerials.controller('VideosCtrl', function($window, $scope, $timeout, $interval, $rootScope, $cacheFactory, videoService) {
-        var cache = $cacheFactory.get('videos');
+lucidAerials.controller('VideosCtrl', function($window, $scope, $timeout, $interval, $rootScope, $cacheFactory, $sce, videoService) {
+        var vs = new videoService();
         $scope.playReady = true;
         $scope.seconds = 5;
         $scope.expanded = 0;
-        videoService.resource.query().$promise.then(function (data) {
-            $scope.videos = data;
-        });
-
-        //videoService.initYTPlayer();
-
-        // Controller:
-        //   play
-        //   pause
-        //   expand
-        //   playNext
-
-        // VideoService:
-        //   initPlayer
-        //   createPlayer
-        //   grabData
-        //   cache
-        //   playerStateChange
+        $scope.videos = vs.videos;
 
         $scope.expand = function(index) {
-            var videoId = $scope.videos[index].id;
-            console.log(videoId);
-            if (index !== $scope.expanded) {
-                // Check if playing, if it is pause video
-                if ($scope.player[$scope.expanded].getPlayerState() === 1) {
-                    $scope.pause($scope.expanded);
-                }
-                $scope.expanded = index;
+            if ($scope.videos[index]) {
+                if (index !== $scope.expanded) {
+                    var videoId = $scope.videos[index].id,
+                        expandedId = $scope.videos[$scope.expanded].id;
 
-                if (!cache.get(videoId)) {
-                    $scope.playReady = false;
+                    $scope.expanded = index;
 
-                    // Don't block animation render
-                    $timeout(function() {
-                        console.log('creating player');
-                        var element = 'ytplayer' + index;
-                        videoService.createPlayer(element, index).then(function () {
-                            $scope.playReady = true;
-                        });
-                    }, 500);
-                } else if (cache.get(videoId)) {
-                    $scope.playReady = true;
+                    if (typeof vs.getCache(videoId) === 'undefined') {
+                        // Timeout to not block render
+                        $timeout(function() {
+                            var element = 'div#ytplayer' + index;
+                            if (vs.getCache(expandedId)) {
+                                $scope.pause(expandedId);
+                            }
+
+                            $scope.playReady = false;
+
+                            vs.createPlayer(element, index).then(function() {
+                                $scope.playReady = true;
+                            });
+                        }, 200);
+                    } else {
+                        var element = angular.element('.play-button' + index)[0];
+                        console.log(element);
+
+                        if (vs.getCache(expandedId)) {
+                            console.log('pausing old video');
+                            $scope.pause(expandedId);
+                        }
+                        // if element hasn't been clicked, don't play
+                        // console.log(element.style.opacity);
+                        // if (element.style.opacity == 0) {
+                        //     console.log('inside timeout');
+                        //     $timeout(function() {
+                        //         $scope.play(index, videoId);
+                        //     }, 1000);
+                        // }   
+                    }
                 };
+            } else {
+                vs.resource.query().$promise.then(function (data) {
+                    $scope.videos = data;
+                    var video = $scope.videos[index];
+                    $scope.expand(index);
+                });
             }
         };
 
         $scope.getImage = function (index, video) {
-            if ($scope.expanded == index) {
+            if ($scope.expanded === index) {
                 return video.largeImage;
             } else {
                 return video.smallImage;
             }
         };
 
-        $scope.play = function(index) {
-            if ($scope.player[index]) {
-                if ($scope.player[index].getPlayerState() !== 1) {
-                    //$scope.player[index].playVideo();
-                } else {
+        $scope.play = function(index, videoId) {
+            if (vs.getCache(videoId)) {
+                var video = vs.getCache(videoId);
+                console.log(video);
 
-                    console.log('failure!');
+                // check if type function, if not, timeout and try again
+                if (typeof video.getPlayerState === 'function') {
+                    if (vs.getCache(videoId).getPlayerState() !== 1) {
+                        video.playVideo();
+                    }
+                } else {
+                    $timeout(function() {
+                        $scope.play(index, videoId);
+                    }, 1000);
                 }
+            } else {
+                console.log('Video not in cache, creating');
+                var element = 'div#ytplayer' + index;
+
+                vs.createPlayer(element, index).then(function() {
+                    console.log('promise video id' + videoId)
+                    $scope.play(index, videoId);
+                });
             }
         };
 
-        $scope.pause = function(index) {
-            console.log("pause: " + index);
-            if ($scope.player[index]) {
-                $scope.player[index].pauseVideo();
+        $scope.pause = function(videoId) {
+            var video = vs.getCache(videoId);
+
+            if (video) {
+                console.log('Pausing video');
+                video.pauseVideo();
             } else {
-                console.log('Failed to pause video ' + index);
+                console.log('Paused cache.get = undefined');
             }
         };
 
@@ -90,7 +112,7 @@ lucidAerials.controller('VideosCtrl', function($window, $scope, $timeout, $inter
             var videoElem = angular.element('#ytplayer' + index);
             var gradientElem = angular.element('#ytplayer' + index).next('.gradient');
 
-            console.log(playButtonElem);
+            console.log(videoElem);
             // console.log('Video: ' + videoElem);
             // console.log('Gradient: ' + gradientElem);
 
@@ -98,8 +120,10 @@ lucidAerials.controller('VideosCtrl', function($window, $scope, $timeout, $inter
                 $scope.seconds--
                 if ($scope.seconds === 0) {
                     $scope.expand(index);
+
+                    var videoId = $scope.videos[index].id;
                     timerElem.css({ 'display': 'none' });
-                    $scope.play(index);
+                    $scope.play(index, videoId);
 
                     // simulate play button click
                     playButtonElem.css('opacity', '0');
@@ -111,14 +135,4 @@ lucidAerials.controller('VideosCtrl', function($window, $scope, $timeout, $inter
                 }
             }, 1000);
         });
-
-        function createFirstVideo() {
-            var element = 'ytplayer0';
-            var index = 0;
-            videoService.createPlayer(element, index).then(function () {
-                $scope.playReady = true;
-            });
-        };
-
-        createFirstVideo();
     });

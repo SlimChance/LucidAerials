@@ -1,12 +1,46 @@
 @import 'vars';
 @media (min-width: 500px) {
 	.contact-container {
-		position: relative;
-		top: -65px;
-		padding-top: 85px;
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: center;
+		padding-top: 55px;
 		height: 100%;
 		width: 100%;
+		min-width: 100vw;
+		min-height: 100vh;
 		background-color: $light-blue;
+		.twitter-wrap {
+			padding-right: 50px;
+			min-height: 730px;
+			height: 85vh;
+			align-self: center;
+			max-width: 40%;
+			min-width: 440px;
+		}
+		.contact-info {
+			align-self: center;
+			max-width: 40%;
+			height: 85vh;
+			p {
+				color: white;
+				font-weight: 400;
+			}
+			.me-and-z {
+				height: 630px;
+				border-radius: 3px;
+			}
+			a {
+				color: $dark-grey;
+			}
+		}
+		.contact-header {
+			color: white;
+			font-size: 28px;
+			font-weight: 400;
+			margin: 10px;
+			line-height: 28px;
+		}
 	}
 	.social-media-container {
 		display: flex;
@@ -14,85 +48,115 @@
 		flex-wrap: wrap;
 		justify-content: space-around;
 		width: 100%;
-		padding: 20px;
-	}
-	.social-media-header {
-		display: block;
-		margin-top: 85px;
-		padding-bottom: 15px;
-		width: 100%;
-		color: white;
-		text-align: center;
-		font-weight: 500;
-		font-size: 3em;
-		font-family: $lora-font;
-	}
-	.facebook-logo, .twitter-logo, .instagram-logo, .youtube-logo {
-		background-image: url('../images/Social-Media-Flat-Icons-256px.png');
-		background-repeat: no-repeat;
-		margin: 10px;
-	}
-	.facebook-logo {
-		height: 256px;
-		width: 256px;
-		background-position: -320px -320px;
-		box-shadow: $material-shadow;
-	}
-	.twitter-logo {
-		height: 256px;
-		width: 256px;
-		background-position: -1072px -320px;
-		box-shadow: $material-shadow;
-	}
-	.instagram-logo {
-		height: 256px;
-		width: 256px;
-		background-position: -320px -1824px;
-		box-shadow: $material-shadow;
-	}
-	.youtube-logo {
-		height: 256px;
-		width: 256px;
-		background-position: -1072px -1824px;
-		box-shadow: $material-shadow;
-	}
-	.contact-info {
-		padding: 10px;
-		width: 75%;
-		margin: 20px auto;
-	}
-	.contact-form input.ng-invalid.ng-touched {
-    	background-color: #FA787E;
-	}
-	.contact-form input.ng-valid.ng-touched {
-		background-color: #78FA89;
-	}
-	.submit-button {
-		float: right;
-		margin-right: 20px;
+		padding: 50px 0 20px 0;
 	}
 }
-@media (max-width: 500px) {
+@media (max-width: 800px) {
 	.contact-container {
-		position: relative;
-		top: 55px;
+		display: flex;
+		flex-flow: column wrap;
+		justify-content: center;
+		padding-top: 55px;
 		height: 100%;
 		width: 100%;
-		background-color: $dark-blue;
-		.social-media-container {
-			background-color: blue;
-			box-shadow: $material-shadow;
+		min-width: 100vw;
+		min-height: 100vh;
+		background-color: $light-blue;
+		.twitter-wrap {
+			order: 1;
+			width: 80vw;
+			max-width: 80vw;
+			height: auto;
+			align-self: center;
+			padding: 0;
+		}
+		.twitter-timeline {
+			height: 70vh !important;
+			align-self: center;
 		}
 		.contact-info {
-			background-color: $light-blue;
-			box-shadow: $material-shadow;
-			padding: 10px;
-			.contact-form input.ng-invalid.ng-touched {
-		    	background-color: #FA787E;
+			order: 0;
+			align-self: center;
+			padding: 0;
+			width: 80vw;
+			height: auto;
+			max-width: 80vw;
+			margin-bottom: 50px;
+			p {
+				color: white;
+				font-weight: 400;
 			}
-			.contact-form input.ng-valid.ng-touched {
-				background-color: #78FA89;
+			.me-and-z {
+				width: 90vw;
+				height: auto;
+				border-radius: 3px;
+			}
+			a {
+				color: $dark-grey;
 			}
 		}
+		.contact-header {
+			color: white;
+			font-size: 28px;
+			font-weight: 400;
+		}
+	}
+	.social-media-container {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		width: 100%;
+		padding: 50px 0 20px 0;
+	}
+}	
+@media (max-width: 500px) {
+	.contact-container {
+		display: flex;
+		flex-flow: column wrap;
+		justify-content: center;
+		padding-top: 55px;
+		height: 100%;
+		width: 100%;
+		min-width: 100vw;
+		min-height: 100vh;
+		background-color: $light-blue;
+		.twitter-wrap {
+			order: 1;
+			width: 90vw;
+			align-self: center;
+		}
+		.twitter-timeline {
+			height: 70vh !important;
+		}
+		.contact-info {
+			order: 0;
+			align-self: center;
+			p {
+				color: white;
+				font-weight: 400;
+			}
+			.me-and-z {
+				width: 90vw;
+				height: auto;
+				border-radius: 3px;
+			}
+			a {
+				color: $dark-grey;
+			}
+		}
+		.contact-header {
+			color: white;
+			font-size: 28px;
+			font-weight: 400;
+		}
+	}
+	.social-media-container {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		width: 100%;
+		padding: 50px 0 20px 0;
 	}
 }

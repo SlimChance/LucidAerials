@@ -49,8 +49,8 @@ body {
                 cursor: pointer;
             }
             .menu-bar1, .menu-bar2, .menu-bar3 {
-                width: 45px;
-                border-top: 5px solid white;
+                width: 50px;
+                border-top: 5px solid $light-blue;
                 margin: 8px 0px 0px 0px;
                 opacity: 1;
                 transform: rotate(0deg) translate(0);
@@ -58,13 +58,13 @@ body {
                 box-shadow: $material-shadow;
             }
             .menu-title {
+                display: none;
                 position: absolute;
                 top: 15px;
                 right: 0px;
                 font-size: 2.2em;
                 color: white;
                 margin: 0px;
-                text-shadow: $text-shadow;
             }
         }
         .menu-wrapper-toggled {
@@ -96,14 +96,13 @@ body {
             box-shadow: $material-shadow;
             transition: transform 0.30s ease-out;
             .nav-home, .nav-videos, .nav-pictures, .nav-contact {
-                background-color: $light-blue;
+                background-color: $dark-blue;
                 flex-grow: 1;
                 outline: 0;
                 height: 100%;
                 margin-right: -3px;
                 width: 25%;
                 text-align: center;
-                border-left: 2px solid white;
                 &:first-child {
                     border-left: none;
                 }    
@@ -116,7 +115,7 @@ body {
                 }
                 &:hover {
                     cursor: pointer;
-                    background: $dark-blue;
+                    background: $dark-grey;
                 }
             }
             .nav-home {
@@ -129,6 +128,9 @@ body {
             transition: transform 0.25s ease-out;
         }
     }
+}
+.last-item {
+    order: 5000;
 }
 @media (max-width: 500px) {
     .desktop-nav {
@@ -191,6 +193,42 @@ body {
                     transition: opacity 0.25s ease-out;
                 }
                 .menu-bar3-toggled {
+                    position: relative;
+                    transform: rotate(45deg) translate(-6px, -6px);
+                    transition: transform 0.25s ease-out;
+                }
+            }
+            .menu-wrapper-toggled {
+                position: relative;
+                display: inline-block;
+                outline: 0;
+                width: 50px;
+                height: 50px;
+                margin-right: 10px;
+                top: 3px;
+                padding: 10px;
+                float: right;
+                &:hover {
+                    cursor: pointer;
+                }
+                .menu-bar1, .menu-bar2, .menu-bar3 {
+                    width: 100%;
+                    border-top: 3px solid white;
+                    margin: 5px 0px 0px 0px;
+                    opacity: 1;
+                    transform: rotate(0deg) translate(0);
+                    transition: all 0.30s ease-out;
+                }
+                .menu-bar1 {
+                    position: relative;
+                    transform: rotate(-45deg) translate(-5px, 5px);
+                    transition: transform 0.25s ease-out;
+                }
+                .menu-bar2 {
+                    opacity: 0;
+                    transition: opacity 0.25s ease-out;
+                }
+                .menu-bar3 {
                     position: relative;
                     transform: rotate(45deg) translate(-6px, -6px);
                     transition: transform 0.25s ease-out;

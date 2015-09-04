@@ -1,72 +1,152 @@
 [
     {
-        "title": "Rock Climbing and Views Along Hwy 70",
-        "smallImage": "url(https://placeimg.com/800/500/any)",
-        "largeImage": "url(https://placeimg.com/1280/900/any)",
-        "description": "Rock Climbing and Views Along Hwy 70",
-        "id": "6ZqioJpOBqM"
+        "title": "Bike Trail Session",
+        "smallImage": "url('../images/videos/c-bike-trail-session.jpg')",
+        "id": "T83zTov4Lik",
+        "description": "A nice Sunday session on the bike trail"
     },
     {
-        "title": "Quadcopter Footage of Burnsville",
-        "smallImage": "url(https://placeimg.com/800/500/animals)",
-        "largeImage": "url(https://placeimg.com/1280/900/animals)",
-        "description": "Some Aerial shots of/around Burnsville and Butte Creek Canyon.",
-        "id": "yOE9-gaiJn4"
+        "title": "EDC Las Vegas 2015 After Movie",
+        "smallImage": "url('../images/videos/c-edc.jpg')",
+        "id": "KUPyUZjaBRE",
+        "description": "Shea, Tuma, Cranney, Trent and JimBob travel to EDC Las Vegas for their first time."
+    },
+    {
+        "title": "Longboarding",
+        "smallImage": "url('../images/videos/c-longboarding.jpg')",
+        "id": "80UBQSoDsE0",
+        "description": "A day of longboarding in Chico and Paradise California."
+    },
+    {
+        "title": "Slow Motion Chainsaw",
+        "smallImage": "url('../images/videos/c-chainsaw.jpg')",
+        "id": "8KvwrL3rUj8",
+        "description": "A day of longboarding in Chico and Paradise California."
+    },
+    {
+        "title": "Winter & Spring 2014/15 Highlight Video",
+        "smallImage": "url('../images/videos/c-highlight-video.jpg')",
+        "id": "P32IPg-EKGU",
+        "description": "A day of longboarding in Chico and Paradise California."
+    },
+    {
+        "title": "Life in Tahoe",
+        "smallImage": "url('../images/videos/c-life-in-tahoe.jpg')",
+        "id": "UpTR-jZ9GdI",
+        "description": "A day of longboarding in Chico and Paradise California."
+    },
+    {
+        "title": "Sunny Daze in California",
+        "smallImage": "url('../images/videos/c-sunny-daze.jpg')",
+        "id": "0TeKt9-3CH8",
+        "description": "A day of longboarding in Chico and Paradise California."
+    },
+    {
+        "title": "Slow-mo Gunshot",
+        "smallImage": "url('../images/videos/c-slowmo-gunshot.jpg')",
+        "id": "AKraOzAvxq0",
+        "description": "A day of longboarding in Chico and Paradise California."
+    },
+    {
+        "title": "A Nice Beautiful Day in Paradise",
+        "smallImage": "url('../images/videos/c-a-nice-beautiful-day.jpg')",
+        "id": "RHrVn-L97xo",
+        "description": "A day of longboarding in Chico and Paradise California."
+    },
+    {
+        "title": "Fort Bragg Coastal Scenery from the Air",
+        "smallImage": "url('../images/videos/c-fort-bragg.jpg')",
+        "id": "9uNI3MmbbuA",
+        "description": "A day of longboarding in Chico and Paradise California."
+    },
+    {
+        "title": "Orchard Blossoms",
+        "smallImage": "url('../images/videos/c-orchard-blossoms.jpg')",
+        "id": "i7hbL0P2BgU",
+        "description": "A day of longboarding in Chico and Paradise California."
+    },
+    {
+        "title": "Head Dam",
+        "smallImage": "url('../images/videos/c-head-dam.jpg')",
+        "id": "hcToLpQUgqg",
+        "description": "A day of longboarding in Chico and Paradise California."
     },
     {
         "title": "Butte Creek Canyon",
-        "smallImage": "url(https://placeimg.com/800/500/nature)",
-        "largeImage": "url(https://placeimg.com/1280/900/nature)",
-        "description": "Butte creek canyon captured with a gopro and quadcopter.",
-        "id": "RFcto_jIc8o"
+        "smallImage": "url('../images/videos/c-butte-creek-canyon.jpg')",
+        "id": "RFcto_jIc8o",
+        "description": "A day of longboarding in Chico and Paradise California."
     },
     {
-        "title": "Christmas Lights at Meadow Brook in Chico, California",
-        "smallImage": "url(https://placeimg.com/800/500/architecture)",
-        "largeImage": "url(https://placeimg.com/1280/900/architecture)",
-        "description": "Christmas Lights at Meadow Brook Models in Chico, CA.",
-        "id": "-yl2vT7CCMA"
+        "title": "Concrete Pumping",
+        "smallImage": "url('../images/videos/c-concrete-pumping.jpg')",
+        "id": "0iEhrWjZyLc",
+        "description": "A day of longboarding in Chico and Paradise California."
     },
     {
-        "title": "Duck Hunting Adventures",
-        "smallImage": "url(https://placeimg.com/800/500/tech)",
-        "largeImage": "url(https://placeimg.com/1280/900/tech)",
-        "description": "Duck Hunting Adventures with a GoPro and Quadcopter",
-        "id": "WrdT2xFSRLw"
+        "title": "Rock Climbing and Views Along Hwy 70",
+        "smallImage": "url('../images/videos/c-rock-climbing-hwy.jpg')",
+        "id": "6ZqioJpOBqM",
+        "description": "A day of longboarding in Chico and Paradise California."
+    },
+    {
+        "title": "Westside Project Flyover",
+        "smallImage": "url('../images/videos/c-westside-project.png')",
+        "id": "em3sta14PEA",
+        "description": "A day of longboarding in Chico and Paradise California."
+    },
+    {
+        "title": "Mountain Biking the Sierra Nevada's'",
+        "smallImage": "url('../images/videos/c-mountain-biking-the-sierra-nevadas.jpg')",
+        "id": "z1yuqKaS_6s",
+        "description": "A day of longboarding in Chico and Paradise California."
     },
     {
         "title": "Lucid Aerials 2014 Highlight Video",
-        "smallImage": "url(https://placeimg.com/800/500/people)",
-        "largeImage": "url(https://placeimg.com/1280/900/people)",
-        "description": "A Highlight video of some of Lucid Aerials 2014 adventures/experiences.",
-        "id": "l4EIbGzH-YU"
-    },
-    {
-        "title": "Mountain Biking the Sierra Nevada Mountain Range",
-        "smallImage": "url(https://placeimg.com/800/500/animals)",
-        "largeImage": "url(https://placeimg.com/1280/900/animals)",
-        "description": "Lucid Aerials Capture Matt Tuma Mountain Biking near De Sabla Reservoir in Magalia, CA",
-        "id": "z1yuqKaS_6s"
-    },
-    {
-        "title": "Welcome to the Nye Ranch",
-        "smallImage": "url(https://placeimg.com/800/500/nature)",
-        "largeImage": "url(https://placeimg.com/1280/900/nature)",
-        "description": "Fort Bragg November 2014",
-        "id": "w4NcSnNkvOI"
-    },
-    {
-        "title": "Rock Climbing and views along Hwy 70",
-        "smallImage": "url(https://placeimg.com/800/500/architecture)",
-        "largeImage": "url(https://placeimg.com/1280/900/architecture)",
-        "description": "Northern California views and activites filmed by Lucid Aerials. Shoutout to the climbers who allowed us to film them! Thank you again!",
-        "id": "6ZqioJpOBqM"
+        "smallImage": "url('../images/videos/c-14-highlight-video.jpg')",
+        "id": "l4EIbGzH-YU",
+        "description": "A day of longboarding in Chico and Paradise California."
     },
     {
         "title": "A Day in the Snow",
-        "smallImage": "url(https://placeimg.com/800/500/tech)",
-        "largeImage": "url(https://placeimg.com/1280/900/tech)",
-        "description": "A day in the snowy Sierra Nevadas",
-        "id": "Xk8IcVwvd_U"
+        "smallImage": "url('../images/videos/c-a-day-in-the-snow.jpg')",
+        "id": "Xk8IcVwvd_U",
+        "description": "A day of longboarding in Chico and Paradise California."
+    },
+    {
+        "title": "Christmas Lights in Chico, California",
+        "smallImage": "url('../images/videos/c-christmas-lights.jpg')",
+        "id": "-yl2vT7CCMA",
+        "description": "A day of longboarding in Chico and Paradise California."
+    },
+    {
+        "title": "Quadcopter Footage of Burnsville",
+        "smallImage": "url('../images/videos/c-burnsville-footage.jpg')",
+        "id": "yOE9-gaiJn4",
+        "description": "A day of longboarding in Chico and Paradise California."
+    },
+    {
+        "title": "Thanksgiving Turkey Bowl 2014",
+        "smallImage": "url('../images/videos/c-turkey-bowl.png')",
+        "id": "AHDM3oP5GhY",
+        "description": "A day of longboarding in Chico and Paradise California."
+    },
+    {
+        "title": "Welcome to the Nye Ranch",
+        "smallImage": "url('../images/videos/c-welcome-to-nye.jpg')",
+        "id": "w4NcSnNkvOI",
+        "description": "A day of longboarding in Chico and Paradise California."
+    },
+    {
+        "title": "First Crash with my DJI Phantom 2",
+        "smallImage": "url('../images/videos/c-first-crash.png')",
+        "id": "R48XGQfXCXQ",
+        "description": "A day of longboarding in Chico and Paradise California."
+    },
+    {
+        "title": "Duck Hunting Adventures",
+        "smallImage": "url('../images/videos/c-duck-hunting.jpg')",
+        "id": "WrdT2xFSRLw",
+        "description": "A day of longboarding in Chico and Paradise California."
     }
 ]

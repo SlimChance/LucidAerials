@@ -1,14 +1,35 @@
+<div id="footer"></div>
 <div class="video-wrapper" id="top">
-    <div class="video-repeat" ng-class="{ 'expanded': expanded == $index }" ng-repeat="video in videos" ng-click="expand($index)" ng-style="{ 'background-image': getImage($index, video) }" scroll-to="top" easing="easeInOutQuart" role="presentation">
-        <h3 class="video-title">{{video.title}}</h3>
-        <span video-play-button class="play-button play-button{{$index}} glyphicon glyphicon-play" ng-click="play($index)" ng-show="playReady"></span>
-        <div class="video" id="ytplayer{{$index}}">
-            <div class="placeholder-image" style="background-image: getImage($index, video); background-position: center">
-            </div>
+    <div class="video-repeat" ng-class="{ 'expanded': expanded == $index }" ng-repeat="video in videos" ng-click="expand($index)" ng-style="{ 'background-image': video.smallImage }" scroll-to="top" easing="easeInOutQuart" role="presentation" scroll-to-center>
+        <div class="text-wrap">
+            <p class="video-title">{{video.title}}</p>
+            <p class="video-description">{{video.description}}</p>
         </div>
+        <span video-play-button class="play-button play-button{{$index}} glyphicon glyphicon-play" ng-click="play($index, video.id)" ng-show="playReady"></span>
+        <div class="video" id="ytplayer{{$index}}"></div>
         <div class="gradient"></div>
-        <div class="countdown-timer">Autoplay Next Video: <br>{{seconds}}</p>
+        <div class="countdown-timer">Autoplay Next Video: <br>{{seconds}}</div>
     </div>
+    <div class="subscribe">
+    	<p>Subscribe to Lucid Aerials on YouTube</p>
+        <div class="g-ytsubscribe" data-channelid="UCQbzkrvwwjTs33cOcVt4AKA" data-layout="default" data-theme="dark" data-count="hidden" data-onytevent="onYtEvent">
+        </div>
+    </div>
+    <footer class="last-item extra-margin"></footer>
 </div>
+
+<script src="https://apis.google.com/js/platform.js"></script>
+<script>
+  function onYtEvent(payload) {
+    if (payload.eventType == 'subscribe') {
+      // Add code to handle subscribe event.
+    } else if (payload.eventType == 'unsubscribe') {
+      // Add code to handle unsubscribe event.
+    }
+    if (window.console) { // for debugging only
+      window.console.log('YT event: ', payload);
+    }
+  }
+</script>
 
 

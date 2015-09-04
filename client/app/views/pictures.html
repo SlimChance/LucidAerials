@@ -1,5 +1,6 @@
-<div class="picture-wrapper">
+<div class="picture-wrapper" id="footer">
     <div image-dropdown class="picture-repeat" index="$index" ng-class="{ 'expanded': expanded == $index }" ng-repeat="picture in pictures" ng-click="expand($index)" ng-style="{ 'background-image': picture.smallImage }">
         <p class="picture-description">{{picture.description}}</p>
     </div>
+    <footer class="last-item"></footer>
 </div>

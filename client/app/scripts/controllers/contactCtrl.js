@@ -1,8 +1,11 @@
 'use strict';
 
-lucidAerials.controller('ContactCtrl', function($scope, $http) {
+lucidAerials.controller('ContactCtrl', function($scope, $timeout) {
         $scope.result = 'hidden'
 	    $scope.resultMessage;
+
+	    $timeout(function () { twttr.widgets.load(); }, 500); 
+
 	    $scope.formData; //formData is an object holding the name, email, subject, and message
 	    $scope.submitButtonDisabled = false;
 	    $scope.submitted = false; //used so that form errors are shown only after the form has been submitted

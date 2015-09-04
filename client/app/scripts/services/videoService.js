@@ -1,90 +1,78 @@
 'use strict';
 
-lucidAerials.service('videoService', function ($window, $q, $resource, $rootScope, $cacheFactory) {
-    var me = this;
-    var cache = $cacheFactory('videos');
-    me.resource = $resource('/data/videos.json');
+lucidAerials.service('videoService', function ($q, $resource, $rootScope, $cacheFactory, $timeout) {
+    return function () {
+        var vs = this;
+        vs.resource = $resource('/data/videos.json').query();
+        vs.videos = vs.resource;
+        vs.cache = {};
 
-    me.resource.query().$promise.then(function (data) {
-        me.videos = data;
-    });
-
-    me.initYTPlayer = function (element, index) {
-        var youtubeAPI = document.getElementsByTagName('script')[0];
-        console.log(youtubeAPI);
-
-        if (!youtubeAPI.src == 'https://www.youtube.com/iframe_api') {
-            var tag = document.createElement('script');
-            var element = element | 'ytplayer0';
-            var index = index | 0;
-            var videoId = me.videos[index].id;
-
-            // YouTube API
-            tag.src = 'https://www.youtube.com/iframe_api';
-            var firstScriptTag = document.getElementsByTagName('script')[0];
-            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-            // Must be global. YT looks at the window scope once the script tag is initialized. Loads in first video
-            $window.onYouTubeIframeAPIReady = function() {
-                var YTPlayer = new YT.Player('ytplayer0', {
-                    videoId: videoId,
-                    events: {
-                        'onStateChange': me.playerStateChange
-                    }
-                });
-
-                cache.put(videoId, YTPlayer);
-            }
+        vs.getCache = function(videoId) {
+            return vs.cache[videoId];
         }
-    };
-
-    me.createPlayer = function(element, index) {
-        // Returns a promise. Won't let user play video until loaded
-        var deferred = $q.defer();
-        var videoId = me.videos[index].id;
-
-        console.log(cache.get(videoId));
-
-        function createYTPlayer() {
-            if (YT) {
-               var YTPlayer = new YT.Player(element, {
-                    videoId: videoId,
-                    playerVars: {
-                        autoplay: 0
-                    },
-                    events: {
-                        'onStateChange': me.playerStateChange
-                    }
-                });
-
-                cache.put(videoId, YTPlayer);
-            } else {
-                me.initYTPlayer(element, index);
-            }
+        vs.putCache = function(videoId, video) {
+            vs.cache[videoId] = video;
         }
 
-        deferred.resolve(createYTPlayer());
-        console.log(cache);
+        // Returns a promise
+        vs.createPlayer = function(elementId, index) {
+            var deferred = $q.defer(),
+                videoId = vs.videos[index].id,
+                element = angular.element(elementId)[0];
+            
+            console.log(element);
+            function createYTPlayer() {
+                if (YT) {
+                    var YTPlayer = new YT.Player(element, {
+                        videoId: videoId,
+                        playerVars: {
+                            autoplay: 0
+                        },
+                        events: {
+                            'onStateChange': vs.playerStateChange
+                        }
+                    });
 
-        return deferred.promise;
-    };
-
-    me.playerStateChange = function (event) {
-        if (event.data == 0) {
-            var iframeId = event.target.f.id;
-            var indexPattern = /\d+/g;
-            var index = iframeId.match(indexPattern)[0];
-            var nextVideo = parseInt(index) + 1;
-
-            if (me.player[nextVideo]) {
-                // play next video
-            } else {
-                var element = 'ytplayer' + nextVideo;
-                me.createPlayer(element, nextVideo);
-                // .then play video
+                    console.log('Pushing to array: ' + videoId);
+                    vs.putCache(videoId, YTPlayer);
+                } else {
+                    vs.createPlayer();
+                }
             }
 
-            $rootScope.$broadcast('playNext', nextVideo);
-        }
+            deferred.resolve(createYTPlayer());
+
+            return deferred.promise;
+        };
+
+        vs.playerStateChange = function (event) {
+            if (event.data == 0) {
+                var iframeId = event.target.f.id;
+                var indexPattern = /\d+/g;
+                var index = iframeId.match(indexPattern)[0];
+                var nextVideo = parseInt(index) + 1;
+
+                console.log(index, nextVideo);
+
+                // if (vs.player[nextVideo]) {
+                //     // play next video
+                // } else {
+                //     // vs.createPlayer(element, nextVideo).then(function() {
+                //     //     cache.get(videoId).playVideo();
+                //     // });
+                // }
+
+                $rootScope.$broadcast('playNext', nextVideo);
+            }
+        };
+
+        // Call 
+        $timeout(function() {
+            var element = 'div#ytplayer0',
+                index = 0;
+            vs.createPlayer(element, index).then(function() {
+                console.log('successfully created player');
+            });
+        }, 1000);
     }
 });
