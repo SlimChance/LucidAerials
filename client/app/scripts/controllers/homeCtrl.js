@@ -1,8 +1,8 @@
 'use strict';
 
 lucidAerials.controller('HomeCtrl', function($scope, $window) {
-        var video = angular.element('video.home-video-element');
-        console.log(video);
+        var video = angular.element('video.home-video'),
+            videoOverlay = angular.element('div.video-overlay');
 
         $scope.resizeVideo = function() {
             var windowWidth = $window.innerWidth,
@@ -10,14 +10,16 @@ lucidAerials.controller('HomeCtrl', function($scope, $window) {
                 ratio = windowWidth / windowHeight;
 
             if (ratio < 0.9) {
-                video.width(windowWidth);
+                //video.width(windowWidth);
                 video.height(windowWidth * 0.85);
+                videoOverlay.height(windowWidth * 0.85);
             } else {
+                //video.width(windowWidth);
                 video.height(windowHeight);
-                video.width(windowWidth);
+                videoOverlay.height(windowHeight);
             }
 
-            if (windowWidth > 500) {
+            if (windowWidth >= 480) {
                 $scope.playVideo();
             };
         };

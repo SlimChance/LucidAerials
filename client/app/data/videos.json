@@ -1,152 +1,182 @@
 [
     {
-        "title": "Bike Trail Session",
+        "title": "-Aerials- Meadow Brook Ranch Grand Opening",
+        "smallImage": "url('../images/videos/c-wedding.jpg')",
+        "id": "-NQ8MMsEgJo",
+        "description": "Aerial footage of the Grand Opening at Meadow Brook Ranch located in Chico, California."
+    },
+    {
+        "title": "-Aerials- Mountain Meadows Reservoir Drained Overnight",
+        "smallImage": "url('../images/videos/walker-lake-4.jpg')",
+        "id": "DmivKJu8QaI",
+        "description": "The 6 mile long 2 mile wide Mountain Meadows Reservoir (Walker Lake) was drained last week by PG&E, it is home to 8 threatened or endangered species and 21 species of special concern. The Department of Fish and Wildlife gave the area the highest possible rating for acquisition by the Wildlife Conservation Board."
+    },
+    {
+        "title": "Jared's Lip-Synced Vows (Jared & Kyndra's Wedding)",
+        "smallImage": "url('../images/videos/c-wedding.jpg')",
+        "id": "6hUVUBWITcQ",
+        "description": "Jared has his own unique way of expressing his wedding vows."
+    },
+    {
+        "title": "-Longboarding- South Park & Bike Trail",
+        "smallImage": "url('../images/videos/c-longboarding-south.jpg')",
+        "id": "7u_8gL1GJlw",
+        "description": "Had a superb ride around the abandoned golf course in the pines and around the ridge"
+    },
+    {
+        "title": "-Private Lake-",
+        "smallImage": "url('../images/videos/c-willow-lake.jpg')",
+        "id": "RMJYMbU4Ek4",
+        "description": "A nice secluded lake in the Sierra Nevada mountain range"
+    },
+    {
+        "title": "-Longboarding- Bike Trail Session",
         "smallImage": "url('../images/videos/c-bike-trail-session.jpg')",
         "id": "T83zTov4Lik",
         "description": "A nice Sunday session on the bike trail"
     },
     {
-        "title": "EDC Las Vegas 2015 After Movie",
+        "title": "-EDC- Las Vegas 2015 After Movie",
         "smallImage": "url('../images/videos/c-edc.jpg')",
         "id": "KUPyUZjaBRE",
         "description": "Shea, Tuma, Cranney, Trent and JimBob travel to EDC Las Vegas for their first time."
     },
     {
-        "title": "Longboarding",
+        "title": "-Longboarding- Bidwell park & night run",
         "smallImage": "url('../images/videos/c-longboarding.jpg')",
         "id": "80UBQSoDsE0",
         "description": "A day of longboarding in Chico and Paradise California."
     },
     {
-        "title": "Slow Motion Chainsaw",
+        "title": "-Slow Motion- Chainsaw",
         "smallImage": "url('../images/videos/c-chainsaw.jpg')",
         "id": "8KvwrL3rUj8",
-        "description": "A day of longboarding in Chico and Paradise California."
+        "description": "Chainsaw"
     },
     {
-        "title": "Winter & Spring 2014/15 Highlight Video",
+        "title": "-Aerials- Winter & Spring 2014/15 Highlight Video",
         "smallImage": "url('../images/videos/c-highlight-video.jpg')",
         "id": "P32IPg-EKGU",
-        "description": "A day of longboarding in Chico and Paradise California."
+        "description": "Lucid Aerials Highlight Video"
     },
     {
-        "title": "Life in Tahoe",
+        "title": "-Aerials- Life in Tahoe",
         "smallImage": "url('../images/videos/c-life-in-tahoe.jpg')",
         "id": "UpTR-jZ9GdI",
-        "description": "A day of longboarding in Chico and Paradise California."
+        "description": "A weekend at Lake Tahoe"
     },
     {
-        "title": "Sunny Daze in California",
+        "title": "-River- Sunny daze in California (West branch of the Feather river)",
         "smallImage": "url('../images/videos/c-sunny-daze.jpg')",
         "id": "0TeKt9-3CH8",
-        "description": "A day of longboarding in Chico and Paradise California."
+        "description": "Took a trip to one of our favorite swimming holes"
     },
     {
-        "title": "Slow-mo Gunshot",
+        "title": "-Slow Motion- Gunshot",
         "smallImage": "url('../images/videos/c-slowmo-gunshot.jpg')",
         "id": "AKraOzAvxq0",
-        "description": "A day of longboarding in Chico and Paradise California."
+        "description": "Shooting a Winchester model 70 30-06"
     },
     {
-        "title": "A Nice Beautiful Day in Paradise",
+        "title": "-Aerials- A nice beautiful day in Paradise",
         "smallImage": "url('../images/videos/c-a-nice-beautiful-day.jpg')",
         "id": "RHrVn-L97xo",
-        "description": "A day of longboarding in Chico and Paradise California."
+        "description": "Lookout point filmed with a quadcopter"
     },
     {
-        "title": "Fort Bragg Coastal Scenery from the Air",
+        "title": "-Aerials- Coastal scenery filmed from the air",
         "smallImage": "url('../images/videos/c-fort-bragg.jpg')",
         "id": "9uNI3MmbbuA",
-        "description": "A day of longboarding in Chico and Paradise California."
+        "description": "Llamas, the Ocean, and the Nye Ranch"
     },
     {
-        "title": "Orchard Blossoms",
+        "title": "-Aerials- California Almond Orchard Blooms",
         "smallImage": "url('../images/videos/c-orchard-blossoms.jpg')",
         "id": "i7hbL0P2BgU",
-        "description": "A day of longboarding in Chico and Paradise California."
+        "description": "Take a look at the blossoming of the California Almonds!"
     },
     {
-        "title": "Head Dam",
+        "title": "-Aerials- Head Dam",
         "smallImage": "url('../images/videos/c-head-dam.jpg')",
         "id": "hcToLpQUgqg",
-        "description": "A day of longboarding in Chico and Paradise California."
+        "description": "Head dam filmed with a GoPro right after the big storm"
     },
     {
-        "title": "Butte Creek Canyon",
+        "title": "-Aerials- Butte Creek Canyon",
         "smallImage": "url('../images/videos/c-butte-creek-canyon.jpg')",
         "id": "RFcto_jIc8o",
-        "description": "A day of longboarding in Chico and Paradise California."
+        "description": "Butte creek canyon captured with a gopro and quadcopter."
     },
     {
-        "title": "Concrete Pumping",
+        "title": "-Aerials- Concrete pumping",
         "smallImage": "url('../images/videos/c-concrete-pumping.jpg')",
         "id": "0iEhrWjZyLc",
-        "description": "A day of longboarding in Chico and Paradise California."
+        "description": "Concrete pumping"
     },
     {
-        "title": "Rock Climbing and Views Along Hwy 70",
+        "title": "-Aerials- Rock Climbing and views along Hwy 70",
         "smallImage": "url('../images/videos/c-rock-climbing-hwy.jpg')",
         "id": "6ZqioJpOBqM",
-        "description": "A day of longboarding in Chico and Paradise California."
+        "description": "Northern California views and activites filmed by Lucid Aerials. Shoutout to the climbers who allowed us to film them! Thank you again!"
     },
     {
-        "title": "Westside Project Flyover",
+        "title": "-Aerials- Westside Project Flyover",
         "smallImage": "url('../images/videos/c-westside-project.png')",
         "id": "em3sta14PEA",
-        "description": "A day of longboarding in Chico and Paradise California."
+        "description": "Westside Project Flyover"
     },
     {
-        "title": "Mountain Biking the Sierra Nevada's'",
+        "title": "-Aerials- Mountain Biking the Sierra Nevada Mountain range",
         "smallImage": "url('../images/videos/c-mountain-biking-the-sierra-nevadas.jpg')",
         "id": "z1yuqKaS_6s",
-        "description": "A day of longboarding in Chico and Paradise California."
+        "description": "Lucid Aerials Capture Matt Tuma Mountain Biking near De Sabla Reservoir in Magalia, CA"
     },
     {
-        "title": "Lucid Aerials 2014 Highlight Video",
+        "title": "-Aerials- 2014 Highlight Video",
         "smallImage": "url('../images/videos/c-14-highlight-video.jpg')",
         "id": "l4EIbGzH-YU",
-        "description": "A day of longboarding in Chico and Paradise California."
+        "description": "A Highlight video of some of Lucid Aerials 2014 adventures/experiences."
     },
     {
-        "title": "A Day in the Snow",
+        "title": "-Aerials- A day in the snow",
         "smallImage": "url('../images/videos/c-a-day-in-the-snow.jpg')",
         "id": "Xk8IcVwvd_U",
-        "description": "A day of longboarding in Chico and Paradise California."
+        "description": "A day in the snowy Sierra Nevadas"
     },
     {
-        "title": "Christmas Lights in Chico, California",
+        "title": "-Aerials- Christmas Lights at Meadow Brook in Chico, California",
         "smallImage": "url('../images/videos/c-christmas-lights.jpg')",
         "id": "-yl2vT7CCMA",
-        "description": "A day of longboarding in Chico and Paradise California."
+        "description": "Christmas Lights at Meadow Brook Models in Chico, CA."
     },
     {
-        "title": "Quadcopter Footage of Burnsville",
+        "title": "-Aerials- Burnsville",
         "smallImage": "url('../images/videos/c-burnsville-footage.jpg')",
         "id": "yOE9-gaiJn4",
-        "description": "A day of longboarding in Chico and Paradise California."
+        "description": "Some Aerial shots of/around Burnsville and Butte Creek Canyon."
     },
     {
-        "title": "Thanksgiving Turkey Bowl 2014",
+        "title": "-Aerials- Thanksgiving Turkey Bowl 2014",
         "smallImage": "url('../images/videos/c-turkey-bowl.png')",
         "id": "AHDM3oP5GhY",
-        "description": "A day of longboarding in Chico and Paradise California."
+        "description": "The Annual Thanksgiving Turkey Bowl at Wraith Field."
     },
     {
-        "title": "Welcome to the Nye Ranch",
+        "title": "-Aerials- Welcome to the Nye Ranch",
         "smallImage": "url('../images/videos/c-welcome-to-nye.jpg')",
         "id": "w4NcSnNkvOI",
-        "description": "A day of longboarding in Chico and Paradise California."
+        "description": "Fort Bragg November 2014"
     },
     {
-        "title": "First Crash with my DJI Phantom 2",
+        "title": "-Crash- First crash with my DJI Phantom 2",
         "smallImage": "url('../images/videos/c-first-crash.png')",
         "id": "R48XGQfXCXQ",
-        "description": "A day of longboarding in Chico and Paradise California."
+        "description": "Got disorientated while flying my DJI Phantom and ended up crashing."
     },
     {
-        "title": "Duck Hunting Adventures",
+        "title": "-Aerials- Hunting",
         "smallImage": "url('../images/videos/c-duck-hunting.jpg')",
         "id": "WrdT2xFSRLw",
-        "description": "A day of longboarding in Chico and Paradise California."
+        "description": "Duck Hunting Adventures with a GoPro and Quadcopter"
     }
 ]

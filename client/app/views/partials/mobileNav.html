@@ -1,27 +1,27 @@
 <div class="mobile-nav">
     <div class="nav-wrapper" mobile-scroll-hide>
         <div class="mobile-logo-wrapper" ng-click="navigateTo('/')">
-            <!-- <img class="mobile-logo" src="images/transparent-logo.png" alt="Lucid Aerials Logo"> -->
-            <h3 class="mobile-site-title">Lucid Aerials</h3>
+            <img class="mobile-logo" src="../images/c-transparent-logo-cropped.png" alt="Lucid Aerials Logo" height="35px" width="35px" align="middle">
+            <h3>Lucid Aerials</h3>
         </div>
-        <div class="menu-wrapper" ng-click="toggleNav($event)" ng-class="{ 'menu-wrapper-toggled': navToggled }">
+        <div class="menu-wrapper" ng-class="{ 'menu-wrapper-toggled': navToggled }" ng-click="toggleNav($event)">
             <div class="menu-bar1"></div>
             <div class="menu-bar2"></div>
             <div class="menu-bar3"></div>
         </div>
     </div>
-    <nav class="navbar-animate" ng-class="{ 'navbar-animate-toggled': navToggled }">
-        <div class="nav-home" ng-click="navigateTo('/'); closeNav()">
-            <h3 class="nav-text">Home</h3>
+    <nav class="nav-options" ng-class="{ 'nav-options-toggled': navToggled }">
+        <div class="nav-home" ng-click="navigateTo('/')">
+            <span class="glyphicon glyphicon-home"></span><h3 class="nav-text">Home</h3>
         </div>
-        <div class="nav-videos" ng-click="navigateTo('/videos'); closeNav()">
-            <h3 class="nav-text">Videos</h3>
+        <div class="nav-videos" ng-click="navigateTo('/videos')">
+            <span class="glyphicon glyphicon-facetime-video"></span><h3 class="nav-text">Videos</h3>
         </div>
-        <div class="nav-pictures" ng-click="navigateTo('/pictures'); closeNav()">
-            <h3 class="nav-text">Pictures</h3>
+        <div class="nav-pictures" ng-click="navigateTo('/pictures')">
+            <span class="glyphicon glyphicon-picture"></span><h3 class="nav-text">Pictures</h3>
         </div>
-        <div class="nav-contact" ng-click="navigateTo('/contact'); closeNav()">
-            <h3 class="nav-text">Contact</h3>
+        <div class="nav-contact" ng-click="navigateTo('/contact')">
+            <span class="glyphicon glyphicon-comment"></span><h3 class="nav-text">Contact</h3>
         </div>
     </nav>
 </div>

@@ -1,126 +1,12 @@
 @import 'vars';
-@media (min-width: 500px) {
-	.contact-container {
-		display: flex;
-		flex-flow: row wrap;
-		justify-content: center;
-		padding-top: 55px;
-		height: 100%;
-		width: 100%;
-		min-width: 100vw;
-		min-height: 100vh;
-		background-color: $light-blue;
-		.twitter-wrap {
-			padding-right: 50px;
-			min-height: 730px;
-			height: 85vh;
-			align-self: center;
-			max-width: 40%;
-			min-width: 440px;
-		}
-		.contact-info {
-			align-self: center;
-			max-width: 40%;
-			height: 85vh;
-			p {
-				color: white;
-				font-weight: 400;
-			}
-			.me-and-z {
-				height: 630px;
-				border-radius: 3px;
-			}
-			a {
-				color: $dark-grey;
-			}
-		}
-		.contact-header {
-			color: white;
-			font-size: 28px;
-			font-weight: 400;
-			margin: 10px;
-			line-height: 28px;
-		}
-	}
-	.social-media-container {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		justify-content: space-around;
-		width: 100%;
-		padding: 50px 0 20px 0;
-	}
-}
-@media (max-width: 800px) {
+
+@media (max-width: 490px) {
 	.contact-container {
 		display: flex;
 		flex-flow: column wrap;
-		justify-content: center;
-		padding-top: 55px;
-		height: 100%;
-		width: 100%;
-		min-width: 100vw;
-		min-height: 100vh;
-		background-color: $light-blue;
-		.twitter-wrap {
-			order: 1;
-			width: 80vw;
-			max-width: 80vw;
-			height: auto;
-			align-self: center;
-			padding: 0;
-		}
-		.twitter-timeline {
-			height: 70vh !important;
-			align-self: center;
-		}
-		.contact-info {
-			order: 0;
-			align-self: center;
-			padding: 0;
-			width: 80vw;
-			height: auto;
-			max-width: 80vw;
-			margin-bottom: 50px;
-			p {
-				color: white;
-				font-weight: 400;
-			}
-			.me-and-z {
-				width: 90vw;
-				height: auto;
-				border-radius: 3px;
-			}
-			a {
-				color: $dark-grey;
-			}
-		}
-		.contact-header {
-			color: white;
-			font-size: 28px;
-			font-weight: 400;
-		}
-	}
-	.social-media-container {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		justify-content: space-around;
-		width: 100%;
-		padding: 50px 0 20px 0;
-	}
-}	
-@media (max-width: 500px) {
-	.contact-container {
-		display: flex;
-		flex-flow: column wrap;
-		justify-content: center;
-		padding-top: 55px;
-		height: 100%;
-		width: 100%;
-		min-width: 100vw;
-		min-height: 100vh;
-		background-color: $light-blue;
+		position: relative;
+		top: 55px;
+		background-color: $dark-grey;
 		.twitter-wrap {
 			order: 1;
 			width: 90vw;
@@ -135,6 +21,7 @@
 			p {
 				color: white;
 				font-weight: 400;
+				margin-bottom: 10px;
 			}
 			.me-and-z {
 				width: 90vw;
@@ -142,21 +29,181 @@
 				border-radius: 3px;
 			}
 			a {
-				color: $dark-grey;
+				color: $light-blue;
 			}
+		}
+		hr {
+			margin-top: 10px;
+			border-top: 2px solid $light-blue;
 		}
 		.contact-header {
 			color: white;
+			font-family: $lora-font;
 			font-size: 28px;
 			font-weight: 400;
+			margin: 20px 0 0;
 		}
 	}
-	.social-media-container {
+}
+
+/* Landscape phone to portrait tablet */
+@media (min-width: 491px) and (max-width: 767px) {
+	.contact-container {
 		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		justify-content: space-around;
-		width: 100%;
-		padding: 50px 0 20px 0;
+		flex-flow: column wrap;
+		justify-content: center;
+		align-items: center;
+		padding: 35px 20px 20px 20px;
+		background-color: $dark-grey;
+		.twitter-wrap {
+			display: flex;
+			flex-flow: column nowrap;
+			order: 1;
+			height: auto;
+			width: 100%;
+			padding: 0;
+		}
+		.twitter-timeline {
+			width: 80vw !important;
+			height: 65vh !important;
+			align-self: center;
+		}
+		.contact-info {
+			display: flex;
+			flex-flow: column nowrap;
+			order: 0;
+			padding: 0;
+			height: auto;
+			width: 100%;
+			margin-bottom: 10px;
+			p {
+				color: white;
+				font-weight: 400;
+			}
+			.me-and-z {
+				width: 70vw;
+				height: auto;
+				align-self: center;
+				border-radius: 3px;
+			}
+			a {
+				color: $light-blue;
+			}
+		}
+		hr {
+			margin-top: 10px;
+			border-top: 2px solid $light-blue;
+		}
+		.contact-header {
+			color: white;
+			font-family: $lora-font;
+			font-size: 28px;
+			font-weight: 400;
+			margin: 20px 0 0;
+		}
 	}
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+		.contact-container {
+			display: flex;
+			flex-flow: row wrap;
+			justify-content: center;
+			padding-top: 60px;
+			height: 100%;
+			width: 100%;
+			background-color: $dark-grey;
+			.twitter-wrap {
+				padding-right: 50px;
+				min-height: 730px;
+				max-height: 85vh;
+				align-self: center;
+				max-width: 40%;
+				min-width: 440px;
+			}
+			.contact-info {
+				position: relative;
+				min-width: 440px;
+				max-width: 40%;
+				max-height: 85vh;
+				p {
+					color: white;
+					font-weight: 400;
+				}
+				.me-and-z {
+					margin: 20px auto;
+					height: 600px;
+					border-radius: 3px;
+				}
+				a {
+					color: $light-blue;
+				}
+			}
+			hr {
+				margin-top: 10px;
+				border-top: 2px solid $light-blue;
+			}
+			.contact-header {
+				color: white;
+				font-family: $lora-font;
+				font-size: 28px;
+				font-weight: 400;
+				margin: 20px 0 0;
+			}
+		}
+		.last-item {
+			order: 5000;
+		}
+}
+
+/* Large desktop */
+@media (min-width: 980px) {
+		.contact-container {
+			display: flex;
+			flex-flow: row wrap;
+			justify-content: center;
+			padding-top: 60px;
+			height: 100%;
+			width: 100%;
+			background-color: $dark-grey;
+			.twitter-wrap {
+				padding-right: 50px;
+				min-height: 730px;
+				height: 85vh;
+				align-self: center;
+				max-width: 40%;
+				min-width: 440px;
+			}
+			.contact-info {
+				align-self: center;
+				max-width: 40%;
+				height: 85vh;
+				p {
+					color: white;
+					font-weight: 400;
+				}
+				.me-and-z {
+					height: 630px;
+					border-radius: 3px;
+				}
+				a {
+					color: $light-blue;
+				}
+			}
+			hr {
+				margin-top: 10px;
+				border-top: 2px solid $light-blue;
+			}
+			.contact-header {
+				color: white;
+				font-family: $lora-font;
+				font-size: 28px;
+				font-weight: 400;
+				margin: 20px 0 0;
+			}
+		}
+		.last-item {
+			order: 5000;
+		}
 }

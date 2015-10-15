@@ -1,329 +1,424 @@
 @import 'vars';
-@media (min-width: 500px) {
-    .home-video-wrapper {
-        position: relative;
-        background-color: $light-blue;
-    }
-    .video-overlay {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 2;
-        opacity: 1;
-        text-align: center;
-    }
-    .site-title {
-        font-family: $lora-font;
-        color: $light-blue;
-        text-shadow: $text-shadow;
-        margin: 0px;
-        opacity: 1;
-        transition: opacity 0.5s ease-out;
-        font-size: 6.5em;
-    }
-    img.logo {
-        height: 225px;
-        width: 225px;
-        margin: 60px auto;
-        display: block;
-        clear: both;
-    }
-    .b-play-video {
-        padding: 12px 25px;
-        border-radius: 3px;
-        background: $light-blue;
-        box-shadow: $material-shadow;
-        color: white;
-        opacity: 1;
-        outline: 0;
-        font-size: 1.25em;
-        border: none;
-        transition: opacity 0.5s ease-out;
-        &:hover {
-            background-color: $light-grey;
-        }
-    }
-    .home-video-filter {
-        opacity: 0.75;
-        z-index: 1;
-        position: relative;
-        transition: opacity 0.5s ease-out;
-    }
-    video#bgvid {
-        position: relative;
-        top: 0;
-        left: 0;
-        display: block;
-        object-fit: fill;
-        overflow: hidden;
-        z-index: 0;
-    }
-    .scroll-arrow {
-        position: absolute !important;
-        top: 90vh !important;
-        left: calc(50% - .5em);
-        display: block;
-        z-index: 2;
-        font-size: 4em;
-        color: white;
-    }
-    .bio-wrapper {
-        position: relative;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        text-align: center;
-        height: auto;
-        padding: 100px 20px;
-        margin: 0;
-        width: 100%;
-        background-color: $light-blue;
-    }
-    .selfie {
-        box-shadow: $material-shadow;
-        border-radius: 3px;
-    }
-    .bio-text {
-        color: white;
-        padding: 0 20px;
-        max-width: 700px;
-    }
-    .footer-wrap {
-        background-color: $light-blue;
-        display: flex;
-        justify-content: space-around;
-        flex-flow: row wrap;
-        color: white;
-        .copyright {
-            margin: 20px;
-        }
-        .footer-nav {
-            margin: 20px 50px;
-            & > li {
-                display: inline;
-                list-style: none;
-                margin: 0px 50px;
-                font-size: 16px;
-                a {
-                    color: white;
-                    text-decoration: none;
-                }
-            }
-        }
-        .scroll-to-top {
-            font-size: 16px;
-            margin: 20px;
-            &:hover {
-                cursor: pointer;
-            }
-        }
-        .social-media-container {
-            display: flex;
-            justify-content: center;
-            flex-flow: row wrap;
-            .facebook-logo-footer, .twitter-logo-footer, .instagram-logo-footer, .youtube-logo-footer {
-                height: 128px;
-                width: 128px;
-                background-image: url('../images/social-media-50.png');
-                background-repeat: no-repeat;
-                margin: 0 20px;
-                box-shadow: $material-shadow;
-                border-radius: 3px;
-            }
-            .facebook-logo-footer {
-                background-position: -160px -160px;
-            }
-            .twitter-logo-footer {
-                background-position: -536px -160px;
-            }
-            .instagram-logo-footer {
-                background-position: -160px -912px;
-            }
-            .youtube-logo-footer {
-                background-position: -536px -912px;
-            }
-        }
-    } 
-}
-@media (max-width: 1350px) {
-    .bio-wrapper {
-        padding: 40px 20px 20px 20px;
-    }
-    .bio-text {
-        padding-top: 20px !important;
-    }
-}
-@media (max-width: 1090px) {
 
-    .video-overlay {
-        width: 100%;
-    }
-}
-@media (max-width: 870px) and (min-width: 500px) {
-    .bio-wrapper {
-        padding: 20px;
-    }
-    .site-title {
-        font-size: 5em;
-        width: 100%;
-    }
-    .logo {
-        height: 150px !important;
-        width: 150px !important;
-        margin: 40px auto !important;
-    }
-}
-
-@media (max-width: 600px) and (min-width: 500px) {
-    .site-title {
-        color: $light-blue;
-        text-shadow: $text-shadow;
-        width: 100%;
-        font-size: 4em;
-    }
-    .logo {
-        height: 100px !important;
-        width: 100px !important;
-        margin: 20px auto !important;
-    }
-}
-@media (max-width: 675px) {
-    .facebook-logo-footer, .twitter-logo-footer, .instagram-logo-footer, .youtube-logo-footer {
-        height: 64px !important;
-        width: 64px !important;
-        background-image: url('../images/social-media-25.png') !important;
-        margin: 10px 50px !important;
-    }
-    .facebook-logo-footer {
-        background-position: -80px -80px !important;
-    }
-    .twitter-logo-footer {
-        background-position: -268px -80px !important;
-    }
-    .instagram-logo-footer {
-        background-position: -80px -456px !important;
-    }
-    .youtube-logo-footer {
-        background-position: -268px -456px !important;
-    }
-}
-@media (max-width: 500px) {
+@media (max-width: 490px) {
     .home-wrapper {
         position: relative;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
         top: 55px;
-        height: 100%;
-        width: 100%;
+        background-color: $dark-grey;
         .home-video-wrapper {
-            position: relative;
-            background-color: $light-blue;
+            video#bgvid {
+                position: relative;
+                top: 0;
+                left: 0;
+                display: block;
+                object-fit: fill;
+                overflow: hidden;
+                opacity: .7;
+                z-index: 0;
+                width: 100%;
+            }
             .video-overlay {
                 position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
+                top: 0;
+                display: flex;
+                flex-flow: column;
+                align-items: center;
+                justify-content: center;
                 z-index: 2;
                 opacity: 1;
-                text-align: center;
-                width: auto;
-                .site-title {
-                    width: auto;
-                    height: auto;
-                    color: $light-blue;
-                    text-shadow: $text-shadow;
-                    margin: 0px;
-                    opacity: 1;
-                    transition: opacity 0.5s ease-out;
-                }
-                .logo {
-                    height: 130px;
-                    width: 130px;
-                    margin: 20px auto;
-                }
-                .b-play-video {
-                    margin-top: 15px;
-                    padding: 10px 20px;
-                    border-radius: 5px;
-                    background: $light-blue;
-                    color: white;
-                    border: none;
-                    opacity: 1;
-                    outline: 0;
-                    transition: opacity 0.5s ease-out;
-                }
+                width: 100%;
+                transition: opacity .5s ease-out;
             }
-            .home-video-filter {
-                opacity: 0.70;
-                z-index: 1;
-                position: relative;
+            .site-title {
+                color: $light-blue;
+                text-shadow: $text-shadow;
+                font-family: $lora-font;
+                margin: 0px 20px;
+                opacity: 1;
+                font-size: 2.4em;
+            }
+            .logo {
+                height: 100px;
+                width: 100px;
+                margin: 20px;
+            }
+            .b-play-video {
+                margin: 10px 20px;
+                padding: 7px 15px;
+                border-radius: 3px;
+                background: $light-blue;
+                color: white;
+                border: none;
+                opacity: 1;
+                outline: 0;
+                box-shadow: $material-shadow;
                 transition: opacity 0.5s ease-out;
-                video#bgvid {
-                    position: relative;
-                    top: 0;
-                    left: 0;
-                    display: block;
-                    object-fit: fill;
-                    overflow: hidden;
-                    opacity: 1;
-                    z-index: 0;
-                }
             }
-            .scroll-arrow-wrapper, .scroll-arrow {
+            .scroll-arrow {
                 display: none;
             }
         }
         .bio-wrapper {
-            position: relative;
-            height: auto;
-            padding: 10px 20px 20px 20px;
-            margin: 0px;
-            background-color: $light-blue;
             .selfie {
-                padding: 10px;
+                width: calc(100% - 40px);
+                margin: 40px 20px 20px 20px;
+                border-radius: 3px;
             }
             .bio-text {
-                padding: 20px 10px;
+                margin: 0 20px 20px 20px;
                 color: white;
                 font-weight: 400;
-                font-size: 16px;
+                font-size: 1.1em;
             }
         }
     }
-    .footer-wrap {
-        background-color: $light-blue;
+}
+
+/* Landscape phone to portrait tablet */
+@media (min-width: 491px) and (max-width: 767px) {
+    .home-wrapper {
         display: flex;
-        justify-content: space-around;
-        flex-flow: row wrap;
-        color: white;
-        .copyright {
-            margin: 20px;
-        }
-        .footer-nav {
-            margin: 20px 50px;
-            & > li {
-                display: inline;
-                list-style: none;
-                width: 50%;
-                font-size: 16px;
-                a {
-                    color: white;
-                    width: 50%;
-                    text-decoration: none;
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
+        background-color: $dark-grey;
+        .home-video-wrapper {
+            video#bgvid {
+                position: relative;
+                top: 0;
+                left: 0;
+                display: block;
+                object-fit: fill;
+                overflow: hidden;
+                opacity: .7;
+                z-index: 0;
+                width: 100%;
+            }
+            .video-overlay {
+                position: absolute;
+                top: 0;
+                display: flex;
+                flex-flow: column;
+                align-items: center;
+                justify-content: center;
+                z-index: 2;
+                opacity: 1;
+                width: 100%;
+                transition: opacity .5s ease-out;
+            }
+            .site-title {
+                color: $light-blue;
+                text-shadow: $text-shadow;
+                font-family: $lora-font;
+                margin: 0px 20px;
+                opacity: 1;
+                font-size: 3em;
+            }
+            .logo {
+                height: 150px;
+                width: 150px;
+                margin: 20px;
+            }
+            .b-play-video {
+                margin: 10px 20px;
+                padding: 10px 20px;
+                border-radius: 3px;
+                background: $light-blue;
+                color: white;
+                border: none;
+                opacity: 1;
+                outline: 0;
+                box-shadow: $material-shadow;
+                transition: opacity 0.5s ease-out;
+                &:hover {
+                    background-color: $light-grey;
                 }
             }
+            .scroll-arrow {
+                display: none;
+            }
         }
-        .scroll-to-top {
-            font-size: 16px;
-            margin: 20px;
-            &:hover {
-                cursor: pointer;
+        .bio-wrapper {
+            .selfie {
+                width: calc(100% - 60px);
+                margin: 40px 30px 20px 30px;
+                border-radius: 3px;
+            }
+            .bio-text {
+                margin: 0 30px 30px 30px;
+                color: white;
+                font-weight: 400;
+                font-size: 1.1em;
             }
         }
     }
-    .social-media-container {
-            display: flex;
-            justify-content: center;
-            flex-flow: row wrap;
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+    .home-wrapper {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
+        background-color: $dark-grey;
+        .home-video-wrapper {
+            video#bgvid {
+                position: relative;
+                top: 0;
+                left: 0;
+                display: block;
+                object-fit: fill;
+                overflow: hidden;
+                opacity: .7;
+                z-index: 0;
+                width: 100%;
+            }
+            .video-overlay {
+                position: absolute;
+                top: 0;
+                display: flex;
+                flex-flow: column;
+                align-items: center;
+                justify-content: center;
+                z-index: 2;
+                opacity: 1;
+                width: 100%;
+                transition: opacity .5s ease-out;
+            }
+            .site-title {
+                color: $light-blue;
+                text-shadow: $text-shadow;
+                font-family: $lora-font;
+                margin: 0px 20px;
+                opacity: 1;
+                font-size: 4em;
+            }
+            .logo {
+                height: 175px;
+                width: 175px;
+                margin: 20px;
+            }
+            .b-play-video {
+                margin: 10px 20px;
+                padding: 12px 25px;
+                border-radius: 3px;
+                background: $light-blue;
+                color: white;
+                font-size: 1.1em;
+                border: none;
+                opacity: 1;
+                outline: 0;
+                box-shadow: $material-shadow;
+                transition: opacity 0.5s ease-out;
+                &:hover {
+                    background-color: $light-grey;
+                }
+            }
+            .scroll-arrow {
+                display: none;
+            }
         }
+        .bio-wrapper {
+            display: flex;
+            flex-direction: column;
+            margin-top: 50px;
+            .selfie {
+                width: calc(100% - 250px);
+                height: 80%;
+                margin: 0 125px 20px 125px;
+                border-radius: 3px;
+            }
+            .bio-text {
+                width: calc(100% - 250px);
+                margin: 0 125px 20px 125px;
+                color: white;
+                font-weight: 400;
+                font-size: 1.1em;
+            }
+        }
+    }
+}
+
+@media (min-width: 980px)  and (max-width: 1199px) {
+    .home-wrapper {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
+        background-color: $dark-grey;
+        .home-video-wrapper {
+            video#bgvid {
+                position: relative;
+                top: 0;
+                left: 0;
+                display: block;
+                object-fit: fill;
+                overflow: hidden;
+                opacity: .7;
+                z-index: 0;
+                width: 100%;
+            }
+            .video-overlay {
+                position: absolute;
+                top: 0;
+                display: flex;
+                flex-flow: column;
+                align-items: center;
+                justify-content: center;
+                z-index: 2;
+                opacity: 1;
+                width: 100%;
+                transition: opacity .5s ease-out;
+            }
+            .site-title {
+                color: $light-blue;
+                text-shadow: $text-shadow;
+                font-family: $lora-font;
+                margin: 0px 20px;
+                opacity: 1;
+                font-size: 4.4em;
+            }
+            .logo {
+                height: 185px;
+                width: 185px;
+                margin: 40px;
+            }
+            .b-play-video {
+                margin: 10px 20px;
+                padding: 12px 25px;
+                border-radius: 3px;
+                background: $light-blue;
+                color: white;
+                font-size: 1.1em;
+                border: none;
+                opacity: 1;
+                outline: 0;
+                box-shadow: $material-shadow;
+                transition: opacity 0.5s ease-out;
+                &:hover {
+                    background-color: $light-grey;
+                }
+            }
+            .scroll-arrow {
+                display: none;
+            }
+        }
+        .bio-wrapper {
+            display: flex;
+            flex-direction: row wrap;
+            margin-top: 50px;
+            .selfie {
+                width: calc(50% - 75px);
+                height: 80%;
+                margin: 0 25px 50px 50px;
+                border-radius: 3px;
+            }
+            .bio-text {
+                width: calc(50% - 75px);
+                margin: 0 50px 50px 25px;
+                color: white;
+                font-weight: 400;
+                font-size: 1.1em;
+            }
+        }
+    }
+}
+
+/* Large desktop */
+@media (min-width: 1200px) {
+    .home-wrapper {
+        display: flex;
+        flex-flow: column;
+        background-color: $dark-grey;
+        .home-video-wrapper {
+            video#bgvid {
+                position: relative;
+                top: 0;
+                left: 0;
+                display: block;
+                object-fit: fill;
+                overflow: hidden;
+                opacity: .7;
+                z-index: 0;
+                width: 100%;
+            }
+            .video-overlay {
+                position: absolute;
+                top: 0;
+                display: flex;
+                flex-flow: column;
+                align-items: center;
+                justify-content: center;
+                z-index: 2;
+                opacity: 1;
+                width: 100%;
+                transition: opacity .5s ease-out;
+            }
+            .site-title {
+                color: $light-blue;
+                text-shadow: $text-shadow;
+                font-family: $lora-font;
+                margin: 0px 20px;
+                opacity: 1;
+                font-size: 4.4em;
+            }
+            .logo {
+                height: 185px;
+                width: 185px;
+                margin: 40px;
+            }
+            .b-play-video {
+                margin: 10px 20px;
+                padding: 12px 25px;
+                border-radius: 3px;
+                background: $light-blue;
+                color: white;
+                font-size: 1.1em;
+                border: none;
+                opacity: 1;
+                outline: 0;
+                box-shadow: $material-shadow;
+                transition: opacity 0.5s ease-out;
+                &:hover {
+                    background-color: $light-grey;
+                }
+            }
+            .scroll-arrow {
+                display: none;
+            }
+        }
+        .bio-wrapper {
+            display: flex;
+            flex-direction: row wrap;
+            justify-content: center;
+            margin-top: 50px;
+            .selfie {
+                width: 40%;
+                height: 80%;
+                margin: 0 25px 50px 0;
+                border-radius: 3px;
+            }
+            .bio-text {
+                width: 40%;
+                margin: 0 0 50px 25px;
+                color: white;
+                font-weight: 400;
+                font-size: 1.2em;
+            }
+        }
+    }
+}
+
+@keyframes font-pulse {
+    0%, 100% {
+        font-size: 1.4em;
+    }
+    50% {
+        font-size: 1.6em;
+    }
 }

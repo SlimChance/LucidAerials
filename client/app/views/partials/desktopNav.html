@@ -1,22 +1,21 @@
-<div class="desktop-nav" toggle-desktop-menu>
-    <div class="menu-wrapper" ng-click="toggleNav()">
+<div class="desktop-nav">
+    <div class="menu-wrapper" ng-class="{ 'menu-wrapper-toggled': navToggled }" ng-click="toggleNav($event)">
         <div class="menu-bar1"></div>
         <div class="menu-bar2"></div>
         <div class="menu-bar3"></div>
-        <span class="menu-title">Menu</span>
     </div>
-    <nav class="navbar-animate">
+    <nav class="nav-options" ng-class="{ 'nav-options-toggled': navToggled }">
         <div class="nav-item nav-home" ng-click="navigateTo('/'); closeNav()">
-            <h3 class="text-center">Home</h3>
+            <span class="glyphicon glyphicon-home"></span><h3 class="text-center">Home</h3>
         </div>
         <div class="nav-item nav-videos" ng-click="navigateTo('/videos'); closeNav()">
-            <h3 class="text-center">Videos</h3>
+            <span class="glyphicon glyphicon-facetime-video"></span><h3 class="text-center">Videos</h3>
         </div>
         <div class="nav-item nav-pictures" ng-click="navigateTo('/pictures'); closeNav()">
-            <h3 class="text-center">Pictures</h3>
+            <span class="glyphicon glyphicon-picture"></span><h3 class="text-center">Pictures</h3>
         </div>
         <div class="nav-item nav-contact" ng-click="navigateTo('/contact'); closeNav()">
-            <h3 class="text-center">Contact</h3>
+            <span class="glyphicon glyphicon-comment"></span><h3 class="text-center">Contact</h3>
         </div>
     </nav>
 </div>

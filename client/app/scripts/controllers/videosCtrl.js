@@ -6,6 +6,7 @@ lucidAerials.controller('VideosCtrl', function($window, $scope, $timeout, $inter
         $scope.seconds = 5;
         $scope.expanded = 0;
         $scope.videos = vs.videos;
+        $scope.removed = false;
 
         $scope.expand = function(index) {
             if ($scope.videos[index]) {
@@ -103,7 +104,11 @@ lucidAerials.controller('VideosCtrl', function($window, $scope, $timeout, $inter
 
         $scope.cancelTimer = function (intervalPromise) {
             $interval.cancel(intervalPromise);
-        }
+        };
+
+        $scope.remove = function() {
+            $scope.removed = true;
+        };
 
         // Listens for videoService broadcast when video ends. Kicks off a countdown timer and autoplays next video
         $scope.$on('playNext', function (event, index) {

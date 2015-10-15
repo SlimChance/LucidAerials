@@ -10,8 +10,9 @@
         <div class="gradient"></div>
         <div class="countdown-timer">Autoplay Next Video: <br>{{seconds}}</div>
     </div>
-    <div class="subscribe">
-    	<p>Subscribe to Lucid Aerials on YouTube</p>
+    <div class="subscribe" ng-class="{ 'subscribe-removed': removed === true }">
+        <span ng-click="remove()" class="glyphicon glyphicon-remove-circle"></span>
+    	<p>Subscribe to Lucid Aerials</p>
         <div class="g-ytsubscribe" data-channelid="UCQbzkrvwwjTs33cOcVt4AKA" data-layout="default" data-theme="dark" data-count="hidden" data-onytevent="onYtEvent">
         </div>
     </div>

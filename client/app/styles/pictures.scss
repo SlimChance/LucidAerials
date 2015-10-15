@@ -1,19 +1,109 @@
 @import 'vars';
-@media (min-width: 600px) {
+
+@media (max-width: 490px) {
+  .picture-wrapper {
+      display: flex;
+      position: relative;
+      top: 55px;
+      flex-flow: column wrap;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background-color: $dark-grey;
+      overflow: hidden;
+      cursor: default;
+      .expanded {
+          height: calc(100vh - 10px);
+          width: calc(100vh - 20px);
+          transform: rotate(90deg);
+      }
+  }
+  .picture-repeat {
+      position: relative;
+      order: 1;
+      margin: 5px;
+      overflow: hidden;
+      height: 325px;
+      width: 100%;
+      background-size: cover;
+      background-position: center;
+      box-shadow: $material-shadow;
+      border-radius: 3px;
+      &:first-child {
+        margin-top: 0;
+      }
+  }
+  .picture-description {
+      display: none;
+  }
+  .last-item {
+      order: 5000;
+  }
+}
+
+/* Landscape phone to portrait tablet */
+@media (min-width: 491px) and (max-width: 767px) {
     .picture-wrapper {
         display: flex;
         position: relative;
-        flex-direction: row;
-        flex-wrap: wrap;
+        flex-flow: row wrap;
         justify-content: space-around;
         align-items: flex-end;
         text-align: center;
-        background-color: $light-blue;
+        background-color: $dark-grey;
         height: auto;
         overflow: hidden;
         cursor: default;
-        min-width: 100vw;
-        min-height: 100vh;
+    }
+    .picture-repeat {
+        position: relative;
+        order: 1;
+        width: calc(50% - 10px);
+        margin: 5px;
+        overflow: hidden;
+        height: 325px;
+        background-size: cover;
+        background-position: center;
+        box-shadow: $material-shadow;
+        border-radius: 3px;
+    }
+    .picture-description {
+        display: none;
+    }
+    .picture-wrapper {
+        .cloned-image {
+            // height defined in javascript
+            width: 100%;
+            margin: 0px 0px 10px 0px;
+            transition: none;
+            cursor: defualt;
+            position: relative;
+            &:hover {
+                width: 100%;
+                height: 900px;
+                margin: 0px 0px 10px 0px;
+                cursor: defualt;
+            }
+        }
+    }
+    .last-item {
+        order: 5000;
+    }
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) {
+    .picture-wrapper {
+        display: flex;
+        position: relative;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        align-items: flex-end;
+        text-align: center;
+        background-color: $dark-grey;
+        height: auto;
+        overflow: hidden;
+        cursor: default;
     }
     .picture-repeat {
         position: relative;
@@ -52,83 +142,7 @@
             }
         }
     }
-}
-@media (max-width: 900px) and (min-width: 600px) {
-    .picture-repeat {
-        width: 47%;
-        &:hover {
-            width: calc(47% + 10px);
-            transition: height .2s ease-in-out, width .2s ease-in-out, margin .2s ease-in-out;
-        }
-    }
-}
-@media (max-width: 600px) {
-    .picture-description {
-        display: none;
-    }
-    .picture-wrapper {
-        display: flex;
-        position: relative;
-        flex-direction: column;
-        justify-content: center;
-        background-color: $light-blue;
-        align-items: center;
-        flex-wrap: wrap;
-        .expanded {
-            height: calc(100vw - 10px);
-            width: calc(100vh - 40px);
-            margin-top: 25vh;
-            margin-bottom: 25vh;
-            transform: rotate(90deg);
-            background-repeat: no-repeat;
-        }
-    }
-    .picture-repeat {
-        position: relative;
-        order: 1;
-        width: 32%;
-        margin: 5px;
-        overflow: hidden;
-        height: 325px;
-        background-size: cover;
-        background-position: center;
-        box-shadow: $material-shadow;
-        border-radius: 3px;
-        width: 97%;
-    }
-}
-@media (max-width: 500px) {
-    .picture-wrapper {
-        display: flex;
-        position: relative;
-        flex-direction: column;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        background-color: $light-blue;
-        height: auto;
-        overflow: hidden;
-        cursor: default;
-        .expanded {
-            height: calc(100vw - 10px);
-            width: calc(100vh - 20px);
-            margin-top: 25vh;
-            margin-bottom: 25vh;
-        }
-    }
-    .picture-repeat {
-        position: relative;
-        order: 1;
-        margin: 5px;
-        overflow: hidden;
-        height: 325px;
-        background-size: cover;
-        background-position: center;
-        box-shadow: $material-shadow;
-        border-radius: 3px;
-    }
-    .picture-description {
-        display: none;
+    .last-item {
+        order: 5000;
     }
 }

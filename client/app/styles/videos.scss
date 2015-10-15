@@ -1,83 +1,278 @@
 @import 'vars';
-@media (min-width: 500px) {
+
+@media (max-width: 490px) {
     .video-wrapper {
         display: flex;
-        position: relative;
-        flex-direction: row;
-        flex-wrap: wrap;
+        flex-flow: row wrap;
         justify-content: space-around;
-        align-items: flex-end;
-        text-align: left;
-        background-color: $light-blue;
+        position: relative;
+        top: 55px;
+        background-color: $dark-grey;
         height: auto;
         overflow: hidden;
-        cursor: default;
-        min-height: 100vh;
-        min-width: 100vw;
     }
     .video-repeat {
-        position: relative;
-        order: 1;
-        width: 32%;
-        margin: 10px;
+        display: flex;
+        flex-flow: column;
+        align-content: space-around;
+        width: 100%;
         overflow: hidden;
-        height: 325px;
+        height: 350px;
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
         box-shadow: $material-shadow;
-        border-radius: 3px;
-        &:hover {
-            //width: calc(32% + 10px);
+        order: 0;
+        margin: 0px 0px 15px 0px;
+        .video-title {
+            color: white;
+            text-align: center;
+            margin-top: 30px;
+            font-size: 1.6em;
+            z-index: 1;
+            opacity: 1;
+            width: 100%;
+            text-shadow: $text-shadow;
+        }
+        .video-description {
+            display: none;
+        }
+        .text-wrap {
+            width: 100%;
+        }
+        .play-button {
             cursor: pointer;
-            //height: 330px;
-            //margin: 0px;
-            //transition: height .2s ease-in-out, width .2s ease-in-out, margin .2s ease-in-out;
-            .text-wrap {
-                transform: scale(1);
-                opacity: 1;
-                border-radius: 0;
-                .video-title, .video-description {
-                    opacity: 1;
-                }
+            align-self: center;
+            opacity: 1;
+            z-index: 2;
+            color: white;
+            font-size: 3.5em;
+            margin-top: 80px;
+            transition: opacity 0.5s ease-out;
+        }
+        .video {
+            display: none;
+        }
+        .countdown-timer {
+            display: none;
+        }
+        .gradient {
+            display: none;
+        }
+    }
+    .video-wrapper {
+        .expanded {
+            height: 85vh;
+            .video {
+                 min-width: 300px;
+                 display: block;
+                 align-self: center;
+                 position: relative;
+                 bottom: 75px;
+                 max-width: 100%;
+                 min-height: 200px;
+                 width: 93%;
+                 z-index: -1;
+                 transition-delay: 0.3s;
+            }
+            // .countdown-timer {
+            //     position: relative;
+            //     bottom: 410px;
+            //     color: white;
+            //     width: 52%;
+            //     height: 70%;
+            //     margin: 20px auto;
+            //     background-color: black;
+            //     z-index: 5;
+            // }
+        }
+    }
+    .subscribe {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        z-index: 500;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        font-weight: 400;
+        color: white;
+        background-color: $light-blue;
+        height: 40px;
+        box-shadow: $material-shadow;
+        padding: 10px;
+        &.subscribe-removed {
+            display: none;
+        }
+    }
+    .extra-margin {
+        margin-bottom: 50px;
+    }
+}
+
+/* Landscape phone to portrait tablet */
+@media (min-width: 491px) and (max-width: 767px) {
+    .video-wrapper {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        background-color: $dark-grey;
+        height: auto;
+        overflow: hidden;
+    }
+    .video-repeat {
+        display: flex;
+        flex-flow: column;
+        align-content: space-around;
+        width: 100%;
+        overflow: hidden;
+        height: 375px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        box-shadow: $material-shadow;
+        order: 0;
+        margin: 0px 0px 15px 0px;
+        .video-title {
+            color: white;
+            text-align: center;
+            margin-top: 30px;
+            font-size: 1.6em;
+            z-index: 1;
+            opacity: 1;
+            width: 100%;
+            text-shadow: $text-shadow;
+        }
+        .video-description {
+            display: none;
+        }
+        .text-wrap {
+            width: 100%;
+        }
+        .play-button {
+            cursor: pointer;
+            align-self: center;
+            opacity: 1;
+            z-index: 2;
+            color: white;
+            font-size: 3.5em;
+            margin-top: 80px;
+            transition: opacity 0.5s ease-out;
+        }
+        .video {
+            display: none;
+        }
+        .countdown-timer {
+            display: none;
+        }
+        .gradient {
+            display: none;
+        }
+    }
+    .video-wrapper {
+        .expanded {
+            height: 90vh;
+            .video-title {
+                color: white;
+                text-align: center;
+                margin-top: 80px;
+            }
+            .video {
+                min-width: 300px;
+                display: block;
+                align-self: center;
+                position: relative;
+                bottom: 100px;
+                max-width: 100%;
+                min-height: 300px;
+                width: 90%;
+                height: 400px;
+                z-index: -1;
+                transition-delay: 0.3s;
             }
         }
     }
+    .subscribe {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        z-index: 500;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        font-weight: 400;
+        color: white;
+        background-color: $light-blue;
+        height: 40px;
+        box-shadow: $material-shadow;
+        padding: 10px;
+        &.subscribe-removed {
+            display: none;
+        }
+    }
+    .extra-margin {
+        margin-bottom: 50px;
+    }
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+    .video-wrapper {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        background-color: $dark-grey;
+        height: auto;
+        overflow: hidden;
+    }
+    .video-repeat {
+        display: flex;
+        flex-flow: row wrap;
+        align-content: space-around;
+        position: relative;
+        width: calc(50% - 14px);
+        overflow: hidden;
+        height: 350px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        box-shadow: $material-shadow;
+        order: 0;
+        margin: 7px;
+        border-radius: 3px;
+    }
     .video-title {
         color: white;
-        position: relative;
         text-align: center;
-        margin: 0px;
-        font-size: 24px;
+        margin-top: 30px;
+        font-size: 1.6em;
         z-index: 1;
-        opacity: 0;
+        opacity: 1;
+        width: 100%;
+        text-shadow: $text-shadow;
     }
     .video-description {
+        display: block;
         padding: 10px 20px;
         color: white;
-        font-weight: 300;
-        overflow: elipses;
-        opacity: 0;
+        font-weight: 400;
     }
     .text-wrap {
         background-color: rgba(66,66,66,.75);
         width: 100%;
+        height: auto;
         position: absolute;
         bottom: 0;
-        height: 100%;
-        z-index: 1;
-        opacity: 0;
-        border-radius: 100%;
-        transform: scale(0);
-        transition: all .2s ease-in-out;
     }
     .play-button {
-        display: none !important;
-        cursor: pointer;
+        display: none;
     }
     .video {
         display: none;
-        opacity: 0;
     }
     .countdown-timer {
         display: none;
@@ -86,51 +281,24 @@
         opacity: .3;
         background: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
         height: 100%;
-        width: calc(100% + 10px);
+        width: 100%;
         position: absolute;
-        bottom: 0px;
-        left: -10px;
-        z-index: 0;
+        bottom: 0;
     }
     .video-wrapper {
         .expanded {
-            order: 0;
-            height: 800px;
+            height: 90vh;
             width: 100%;
-            margin: 0px 0px 10px 0px;
-            top: 0;
-            left: 0;
-            transition: none;
-            text-align: center;
-            &:hover {
-                width: 100%;
-                height: 800px;
-                margin: 0px 0px 10px 0px;
-                cursor: default;
-            }
             .video-title {
-                position: absolute;
-                transform: translate(-50%, 0);
-                opacity: 1;
-                top: 100px;
-                height: auto;
-                left: 50%;
-                width: 100%;
                 font-size: 3.5em;
+                margin-top: 50px;
                 color: white;
                 font-family: $lora-font;
-                z-index: 2;
                 text-shadow: $text-shadow;
-                background: none;
-                transition: none;
-                border: none;
             }
             .text-wrap {
                 background: none;
                 height: 100%;
-                transition: none;
-                opacity: 1;
-                transform: scale(1);
             }
             .video-description {
                 display: none;
@@ -148,15 +316,14 @@
                 transition: opacity 0.5s ease-out;
             }
             .video {
-                //min-width: 480px;
                 display: block;
-                position: relative;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
                 max-width: 100%;
-                min-height: 200px;
-                margin: 20px auto;
-                top: 170px;
-                width: 52%;
-                height: 70%;
+                min-height: 450px;
+                width: 93%;
                 opacity: 0;
                 transition: opacity 0.3s ease-out;
                 transition-delay: 0.3s;
@@ -170,11 +337,12 @@
                 transition: opacity 0.3s ease-out;
             }
             .countdown-timer {
-                position: relative;
-                bottom: 410px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
                 color: white;
-                width: 52%;
-                height: 70%;
+                width: 93%;
                 margin: 20px auto;
                 background-color: black;
                 z-index: 5;
@@ -182,153 +350,213 @@
         }
     }
     .subscribe {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        z-index: 500;
         display: flex;
         flex-direction: row;
-        justify-content: center;
+        justify-content: space-between;
+        align-items: center;
         width: 100%;
-        background-color: $dark-grey;
+        font-size: 1.6em;
+        font-weight: 400;
+        color: white;
+        background-color: $light-blue;
         height: 50px;
         box-shadow: $material-shadow;
-        font-size: 24px;
-        opacity: .8;
-        margin: 5px 0px;
-        & p {
-            color: white;
-            font-size: 25px;
-            margin: 0px 20px 0px 0px;
+        padding: 20px;
+        &.subscribe-removed {
+            display: none;
         }
-        & #___ytsubscribe_0 {
-            margin: 15px !important;
-        }
+    }
+    .extra-margin {
+        margin-bottom: 50px;
     }
 }
-@media (max-width: 1500px) {
-    .video-repeat {
-        width: 31%;
-    }
-    .expanded {
-        .video {
-            width: 65% !important;
-        }
-    }
-}
-@media (max-width: 1200px) {
-    .video-wrapper{
-        .expanded {
-            .video {
-                width: 75% !important;
-            }
-        }
-    }
-}
-@media (max-width: 900px) {
-    .video-wrapper {
-        .video-repeat {
-            width: 47%;
-        }
-        .expanded {
-            order: 1;
-            width: 100%;
-            .video {
-                width: 90% !important;
-            }
-            .text-wrap {
-                height: 100%;
-            }
-        }
-        .subscribe {
-            position: fixed;
-            bottom: 0;
-            opacity: 1;
-            margin: 0;
-            z-index: 500;
-        }
-        .text-wrap {
-            transform: scale(1);
-            height: auto;
-            opacity: 1;
-            border-radius: 0;
-            .video-title, .video-description {
-                opacity: 1 !important;
-            }
-        }
-        .extra-margin {
-            margin-bottom: 50px;
-        }
-    }
-}
-@media (max-width: 670px) {
-    .video-wrapper {
-       .video-repeat {
-            width: 97%;
-        }
-        .expanded {
-            width: 100%;
-        }
-        .subscribe {
-            position: fixed;
-            bottom: 0;
-            opacity: 1;
-            margin: 0;
-            z-index: 500;
-            & p {
-                color: white;
-                font-size: 18px;
-                margin: 10px 20px 0px 10px;
-            }
-            & img {
-                margin-top: 10px;
-                margin-right: 10px;
-            }
-        }
-        .expanded {
-            height: 600px !important;
-            .video {
-                height: 60% !important;
-            }
-        } 
-    }
-}
-@media (max-width: 500px) {
+
+@media (min-width: 980px) and (max-width: 1199px) {
     .video-wrapper {
         display: flex;
-        position: relative;
-        flex-direction: row;
-        flex-wrap: wrap;
+        flex-flow: row wrap;
         justify-content: space-around;
-        align-items: flex-end;
-        text-align: left;
-        background-color: $light-blue;
+        background-color: $dark-grey;
         height: auto;
         overflow: hidden;
-        cursor: default;
-        padding-top: 50px;
     }
     .video-repeat {
+        display: flex;
+        flex-flow: row wrap;
+        align-content: space-around;
         position: relative;
-        //order: 1;
-        width: 97%;
-        //margin: 10px;
+        width: calc(50% - 14px);
         overflow: hidden;
-        height: 400px;
+        height: 350px;
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
         box-shadow: $material-shadow;
-        border-radius: 3px;
         order: 0;
-        //width: 100%;
-        margin: 0px 0px 10px 0px;
-        //top: 0;
-        //left: 0;
-        transition: none;
+        margin: 7px;
+        border-radius: 3px;
+    }
+    .video-title {
+        color: white;
         text-align: center;
+        margin-top: 30px;
+        font-size: 1.6em;
+        z-index: 1;
+        opacity: 1;
+        width: 100%;
+        text-shadow: $text-shadow;
+    }
+    .video-description {
+        display: block;
+        padding: 10px 20px;
+        color: white;
+        font-weight: 400;
+    }
+    .text-wrap {
+        background-color: rgba(66,66,66,.75);
+        width: 100%;
+        height: auto;
+        position: absolute;
+        bottom: 0;
+    }
+    .play-button {
+        display: none;
+    }
+    .video {
+        display: none;
+    }
+    .countdown-timer {
+        display: none;
+    }
+    .gradient {
+        opacity: .3;
+        background: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+    }
+    .video-wrapper {
+        .expanded {
+            height: 90vh;
+            width: 100%;
+            margin: 0 0 10px 0;
+            .video-title {
+                font-size: 3.5em;
+                margin-top: 50px;
+                color: white;
+                font-family: $lora-font;
+                text-shadow: $text-shadow;
+            }
+            .text-wrap {
+                background: none;
+                height: 100%;
+            }
+            .video-description {
+                display: none;
+            }
+            .play-button {
+                display: block !important;
+                opacity: 1;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 2;
+                color: white;
+                font-size: 6em;
+                transition: opacity 0.5s ease-out;
+            }
+            .video {
+                display: block;
+                position: absolute;
+                top: 55%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                max-width: 100%;
+                min-height: 70%;
+                width: 93%;
+                opacity: 0;
+                transition: opacity 0.3s ease-out;
+                transition-delay: 0.3s;
+            }
+            .gradient {
+                z-index: -1;
+                opacity: 0;
+                background: radial-gradient(circle, rgba(0,0,0,0), rgba(0,0,0,1));
+                height: 100%;
+                width: calc(100% + 10px);
+                transition: opacity 0.3s ease-out;
+            }
+            .countdown-timer {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: white;
+                width: 93%;
+                margin: 20px auto;
+                background-color: black;
+                z-index: 5;
+            }
+        }
+    }
+    .subscribe {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        z-index: 500;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        p {
+          font-size: 1.8em;
+          font-weight: 400;
+          color: white;
+        }
+        background-color: $light-blue;
+        height: 50px;
+        box-shadow: $material-shadow;
+        padding: 20px;
+        &.subscribe-removed {
+            display: none;
+        }
+    }
+}
+
+/* Large desktop */
+@media (min-width: 1200px) {
+    .video-wrapper {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        background-color: $dark-grey;
+        height: auto;
+        overflow: hidden;
+    }
+    .video-repeat {
+        display: flex;
+        flex-flow: row wrap;
+        align-content: space-around;
+        position: relative;
+        width: calc(33% - 14px);
+        overflow: hidden;
+        height: 350px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        box-shadow: $material-shadow;
+        order: 2;
+        margin: 7px;
+        border-radius: 3px;
         &:hover {
-            //width: calc(32% + 10px);
             cursor: pointer;
-            //height: 330px;
-            //margin: 0px;
-            //transition: height .2s ease-in-out, width .2s ease-in-out, margin .2s ease-in-out;
             .text-wrap {
                 transform: scale(1);
                 opacity: 1;
@@ -338,194 +566,145 @@
                 }
             }
         }
-        .video-title {
-            color: white;
-            text-align: center;
-            margin: 0px;
-            font-size: 24px;
-            z-index: 1;
-            opacity: 0;
-            position: absolute;
-            opacity: 1;
-            top: 30px;
-            height: auto;
-            width: 100%;
-            font-size: 2em;
-            z-index: 2;
-            text-shadow: $text-shadow;
-            background: none;
-            transition: none;
-            border: none;
-        }
-        .video-description {
-            position: absolute;
-            bottom: 0px;
-            padding: 10px 20px;
-            color: white;
-            font-weight: 300;
-            overflow: elipses;
-            opacity: 0;
-        }
-        .text-wrap {
-            background-color: rgba(66,66,66,.5);
-            width: 100%;
-            //position: absolute;
-            bottom: 0;
-            height: 100%;
-            z-index: 1;
-            //opacity: 0;
-            border-radius: 100%;
-            //transform: scale(0);
-            transition: all .2s ease-in-out;
-            background: none;
-            //transition: none;
-            opacity: 1;
-            transform: scale(1);
-        }
-        .play-button {
-            //display: none;
-            cursor: pointer;
-            display: block;
-            opacity: 1 !important;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 2;
-            color: white;
-            font-size: 4em;
-            transition: opacity 0.5s ease-out;
-        }
-        .video {
-            display: block;
-            position: absolute;
-            max-width: 100%;
-            min-height: 200px;
-            left: 50%;
-            transform: translate(-50%, 0);
-            top: 150px;
-            width: 52%;
-            height: 70%;
-            opacity: 0 !important;
-            z-index: -1 !important;
-            transition: opacity 0.3s ease-out;
-            transition-delay: 0.3s;
-        }
-        .countdown-timer {
-            display: none;
-        }
-        .gradient {
-            z-index: -1;
-            opacity: 0;
-            background: radial-gradient(circle, rgba(0,0,0,0), rgba(0,0,0,1));
-            height: 100%;
-            width: calc(100% + 10px);
-            transition: opacity 0.3s ease-out;
-        }
+    }
+    .video-title {
+        color: white;
+        text-align: center;
+        margin-top: 30px;
+        font-size: 1.6em;
+        z-index: 1;
+        opacity: 1;
+        width: 100%;
+        text-shadow: $text-shadow;
+    }
+    .video-description {
+        display: block;
+        padding: 10px 20px;
+        color: white;
+        font-weight: 400;
+    }
+    .text-wrap {
+        background-color: rgba(66,66,66,.75);
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        height: 100%;
+        z-index: 1;
+        opacity: 0;
+        border-radius: 100%;
+        transform: scale(0);
+        transition: all .2s ease-in-out;
+    }
+    .play-button {
+        display: none !important;
+    }
+    .video {
+        display: none;
+    }
+    .countdown-timer {
+        display: none;
+    }
+    .gradient {
+        opacity: .3;
+        background: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
     }
     .video-wrapper {
         .expanded {
-            order: 0;
-            height: 800px;
+            height: 90vh;
             width: 100%;
-            margin: 0px 0px 10px 0px;
-            transition: none;
-            text-align: center;
+            margin: 0 0 10px 0;
+            order: 0;
             &:hover {
-                width: 100%;
-                height: 800px;
-                margin: 0px 0px 10px 0px;
                 cursor: default;
             }
             .video-title {
-            //     position: absolute;
-            //     transform: translate(-50%, 0);
-            //     opacity: 1;
-            //     top: 50px;
-            //     height: auto;
-            //     width: 100%;
-            //     left: 50%;
-            //     font-size: 2.5em;
-            //     color: white;
+                font-size: 3.5em;
+                margin-top: 50px;
+                color: white;
                 font-family: $lora-font;
-            //     z-index: 2;
-            //     text-shadow: $text-shadow;
-            //     background: none;
-            //     transition: none;
-            //     border: none;
+                text-shadow: $text-shadow;
             }
-            // .text-wrap {
-            //     background: none;
-            //     transition: none;
-            //     opacity: 1;
-            //     transform: scale(1);
-            // }
+            .text-wrap {
+                background: none;
+                height: 100%;
+                transform: scale(1);
+                opacity: 1;
+            }
             .video-description {
                 display: none;
             }
             .play-button {
-            //     display: block;
-                opacity: 0 !important;
-            //     position: absolute;
-            //     top: 50%;
-            //     left: 50%;
-            //     transform: translate(-50%, -50%);
-            //     z-index: 2;
-            //     color: white;
-            //     font-size: 6em;
+                display: block !important;
+                opacity: 1;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 2;
+                color: white;
+                font-size: 6em;
                 transition: opacity 0.5s ease-out;
             }
             .video {
-            //     //min-width: 480px;
-            //     display: block;
-            //     position: relative;
-            //     max-width: 100%;
-            //     min-height: 200px;
-            //     margin: 20px auto;
-            //     top: 170px;
-            //     width: 52%;
-            //     height: 70%;
-                 opacity: 1 !important;
-                 transition: opacity 0.3s ease-out;
-                 z-index: 2 !important;
-            //     transition-delay: 0.3s;
+                display: block;
+                position: absolute;
+                top: 55%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                max-width: 100%;
+                min-height: 70%;
+                width: 65%;
+                opacity: 0;
+                transition: opacity 0.3s ease-out;
+                transition-delay: 0.3s;
             }
-            // .gradient {
-            //     z-index: -1;
-            //     opacity: 0;
-            //     background: radial-gradient(circle, rgba(0,0,0,0), rgba(0,0,0,1));
-            //     height: 100%;
-            //     width: calc(100% + 10px);
-            //     transition: opacity 0.3s ease-out;
-            // }
-            // .countdown-timer {
-            //     position: relative;
-            //     bottom: 410px;
-            //     color: white;
-            //     width: 52%;
-            //     height: 70%;
-            //     margin: 20px auto;
-            //     background-color: black;
-            //     z-index: 5;
-            // }
+            .gradient {
+                z-index: -1;
+                opacity: 0;
+                background: radial-gradient(circle, rgba(0,0,0,0), rgba(0,0,0,1));
+                height: 100%;
+                width: calc(100% + 10px);
+                transition: opacity 0.3s ease-out;
+            }
+            .countdown-timer {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: white;
+                width: 93%;
+                margin: 20px auto;
+                background-color: black;
+                z-index: 5;
+            }
         }
     }
     .subscribe {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        opacity: 1;
-        margin: 0;
         z-index: 500;
         display: flex;
         flex-direction: row;
-        justify-content: center;
+        justify-content: space-between;
+        align-items: center;
+        order: 1;
         width: 100%;
-        background-color: $dark-grey;
+        p {
+          font-size: 1.4em;
+          font-weight: 400;
+          color: white;  
+        }
+        background-color: $light-blue;
         height: 50px;
         box-shadow: $material-shadow;
-        & #___ytsubscribe_0 {
-            margin: 15px !important;
+        padding: 20px;
+        &.subscribe-removed {
+            display: none;
         }
+    }
+    .last-item {
+        order: 5000;
     }
 }
