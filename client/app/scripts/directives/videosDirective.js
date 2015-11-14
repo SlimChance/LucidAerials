@@ -1,6 +1,12 @@
-'use strict';
+(function() {
+    'use strict';
 
-lucidAerials.directive('videoPlayButton', function() {
+    angular
+        .module('LucidAerials')
+        .directive('videoPlayButton', VideoPlayButton)
+        .directive('scrollToCenter', ScrollToCenter);
+
+    function VideoPlayButton() {
         return {
             restrict: 'A',
             link: function(scope, element) {
@@ -14,16 +20,18 @@ lucidAerials.directive('videoPlayButton', function() {
                 });
             }
         };
-    })
-    .directive('scrollToCenter', function() {
+    }
+
+    function ScrollToCenter() {
         return {
             restrict: 'A',
-            link: function(scope, element, attrs) {
+            link: function(scope, element) {
                 element.bind('click', function() {
                     window.scrollTo(0, element[0].offsetTop - 50);
                     console.log(element[0]);
-                    console.log(document.documentElement.clientHeight)
+                    console.log(document.documentElement.clientHeight);
                 });
             }
-        }
-    });
+        };
+    }
+})();

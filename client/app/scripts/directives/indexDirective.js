@@ -1,18 +1,28 @@
-'use strict';
+(function() {
+    'use strict';
 
-lucidAerials.directive('mobileNav', function () {
+    angular
+        .module('LucidAerials')
+        .directive('mobileNav', MobileNav)
+        .directive('desktopNav', DesktopNav)
+        .directive('mobileScrollHide', MobileScrollHide)
+        .directive('footer', Footer);
+
+    function MobileNav() {
         return {
             restrict: 'E',
             templateUrl: 'views/partials/mobileNav.html'
-        }
-    })
-    .directive('desktopNav', function () {
+        };
+    }
+
+    function DesktopNav() {
         return {
             restrict: 'E',
             templateUrl: 'views/partials/desktopNav.html'
-        }
-    })
-    .directive('mobileScrollHide', function($window) {
+        };
+    }
+
+    function MobileScrollHide() {
         return {
             restrict: 'A',
             link: function(scope, element) {
@@ -35,13 +45,12 @@ lucidAerials.directive('mobileNav', function () {
                 // });
             }
         };
-    })
-    .directive('footer', function() {
+    }
+
+    function Footer() {
         return {
             restrict: 'E',
-            templateUrl: 'views/partials/footer.html',
-            link: function(scope, element, attrs) {
-
-            }
-        }
-    });
+            templateUrl: 'views/partials/footer.html'
+        };
+    }
+})();

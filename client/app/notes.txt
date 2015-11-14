@@ -1,0 +1,90 @@
+@media (max-width: 490px) { ... }
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) { ... }
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) { ... }
+
+/* Large desktop */
+@media (min-width: 1200px) { ... }
+
+if (clientWidth >= 980) {
+
+} else if (clientWidth <= 979 && clientWidth >= 768) {
+
+} else if (clientWidth <= 767 && clientWidth >= 481) {
+
+} else if (clientWidth <= 480) {
+
+}
+
+--------Picture Backup--------
+// {
+//     "smallImage": "url('../images/instagram/sky3.jpg')",
+//     "description": "Some Aerial shots of around Burnsville and Butte Creek Canyon."
+// },
+// {
+//     "smallImage": "url('../images/instagram/dogs3.jpg')",
+//     "description": "Some Aerial shots of around Burnsville and Butte Creek Canyon."
+// },
+// {
+//     "smallImage": "url('../images/instagram/valley3.jpg')",
+//     "description": "Some Aerial shots of around Burnsville and Butte Creek Canyon."
+// },
+// {
+//     "smallImage": "url('../images/instagram/motorcycle.jpg')",
+//     "description": "Some Aerial shots of around Burnsville and Butte Creek Canyon."
+// }
+// {
+//     "smallImage": "url('../images/instagram/longboarding-southpark.jpg')",
+//     "description": "Some Aerial shots of around Burnsville and Butte Creek Canyon."
+// },
+// {
+//     "smallImage": "url('../images/instagram/boards.jpg')",
+//     "description": "Some Aerial shots of around Burnsville and Butte Creek Canyon."
+// },
+// {
+//     "smallImage": "url('../images/instagram/drone.jpg')",
+//     "description": "Some Aerial shots of around Burnsville and Butte Creek Canyon."
+// },
+// {
+//     "smallImage": "url('../images/instagram/valley2.jpg')",
+//     "description": "Some Aerial shots of around Burnsville and Butte Creek Canyon."
+// },
+// {
+//     "smallImage": "url('../images/instagram/prop.jpg')",
+//     "description": "Some Aerial shots of around Burnsville and Butte Creek Canyon."
+// },
+// {
+//     "smallImage": "url('../images/instagram/boardselfie.jpg')",
+//     "description": "Some Aerial shots of around Burnsville and Butte Creek Canyon."
+// },
+// {
+//     "smallImage": "url('../images/instagram/valley.jpg')",
+//     "description": "Some Aerial shots of around Burnsville and Butte Creek Canyon."
+// },
+// {
+//     "smallImage": "url('../images/instagram/sky2.jpg')",
+//     "description": "Some Aerial shots of around Burnsville and Butte Creek Canyon."
+// },
+{
+    "smallImage": "url('../images/instagram/wall.jpg')",
+    "description": "Some Aerial shots of around Burnsville and Butte Creek Canyon."
+},
+{
+    "smallImage": "url('../images/instagram/longboarding-southpark-2.jpg')",
+    "description": "Some Aerial shots of around Burnsville and Butte Creek Canyon."
+},
+{
+    "smallImage": "url('../images/instagram/sky.jpg')",
+    "description": "Some Aerial shots of around Burnsville and Butte Creek Canyon."
+},
+{
+    "smallImage": "url('../images/instagram/burnsville-sunset.jpg')",
+    "description": "Some Aerial shots of around Burnsville and Butte Creek Canyon."
+},
+{
+    "smallImage": "url('../images/instagram/willow-lake.jpg')",
+    "description": "Some Aerial shots of around Burnsville and Butte Creek Canyon."
+},

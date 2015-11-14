@@ -1,6 +1,13 @@
-'use strict';
+(function() {
+    'use strict';
 
-lucidAerials.controller('VideosCtrl', function($window, $scope, $timeout, $interval, $rootScope, $cacheFactory, $sce, videoService) {
+    angular
+        .module('LucidAerials')
+        .controller('VideosCtrl', VideosCtrl);
+
+    VideosCtrl.$inject = ['$window', '$scope', '$timeout', '$interval', '$rootScope', '$cacheFactory', '$sce', 'videoService'];
+
+    function VideosCtrl($window, $scope, $timeout, $interval, $rootScope, $cacheFactory, $sce, videoService) {
         var vs = new videoService();
         $scope.playReady = true;
         $scope.seconds = 5;
@@ -47,17 +54,17 @@ lucidAerials.controller('VideosCtrl', function($window, $scope, $timeout, $inter
                         //     }, 1000);
                         // }   
                     }
-                };
+                }
             } else {
-                vs.resource.query().$promise.then(function (data) {
+                vs.resource.query().$promise.then(function(data) {
                     $scope.videos = data;
-                    var video = $scope.videos[index];
+                    // var video = $scope.videos[index];
                     $scope.expand(index);
                 });
             }
         };
 
-        $scope.getImage = function (index, video) {
+        $scope.getImage = function(index, video) {
             if ($scope.expanded === index) {
                 return video.largeImage;
             } else {
@@ -85,7 +92,7 @@ lucidAerials.controller('VideosCtrl', function($window, $scope, $timeout, $inter
                 var element = 'div#ytplayer' + index;
 
                 vs.createPlayer(element, index).then(function() {
-                    console.log('promise video id' + videoId)
+                    console.log('promise video id' + videoId);
                     $scope.play(index, videoId);
                 });
             }
@@ -102,7 +109,7 @@ lucidAerials.controller('VideosCtrl', function($window, $scope, $timeout, $inter
             }
         };
 
-        $scope.cancelTimer = function (intervalPromise) {
+        $scope.cancelTimer = function(intervalPromise) {
             $interval.cancel(intervalPromise);
         };
 
@@ -111,8 +118,10 @@ lucidAerials.controller('VideosCtrl', function($window, $scope, $timeout, $inter
         };
 
         // Listens for videoService broadcast when video ends. Kicks off a countdown timer and autoplays next video
-        $scope.$on('playNext', function (event, index) {
-            var timerElem = angular.element('.expanded .countdown-timer').css({ 'display': 'block' });
+        $scope.$on('playNext', function(event, index) {
+            var timerElem = angular.element('.expanded .countdown-timer').css({
+                'display': 'block'
+            });
             var playButtonElem = angular.element('.play-button' + index);
             var videoElem = angular.element('#ytplayer' + index);
             var gradientElem = angular.element('#ytplayer' + index).next('.gradient');
@@ -121,23 +130,31 @@ lucidAerials.controller('VideosCtrl', function($window, $scope, $timeout, $inter
             // console.log('Video: ' + videoElem);
             // console.log('Gradient: ' + gradientElem);
 
-            var intervalPromise = $interval(function () {
-                $scope.seconds--
-                if ($scope.seconds === 0) {
-                    $scope.expand(index);
+            var intervalPromise = $interval(function() {
+                $scope.seconds--;
+                    if ($scope.seconds === 0) {
+                        $scope.expand(index);
 
-                    var videoId = $scope.videos[index].id;
-                    timerElem.css({ 'display': 'none' });
-                    $scope.play(index, videoId);
+                        var videoId = $scope.videos[index].id;
+                        timerElem.css({
+                            'display': 'none'
+                        });
+                        $scope.play(index, videoId);
 
-                    // simulate play button click
-                    playButtonElem.css('opacity', '0');
-                    gradientElem.css({ 'opacity': '0.8', 'z-index': '1' });
-                    videoElem.css({ 'opacity': '1' });
+                        // simulate play button click
+                        playButtonElem.css('opacity', '0');
+                        gradientElem.css({
+                            'opacity': '0.8',
+                            'z-index': '1'
+                        });
+                        videoElem.css({
+                            'opacity': '1'
+                        });
 
-                    $scope.seconds = 5;
-                    $scope.cancelTimer(intervalPromise);
-                }
+                        $scope.seconds = 5;
+                        $scope.cancelTimer(intervalPromise);
+                    }
             }, 1000);
         });
-    });
+    }
+})();

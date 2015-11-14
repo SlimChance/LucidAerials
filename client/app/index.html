@@ -24,15 +24,15 @@
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
-    <link rel="shortcut icon" href="images/Logo.jpg">
+    <link rel="shortcut icon" href="images/Logo.jpg" />
     <script src="scripts/pace.js"></script>
-    <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css">
-    <link rel="stylesheet" href="styles/pace.css">
-    <link rel="stylesheet" href="styles/index.css">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script> -->
+    <!-- <link rel="stylesheet" href="styles/pace.css"> -->
+    <link rel="stylesheet" href="styles/index.css" />
     <!-- <link rel="stylesheet" media="screen and (min-width: 500px)" href="styles/main.css">
  -->
     <!-- <link rel="stylesheet" media="screen and (max-width: 500px)" href="styles/phoneStyle.css"> -->
-    <link rel="stylesheet" href="styles/animate.css">
+    <!-- <link rel="stylesheet" href="styles/animate.css"> -->
     <!-- <link rel="stylesheet" media="(max-width: 640px)" href="max-640px.css">
     <link rel="stylesheet" media="(min-width: 640px)" href="min-640px.css">
     <link rel="stylesheet" media="(orientation: portrait)" href="portrait.css">
@@ -52,24 +52,24 @@
     <!-- Desktop Navigation -->
     <desktop-nav></desktop-nav>
 
-    <div class="view" ng-view="" ng-click="closeNav(); toggleFalse()" role="presentation"></div>
+    <div class="view" ng-view="" ng-click="closeNav(); toggleFalse()" role="presentation" ng-cloak></div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
-    (function(i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function() {
-            (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date();
-        a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-    ga('create', 'UA-XXXXX-X');
-    ga('send', 'pageview');
+        ga('create', 'UA-XXXXX-X');
+        ga('send', 'pageview');
     </script>
     <script>
         var tag = document.createElement('script');

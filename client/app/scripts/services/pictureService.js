@@ -1,11 +1,19 @@
-'use strict';
+(function() {
+    'use strict';
 
-lucidAerials.service('pictureService', function($resource) {
-    var resource = $resource('/data/pictures.json');
+    angular
+        .module('LucidAerials')
+        .service('pictureService', PictureService);
 
-    return {
-        getPictures: function() {
-            return resource.query();
-        }
+    PictureService.$inject = ['$resource'];
+
+    function PictureService($resource) {
+        var resource = $resource('/data/pictures.json');
+
+        return {
+            getPictures: function() {
+                return resource.query().$promise;
+            }
+        };
     }
-});
+})();

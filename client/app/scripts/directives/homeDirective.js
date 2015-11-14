@@ -1,6 +1,15 @@
-'use strict';
+(function() {
+    'use strict';
 
-lucidAerials.directive('hideScroll', function($window) {
+    angular
+        .module('LucidAerials')
+        .directive('hideScroll', HideScroll)
+        .directive('fadeOverlay', FadeOverlay);
+
+    HideScroll.$inject = ['$window'];
+    FadeOverlay.$inject = ['$timeout'];
+
+    function HideScroll($window) {
         return {
             restrict: 'A',
             link: function(scope, element) {
@@ -14,8 +23,9 @@ lucidAerials.directive('hideScroll', function($window) {
                 });
             }
         };
-    })
-    .directive('fadeOverlay', function($timeout) {
+    }
+
+    function FadeOverlay($timeout) {
         return {
             restrict: 'A',
             link: function(scope, element) {
@@ -26,12 +36,13 @@ lucidAerials.directive('hideScroll', function($window) {
                     overlay.css('opacity', 0);
 
                     var timeout = $timeout(function() {
-                      overlay.css('z-index', -1);
-                      $timeout.cancel(timeout);
+                        overlay.css('z-index', -1);
+                        $timeout.cancel(timeout);
                     }, 1000);
 
                     video.attr('controls', true);
                 });
             }
         };
-    });
+    }
+})();

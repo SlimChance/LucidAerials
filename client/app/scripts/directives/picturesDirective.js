@@ -1,6 +1,12 @@
-'use strict';
+(function() {
+  'use strict';
 
-lucidAerials.directive('modalClick', function($window) {
+  angular
+    .module('LucidAerials')
+    .directive('modalClick', ModalClick)
+    .directive('imageDropdown', ImageDropdown);
+
+    function ModalClick() {
         return {
             restrict: 'A',
             link: function(scope, element) {
@@ -15,14 +21,15 @@ lucidAerials.directive('modalClick', function($window) {
                 });
             }
         };
-    })
-    .directive('imageDropdown', function () {
+    }
+
+    function ImageDropdown() {
         return {
             restrict: 'A',
             scope: {
                 index: '='
             },
-            link: function (scope, element, attrs) {
+            link: function (scope, element) {
                 element.bind('click', function () {
                     var clientWidth = document.documentElement.clientWidth;
                     var clone = element.clone();
@@ -36,7 +43,7 @@ lucidAerials.directive('modalClick', function($window) {
                         clone.addClass('cloned-image');
 
                         // place clone after each third element
-                        if (domIndex <= 24) {
+                        if (domIndex <= 36) {
                             if (domIndex % 2 === 0) {
                                 element.after(clone);
                             } else if (domIndex % 2 === 1) {
@@ -57,7 +64,7 @@ lucidAerials.directive('modalClick', function($window) {
                       clone.addClass('cloned-image');
 
                       // place clone after each third element
-                      if (domIndex <= 24) {
+                      if (domIndex <= 36) {
                           if (domIndex % 3 === 0) {
                               element.after(clone);
                           } else if (domIndex % 3 === 1) {
@@ -85,5 +92,6 @@ lucidAerials.directive('modalClick', function($window) {
                     }
                 });
             }
-        }
-    });
+        };
+    }
+})();

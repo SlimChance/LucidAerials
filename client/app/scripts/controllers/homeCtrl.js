@@ -1,6 +1,13 @@
-'use strict';
+(function() {
+    'use strict';
 
-lucidAerials.controller('HomeCtrl', function($scope, $window) {
+    angular
+        .module('LucidAerials')
+        .controller('HomeCtrl', HomeCtrl);
+
+    HomeCtrl.$inject = ['$scope', '$window'];
+
+    function HomeCtrl($scope, $window) {
         var video = angular.element('video.home-video'),
             videoOverlay = angular.element('div.video-overlay');
 
@@ -21,7 +28,7 @@ lucidAerials.controller('HomeCtrl', function($scope, $window) {
 
             if (windowWidth >= 480) {
                 $scope.playVideo();
-            };
+            }
         };
 
         $scope.playVideo = function() {
@@ -33,4 +40,5 @@ lucidAerials.controller('HomeCtrl', function($scope, $window) {
         angular.element(window).resize(function() {
             $scope.resizeVideo();
         });
-    });
+    }
+})();

@@ -1,17 +1,38 @@
-'use strict';
+(function() {
+    'use strict';
 
-lucidAerials.controller('PicturesCtrl', function($scope, $window, pictureService) {
+    angular
+        .module('LucidAerials')
+        .controller('PicturesCtrl', PicturesCtrl);
+
+    PicturesCtrl.$inject = ['$scope', '$window', 'pictureService'];
+
+    function PicturesCtrl($scope, $window, pictureService) {
         // $scope.hidePrev = false;
         // $scope.hideNext = false;
         $scope.expanded = null;
-        $scope.pictures = pictureService.getPictures();
+        $scope.allLoaded = false;
+        $scope.value = 21;
+        pictureService.getPictures().then(function(images) {
+            $scope.images = images;
+            $scope.lazyLoadImages = $scope.images.slice(0, 12);
+        });
 
-        $scope.expand = function (index) {
+        $scope.grabImages = function() {
+            $scope.lazyLoadImages = $scope.images.slice(0, $scope.value);
+            $scope.value += 9;
+
+            if ($scope.value >= 42) {
+                $scope.allLoaded = true;
+            }
+        };
+
+        $scope.expand = function(index) {
             $scope.expanded = index;
-        }
+        };
 
-        $scope.getImage = function (index, picture) {
-            if ($scope.expanded == index) {
+        $scope.getImage = function(index, picture) {
+            if ($scope.expanded === index) {
                 return picture.largeImage;
             } else {
                 return picture.smallImage;
@@ -70,4 +91,5 @@ lucidAerials.controller('PicturesCtrl', function($scope, $window, pictureService
         //         $scope.hideNext = false;
         //     }
         // };
-    });
+    }
+})();

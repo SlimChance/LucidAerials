@@ -1,6 +1,7 @@
 'use strict';
 
-var lucidAerials = angular.module('LucidAerials', [
+angular
+    .module('LucidAerials', [
         'ngAnimate',
         'ngAria',
         'ngCookies',
@@ -12,7 +13,7 @@ var lucidAerials = angular.module('LucidAerials', [
         'ngMaterial',
         'smoothScroll'
     ])
-    .config(function($routeProvider, $locationProvider) {
+    .config(['$routeProvider', function($routeProvider) {
         $routeProvider
             .when('/', {
                 templateUrl: 'views/home.html',
@@ -33,4 +34,4 @@ var lucidAerials = angular.module('LucidAerials', [
             .otherwise({
                 redirectTo: '/'
             });
-    });
+    }]);

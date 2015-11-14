@@ -1,6 +1,13 @@
-'use strict';
+(function() {
+    'use strict';
 
-lucidAerials.controller('IndexCtrl', function($scope, $location) {
+    angular
+        .module('LucidAerials')
+        .controller('IndexCtrl', IndexCtrl);
+
+    IndexCtrl.$inject = ['$scope', '$location'];
+
+    function IndexCtrl($scope, $location) {
         $scope.navToggled = false;
 
         $scope.closeNav = function() {
@@ -19,4 +26,5 @@ lucidAerials.controller('IndexCtrl', function($scope, $location) {
         $scope.navigateTo = function(view) {
             $location.path(view);
         };
-    });
+    }
+})();

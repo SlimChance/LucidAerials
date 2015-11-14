@@ -220,162 +220,162 @@
 }
 
 /* Portrait tablet to landscape and desktop */
-@media (min-width: 768px) and (max-width: 979px) {
-    .video-wrapper {
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: space-around;
-        background-color: $dark-grey;
-        height: auto;
-        overflow: hidden;
-    }
-    .video-repeat {
-        display: flex;
-        flex-flow: row wrap;
-        align-content: space-around;
-        position: relative;
-        width: calc(50% - 14px);
-        overflow: hidden;
-        height: 350px;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        box-shadow: $material-shadow;
-        order: 0;
-        margin: 7px;
-        border-radius: 3px;
-    }
-    .video-title {
-        color: white;
-        text-align: center;
-        margin-top: 30px;
-        font-size: 1.6em;
-        z-index: 1;
-        opacity: 1;
-        width: 100%;
-        text-shadow: $text-shadow;
-    }
-    .video-description {
-        display: block;
-        padding: 10px 20px;
-        color: white;
-        font-weight: 400;
-    }
-    .text-wrap {
-        background-color: rgba(66,66,66,.75);
-        width: 100%;
-        height: auto;
-        position: absolute;
-        bottom: 0;
-    }
-    .play-button {
-        display: none;
-    }
-    .video {
-        display: none;
-    }
-    .countdown-timer {
-        display: none;
-    }
-    .gradient {
-        opacity: .3;
-        background: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
-        height: 100%;
-        width: 100%;
-        position: absolute;
-        bottom: 0;
-    }
-    .video-wrapper {
-        .expanded {
-            height: 90vh;
-            width: 100%;
-            .video-title {
-                font-size: 3.5em;
-                margin-top: 50px;
-                color: white;
-                font-family: $lora-font;
-                text-shadow: $text-shadow;
-            }
-            .text-wrap {
-                background: none;
-                height: 100%;
-            }
-            .video-description {
-                display: none;
-            }
-            .play-button {
-                display: block !important;
-                opacity: 1;
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                z-index: 2;
-                color: white;
-                font-size: 6em;
-                transition: opacity 0.5s ease-out;
-            }
-            .video {
-                display: block;
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                max-width: 100%;
-                min-height: 450px;
-                width: 93%;
-                opacity: 0;
-                transition: opacity 0.3s ease-out;
-                transition-delay: 0.3s;
-            }
-            .gradient {
-                z-index: -1;
-                opacity: 0;
-                background: radial-gradient(circle, rgba(0,0,0,0), rgba(0,0,0,1));
-                height: 100%;
-                width: calc(100% + 10px);
-                transition: opacity 0.3s ease-out;
-            }
-            .countdown-timer {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                color: white;
-                width: 93%;
-                margin: 20px auto;
-                background-color: black;
-                z-index: 5;
-            }
-        }
-    }
-    .subscribe {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        z-index: 500;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        font-size: 1.6em;
-        font-weight: 400;
-        color: white;
-        background-color: $light-blue;
-        height: 50px;
-        box-shadow: $material-shadow;
-        padding: 20px;
-        &.subscribe-removed {
-            display: none;
-        }
-    }
-    .extra-margin {
-        margin-bottom: 50px;
-    }
-}
-
-@media (min-width: 980px) and (max-width: 1199px) {
+// @media (min-width: 768px) and (max-width: 979px) {
+//     .video-wrapper {
+//         display: flex;
+//         flex-flow: row wrap;
+//         justify-content: space-around;
+//         background-color: $dark-grey;
+//         height: auto;
+//         overflow: hidden;
+//     }
+//     .video-repeat {
+//         display: flex;
+//         flex-flow: row wrap;
+//         align-content: space-around;
+//         position: relative;
+//         width: calc(50% - 14px);
+//         overflow: hidden;
+//         height: 350px;
+//         background-size: cover;
+//         background-position: center;
+//         background-repeat: no-repeat;
+//         box-shadow: $material-shadow;
+//         order: 0;
+//         margin: 7px;
+//         border-radius: 3px;
+//     }
+//     .video-title {
+//         color: white;
+//         text-align: center;
+//         margin-top: 30px;
+//         font-size: 1.6em;
+//         z-index: 1;
+//         opacity: 1;
+//         width: 100%;
+//         text-shadow: $text-shadow;
+//     }
+//     .video-description {
+//         display: block;
+//         padding: 10px 20px;
+//         color: white;
+//         font-weight: 400;
+//     }
+//     .text-wrap {
+//         background-color: rgba(66,66,66,.75);
+//         width: 100%;
+//         height: auto;
+//         position: absolute;
+//         bottom: 0;
+//     }
+//     .play-button {
+//         display: none;
+//     }
+//     .video {
+//         display: none;
+//     }
+//     .countdown-timer {
+//         display: none;
+//     }
+//     .gradient {
+//         opacity: .3;
+//         background: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+//         height: 100%;
+//         width: 100%;
+//         position: absolute;
+//         bottom: 0;
+//     }
+//     .video-wrapper {
+//         .expanded {
+//             height: 90vh;
+//             width: 100%;
+//             .video-title {
+//                 font-size: 3.5em;
+//                 margin-top: 50px;
+//                 color: white;
+//                 font-family: $lora-font;
+//                 text-shadow: $text-shadow;
+//             }
+//             .text-wrap {
+//                 background: none;
+//                 height: 100%;
+//             }
+//             .video-description {
+//                 display: none;
+//             }
+//             .play-button {
+//                 display: block !important;
+//                 opacity: 1;
+//                 position: absolute;
+//                 top: 50%;
+//                 left: 50%;
+//                 transform: translate(-50%, -50%);
+//                 z-index: 2;
+//                 color: white;
+//                 font-size: 6em;
+//                 transition: opacity 0.5s ease-out;
+//             }
+//             .video {
+//                 display: block;
+//                 position: absolute;
+//                 top: 50%;
+//                 left: 50%;
+//                 transform: translate(-50%, -50%);
+//                 max-width: 100%;
+//                 min-height: 450px;
+//                 width: 93%;
+//                 opacity: 0;
+//                 transition: opacity 0.3s ease-out;
+//                 transition-delay: 0.3s;
+//             }
+//             .gradient {
+//                 z-index: -1;
+//                 opacity: 0;
+//                 background: radial-gradient(circle, rgba(0,0,0,0), rgba(0,0,0,1));
+//                 height: 100%;
+//                 width: calc(100% + 10px);
+//                 transition: opacity 0.3s ease-out;
+//             }
+//             .countdown-timer {
+//                 position: absolute;
+//                 top: 50%;
+//                 left: 50%;
+//                 transform: translate(-50%, -50%);
+//                 color: white;
+//                 width: 93%;
+//                 margin: 20px auto;
+//                 background-color: black;
+//                 z-index: 5;
+//             }
+//         }
+//     }
+//     .subscribe {
+//         position: fixed;
+//         bottom: 0;
+//         left: 0;
+//         z-index: 500;
+//         display: flex;
+//         flex-direction: row;
+//         justify-content: space-between;
+//         align-items: center;
+//         width: 100%;
+//         font-size: 1.6em;
+//         font-weight: 400;
+//         color: white;
+//         background-color: $light-blue;
+//         height: 50px;
+//         box-shadow: $material-shadow;
+//         padding: 20px;
+//         &.subscribe-removed {
+//             display: none;
+//         }
+//     }
+//     .extra-margin {
+//         margin-bottom: 50px;
+//     }
+// }
+// 980
+@media (min-width: 768px) and (max-width: 1199px) {
     .video-wrapper {
         display: flex;
         flex-flow: row wrap;
