@@ -12,7 +12,7 @@
         // $scope.hideNext = false;
         $scope.expanded = null;
         $scope.allLoaded = false;
-        $scope.value = 21;
+        $scope.value = 24;
         pictureService.getPictures().then(function(images) {
             $scope.images = images;
             $scope.lazyLoadImages = $scope.images.slice(0, 12);
@@ -20,9 +20,10 @@
 
         $scope.grabImages = function() {
             $scope.lazyLoadImages = $scope.images.slice(0, $scope.value);
-            $scope.value += 9;
+            $scope.value += 12;
 
-            if ($scope.value >= 42) {
+            // 63 count
+            if ($scope.value >= 63) {
                 $scope.allLoaded = true;
             }
         };

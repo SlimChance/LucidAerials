@@ -43,7 +43,7 @@
                         clone.addClass('cloned-image');
 
                         // place clone after each third element
-                        if (domIndex <= 36) {
+                        if (domIndex <= 60) {
                             if (domIndex % 2 === 0) {
                                 element.after(clone);
                             } else if (domIndex % 2 === 1) {
@@ -64,7 +64,7 @@
                       clone.addClass('cloned-image');
 
                       // place clone after each third element
-                      if (domIndex <= 36) {
+                      if (domIndex <= 60) {
                           if (domIndex % 3 === 0) {
                               element.after(clone);
                           } else if (domIndex % 3 === 1) {

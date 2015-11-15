@@ -1,5 +1,17 @@
 [
     {
+        "title": "2015 Aerial Highlight Video",
+        "smallImage": "url('../images/videos/2015-Highlight-Video.jpg')",
+        "id": "voxte9Z9pWo",
+        "description": "Our 2015 Lucid Aerials highlight video is here! From sunny California beaches to the snowy high sierras."
+    },
+    {
+        "title": "The Annual Llama Classic Wiffle Ball Tournament 2015",
+        "smallImage": "url('../images/videos/Llama-Classic-2015.jpg')",
+        "id": "1mwv2FbR958",
+        "description": "The Llama Classic Wiffle Ball Tournament held annually at the Nye Ranch!"
+    },
+    {
         "title": "-Aerials- Meadow Brook Ranch Grand Opening",
         "smallImage": "url('../images/videos/meadow-brooke.jpg')",
         "id": "-NQ8MMsEgJo",
@@ -172,11 +184,5 @@
         "smallImage": "url('../images/videos/c-first-crash.png')",
         "id": "R48XGQfXCXQ",
         "description": "Got disorientated while flying my DJI Phantom and ended up crashing."
-    },
-    {
-        "title": "-Aerials- Hunting",
-        "smallImage": "url('../images/videos/c-duck-hunting.jpg')",
-        "id": "WrdT2xFSRLw",
-        "description": "Duck Hunting Adventures with a GoPro and Quadcopter"
     }
 ]

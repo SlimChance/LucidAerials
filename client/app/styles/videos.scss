@@ -404,6 +404,7 @@
         color: white;
         text-align: center;
         margin-top: 30px;
+        margin-bottom: 0;
         font-size: 1.6em;
         z-index: 1;
         opacity: 1;
@@ -413,6 +414,7 @@
     .video-description {
         display: block;
         padding: 10px 20px;
+        border-top: 2px solid $light-blue;
         color: white;
         font-weight: 400;
     }
@@ -515,15 +517,19 @@
         justify-content: space-between;
         align-items: center;
         width: 100%;
-        p {
-          font-size: 1.8em;
-          font-weight: 400;
-          color: white;
-        }
         background-color: $light-blue;
         height: 50px;
         box-shadow: $material-shadow;
         padding: 20px;
+        .glyphicon-remove-circle {
+            color: white;
+        }
+        p {
+            margin: 5px;
+            font-size: 1.8em;
+            font-weight: 400;
+            color: white;
+        }
         &.subscribe-removed {
             display: none;
         }
@@ -580,6 +586,7 @@
     .video-description {
         display: block;
         padding: 10px 20px;
+        border-top: 2px solid $light-blue;
         color: white;
         font-weight: 400;
     }
@@ -691,15 +698,19 @@
         align-items: center;
         order: 1;
         width: 100%;
-        p {
-          font-size: 1.4em;
-          font-weight: 400;
-          color: white;  
-        }
         background-color: $light-blue;
         height: 50px;
         box-shadow: $material-shadow;
         padding: 20px;
+        .glyphicon-remove-circle {
+            color: white;
+        }
+        p {
+            margin: 5px;
+          font-size: 1.4em;
+          font-weight: 400;
+          color: white;  
+        }
         &.subscribe-removed {
             display: none;
         }

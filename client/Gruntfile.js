@@ -308,7 +308,7 @@ module.exports = function(grunt) {
 
         // ng-annotate tries to make the code safe for minification automatically
         // by using the Angular long form for dependency injection.
-        ngAnnotate: {
+        /* ngAnnotate: {
             dist: {
                 files: [{
                     expand: true,
@@ -317,7 +317,7 @@ module.exports = function(grunt) {
                     dest: '.tmp/concat/scripts'
                 }]
             }
-        },
+        }, */
 
         // Replace Google CDN references
         cdnify: {
@@ -372,7 +372,7 @@ module.exports = function(grunt) {
             ],
             dist: [
                 'compass:dist',
-                'imagemin:dist',
+                //'imagemin:dist',
                 'svgmin'
             ]
         },
@@ -422,7 +422,7 @@ module.exports = function(grunt) {
         'concurrent:dist', // Run some tasks in parallel for speed. (compass, imgmin, svgmin)
         'autoprefixer', // Add vendor prefixed styles. Keeps it in .tmp
         'concat', // Turned off?
-        'ngAnnotate', // Uses angular long form to make code safe for minification. Uses concat!!
+        //'ngAnnotate', // Uses angular long form to make code safe for minification. Uses concat!!
         'copy:dist', // Copies remaining files to be used by other tasks. Check if this misses anything
         'cdnify', // Replace google cdn references
         'cssmin', // useminPrep is turned on, which uses this step? Takes .tmp files and moves them to dist
