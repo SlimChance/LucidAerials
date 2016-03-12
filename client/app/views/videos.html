@@ -1,20 +1,23 @@
 <div id="footer"></div>
 <div class="video-wrapper" id="top">
-    <div class="video-repeat" ng-class="{ 'expanded': expanded == $index }" ng-repeat="video in videos" ng-click="expand($index)" ng-style="{ 'background-image': video.smallImage }" scroll-to="top" easing="easeInOutQuart" role="presentation" scroll-to-center>
+    <div class="video-repeat" ng-class="{ 'expanded': videos.expanded == $index }" dir-paginate="video in videos.videos | itemsPerPage: videos.itemsPerPage" ng-click="videos.expand($index)" ng-style="{ 'background-image': video.smallImage }" scroll-to="top" easing="easeInOutQuart" role="presentation">
         <div class="text-wrap">
             <p class="video-title">{{video.title}}</p>
             <p class="video-description">{{video.description}}</p>
         </div>
-        <span video-play-button class="play-button play-button{{$index}} glyphicon glyphicon-play" ng-click="play($index, video.id)" ng-show="playReady"></span>
+        <span video-play-button class="play-button play-button{{$index}} icon-youtube-play" ng-click="videos.play($index, video.id)" ng-show="videos.playReady"></span>
         <div class="video" id="ytplayer{{$index}}"></div>
         <div class="gradient"></div>
-        <div class="countdown-timer">Autoplay Next Video: <br>{{seconds}}</div>
+        <div class="countdown-timer">Autoplay Next Video: <br>{{videos.seconds}}</div>
     </div>
-    <div class="subscribe" ng-class="{ 'subscribe-removed': removed === true }">
-        <span ng-click="remove()" class="glyphicon glyphicon-remove-circle"></span>
+    <div class="subscribe" ng-class="{ 'subscribe-removed': videos.removed === true }">
+        <span ng-click="videos.remove()" class="glyphicon glyphicon-remove-circle"></span>
     	<p>Subscribe to Lucid Aerials</p>
         <div class="g-ytsubscribe" data-channelid="UCQbzkrvwwjTs33cOcVt4AKA" data-layout="default" data-theme="dark" data-count="hidden" data-onytevent="onYtEvent">
         </div>
+    </div>
+    <div class="pag-wrap">
+        <dir-pagination-controls class="pagination" on-page-change="videos.pageChange(newPageNumber)"></dir-pagination-controls>
     </div>
     <footer class="last-item extra-margin"></footer>
 </div>

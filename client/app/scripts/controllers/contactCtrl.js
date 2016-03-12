@@ -5,13 +5,13 @@
         .module('LucidAerials')
         .controller('ContactCtrl', ContactCtrl);
 
-    ContactCtrl.$inject = ['$scope', '$timeout'];
+    ContactCtrl.$inject = ['$timeout'];
 
-    function ContactCtrl($scope, $timeout) {
-        $scope.result = 'hidden';
+    function ContactCtrl($timeout) {
+        let vm = this; // contact
 
-        $timeout(function() {
-            twttr.widgets.load();
-        }, 500);
+        vm.result = 'hidden';
+
+        $timeout(() => twttr.widgets.load(), 500);
     }
 })();

@@ -34,7 +34,7 @@ module.exports = function(grunt) {
             },
             js: {
                 files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
-                tasks: ['newer:jshint:all'],
+                //tasks: ['newer:jshint:all'],
                 options: {
                     livereload: '<%= connect.options.livereload %>'
                 }
@@ -109,25 +109,42 @@ module.exports = function(grunt) {
             }
         },
 
-        // Make sure code styles are up to par and there are no obvious mistakes
-        jshint: {
+        babel: {
             options: {
-                jshintrc: '.jshintrc',
-                reporter: require('jshint-stylish')
+              sourceMap: true,
+              compact: false
             },
-            all: {
-                src: [
-                    'Gruntfile.js',
-                    '<%= yeoman.app %>/scripts/{,*/}*.js'
-                ]
+            dist: {
+              files: {
+                src: 'dist/scripts/**/*.js'
+              }
             },
-            test: {
-                options: {
-                    jshintrc: 'test/.jshintrc'
-                },
-                src: ['test/spec/{,*/}*.js']
+            server: {
+                files: {
+                    src: 'app/scripts/**/*.js'
+                }
             }
         },
+
+        // Make sure code styles are up to par and there are no obvious mistakes
+        // jshint: {
+        //     options: {
+        //         jshintrc: '.jshintrc',
+        //         reporter: require('jshint-stylish')
+        //     },
+        //     all: {
+        //         src: [
+        //             'Gruntfile.js',
+        //             '<%= yeoman.app %>/scripts/{,*/}*.js'
+        //         ]
+        //     },
+        //     test: {
+        //         options: {
+        //             jshintrc: 'test/.jshintrc'
+        //         },
+        //         src: ['test/spec/{,*/}*.js']
+        //     }
+        // },
 
         // Empties folders to start fresh
         clean: {
@@ -397,6 +414,7 @@ module.exports = function(grunt) {
             'wiredep',
             'concurrent:server',
             'autoprefixer',
+            //'babel:server',
             'connect:livereload',
             'watch'
         ]);
@@ -424,10 +442,11 @@ module.exports = function(grunt) {
         'concat', // Turned off?
         //'ngAnnotate', // Uses angular long form to make code safe for minification. Uses concat!!
         'copy:dist', // Copies remaining files to be used by other tasks. Check if this misses anything
+        'babel:build',
         'cdnify', // Replace google cdn references
         'cssmin', // useminPrep is turned on, which uses this step? Takes .tmp files and moves them to dist
         'uglify', // Turned off. Check if JS is minified
-        'filerev', // Renames everything for cacheing. 
+        'filerev', // Renames everything for cacheing.
         'usemin', // Performs rewrites based on filerev and the useminPrepare configuration
         'htmlmin' // Minifies html
     ]);

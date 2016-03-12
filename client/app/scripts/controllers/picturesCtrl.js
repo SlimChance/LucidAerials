@@ -5,92 +5,44 @@
         .module('LucidAerials')
         .controller('PicturesCtrl', PicturesCtrl);
 
-    PicturesCtrl.$inject = ['$scope', '$window', 'pictureService'];
+    PicturesCtrl.$inject = ['pictureService'];
 
-    function PicturesCtrl($scope, $window, pictureService) {
-        // $scope.hidePrev = false;
-        // $scope.hideNext = false;
-        $scope.expanded = null;
-        $scope.allLoaded = false;
-        $scope.value = 24;
-        pictureService.getPictures().then(function(images) {
-            $scope.images = images;
-            $scope.lazyLoadImages = $scope.images.slice(0, 12);
+    function PicturesCtrl(pictureService) {
+        let vm = this; // pics
+
+        vm.expanded = null;
+        vm.allLoaded = false;
+        vm.value = 21;
+
+        vm.grabImages = grabImages;
+        vm.expand = expand;
+        vm.getImage = getImage;
+
+        pictureService.getPictures().then((images) => {
+            vm.images = images;
+            vm.lazyLoadImages = vm.images.slice(0, 12);
         });
 
-        $scope.grabImages = function() {
-            $scope.lazyLoadImages = $scope.images.slice(0, $scope.value);
-            $scope.value += 12;
+        function grabImages() {
+            vm.lazyLoadImages = vm.images.slice(0, vm.value);
+            vm.value += 9;
 
             // 63 count
-            if ($scope.value >= 63) {
-                $scope.allLoaded = true;
+            if (vm.value >= (vm.images.length + 6)) {
+                vm.allLoaded = true;
             }
         };
 
-        $scope.expand = function(index) {
-            $scope.expanded = index;
+        function expand(index) {
+            vm.expanded = index;
         };
 
-        $scope.getImage = function(index, picture) {
-            if ($scope.expanded === index) {
+        function getImage(index, picture) {
+            if (vm.expanded === index) {
                 return picture.largeImage;
             } else {
                 return picture.smallImage;
             }
         };
-        // $scope.nextPic = function(index) {
-        //     // Grab elements
-        //     var modal = '#picModal' + index,
-        //         nextModal = '#picModal' + (index + 1),
-        //         modalElem = angular.element(modal),
-        //         nextModalElem = angular.element('.picture-repeat').children(nextModal),
-        //         modalContent = nextModalElem.children('.modal-dialog').children('.modal-content'),
-        //         windowHeight = document.documentElement.clientHeight - 20;
-        //         //windowWidth = document.documentElement.clientWidth - 20;
-
-        //     // Hide current modal
-        //     modalElem.modal('hide');
-
-        //     // Go to next picture
-        //     if (index < 8) {
-        //         modalContent.css({'height': 'auto', 'width': windowHeight});
-        //         nextModalElem.modal('show');
-        //     }
-        // };
-
-        // $scope.prevPic = function(index) {
-        //     // Grab elements
-        //     var modal = '#picModal' + index,
-        //         prevModal = '#picModal' + (index - 1),
-        //         modalElem = angular.element(modal),
-        //         prevModalElem = angular.element('.picture-repeat').children(prevModal),
-        //         modalContent = prevModalElem.children('.modal-dialog').children('.modal-content'),
-        //         windowHeight = document.documentElement.clientHeight - 20;
-        //         //windowWidth = document.documentElement.clientWidth - 20;
-
-        //     // Hide current modal
-        //     modalElem.modal('hide');
-
-        //     // Go to previous picture
-        //     if (index > 0) {
-        //         modalContent.css({'height': 'auto', 'width': windowHeight});
-        //         prevModalElem.modal('show');
-        //     }
-        // };
-
-        // $scope.checkArrow = function(index) {
-        //     if (index === 0) {
-        //         $scope.hidePrev = true;
-        //     } else if (index === 8) {
-        //         $scope.hideNext = true;
-        //     }
-
-        //     if (index !== 0) {
-        //         $scope.hidePrev = false;
-        //     } else if (index !== 8) {
-        //         $scope.hideNext = false;
-        //     }
-        // };
     }
 })();

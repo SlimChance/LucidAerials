@@ -21,13 +21,19 @@
                 vs.cache[videoId] = video;
             };
 
+            vs.clearCache = function() {
+                vs.cache = {};
+            }
+
             // Returns a promise
             vs.createPlayer = function(elementId, index) {
+                console.log(elementId);
                 var deferred = $q.defer(),
                     videoId = vs.videos[index].id,
                     element = angular.element(elementId)[0];
                 
                 console.log(element);
+                console.log(index);
                 function createYTPlayer() {
                     if (YT) {
                         var YTPlayer = new YT.Player(element, {

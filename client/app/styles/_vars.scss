@@ -1,10 +1,12 @@
 @import url(http://fonts.googleapis.com/css?family=Lora:400,700);
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,700);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300);
 $light-blue: #607D8B;
 $dark-blue: #455A64;
 $white-background: #ECEFF1;
-$material-shadow: 0 1px 5px rgba(0,0,0,0.3);
+$material-shadow: 0 1px 5px rgba(0,0,0,0.8);
 $roboto-font: 'Roboto', sans-serif;
+$sans: 'Open Sans', sans-serif;
 $lora-font: 'Lora', serif;
 $dark-grey: #424242;
 $light-grey: #616161;
@@ -13,3 +15,7 @@ $text-shadow: 3px 3px 0 $dark-grey,
       1px -1px 0 $dark-grey,
       -1px 1px 0 $dark-grey,
        1px 1px 0 $dark-grey;
+$outline-shadow: -1px -1px 0 $light-grey,
+	1px -1px 0 $light-grey,
+	-1px 1px 0 $light-grey,
+	1px 1px 0 $light-grey;

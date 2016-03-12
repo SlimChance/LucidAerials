@@ -2,6 +2,7 @@
 
 angular
     .module('LucidAerials', [
+        'ng',
         'ngAnimate',
         'ngAria',
         'ngCookies',
@@ -11,25 +12,30 @@ angular
         'ngSanitize',
         'ngTouch',
         'ngMaterial',
-        'smoothScroll'
+        'smoothScroll',
+        'angularUtils.directives.dirPagination'
     ])
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider
             .when('/', {
                 templateUrl: 'views/home.html',
-                controller: 'HomeCtrl'
+                controller: 'HomeCtrl',
+                controllerAs: 'home'
             })
             .when('/videos', {
                 templateUrl: 'views/videos.html',
-                controller: 'VideosCtrl'
+                controller: 'VideosCtrl',
+                controllerAs: 'videos'
             })
             .when('/pictures', {
                 templateUrl: 'views/pictures.html',
-                controller: 'PicturesCtrl'
+                controller: 'PicturesCtrl',
+                controllerAs: 'pics'
             })
             .when('/contact', {
                 templateUrl: 'views/contact.html',
-                controller: 'ContactCtrl'
+                controller: 'ContactCtrl',
+                controllerAs: 'contact'
             })
             .otherwise({
                 redirectTo: '/'

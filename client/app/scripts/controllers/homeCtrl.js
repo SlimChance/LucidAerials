@@ -8,11 +8,16 @@
     HomeCtrl.$inject = ['$scope', '$window'];
 
     function HomeCtrl($scope, $window) {
-        var video = angular.element('video.home-video'),
+        let vm = this, // home
+            video = angular.element('video.home-video'),
             videoOverlay = angular.element('div.video-overlay');
 
-        $scope.resizeVideo = function() {
-            var windowWidth = $window.innerWidth,
+        // Exposed to DOM
+        vm.resizeVideo = resizeVideo;
+        vm.playVideo = playVideo;
+
+        function resizeVideo() {
+            let windowWidth = $window.innerWidth,
                 windowHeight = $window.innerHeight,
                 ratio = windowWidth / windowHeight;
 
@@ -27,18 +32,16 @@
             }
 
             if (windowWidth >= 480) {
-                $scope.playVideo();
+                playVideo();
             }
         };
 
-        $scope.playVideo = function() {
+        function playVideo() {
             video[0].play();
         };
 
-        $scope.resizeVideo();
+        resizeVideo();
 
-        angular.element(window).resize(function() {
-            $scope.resizeVideo();
-        });
+        angular.element(window).resize(() => resizeVideo());
     }
 })();

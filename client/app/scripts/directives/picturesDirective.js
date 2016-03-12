@@ -31,11 +31,12 @@
             },
             link: function (scope, element) {
                 element.bind('click', function () {
-                    var clientWidth = document.documentElement.clientWidth;
-                    var clone = element.clone();
-                    var prevClone = angular.element('.cloned-image');
-                    var domIndex = scope.index + 1;
-                    var clientHeight = document.documentElement.clientHeight;
+                    var clientWidth = document.documentElement.clientWidth,
+                        clone = element.clone(),
+                        image = clone.children('img'),
+                        prevClone = angular.element('.cloned-image'),
+                        domIndex = scope.index + 1,
+                        clientHeight = document.documentElement.clientHeight;
 
                     if (clientWidth > 490 && clientWidth < 768) {
                         // remove old clone and add new clone
@@ -56,7 +57,7 @@
 
                         // scroll to image
                         clientHeight -= 30;
-                        clone.css({ 'height': clientHeight });
+                        image.css({ 'height': clientHeight });
                         window.scrollTo(0, clone[0].offsetTop - 15);
                     } else if (clientWidth >= 768) {
                       // remove old clone and add new clone
@@ -81,12 +82,12 @@
                       // scroll to image
                       if (clientHeight >= 800) {
                           clientHeight -= 100;
-                          clone.css({ 'height': clientHeight });
+                          image.css({ 'height': clientHeight });
                           // Scroll to center!!!
                           window.scrollTo(0, clone[0].offsetTop - 50);
                       } else {
                           clientHeight -= 30;
-                          clone.css({ 'height': clientHeight });
+                          image.css({ 'height': clientHeight });
                           window.scrollTo(0, clone[0].offsetTop - 15);
                       }
                     }

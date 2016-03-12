@@ -28,8 +28,6 @@
             link: function(scope, element) {
                 element.bind('click', function() {
                     window.scrollTo(0, element[0].offsetTop - 50);
-                    console.log(element[0]);
-                    console.log(document.documentElement.clientHeight);
                 });
             }
         };

@@ -1,4 +1,5 @@
 $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+@import url("https://file.myfontastic.com/6EQyzGk385eGoJTU9Ke7e9/icons.css");
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // @import "bower_components/angular-material/angular-material.css";
 @import 'pace.css';
@@ -85,6 +86,7 @@ body {
                 display: inline-block;
                 color: white;
                 font-weight: 400;
+                font-family: $sans;
                 font-size: 1.4em;
             }
         }
@@ -151,6 +153,7 @@ body {
                 display: inline-block;
                 margin-left: 15px;
                 font-weight: 400;
+                font-family: $sans;
                 font-size: 1.3em;
                 letter-spacing: .05em;
             }
@@ -204,21 +207,32 @@ body {
             & > li {
                 display: inline;
                 list-style: none;
-                font-size: 1.2em;
+                font-family: $sans;
+                font-size: 1.1em;
                 margin: 0 10px;
                 a {
                     color: white;
                     text-decoration: none;
+                    &:hover {
+                        color: $light-blue;
+                    }
                 }
             }
         }
         .scroll-to-top {
+            width: auto;
             font-size: 1em;
-            margin: 20px;
+            margin: 10px 20px;
+            font-family: $sans;
+            &:hover {
+                cursor: pointer;
+                color: $light-blue;
+            }
         }
         .copyright {
+           width: auto;
             font-size: 1em;
-            margin: 20px;
+            margin: 10px 20px;
         }
     }
 }
@@ -251,7 +265,6 @@ body {
             width: 50px;
             border-top: 5px solid $light-blue;
             margin: 8px 0px 0px 0px;
-            box-shadow: $material-shadow;
             opacity: 1;
             transform: rotate(0deg) translate(0);
             transition: all 0.30s ease-out;
@@ -263,7 +276,7 @@ body {
         transition: transform 0.2s ease-in-out;
         .menu-bar1 {
             position: relative;
-            transform: rotate(-45deg) translate(-8px, 8px);
+            transform: rotate(-45deg) translate(-6.5px, 6.5px);
             transition: transform 0.25s ease-out;
             z-index: 1;
         }
@@ -273,7 +286,7 @@ body {
         }
         .menu-bar3 {
             position: relative;
-            transform: rotate(45deg) translate(-10px, -10px);
+            transform: rotate(45deg) translate(-12px, -12px);
             transition: transform 0.25s ease-out;
             z-index: 1;
         }
@@ -302,9 +315,10 @@ body {
             }
             h3 {
                 color: white;
+                font-family: $sans;
                 font-size: 1.6em;
                 font-weight: 400;
-                margin: 0 0 0 10px;
+                margin: 0 0 0 15px;
             }
             &:hover {
                 cursor: pointer;
@@ -352,10 +366,7 @@ body {
             .youtube-logo-footer {
                 background-position: -268px -456px;
             }
-        }
-        .copyright {
-           margin: 20px;
-        }
+        }     
         .footer-nav {
             display: flex;
             justify-content: center;
@@ -365,20 +376,31 @@ body {
             & > li {
                 display: inline;
                 list-style: none;
-                font-size: 1.2em;
+                font-family: $sans;
+                font-size: 1.15em;
                 margin: 0 10px;
                 a {
                     color: white;
                     text-decoration: none;
+                    &:hover {
+                        color: $light-blue;
+                    }
                 }
             }
         }
         .scroll-to-top {
-            font-size: 1em;
+            width: auto;
+            font-size: 1.1em;
             margin: 20px;
+            font-family: $sans;
+            &:hover {
+                cursor: pointer;
+                color: $light-blue;
+            }
         }
         .copyright {
-            font-size: 1em;
+           width: auto;
+            font-size: 1.1em;
             margin: 20px;
         }
     }
@@ -392,11 +414,15 @@ body {
             & > li {
                 display: inline;
                 list-style: none;
-                font-size: 1.4em;
+                font-family: $sans;
+                font-size: 1.2em;
                 margin: 0 10px;
                 a {
                     color: white;
                     text-decoration: none;
+                    &:hover {
+                        color: $light-blue;
+                    }
                 }
             }
         }
@@ -404,6 +430,11 @@ body {
             width: auto;
             font-size: 1.2em;
             margin: 20px;
+            font-family: $sans;
+            &:hover {
+                cursor: pointer;
+                color: $light-blue;
+            }
         }
         .copyright {
             width: auto;
@@ -422,21 +453,31 @@ body {
             & > li {
                 display: inline;
                 list-style: none;
-                font-size: 1.4em;
+                font-family: $sans;
+                font-size: 1.2em;
                 margin: 0 10px;
                 a {
                     color: white;
                     text-decoration: none;
+                    &:hover {
+                        color: $light-blue;
+                    }
                 }
             }
         }
         .scroll-to-top {
             width: auto;
+            font-family: $sans;
             font-size: 1.2em;
             margin: 20px;
+            &:hover {
+                cursor: pointer;
+                color: $light-blue;
+            }
         }
         .copyright {
             width: auto;
+            font-family: $sans;
             font-size: 1.2em;
             margin: 20px;
         }

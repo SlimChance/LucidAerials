@@ -8,74 +8,96 @@
     VideosCtrl.$inject = ['$window', '$scope', '$timeout', '$interval', '$rootScope', '$cacheFactory', '$sce', 'videoService'];
 
     function VideosCtrl($window, $scope, $timeout, $interval, $rootScope, $cacheFactory, $sce, videoService) {
-        var vs = new videoService();
-        $scope.playReady = true;
-        $scope.seconds = 5;
-        $scope.expanded = 0;
-        $scope.videos = vs.videos;
-        $scope.removed = false;
+        let vm = this, // videos
+            vs = new videoService(),
+            screenWidth = $window.innerWidth;
 
-        $scope.expand = function(index) {
-            if ($scope.videos[index]) {
-                if (index !== $scope.expanded) {
-                    var videoId = $scope.videos[index].id,
-                        expandedId = $scope.videos[$scope.expanded].id;
+        vm.playReady = true;
+        vm.seconds = 5;
+        vm.expanded = 0;
+        vm.prevExpanded = 0;
+        vm.videos = vs.videos;
+        vm.removed = false;
+        vm.currentPage = 1;
 
-                    $scope.expanded = index;
+        // Exposed to DOM
+        vm.init = init;
+        vm.pageChange = pageChange;
+        vm.expand = expand;
+        vm.getImage = getImage;
+        vm.play = play;
+        vm.pause = pause;
+        vm.cancelTimer = cancelTimer;
+        vm.remove = remove;
+
+        function init() {
+            if (screenWidth >= 900) {
+                vm.itemsPerPage = 7;
+            } else if (screenWidth >= 767) {
+                vm.itemsPerPage = 5;
+            } else {
+                vm.itemsPerPage = 6;
+            }
+        };
+
+        init();
+
+        function pageChange(newPageNumber) {
+            vm.currentPage = newPageNumber;
+            clearCache();
+        };
+
+        function expand(index) {
+            let videoIndex = index + ((vm.currentPage - 1) * vm.itemsPerPage);
+
+            if (vm.videos[videoIndex]) {
+                if (index !== vm.expanded) {
+                    let videoId = vm.videos[videoIndex].id,
+                        expandedId = vm.videos[vm.prevExpanded].id;
+
+                    vm.expanded = index;
+                    vm.prevExpanded = videoIndex;
 
                     if (typeof vs.getCache(videoId) === 'undefined') {
                         // Timeout to not block render
-                        $timeout(function() {
-                            var element = 'div#ytplayer' + index;
+                        $timeout(() => {
+                            let element = `div#ytplayer${index}`;
+
                             if (vs.getCache(expandedId)) {
-                                $scope.pause(expandedId);
+                                pause(expandedId);
                             }
 
-                            $scope.playReady = false;
+                            vm.playReady = false;
 
-                            vs.createPlayer(element, index).then(function() {
-                                $scope.playReady = true;
-                            });
+                            vs.createPlayer(element, videoIndex).then(() => vm.playReady = true);
                         }, 200);
                     } else {
-                        var element = angular.element('.play-button' + index)[0];
-                        console.log(element);
+                        let element = angular.element(`.play-button${index}`)[0];
 
                         if (vs.getCache(expandedId)) {
-                            console.log('pausing old video');
-                            $scope.pause(expandedId);
+                            pause(expandedId);
                         }
-                        // if element hasn't been clicked, don't play
-                        // console.log(element.style.opacity);
-                        // if (element.style.opacity == 0) {
-                        //     console.log('inside timeout');
-                        //     $timeout(function() {
-                        //         $scope.play(index, videoId);
-                        //     }, 1000);
-                        // }   
                     }
                 }
             } else {
-                vs.resource.query().$promise.then(function(data) {
-                    $scope.videos = data;
-                    // var video = $scope.videos[index];
-                    $scope.expand(index);
+                vs.resource.query().$promise.then((data) => {
+                    vm.videos = data;
+                    expand(index);
                 });
             }
         };
 
-        $scope.getImage = function(index, video) {
-            if ($scope.expanded === index) {
+        function getImage(index, video) {
+            if (vm.expanded === index) {
                 return video.largeImage;
             } else {
                 return video.smallImage;
             }
         };
 
-        $scope.play = function(index, videoId) {
+        function play(index, videoId) {
             if (vs.getCache(videoId)) {
-                var video = vs.getCache(videoId);
-                console.log(video);
+                let video = vs.getCache(videoId);
 
                 // check if type function, if not, timeout and try again
                 if (typeof video.getPlayerState === 'function') {
@@ -83,63 +105,52 @@
                         video.playVideo();
                     }
                 } else {
-                    $timeout(function() {
-                        $scope.play(index, videoId);
-                    }, 1000);
+                    $timeout(() => play(index, videoId), 1000);
                 }
             } else {
-                console.log('Video not in cache, creating');
-                var element = 'div#ytplayer' + index;
+                var element = 'div#ytplayer' + index,
+                    videoIndex = index + ((vm.currentPage - 1) * vm.itemsPerPage);
 
-                vs.createPlayer(element, index).then(function() {
-                    console.log('promise video id' + videoId);
-                    $scope.play(index, videoId);
-                });
+                vs.createPlayer(element, videoIndex).then(() => play(videoIndex, videoId));
             }
         };
 
-        $scope.pause = function(videoId) {
+        function pause(videoId) {
             var video = vs.getCache(videoId);
 
             if (video) {
-                console.log('Pausing video');
                 video.pauseVideo();
             } else {
                 console.log('Paused cache.get = undefined');
             }
         };
 
-        $scope.cancelTimer = function(intervalPromise) {
+        // unbind?
+        function cancelTimer(intervalPromise) {
             $interval.cancel(intervalPromise);
         };
 
-        $scope.remove = function() {
-            $scope.removed = true;
+        function remove() {
+            vm.removed = true;
         };
 
         // Listens for videoService broadcast when video ends. Kicks off a countdown timer and autoplays next video
-        $scope.$on('playNext', function(event, index) {
-            var timerElem = angular.element('.expanded .countdown-timer').css({
-                'display': 'block'
-            });
-            var playButtonElem = angular.element('.play-button' + index);
-            var videoElem = angular.element('#ytplayer' + index);
-            var gradientElem = angular.element('#ytplayer' + index).next('.gradient');
+        $scope.$on('playNext', (event, index) => {
+            let timerElem = angular.element('.expanded .countdown-timer').css({ 'display': 'block' }),
+                playButtonElem = angular.element(`.play-button${index}`),
+                videoElem = angular.element(`#ytplayer${index}`),
+                gradientElem = angular.element(`#ytplayer${index}`).next('.gradient');
 
-            console.log(videoElem);
-            // console.log('Video: ' + videoElem);
-            // console.log('Gradient: ' + gradientElem);
+            var intervalPromise = $interval(() => {
+                vm.seconds--;
+                    if (vm.seconds === 0) {
+                        let videoId = vm.videos[index].id;
+                        expand(index);
 
-            var intervalPromise = $interval(function() {
-                $scope.seconds--;
-                    if ($scope.seconds === 0) {
-                        $scope.expand(index);
-
-                        var videoId = $scope.videos[index].id;
                         timerElem.css({
                             'display': 'none'
                         });
-                        $scope.play(index, videoId);
+                        play(index, videoId);
 
                         // simulate play button click
                         playButtonElem.css('opacity', '0');
@@ -151,8 +162,8 @@
                             'opacity': '1'
                         });
 
-                        $scope.seconds = 5;
-                        $scope.cancelTimer(intervalPromise);
+                        vm.seconds = 5;
+                        cancelTimer(intervalPromise);
                     }
             }, 1000);
         });

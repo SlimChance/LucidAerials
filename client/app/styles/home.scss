@@ -50,20 +50,20 @@
             }
             .site-title {
                 color: $light-blue;
-                text-shadow: $text-shadow;
+                text-shadow: $outline-shadow;
                 font-family: $lora-font;
                 margin: 0px 20px;
                 opacity: 1;
+                font-weight: 500;
                 font-size: 2.4em;
             }
             .site-sub-heading {
                 color: white;
                 font-size: 1.1em;
                 text-align: center;
-                text-shadow: 3px 2px 0 $dark-grey;
                 font-family: $lora-font;
                 font-weight: 400;
-                margin: 0 20px 30px 20px;
+                margin: 0 20px 20px 20px;
             }
             .logo {
                 height: 100px;
@@ -72,7 +72,7 @@
             }
             .b-play-video {
                 margin: 10px 20px;
-                padding: 7px 15px;
+                padding: 7px 12px;
                 border-radius: 3px;
                 background: $light-blue;
                 color: white;
@@ -87,16 +87,47 @@
             }
         }
         .bio-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+            width: 90%;
+            h2 {
+                color: $light-blue;
+                text-shadow: $outline-shadow;
+                font-family: $lora-font;
+                font-weight: 500;
+                margin: 0 20px;
+                font-size: 2.5em;
+            }
+            h3 {
+                color: white;
+                font-size: 1.5em;
+                font-family: $lora-font;
+                font-weight: 400;
+                margin: 10px 20px;
+            }
             .selfie {
-                width: calc(100% - 40px);
-                margin: 40px 20px 20px 20px;
+                width: 90%;
+                height: 300px;
+                margin: 20px;
                 border-radius: 3px;
             }
+            hr {
+                width: 100%;
+                border: 2px solid $light-blue;
+                margin: 10px;
+            }
+            hr.thin {
+                border: 1px solid $light-blue;
+            }
             .bio-text {
-                margin: 0 20px 20px 20px;
+                margin: 0 20px 20px;
                 color: white;
-                font-weight: 400;
-                font-size: 1.1em;
+                font-family: $sans;
+                font-weight: 300;
+                font-size: 1em;
+                letter-spacing: .01em;
             }
         }
     }
@@ -136,24 +167,24 @@
             }
             .site-title {
                 color: $light-blue;
-                text-shadow: $text-shadow;
+                text-shadow: $outline-shadow;
                 font-family: $lora-font;
-                margin: 0px 20px;
+                margin: 50px 20px 0 20px;
                 opacity: 1;
-                font-size: 3em;
+                font-weight: 500;
+                font-size: 3.5em;
             }
             .site-sub-heading {
                 color: white;
-                font-size: 1.3em;
-                text-shadow: 3px 2px 0 $dark-grey;
+                font-size: 1.25em;
                 font-family: $lora-font;
                 font-weight: 400;
-                margin: 0 20px 30px 20px;
+                margin: 0 20px 20px 20px;
             }
             .logo {
-                height: 150px;
-                width: 150px;
-                margin: 20px;
+                height: 125px;
+                width: 125px;
+                margin: 25px;
             }
             .b-play-video {
                 margin: 10px 20px;
@@ -175,16 +206,49 @@
             }
         }
         .bio-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 40px;
+            width: 90%;
+            h2 {
+                color: $light-blue;
+                text-shadow: $outline-shadow;
+                font-family: $lora-font;
+                font-weight: 500;
+                margin: 0 20px;
+                font-size: 3em;
+            }
+            h3 {
+                color: white;
+                font-size: 1.7em;
+                font-family: $lora-font;
+                font-weight: 400;
+                margin: 10px 20px;
+            }
             .selfie {
-                width: calc(100% - 60px);
-                margin: 40px 30px 20px 30px;
+                width: 87%;
+                height: 380px;
+                margin: 20px;
                 border-radius: 3px;
             }
+            hr {
+                width: 100%;
+                border: 2px solid $light-blue;
+                margin: 10px;
+            }
+            hr.thin {
+                border: 1px solid $light-blue;
+            }
             .bio-text {
-                margin: 0 30px 30px 30px;
+                width: 100%;
+                max-width: 620px;
+                margin: 0 20px 20px;
                 color: white;
-                font-weight: 400;
+                font-family: $sans;
+                font-weight: 300;
                 font-size: 1.1em;
+                letter-spacing: .01em;
             }
         }
     }
@@ -224,28 +288,28 @@
             }
             .site-title {
                 color: $light-blue;
-                text-shadow: $text-shadow;
+                text-shadow: $outline-shadow;
                 font-family: $lora-font;
                 margin: 0px 20px;
+                font-weight: 500;
                 opacity: 1;
-                font-size: 4em;
+                font-size: 4.2em;
             }
             .site-sub-heading {
                 color: white;
-                font-size: 2em;
-                text-shadow: 3px 2px 0 $dark-grey;
+                font-size: 1.75em;
                 font-family: $lora-font;
                 font-weight: 400;
                 margin: 0 20px 30px 20px;
             }
             .logo {
-                height: 175px;
-                width: 175px;
-                margin: 20px;
+                height: 170px;
+                width: 170px;
+                margin: 40px;
             }
             .b-play-video {
                 margin: 10px 20px;
-                padding: 12px 25px;
+                padding: 10px 20px;
                 border-radius: 3px;
                 background: $light-blue;
                 color: white;
@@ -266,25 +330,53 @@
         .bio-wrapper {
             display: flex;
             flex-direction: column;
-            margin-top: 50px;
+            align-items: center;
+            margin-top: 40px;
+            width: 80%;
+            h2 {
+                color: $light-blue;
+                text-shadow: $outline-shadow;
+                font-family: $lora-font;
+                font-weight: 500;
+                margin: 0 20px;
+                font-size: 3.5em;
+            }
+            h3 {
+                color: white;
+                font-size: 2em;
+                font-family: $lora-font;
+                font-weight: 400;
+                margin: 10px 20px;
+            }
             .selfie {
-                width: calc(100% - 250px);
-                height: 80%;
-                margin: 0 125px 20px 125px;
+                width: 85%;
+                height: 480px;
+                margin: 20px;
                 border-radius: 3px;
             }
+            hr {
+                width: 100%;
+                border: 2px solid $light-blue;
+                margin: 10px;
+            }
+            hr.thin {
+                border: 1px solid $light-blue;
+            }
             .bio-text {
-                width: calc(100% - 250px);
-                margin: 0 125px 20px 125px;
+                width: 100%;
+                max-width: 750px;
+                margin: 0 20px 20px;
                 color: white;
-                font-weight: 400;
-                font-size: 1.1em;
+                font-family: $sans;
+                font-weight: 300;
+                font-size: 1.2em;
+                letter-spacing: .01em;
             }
         }
     }
 }
 
-@media (min-width: 980px)  and (max-width: 1199px) {
+@media (min-width: 980px) and (max-width: 1199px) {
     .home-wrapper {
         display: flex;
         flex-flow: column;
@@ -317,8 +409,13 @@
             }
             .site-title {
                 color: $light-blue;
-                text-shadow: $text-shadow;
+                text-shadow:
+                    -1px -1px 0 $light-grey,
+                    1px -1px 0 $light-grey,
+                    -1px 1px 0 $light-grey,
+                    1px 1px 0 $light-grey;
                 font-family: $lora-font;
+                font-weight: 500;
                 margin: 0px 20px;
                 opacity: 1;
                 font-size: 4.4em;
@@ -326,14 +423,13 @@
             .site-sub-heading {
                 color: white;
                 font-size: 2em;
-                text-shadow: 3px 2px 0 $dark-grey;
                 font-family: $lora-font;
                 font-weight: 400;
                 margin: 0 20px 30px 20px;
             }
             .logo {
-                height: 185px;
-                width: 185px;
+                height: 170px;
+                width: 170px;
                 margin: 40px;
             }
             .b-play-video {
@@ -358,20 +454,52 @@
         }
         .bio-wrapper {
             display: flex;
-            flex-direction: row wrap;
-            margin-top: 50px;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 40px;
+            width: 80%;
+            h2 {
+                color: $light-blue;
+                text-shadow:
+                    -1px -1px 0 $light-grey,
+                    1px -1px 0 $light-grey,
+                    -1px 1px 0 $light-grey,
+                    1px 1px 0 $light-grey;
+                font-family: $lora-font;
+                font-weight: 500;
+                margin: 0 20px;
+                font-size: 3.5em;
+            }
+            h3 {
+                color: white;
+                font-size: 2em;
+                font-family: $lora-font;
+                font-weight: 400;
+                margin: 10px 20px;
+            }
             .selfie {
-                width: calc(50% - 75px);
-                height: 80%;
-                margin: 0 25px 50px 50px;
+                width: 85%;
+                height: 550px;
+                margin: 20px;
                 border-radius: 3px;
             }
+            hr {
+                width: 100%;
+                border: 2px solid $light-blue;
+                margin: 10px;
+            }
+            hr.thin {
+                border: 1px solid $light-blue;
+            }
             .bio-text {
-                width: calc(50% - 75px);
-                margin: 0 50px 50px 25px;
+                width: 100%;
+                max-width: 850px;
+                margin: 0 20px 20px;
                 color: white;
-                font-weight: 400;
-                font-size: 1.1em;
+                font-family: $sans;
+                font-weight: 300;
+                font-size: 1.2em;
+                letter-spacing: .01em;
             }
         }
     }
@@ -409,23 +537,27 @@
             }
             .site-title {
                 color: $light-blue;
-                text-shadow: $text-shadow;
+                text-shadow:
+                    -1px -1px 0 $light-grey,
+                    1px -1px 0 $light-grey,
+                    -1px 1px 0 $light-grey,
+                    1px 1px 0 $light-grey;
                 font-family: $lora-font;
+                font-weight: 500;
                 margin: 0px 20px;
                 opacity: 1;
-                font-size: 4.4em;
+                font-size: 4.8em;
             }
             .site-sub-heading {
                 color: white;
                 font-size: 2em;
-                text-shadow: 3px 2px 0 $dark-grey;
                 font-family: $lora-font;
                 font-weight: 400;
                 margin: 0 20px 30px 20px;
             }
             .logo {
-                height: 185px;
-                width: 185px;
+                height: 175px;
+                width: 175px;
                 margin: 40px;
             }
             .b-play-video {
@@ -450,21 +582,51 @@
         }
         .bio-wrapper {
             display: flex;
-            flex-direction: row wrap;
-            justify-content: center;
-            margin-top: 50px;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 40px;
+            h2 {
+                color: $light-blue;
+                text-shadow:
+                    -1px -1px 0 $light-grey,
+                    1px -1px 0 $light-grey,
+                    -1px 1px 0 $light-grey,
+                    1px 1px 0 $light-grey;
+                font-family: $lora-font;
+                margin: 0 20px;
+                font-size: 3.5em;
+                font-weight: 500;
+                margin: 0px 20px;
+                opacity: 1;
+            }
+            h3 {
+                color: white;
+                font-size: 2em;
+                font-family: $lora-font;
+                font-weight: 400;
+                margin: 10px 20px;
+            }
             .selfie {
-                width: 40%;
-                height: 80%;
-                margin: 0 25px 50px 0;
+                width: 33%;
+                margin: 20px;
                 border-radius: 3px;
+            }
+            hr {
+                width: 40%;
+                border: 2px solid $light-blue;
+                margin: 10px;
+            }
+            hr.thin {
+                border: 1px solid $light-blue;
             }
             .bio-text {
                 width: 40%;
-                margin: 0 0 50px 25px;
+                margin: 0 20px 20px;
                 color: white;
-                font-weight: 400;
+                font-family: $sans;
+                font-weight: 300;
                 font-size: 1.2em;
+                letter-spacing: .01em;
             }
         }
     }
