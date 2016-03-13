@@ -11,7 +11,7 @@ $lora-font: 'Lora', serif;
 $dark-grey: #424242;
 $light-grey: #616161;
 $text-shadow: 3px 3px 0 $dark-grey,
-     -1px -1px 0 $dark-grey,  
+     -1px -1px 0 $dark-grey,
       1px -1px 0 $dark-grey,
       -1px 1px 0 $dark-grey,
        1px 1px 0 $dark-grey;
@@ -19,3 +19,34 @@ $outline-shadow: -1px -1px 0 $light-grey,
 	1px -1px 0 $light-grey,
 	-1px 1px 0 $light-grey,
 	1px 1px 0 $light-grey;
+
+// Transformicons
+$tcon-size: 48px !default;
+$tcon-transition: .2s !default;
+$tcon-jstransform: 'tcon-transform' !default;
+
+$tcon-menu-radius: ($tcon-size / 14) !default;
+$tcon-menu-color: $dark-blue !default;
+$tcon-menu-arrowleft-transformation: (
+  transform: scale3d(.8, .8, .8) rotate3d(0, 0, 1, 90deg)
+) !default;
+$tcon-menu-arrow360left-transformation: (
+  transform: scale3d(.8, .8, .8) rotate3d(0, 0, 1, 360deg)
+) !default;
+
+$tcon-svgchevron-size: $tcon-size !default;
+$tcon-svgchevron-color: black !default;
+$tcon-svgchevron-strokew: 1px !default;
+$tcon-svgchevron-timing: 3s !default;
+
+$spinner_speed: .675s !default;
+$spinner_radius: 80% !default;
+$spinner_fill_radius: 90px !default;
+
+$spinner_size: 40px !default;
+$spinner_thickness: 10px !default;
+$spinner_inner_circle: $spinner_size - $spinner_thickness !default;
+
+$spinner_color: black !default;
+$spinner_bg: lightgray !default;
+$spinner_inner_bg: white !default;

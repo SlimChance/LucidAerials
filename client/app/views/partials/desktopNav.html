@@ -1,8 +1,9 @@
 <div class="desktop-nav">
-    <div class="menu-wrapper" ng-class="{ 'menu-wrapper-toggled': navToggled }" ng-click="toggleNav($event)">
-        <div class="menu-bar1"></div>
-        <div class="menu-bar2"></div>
-        <div class="menu-bar3"></div>
+    <div class="menu-wrapper" ng-class="{ 'menu-wrapper-toggled': navToggled }">
+        <button type="button" class="tcon tcon-menu--xbutterfly" ng-class="{ 'tcon-transform': navToggled }" aria-label="toggle menu" ng-click="toggleNav($event)">
+          <span class="tcon-menu__lines" aria-hidden="true"></span>
+          <span class="tcon-visuallyhidden">toggle menu</span>
+        </button>
     </div>
     <nav class="nav-options" ng-class="{ 'nav-options-toggled': navToggled }">
         <div class="nav-item nav-home" ng-click="navigateTo('/'); closeNav()">

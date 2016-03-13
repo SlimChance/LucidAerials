@@ -350,7 +350,7 @@
             }
             .selfie {
                 width: 85%;
-                height: 480px;
+                height: 450px;
                 margin: 20px;
                 border-radius: 3px;
             }
@@ -479,7 +479,7 @@
             }
             .selfie {
                 width: 85%;
-                height: 550px;
+                height: 500px;
                 margin: 20px;
                 border-radius: 3px;
             }
@@ -510,8 +510,12 @@
     .home-wrapper {
         display: flex;
         flex-flow: column;
+        align-items: center;
+        justify-content: center;
         background-color: $dark-grey;
         .home-video-wrapper {
+            height: 100%;
+            width: 100%;
             video#bgvid {
                 position: relative;
                 top: 0;
@@ -582,9 +586,11 @@
         }
         .bio-wrapper {
             display: flex;
-            flex-direction: column;
+            flex-flow: row wrap;
             align-items: center;
+            justify-content: 100%;
             margin-top: 40px;
+            width: 85%;
             h2 {
                 color: $light-blue;
                 text-shadow:
@@ -597,22 +603,27 @@
                 font-size: 3.5em;
                 font-weight: 500;
                 margin: 0px 20px;
+                text-align: center;
+                width: 100%;
                 opacity: 1;
             }
             h3 {
                 color: white;
+                text-align: center;
+                width: 100%;
                 font-size: 2em;
                 font-family: $lora-font;
                 font-weight: 400;
                 margin: 10px 20px;
             }
             .selfie {
-                width: 33%;
-                margin: 20px;
+                width: 50%;
+                height: 500px;
+                padding: 20px;
                 border-radius: 3px;
             }
             hr {
-                width: 40%;
+                width: 100%;
                 border: 2px solid $light-blue;
                 margin: 10px;
             }
@@ -620,13 +631,14 @@
                 border: 1px solid $light-blue;
             }
             .bio-text {
-                width: 40%;
-                margin: 0 20px 20px;
+                width: 50%;
+                max-width: 800px;
+                padding: 20px;
                 color: white;
                 font-family: $sans;
                 font-weight: 300;
                 font-size: 1.2em;
-                letter-spacing: .01em;
+                letter-spacing: .05em;
             }
         }
     }

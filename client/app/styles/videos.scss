@@ -42,6 +42,7 @@
             width: 100%;
             transform: scale(1);
             opacity: 1;
+            z-index: 5;
             border-radius: 0;
         }
         .play-button {
@@ -66,14 +67,19 @@
             display: none;
         }
         .gradient {
-            display: none;
+            opacity: .35;
+            background: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
         }
     }
     .video-wrapper {
         .expanded {
             height: 80vh;
             .video-title {
-                font-size: 2.25em;
+                font-size: 2.00em;
                 display: inline-block;
                 color: white;
                 max-width: 85%;
@@ -103,10 +109,10 @@
             .video {
                 display: block;
                 position: absolute;
-                top: 25%;
+                top: 29%;
                 left: 2.5%;
                 max-width: 100%;
-                min-height: 70%;
+                min-height: 60%;
                 width: 95%;
                 opacity: 0;
                 transition: opacity 0.3s ease-out;
@@ -135,7 +141,7 @@
             margin: 5px;
             font-size: 1.2em;
             font-weight: 500;
-            color: white;  
+            color: white;
         }
         &.subscribe-removed {
             display: none;
@@ -212,7 +218,7 @@
         align-content: space-around;
         width: 100%;
         overflow: hidden;
-        height: 375px;
+        height: 400px;
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -238,6 +244,7 @@
             width: 100%;
             transform: scale(1);
             opacity: 1;
+            z-index: 5;
             border-radius: 0;
         }
         .play-button {
@@ -262,7 +269,12 @@
             display: none;
         }
         .gradient {
-            display: none;
+            opacity: .35;
+            background: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
         }
     }
     .video-wrapper {
@@ -331,7 +343,7 @@
             margin: 5px;
             font-size: 1.2em;
             font-weight: 500;
-            color: white;  
+            color: white;
         }
         &.subscribe-removed {
             display: none;
@@ -575,7 +587,7 @@
             margin: 5px;
             font-size: 1.5em;
             font-weight: 600;
-            color: $light-blue;  
+            color: $light-blue;
         }
         &.subscribe-removed {
             display: none;
@@ -825,7 +837,7 @@
             margin: 5px;
             font-size: 1.5em;
             font-weight: 600;
-            color: $light-blue;  
+            color: $light-blue;
         }
         &.subscribe-removed {
             display: none;
@@ -1076,7 +1088,7 @@
             margin: 5px;
             font-size: 1.5em;
             font-weight: 600;
-            color: $light-blue;  
+            color: $light-blue;
         }
         &.subscribe-removed {
             display: none;
