@@ -9,7 +9,7 @@
 
     function PicturesCtrl(pictureService) {
         let vm = this; // pics
-
+        
         vm.expanded = null;
         vm.allLoaded = false;
         vm.value = 21;

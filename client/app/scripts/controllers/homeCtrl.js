@@ -22,11 +22,11 @@
                 ratio = windowWidth / windowHeight;
 
             if (ratio < 0.9) {
-                //video.width(windowWidth);
+                //video.width(windowWidth - 17);
                 video.height(windowWidth * 0.85);
                 videoOverlay.height(windowWidth * 0.85);
             } else {
-                //video.width(windowWidth);
+                //video.width(windowWidth - 17);
                 video.height(windowHeight);
                 videoOverlay.height(windowHeight);
             }

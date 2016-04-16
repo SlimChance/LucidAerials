@@ -30,6 +30,7 @@
     "grunt-svgmin": "^0.4.0",
     "grunt-usemin": "^2.1.1",
     "grunt-wiredep": "^1.7.0",
+    "instafeed.js": "^1.4.1",
     "jasmine-core": "^2.2.0",
     "jshint-stylish": "^2.0.1",
     "karma": "^0.12.31",
