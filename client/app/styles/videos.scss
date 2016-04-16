@@ -742,20 +742,22 @@
             }
             .video-title {
                 font-size: 3.5em;
+                font-weight: 600;
                 display: inline-block;
-                color: white;
+                color: $light-blue;
                 max-width: 75%;
                 position: absolute;
                 top: 100px;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                text-shadow:
-                    -1px -1px 0 $light-grey,
-                    1px -1px 0 $light-grey,
-                    -1px 1px 0 $light-grey,
-                    1px 1px 0 $light-grey;
+                // text-shadow:
+                //     -1px -1px 0 white,
+                //     1px -1px 0 white,
+                //     -1px 1px 0 white,
+                //     1px 1px 0 white;
                 font-family: $lora-font;
                 opacity: 1;
+                line-height: 1.2em;
             }
             .text-wrap {
                 background: none;
@@ -784,7 +786,7 @@
             .video {
                 display: block;
                 position: absolute;
-                top: 25%;
+                top: 26%;
                 left: 12.5%;
                 max-width: 100%;
                 min-height: 70%;
@@ -803,12 +805,13 @@
             }
             .countdown-timer {
                 position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
+                top: 26%;
+                left: 12.5%;
                 color: white;
-                width: 93%;
-                margin: 20px auto;
+                height: 70%;
+                text-align: center;
+                padding-top: 23%;
+                width: 75%;
                 background-color: black;
                 z-index: 5;
             }

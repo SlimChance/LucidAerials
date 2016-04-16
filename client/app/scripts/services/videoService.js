@@ -27,13 +27,10 @@
 
             // Returns a promise
             vs.createPlayer = function(elementId, index) {
-                console.log(elementId);
                 var deferred = $q.defer(),
                     videoId = vs.videos[index].id,
                     element = angular.element(elementId)[0];
-                
-                console.log(element);
-                console.log(index);
+
                 function createYTPlayer() {
                     if (YT) {
                         var YTPlayer = new YT.Player(element, {
@@ -46,7 +43,6 @@
                             }
                         });
 
-                        console.log('Pushing to array: ' + videoId);
                         vs.putCache(videoId, YTPlayer);
                     } else {
                         vs.createPlayer();
@@ -60,12 +56,10 @@
 
             vs.playerStateChange = function (event) {
                 if (event.data === 0) {
-                    var iframeId = event.target.f.id;
+                    var iframeId = event.target.c.id;
                     var indexPattern = /\d+/g;
                     var index = iframeId.match(indexPattern)[0];
                     var nextVideo = parseInt(index) + 1;
-
-                    console.log(index, nextVideo);
 
                     // if (vs.player[nextVideo]) {
                     //     // play next video
@@ -75,11 +69,11 @@
                     //     // });
                     // }
 
-                    $rootScope.$broadcast('playNext', nextVideo);
+                    $rootScope.$emit('playNext', nextVideo);
                 }
             };
 
-            // Call 
+            // Call
             $timeout(function() {
                 var element = 'div#ytplayer0',
                     index = 0;

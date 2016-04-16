@@ -4,7 +4,8 @@
     angular
         .module('LucidAerials')
         .directive('videoPlayButton', VideoPlayButton)
-        .directive('scrollToCenter', ScrollToCenter);
+        .directive('scrollToCenter', ScrollToCenter)
+        .directive('scrollToTop', ScrollToTop);
 
     function VideoPlayButton() {
         return {
@@ -31,5 +32,24 @@
                 });
             }
         };
+    }
+
+    function ScrollToTop($timeout, $interval) {
+        return {
+            restrict: 'A',
+            link: function(scope, element) {
+                let top = angular.element('#top'),
+                    elementY = element[0].offsetTop;
+
+                element.bind('click', () => {
+                    $interval(() => {
+                        if (elementY > 0) {
+                            elementY -= 100;
+                            window.scrollTo(0, elementY);
+                        }
+                    }, 17);
+                });
+            }
+        }
     }
 })();

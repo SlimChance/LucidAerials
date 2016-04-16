@@ -44,7 +44,7 @@
 
         function pageChange(newPageNumber) {
             vm.currentPage = newPageNumber;
-            clearCache();
+            vs.clearCache();
         };
 
         function expand(index) {
@@ -70,7 +70,7 @@
                             vm.playReady = false;
 
                             vs.createPlayer(element, videoIndex).then(() => vm.playReady = true);
-                        }, 200);
+                        }, 0);
                     } else {
                         let element = angular.element(`.play-button${index}`)[0];
 
@@ -108,7 +108,9 @@
                     $timeout(() => play(index, videoId), 1000);
                 }
             } else {
-                var element = 'div#ytplayer' + index,
+                console.log(index);
+                console.log(videoId);
+                var element = `div#ytplayer${index}`,
                     videoIndex = index + ((vm.currentPage - 1) * vm.itemsPerPage);
 
                 vs.createPlayer(element, videoIndex).then(() => play(videoIndex, videoId));
@@ -135,32 +137,41 @@
         };
 
         // Listens for videoService broadcast when video ends. Kicks off a countdown timer and autoplays next video
-        $scope.$on('playNext', (event, index) => {
-            let timerElem = angular.element('.expanded .countdown-timer').css({ 'display': 'block' }),
-                playButtonElem = angular.element(`.play-button${index}`),
-                videoElem = angular.element(`#ytplayer${index}`),
-                gradientElem = angular.element(`#ytplayer${index}`).next('.gradient');
+        $rootScope.$on('playNext', (event, index) => {
+            var noExpand = false;
+
+            if (index % vm.itemsPerPage === 0) {
+                var nextPage = vm.currentPage + 1,
+                    nextBtn = angular.element('.pagination li.active').next('li').children('a');
+
+                nextBtn.click();
+                pageChange(nextPage);
+                noExpand = true;
+            }
+
+            // ****** Cancel if another video is clicked ****
+            var timerElem = angular.element('.expanded .countdown-timer').css({ 'display': 'block' }),
+                    playButtonElem = angular.element(`.play-button${index}`),
+                    videoElem = angular.element(`#ytplayer${index}`),
+                    gradientElem = angular.element(`#ytplayer${index}`).next('.gradient');
 
             var intervalPromise = $interval(() => {
                 vm.seconds--;
                     if (vm.seconds === 0) {
+                        console.log(vm.videos[index]);
                         let videoId = vm.videos[index].id;
-                        expand(index);
+                        if (!noExpand) {
+                            expand(index);
+                        }
 
                         timerElem.css({
                             'display': 'none'
                         });
-                        play(index, videoId);
 
-                        // simulate play button click
-                        playButtonElem.css('opacity', '0');
-                        gradientElem.css({
-                            'opacity': '0.8',
-                            'z-index': '1'
-                        });
-                        videoElem.css({
-                            'opacity': '1'
-                        });
+                        $timeout(() => {
+                            playButtonElem.click();
+                            play(index, videoId);
+                        }, 1000);
 
                         vm.seconds = 5;
                         cancelTimer(intervalPromise);
