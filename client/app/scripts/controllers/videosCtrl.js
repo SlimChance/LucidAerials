@@ -150,7 +150,7 @@
             }
 
             // ****** Cancel if another video is clicked ****
-            var timerElem = angular.element('.expanded .countdown-timer').css({ 'display': 'block' }),
+            var timerElem = angular.element('.expanded .countdown-timer').css({ 'display': 'flex' }),
                     playButtonElem = angular.element(`.play-button${index}`),
                     videoElem = angular.element(`#ytplayer${index}`),
                     gradientElem = angular.element(`#ytplayer${index}`).next('.gradient');
@@ -158,7 +158,6 @@
             var intervalPromise = $interval(() => {
                 vm.seconds--;
                     if (vm.seconds === 0) {
-                        console.log(vm.videos[index]);
                         let videoId = vm.videos[index].id;
                         if (!noExpand) {
                             expand(index);

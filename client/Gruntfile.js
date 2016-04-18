@@ -116,7 +116,7 @@ module.exports = function(grunt) {
             },
             dist: {
               files: {
-                src: 'dist/scripts/**/*.js'
+                '.tmp/scripts/scripts.js': '.tmp/scripts/scripts.js'
               }
             },
             server: {
@@ -126,27 +126,6 @@ module.exports = function(grunt) {
             }
         },
 
-        // Make sure code styles are up to par and there are no obvious mistakes
-        // jshint: {
-        //     options: {
-        //         jshintrc: '.jshintrc',
-        //         reporter: require('jshint-stylish')
-        //     },
-        //     all: {
-        //         src: [
-        //             'Gruntfile.js',
-        //             '<%= yeoman.app %>/scripts/{,*/}*.js'
-        //         ]
-        //     },
-        //     test: {
-        //         options: {
-        //             jshintrc: 'test/.jshintrc'
-        //         },
-        //         src: ['test/spec/{,*/}*.js']
-        //     }
-        // },
-
-        // Empties folders to start fresh
         clean: {
             dist: {
                 files: [{
@@ -223,7 +202,7 @@ module.exports = function(grunt) {
                 src: [
                     '<%= yeoman.dist %>/scripts/{,*/}*.js',
                     '<%= yeoman.dist %>/styles/{,*/}*.css',
-                    //'<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+                    '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
                     '<%= yeoman.dist %>/styles/fonts/*'
                 ]
             }
@@ -239,7 +218,7 @@ module.exports = function(grunt) {
                 flow: {
                     html: {
                         steps: {
-                            js: ['concat', 'uglifyjs'],
+                            //js: ['uglifyjs'],
                             css: ['cssmin']
                         },
                         post: {}
@@ -270,18 +249,20 @@ module.exports = function(grunt) {
                 }
             }
         },
-        // uglify: {
-        //   dist: {
-        //     files: {
-        //       '<%= yeoman.dist %>/scripts/scripts.js': [
-        //         '<%= yeoman.dist %>/scripts/scripts.js'
-        //       ]
-        //     }
-        //   }
-        // },
-        // concat: {
-        //   dist: {}
-        // },
+        uglify: {
+          dist: {
+            files: {
+              src: '.tmp/scripts/scripts.js',
+              dest: '.tmp/scripts/scripts.js'
+            }
+          }
+        },
+        concat: {
+          dist: {
+            src: 'app/scripts/**/*.js',
+            dest: '.tmp/scripts/scripts.js'
+          }
+        },
 
         imagemin: {
             dist: {
@@ -357,7 +338,9 @@ module.exports = function(grunt) {
                         '*.html',
                         'views/{,*/}*.html',
                         'images/{,*/}*.{webp}',
-                        'fonts/{,*/}*.*'
+                        'fonts/{,*/}*.*',
+                        'data/',
+                        '.tmp/scripts/scripts.js'
                     ]
                 }, {
                     expand: true,
@@ -376,6 +359,10 @@ module.exports = function(grunt) {
                 cwd: '<%= yeoman.app %>/styles',
                 dest: '.tmp/styles/',
                 src: '{,*/}*.css'
+            },
+            scripts: {
+                src: '.tmp/scripts/scripts.js',
+                dest: '<%= yeoman.dist %>/scripts/scripts.js'
             }
         },
 
@@ -390,7 +377,7 @@ module.exports = function(grunt) {
             dist: [
                 'compass:dist',
                 //'imagemin:dist',
-                'svgmin'
+                //'svgmin'
             ]
         },
 
@@ -420,11 +407,6 @@ module.exports = function(grunt) {
         ]);
     });
 
-    grunt.registerTask('server', 'DEPRECATED TASK. Use the "serve" task instead', function(target) {
-        grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
-        grunt.task.run(['serve:' + target]);
-    });
-
     // grunt.registerTask('test', [
     //     'clean:server',
     //     'concurrent:test',
@@ -434,18 +416,20 @@ module.exports = function(grunt) {
     // ]);
 
     grunt.registerTask('build', [
-        'clean:dist', // empties folders to start fresh
+        'clean:dist',
         'wiredep', // compass etc?
         'useminPrepare', // point usemin to the right files? usemin at the end to wait for other tasks
-        'concurrent:dist', // Run some tasks in parallel for speed. (compass, imgmin, svgmin)
+        //'concurrent:dist', // Run some tasks in parallel for speed. (compass, imgmin, svgmin)
+        'compass:dist', // removed concurrent since not using svgmin
         'autoprefixer', // Add vendor prefixed styles. Keeps it in .tmp
-        'concat', // Turned off?
+        'concat:dist',
         //'ngAnnotate', // Uses angular long form to make code safe for minification. Uses concat!!
+        'babel:dist',
+        'uglify:dist', // Turned off. Check if JS is minified
         'copy:dist', // Copies remaining files to be used by other tasks. Check if this misses anything
-        'babel:build',
-        'cdnify', // Replace google cdn references
+        'copy:scripts',
+        //'cdnify', // Replace google cdn references
         'cssmin', // useminPrep is turned on, which uses this step? Takes .tmp files and moves them to dist
-        'uglify', // Turned off. Check if JS is minified
         'filerev', // Renames everything for cacheing.
         'usemin', // Performs rewrites based on filerev and the useminPrepare configuration
         'htmlmin' // Minifies html

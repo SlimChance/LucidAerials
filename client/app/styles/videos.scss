@@ -1056,15 +1056,22 @@
                 transition: opacity 0.3s ease-out;
             }
             .countdown-timer {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
+                flex-flow: column nowrap;
+                align-items: center;
+                justify-content: center;
                 color: white;
-                width: 93%;
-                margin: 20px auto;
                 background-color: black;
+                position: absolute;
+                top: 200px;
+                left: 17.5%;
+                max-width: 100%;
+                min-height: 70%;
+                width: 65%;
                 z-index: 5;
+                .timer-title, .timer-seconds {
+                    padding: 5px;
+                    font-size: 1.5em;
+                }
             }
         }
     }

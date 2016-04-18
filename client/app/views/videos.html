@@ -8,7 +8,7 @@
         <span video-play-button class="play-button play-button{{$index}} icon-youtube-play" ng-click="videos.play($index, video.id)" ng-show="videos.playReady"></span>
         <div class="video" id="ytplayer{{$index}}"></div>
         <div class="gradient"></div>
-        <div class="countdown-timer">Autoplay Next Video: <br>{{videos.seconds}}</div>
+        <div class="countdown-timer"><span class="timer-title">Autoplay Next Video: </span><span class="timer-seconds">{{videos.seconds}}</span></div>
     </div>
     <div class="subscribe" ng-class="{ 'subscribe-removed': videos.removed === true }">
         <span ng-click="videos.remove()" class="glyphicon glyphicon-remove-circle"></span>
