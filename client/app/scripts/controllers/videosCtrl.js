@@ -16,7 +16,7 @@
         vm.seconds = 5;
         vm.expanded = 0;
         vm.prevExpanded = 0;
-        vm.videos = vs.videos;
+        vm.videos = videoService;
         vm.removed = false;
         vm.currentPage = 1;
 
