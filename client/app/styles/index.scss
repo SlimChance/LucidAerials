@@ -516,6 +516,9 @@ body {
         z-index: 3;
         transition: transform 0.25s ease-out;
     }
+    footer {
+      width: 100%;
+    }
     .footer-wrap {
         display: flex;
         flex-flow: row wrap;

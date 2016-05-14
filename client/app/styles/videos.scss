@@ -905,7 +905,7 @@
     .video-wrapper {
         display: flex;
         flex-flow: row wrap;
-        justify-content: space-around;
+        justify-content: flex-start;
         background-color: $dark-grey;
         height: auto;
         overflow: hidden;
@@ -915,7 +915,7 @@
         flex-flow: row wrap;
         align-content: space-around;
         position: relative;
-        width: calc(33% - 14px);
+        width: calc(33% - 8px);
         overflow: hidden;
         height: 350px;
         background-size: cover;

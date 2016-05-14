@@ -9,14 +9,13 @@
 
     function VideosCtrl($window, $scope, $timeout, $interval, $rootScope, $cacheFactory, $sce, videoService) {
         let vm = this, // videos
-            vs = new videoService(),
             screenWidth = $window.innerWidth;
 
         vm.playReady = true;
+        vm.videoService = videoService;
         vm.seconds = 5;
         vm.expanded = 0;
         vm.prevExpanded = 0;
-        vm.videos = videoService;
         vm.removed = false;
         vm.currentPage = 1;
 
@@ -38,50 +37,52 @@
             } else {
                 vm.itemsPerPage = 6;
             }
+
+            videoService.init();
         };
 
         init();
 
         function pageChange(newPageNumber) {
             vm.currentPage = newPageNumber;
-            vs.clearCache();
+            videoService.clearCache();
         };
 
         function expand(index) {
             let videoIndex = index + ((vm.currentPage - 1) * vm.itemsPerPage);
 
-            if (vm.videos[videoIndex]) {
+            if (videoService.videos[videoIndex]) {
                 if (index !== vm.expanded) {
-                    let videoId = vm.videos[videoIndex].id,
-                        expandedId = vm.videos[vm.prevExpanded].id;
+                    let videoId = videoService.videos[videoIndex].id,
+                        expandedId = videoService.videos[vm.prevExpanded].id;
 
                     vm.expanded = index;
                     vm.prevExpanded = videoIndex;
 
-                    if (typeof vs.getCache(videoId) === 'undefined') {
+                    if (typeof videoService.getCache(videoId) === 'undefined') {
                         // Timeout to not block render
                         $timeout(() => {
                             let element = `div#ytplayer${index}`;
 
-                            if (vs.getCache(expandedId)) {
+                            if (videoService.getCache(expandedId)) {
                                 pause(expandedId);
                             }
 
                             vm.playReady = false;
 
-                            vs.createPlayer(element, videoIndex).then(() => vm.playReady = true);
+                            videoService.createPlayer(element, videoIndex).then(() => vm.playReady = true);
                         }, 0);
                     } else {
                         let element = angular.element(`.play-button${index}`)[0];
 
-                        if (vs.getCache(expandedId)) {
+                        if (videoService.getCache(expandedId)) {
                             pause(expandedId);
                         }
                     }
                 }
             } else {
-                vs.resource.query().$promise.then((data) => {
-                    vm.videos = data;
+                videoService.resource.query().$promise.then((data) => {
+                    videoService.videos = data;
                     expand(index);
                 });
             }
@@ -96,29 +97,28 @@
         };
 
         function play(index, videoId) {
-            if (vs.getCache(videoId)) {
-                let video = vs.getCache(videoId);
+            if (videoService.getCache(videoId)) {
+                let video = videoService.getCache(videoId);
 
                 // check if type function, if not, timeout and try again
                 if (typeof video.getPlayerState === 'function') {
-                    if (vs.getCache(videoId).getPlayerState() !== 1) {
+                    if (videoService.getCache(videoId).getPlayerState() !== 1) {
                         video.playVideo();
                     }
                 } else {
                     $timeout(() => play(index, videoId), 1000);
                 }
             } else {
-                console.log(index);
-                console.log(videoId);
                 var element = `div#ytplayer${index}`,
                     videoIndex = index + ((vm.currentPage - 1) * vm.itemsPerPage);
 
-                vs.createPlayer(element, videoIndex).then(() => play(videoIndex, videoId));
+                console.log('not in cache');
+                //videoService.createPlayer(element, videoIndex).then(() => play(videoIndex, videoId));
             }
         };
 
         function pause(videoId) {
-            var video = vs.getCache(videoId);
+            var video = videoService.getCache(videoId);
 
             if (video) {
                 video.pauseVideo();
@@ -140,6 +140,7 @@
         $rootScope.$on('playNext', (event, index) => {
             var noExpand = false;
 
+            // Next page if last video
             if (index % vm.itemsPerPage === 0) {
                 var nextPage = vm.currentPage + 1,
                     nextBtn = angular.element('.pagination li.active').next('li').children('a');
@@ -151,14 +152,14 @@
 
             // ****** Cancel if another video is clicked ****
             var timerElem = angular.element('.expanded .countdown-timer').css({ 'display': 'flex' }),
-                    playButtonElem = angular.element(`.play-button${index}`),
-                    videoElem = angular.element(`#ytplayer${index}`),
-                    gradientElem = angular.element(`#ytplayer${index}`).next('.gradient');
+                playButtonElem = angular.element(`.play-button${index}`),
+                videoElem = angular.element(`#ytplayer${index}`),
+                gradientElem = angular.element(`#ytplayer${index}`).next('.gradient');
 
             var intervalPromise = $interval(() => {
                 vm.seconds--;
                     if (vm.seconds === 0) {
-                        let videoId = vm.videos[index].id;
+                        let videoId = videoService.videos[index].id;
                         if (!noExpand) {
                             expand(index);
                         }
