@@ -17,7 +17,6 @@
         };
 
         $scope.toggleNav = function(e) {
-            console.log(e.originalEvent);
             e.stopPropagation();
 
             $scope.navToggled = !$scope.navToggled;

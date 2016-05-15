@@ -1,11 +1,11 @@
 <div id="footer"></div>
 <div class="video-wrapper" id="top">
-    <div class="video-repeat" ng-class="{ 'expanded': videos.expanded == $index }" dir-paginate="video in videos.videoService.videos | itemsPerPage: videos.itemsPerPage" ng-click="videos.expand($index)" ng-style="{ 'background-image': 'url({{video.snippet.thumbnails.high.url}})' }" scroll-to-top role="presentation">
+    <div class="video-repeat" ng-class="{ 'expanded': videos.expanded == $index }" dir-paginate="video in videos.videoService.videos | itemsPerPage: videos.itemsPerPage" ng-click="videos.expand($index)" ng-style="{ 'background-image': 'url({{video.snippet.thumbnails.high.url}})' }" role="presentation">
         <div class="text-wrap">
             <p class="video-title">{{video.snippet.title}}</p>
             <p class="video-description">{{video.snippet.description}}</p>
         </div>
-        <span video-play-button class="play-button play-button{{$index}} icon-youtube-play" ng-click="videos.play($index, video.snippet.resourceId.videoId)" ng-show="videos.playReady"></span>
+        <span video-play-button class="play-button play-button{{$index}} icon-youtube-play" ng-click="videos.play($index, video.snippet.resourceId.videoId)" ng-hide="videos.videoService.busy"></span>
         <div class="video" id="ytplayer{{$index}}"></div>
         <div class="gradient"></div>
         <div class="countdown-timer"><span class="timer-title">Autoplay Next Video: </span><span class="timer-seconds">{{videos.seconds}}</span></div>

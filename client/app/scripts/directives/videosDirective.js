@@ -34,21 +34,21 @@
         };
     }
 
-    function ScrollToTop($timeout, $interval) {
+    function ScrollToTop($document, $timeout, $interval) {
         return {
             restrict: 'A',
             link: function(scope, element) {
-                let top = angular.element('#top'),
-                    elementY = element[0].offsetTop;
+                // element.bind('click', () => {
+                //     let top = angular.element('#top'),
+                //         elementY = $document[0].body.scrollTop;
 
-                element.bind('click', () => {
-                    $interval(() => {
-                        if (elementY > 0) {
-                            elementY -= 100;
-                            window.scrollTo(0, elementY);
-                        }
-                    }, 17);
-                });
+                //     $interval(() => {
+                //         if (elementY > 0) {
+                //             elementY -= 25;
+                //             window.scrollTo(0, elementY);
+                //         }
+                //     }, 17);
+                // });
             }
         }
     }

@@ -14,6 +14,7 @@
               playlistId = 'PLTKCH_zvmqr_QjUjif0HgJ8U2bGUVJ6Ws';
 
         var vs = {
+                busy: false,
                 cache: {},
                 videos: [],
                 getVideos: getVideos,
@@ -25,23 +26,10 @@
                 init: init
             }
 
-        function getVideos(direction) {
-            var pageToken;
-
-            if (direction === '') {
-                pageToken = '';
-            } else if (direction === 'next') {
-                pageToken = vs.nextPageToken;
-            } else if (direction === 'prev') {
-                pageToken = vs.prevPageToken;
-            }
-
-            // https://www.googleapis.com/youtube/v3/playlistItems?part=contentDetails&key=AIzaSyB_nhTaFbVfTkzQbg8Yq23P6HNoE8cROsk&playlistId=PLTKCH_zvmqr_QjUjif0HgJ8U2bGUVJ6Ws&maxResults=7
+        function getVideos(pageToken) {
+            // https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&key=key&playlistId=playlistId&maxResults=50
             $http.get(youtubeApi, { params: { part: part, key: key, playlistId: playlistId, maxResults: 50 } }).then((videos) => {
                 vs.videos = videos.data.items;
-                vs.nextPageToken = videos.data.nextPageToken;
-                vs.prevPageToken = videos.data.prevPageToken;
-                console.log(vs.videos);
             }, (e) => { console.log(e) });
         }
 
@@ -54,54 +42,52 @@
         }
 
         function clearCache() {
+            console.log('clear cache');
             vs.cache = {};
         }
 
         // Returns a promise
         function createPlayer(elementId, index) {
-            var deferred = $q.defer(),
-                videoId = vs.videos[index].snippet.resourceId.videoId,
+            var videoId = vs.videos[index].snippet.resourceId.videoId,
                 element = angular.element(elementId)[0];
 
-            console.log(videoId);
-            function createYTPlayer() {
-                if (YT) {
-                    var YTPlayer = new YT.Player(element, {
-                        videoId: videoId,
-                        playerVars: {
-                            autoplay: 0
-                        },
-                        events: {
-                            'onStateChange': playerStateChange
-                        }
-                    });
+            vs.busy = true;
 
-                    putCache(videoId, YTPlayer);
-                } else {
-                    createPlayer();
-                }
+            if (element) {
+                $timeout(() => createYTPlayer(element, elementId, videoId), 0);
+            } else {
+                console.log('element not defined, recreating');
+                $timeout(() => createPlayer(elementId, index), 500);
             }
+        }
 
-            deferred.resolve(createYTPlayer());
+        function createYTPlayer(element, elementId, videoId) {
+            if (YT) {
+                var YTPlayer = new YT.Player(element, {
+                    videoId: videoId,
+                    playerVars: {
+                        autoplay: 0
+                    },
+                    events: {
+                        'onStateChange': playerStateChange
+                    }
+                });
 
-            return deferred.promise;
+                console.log('Player created, placing in cache');
+                putCache(videoId, YTPlayer);
+                vs.busy = false;
+            } else {
+                console.log('Recreating player');
+                createPlayer(elementId, videoId);
+            }
         }
 
         function playerStateChange(event) {
-            console.log(event);
             if (event.data === 0) {
                 var iframeId = event.target.a.id;
                 var indexPattern = /\d+/g;
                 var index = iframeId.match(indexPattern)[0];
                 var nextVideo = parseInt(index) + 1;
-
-                // if (vs.player[nextVideo]) {
-                //     // play next video
-                // } else {
-                //     // vs.createPlayer(element, nextVideo).then(function() {
-                //     //     cache.get(videoId).playVideo();
-                //     // });
-                // }
 
                 $rootScope.$emit('playNext', nextVideo);
             }
@@ -113,9 +99,8 @@
             $timeout(function() {
                 var element = 'div#ytplayer0',
                     index = 0;
-                createPlayer(element, index).then(function() {
-                    console.log('successfully created player');
-                });
+
+                createPlayer(element, index);
             }, 1000);
         }
 

@@ -11,7 +11,6 @@
         let vm = this, // videos
             screenWidth = $window.innerWidth;
 
-        vm.playReady = true;
         vm.videoService = videoService;
         vm.seconds = 5;
         vm.expanded = 0;
@@ -23,7 +22,6 @@
         vm.init = init;
         vm.pageChange = pageChange;
         vm.expand = expand;
-        vm.getImage = getImage;
         vm.play = play;
         vm.pause = pause;
         vm.cancelTimer = cancelTimer;
@@ -39,102 +37,94 @@
             }
 
             videoService.init();
-        };
+        }
 
         init();
 
         function pageChange(newPageNumber) {
             vm.currentPage = newPageNumber;
-            videoService.clearCache();
-        };
+
+            $timeout(() => {
+                expand(0);
+            }, 0);
+        }
 
         function expand(index) {
             let videoIndex = index + ((vm.currentPage - 1) * vm.itemsPerPage);
 
             if (videoService.videos[videoIndex]) {
-                if (index !== vm.expanded) {
-                    let videoId = videoService.videos[videoIndex].id,
-                        expandedId = videoService.videos[vm.prevExpanded].id;
+                if (videoIndex !== vm.prevExpanded) {
+                    let videoId = videoService.videos[videoIndex].snippet.resourceId.videoId,
+                        expandedId = videoService.videos[vm.prevExpanded].snippet.resourceId.videoId;
+
+                    console.log('expanding new video');
 
                     vm.expanded = index;
                     vm.prevExpanded = videoIndex;
 
-                    if (typeof videoService.getCache(videoId) === 'undefined') {
-                        // Timeout to not block render
-                        $timeout(() => {
-                            let element = `div#ytplayer${index}`;
-
-                            if (videoService.getCache(expandedId)) {
-                                pause(expandedId);
-                            }
-
-                            vm.playReady = false;
-
-                            videoService.createPlayer(element, videoIndex).then(() => vm.playReady = true);
-                        }, 0);
-                    } else {
+                    if (typeof videoService.getCache(videoId) !== 'undefined') {
                         let element = angular.element(`.play-button${index}`)[0];
 
                         if (videoService.getCache(expandedId)) {
                             pause(expandedId);
                         }
+                    } else {
+                        let element = `div#ytplayer${index}`;
+
+                        if (videoService.getCache(expandedId)) {
+                            pause(expandedId);
+                        }
+
+                        videoService.createPlayer(element, videoIndex);
                     }
                 }
             } else {
-                videoService.resource.query().$promise.then((data) => {
-                    videoService.videos = data;
-                    expand(index);
-                });
+                videoService.getVideos();
             }
-        };
-
-        function getImage(index, video) {
-            if (vm.expanded === index) {
-                return video.largeImage;
-            } else {
-                return video.smallImage;
-            }
-        };
+        }
 
         function play(index, videoId) {
-            if (videoService.getCache(videoId)) {
-                let video = videoService.getCache(videoId);
+            let video = videoService.getCache(videoId);
 
+            console.log(video);
+            if (video) {
                 // check if type function, if not, timeout and try again
                 if (typeof video.getPlayerState === 'function') {
                     if (videoService.getCache(videoId).getPlayerState() !== 1) {
                         video.playVideo();
                     }
                 } else {
-                    $timeout(() => play(index, videoId), 1000);
+                    console.log('getPlayerState is not a function, could not play video');
                 }
             } else {
                 var element = `div#ytplayer${index}`,
                     videoIndex = index + ((vm.currentPage - 1) * vm.itemsPerPage);
 
-                console.log('not in cache');
-                //videoService.createPlayer(element, videoIndex).then(() => play(videoIndex, videoId));
+                console.log('Video not in cache');
+                videoService.createPlayer(element, videoIndex);
             }
-        };
+        }
 
         function pause(videoId) {
-            var video = videoService.getCache(videoId);
+            let video = videoService.getCache(videoId);
 
-            if (video) {
-                video.pauseVideo();
+            if (typeof video.getPlayerState === 'function') {
+                if (videoService.getCache(videoId).getPlayerState() === 1) {
+                    video.pauseVideo();
+                }
             } else {
-                console.log('Paused cache.get = undefined');
+                console.log('Could not pause video');
             }
-        };
+        }
 
         // unbind?
         function cancelTimer(intervalPromise) {
             $interval.cancel(intervalPromise);
-        };
+        }
 
         function remove() {
             vm.removed = true;
-        };
+        }
 
         // Listens for videoService broadcast when video ends. Kicks off a countdown timer and autoplays next video
         $rootScope.$on('playNext', (event, index) => {
