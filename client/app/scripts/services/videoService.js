@@ -9,11 +9,11 @@
 
     function VideoService($q, $http, $rootScope, $cacheFactory, $timeout) {
         const youtubeApi = 'https://www.googleapis.com/youtube/v3/playlistItems',
-              key = 'AIzaSyB_nhTaFbVfTkzQbg8Yq23P6HNoE8cROsk',
+              key = 'AIzaSyB_nhTaFbVfTkzQbg8Yq23P6HNoE8cROsk', // require key on server?
               part = 'snippet',
               playlistId = 'PLTKCH_zvmqr_QjUjif0HgJ8U2bGUVJ6Ws';
 
-        var vs = {
+        let vs = {
                 busy: false,
                 cache: {},
                 videos: [],
@@ -46,9 +46,8 @@
             vs.cache = {};
         }
 
-        // Returns a promise
         function createPlayer(elementId, index) {
-            var videoId = vs.videos[index].snippet.resourceId.videoId,
+            let videoId = vs.videos[index].snippet.resourceId.videoId,
                 element = angular.element(elementId)[0];
 
             vs.busy = true;

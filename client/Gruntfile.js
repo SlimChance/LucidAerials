@@ -116,7 +116,7 @@ module.exports = function(grunt) {
             },
             dist: {
               files: {
-                '.tmp/scripts/scripts.js': '.tmp/scripts/scripts.js'
+                '<%= yeoman.dist %>/scripts/scripts.js': '<%= yeoman.dist %>/scripts/scripts.js'
               }
             },
             server: {
@@ -249,6 +249,7 @@ module.exports = function(grunt) {
                 }
             }
         },
+
         uglify: {
           dist: {
             files: {
@@ -257,10 +258,11 @@ module.exports = function(grunt) {
             }
           }
         },
+
         concat: {
           dist: {
-            src: 'app/scripts/**/*.js',
-            dest: '.tmp/scripts/scripts.js'
+            src: '<%= yeoman.dist %>/scripts/scripts.js',
+            dest: '<%= yeoman.dist %>/scripts/scripts.js'
           }
         },
 

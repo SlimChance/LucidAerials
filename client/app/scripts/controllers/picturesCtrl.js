@@ -9,7 +9,7 @@
 
     function PicturesCtrl(pictureService) {
         let vm = this; // pics
-        
+
         vm.expanded = null;
         vm.allLoaded = false;
         vm.value = 21;
@@ -20,7 +20,8 @@
 
         pictureService.getPictures().then((images) => {
             vm.images = images;
-            vm.lazyLoadImages = vm.images.slice(0, 12);
+            console.log(vm.images);
+            //vm.lazyLoadImages = vm.images.slice(0, 12);
         });
 
         function grabImages() {
