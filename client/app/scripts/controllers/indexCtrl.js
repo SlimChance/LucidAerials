@@ -1,29 +1,24 @@
-(function() {
-    'use strict';
+'use strict';
 
-    angular
-        .module('LucidAerials')
-        .controller('IndexCtrl', IndexCtrl);
+function IndexCtrl($scope, $location) {
+    'ngInject';
+    $scope.navToggled = false;
 
-    IndexCtrl.$inject = ['$scope', '$location'];
+    $scope.closeNav = function() {
+        if (!$scope.navToggled) {
+            $scope.navToggled = false;
+        }
+    };
 
-    function IndexCtrl($scope, $location) {
-        $scope.navToggled = false;
+    $scope.toggleNav = function(e) {
+        e.stopPropagation();
 
-        $scope.closeNav = function() {
-            if (!$scope.navToggled) {
-                $scope.navToggled = false;
-            }
-        };
+        $scope.navToggled = !$scope.navToggled;
+    };
 
-        $scope.toggleNav = function(e) {
-            e.stopPropagation();
+    $scope.navigateTo = function(view) {
+        $location.path(view);
+    };
+}
 
-            $scope.navToggled = !$scope.navToggled;
-        };
-
-        $scope.navigateTo = function(view) {
-            $location.path(view);
-        };
-    }
-})();
+module.exports = IndexCtrl;

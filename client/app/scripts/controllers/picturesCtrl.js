@@ -1,49 +1,44 @@
-(function() {
-    'use strict';
+'use strict';
 
-    angular
-        .module('LucidAerials')
-        .controller('PicturesCtrl', PicturesCtrl);
+function PicturesCtrl(pictureService) {
+    'ngInject';
+    let vm = this; // pics
 
-    PicturesCtrl.$inject = ['pictureService'];
+    vm.expanded = null;
+    vm.allLoaded = false;
+    vm.value = 21;
 
-    function PicturesCtrl(pictureService) {
-        let vm = this; // pics
+    vm.grabImages = grabImages;
+    vm.expand = expand;
+    vm.getImage = getImage;
 
-        vm.expanded = null;
-        vm.allLoaded = false;
-        vm.value = 21;
+    pictureService.getPictures().then((images) => {
+        vm.images = images;
+        console.log(vm.images);
+        //vm.lazyLoadImages = vm.images.slice(0, 12);
+    });
 
-        vm.grabImages = grabImages;
-        vm.expand = expand;
-        vm.getImage = getImage;
+    function grabImages() {
+        vm.lazyLoadImages = vm.images.slice(0, vm.value);
+        vm.value += 9;
 
-        pictureService.getPictures().then((images) => {
-            vm.images = images;
-            console.log(vm.images);
-            //vm.lazyLoadImages = vm.images.slice(0, 12);
-        });
+        // 63 count
+        if (vm.value >= (vm.images.length + 6)) {
+            vm.allLoaded = true;
+        }
+    };
 
-        function grabImages() {
-            vm.lazyLoadImages = vm.images.slice(0, vm.value);
-            vm.value += 9;
+    function expand(index) {
+        vm.expanded = index;
+    };
 
-            // 63 count
-            if (vm.value >= (vm.images.length + 6)) {
-                vm.allLoaded = true;
-            }
-        };
+    function getImage(index, picture) {
+        if (vm.expanded === index) {
+            return picture.largeImage;
+        } else {
+            return picture.smallImage;
+        }
+    };
+}
 
-        function expand(index) {
-            vm.expanded = index;
-        };
-
-        function getImage(index, picture) {
-            if (vm.expanded === index) {
-                return picture.largeImage;
-            } else {
-                return picture.smallImage;
-            }
-        };
-    }
-})();
+module.exports = PicturesCtrl;

@@ -1,17 +1,12 @@
-(function() {
-    'use strict';
+'use strict';
 
-    angular
-        .module('LucidAerials')
-        .controller('ContactCtrl', ContactCtrl);
+function ContactCtrl($timeout) {
+    'ngInject'
+    let vm = this; // contact
 
-    ContactCtrl.$inject = ['$timeout'];
+    vm.result = 'hidden';
 
-    function ContactCtrl($timeout) {
-        let vm = this; // contact
+    $timeout(() => twttr.widgets.load(), 500);
+}
 
-        vm.result = 'hidden';
-
-        $timeout(() => twttr.widgets.load(), 500);
-    }
-})();
+module.exports = ContactCtrl;

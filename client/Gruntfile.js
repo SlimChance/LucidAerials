@@ -7,14 +7,9 @@
 // 'test/spec/**/*.js'
 
 module.exports = function(grunt) {
-
-    // Load grunt tasks automatically
     require('load-grunt-tasks')(grunt);
-
-    // Time how long tasks take. Can help when optimizing build times
     require('time-grunt')(grunt);
 
-    // Configurable paths for the application
     var appConfig = {
         app: require('./bower.json').appPath || 'app',
         dist: 'dist'
@@ -24,7 +19,7 @@ module.exports = function(grunt) {
     grunt.initConfig({
 
         // Project settings
-        yeoman: appConfig,
+        lucid: appConfig,
 
         // Watches files for changes and runs tasks based on the changed files
         watch: {
@@ -33,8 +28,8 @@ module.exports = function(grunt) {
                 tasks: ['wiredep']
             },
             js: {
-                files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
-                //tasks: ['newer:jshint:all'],
+                files: ['<%= lucid.app %>/scripts/{,*/}*.js'],
+                tasks: ['browserify:server'],
                 options: {
                     livereload: '<%= connect.options.livereload %>'
                 }
@@ -44,7 +39,7 @@ module.exports = function(grunt) {
                 tasks: ['newer:jshint:test', 'karma']
             },
             compass: {
-                files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
+                files: ['<%= lucid.app %>/styles/{,*/}*.{scss,sass}'],
                 tasks: ['compass:server', 'autoprefixer']
             },
             gruntfile: {
@@ -55,9 +50,9 @@ module.exports = function(grunt) {
                     livereload: '<%= connect.options.livereload %>'
                 },
                 files: [
-                    '<%= yeoman.app %>/{,*/}*.html',
+                    '<%= lucid.app %>/{,*/}*.html',
                     '.tmp/styles/{,*/}*.css',
-                    '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+                    '<%= lucid.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
                 ]
             }
         },
@@ -104,25 +99,42 @@ module.exports = function(grunt) {
             dist: {
                 options: {
                     open: true,
-                    base: '<%= yeoman.dist %>'
+                    base: '<%= lucid.dist %>'
                 }
             }
         },
 
-        babel: {
+        // babel: {
+        //     options: {
+        //       sourceMap: true,
+        //       compact: false
+        //     },
+        //     dist: {
+        //       files: {
+        //         '<%= lucid.dist %>/scripts/scripts.js': '<%= lucid.dist %>/scripts/scripts.js'
+        //       }
+        //     },
+        //     server: {
+        //         files: {
+        //             src: '<%= lucid.app %>/scripts/**/*.js'
+        //         }
+        //     }
+        // },
+
+        browserify: {
             options: {
-              sourceMap: true,
-              compact: false
-            },
-            dist: {
-              files: {
-                '<%= yeoman.dist %>/scripts/scripts.js': '<%= yeoman.dist %>/scripts/scripts.js'
-              }
+                noParse: ['jquery'],
+                cache: true,
+                detectGlobals: true,
+                insertGlobals: true
             },
             server: {
-                files: {
-                    src: 'app/scripts/**/*.js'
-                }
+                src: '<%= lucid.app %>/scripts/app.js',
+                dest: '.tmp/scripts/scripts.js'
+            },
+            dist: {
+                src: '<%= lucid.app %>/scripts/app.js',
+                dest: '.tmp/scripts/scripts.js'
             }
         },
 
@@ -132,8 +144,8 @@ module.exports = function(grunt) {
                     dot: true,
                     src: [
                         '.tmp',
-                        '<%= yeoman.dist %>/{,*/}*',
-                        '!<%= yeoman.dist %>/.git{,*/}*'
+                        '<%= lucid.dist %>/{,*/}*',
+                        '!<%= lucid.dist %>/.git{,*/}*'
                     ]
                 }]
             },
@@ -158,11 +170,11 @@ module.exports = function(grunt) {
         // Automatically inject Bower components into the app
         wiredep: {
             app: {
-                src: ['<%= yeoman.app %>/index.html'],
+                src: ['<%= lucid.app %>/index.html'],
                 ignorePath: /\.\.\//
             },
             sass: {
-                src: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
+                src: ['<%= lucid.app %>/styles/{,*/}*.{scss,sass}'],
                 ignorePath: /(\.\.\/){1,2}bower_components\//
             }
         },
@@ -170,12 +182,12 @@ module.exports = function(grunt) {
         // Compiles Sass to CSS and generates necessary files if requested
         compass: {
             options: {
-                sassDir: '<%= yeoman.app %>/styles',
+                sassDir: '<%= lucid.app %>/styles',
                 cssDir: '.tmp/styles',
                 generatedImagesDir: '.tmp/images/generated',
-                imagesDir: '<%= yeoman.app %>/images',
-                javascriptsDir: '<%= yeoman.app %>/scripts',
-                fontsDir: '<%= yeoman.app %>/styles/fonts',
+                imagesDir: '<%= lucid.app %>/images',
+                javascriptsDir: '<%= lucid.app %>/scripts',
+                fontsDir: '<%= lucid.app %>/styles/fonts',
                 importPath: './bower_components', // need node???
                 httpImagesPath: '/images',
                 httpGeneratedImagesPath: '/images/generated',
@@ -186,7 +198,7 @@ module.exports = function(grunt) {
             },
             dist: {
                 options: {
-                    generatedImagesDir: '<%= yeoman.dist %>/images/generated' // need to transfer css???
+                    generatedImagesDir: '<%= lucid.dist %>/images/generated' // need to transfer css???
                 }
             },
             server: {
@@ -200,10 +212,10 @@ module.exports = function(grunt) {
         filerev: {
             dist: {
                 src: [
-                    '<%= yeoman.dist %>/scripts/{,*/}*.js',
-                    '<%= yeoman.dist %>/styles/{,*/}*.css',
-                    '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-                    '<%= yeoman.dist %>/styles/fonts/*'
+                    '<%= lucid.dist %>/scripts/{,*/}*.js',
+                    '<%= lucid.dist %>/styles/{,*/}*.css',
+                    '<%= lucid.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+                    '<%= lucid.dist %>/styles/fonts/*'
                 ]
             }
         },
@@ -211,30 +223,30 @@ module.exports = function(grunt) {
         // Reads HTML for usemin blocks to enable smart builds that automatically
         // concat, minify and revision files. Creates configurations in memory so
         // additional tasks can operate on them
-        useminPrepare: {
-            html: '<%= yeoman.app %>/index.html',
-            options: {
-                dest: '<%= yeoman.dist %>',
-                flow: {
-                    html: {
-                        steps: {
-                            js: [],
-                            css: ['cssmin']
-                        },
-                        post: {}
-                    }
-                }
-            }
-        },
+        // useminPrepare: {
+        //     html: '<%= lucid.app %>/index.html',
+        //     options: {
+        //         dest: '<%= lucid.dist %>',
+        //         flow: {
+        //             html: {
+        //                 steps: {
+        //                     js: [],
+        //                     css: ['cssmin']
+        //                 },
+        //                 post: {}
+        //             }
+        //         }
+        //     }
+        // },
 
         // Performs rewrites based on filerev and the useminPrepare configuration
-        usemin: {
-            html: ['<%= yeoman.dist %>/{,*/}*.html'],
-            css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
-            options: {
-                assetsDirs: ['<%= yeoman.dist %>', '<%= yeoman.dist %>/images']
-            }
-        },
+        // usemin: {
+        //     html: ['<%= lucid.dist %>/{,*/}*.html'],
+        //     css: ['<%= lucid.dist %>/styles/{,*/}*.css'],
+        //     options: {
+        //         assetsDirs: ['<%= lucid.dist %>', '<%= lucid.dist %>/images']
+        //     }
+        // },
 
         // The following *-min tasks will produce minified files in the dist folder
         // By default, your `index.html`'s <!-- Usemin block --> will take care of
@@ -243,7 +255,7 @@ module.exports = function(grunt) {
         cssmin: {
             dist: {
                 files: {
-                    '<%= yeoman.dist %>/styles/main.css': [
+                    '<%= lucid.dist %>/styles/main.css': [
                         '.tmp/styles/{,*/}*.css'
                     ]
                 }
@@ -261,8 +273,8 @@ module.exports = function(grunt) {
 
         concat: {
           dist: {
-            src: '<%= yeoman.dist %>/scripts/scripts.js',
-            dest: '<%= yeoman.dist %>/scripts/scripts.js'
+            src: '<%= lucid.dist %>/scripts/scripts.js',
+            dest: '<%= lucid.dist %>/scripts/scripts.js'
           }
         },
 
@@ -270,9 +282,9 @@ module.exports = function(grunt) {
             dist: {
                 files: [{
                     expand: true,
-                    cwd: '<%= yeoman.app %>/images',
+                    cwd: '<%= lucid.app %>/images',
                     src: '{,*/}*.{png,jpg,jpeg,gif}',
-                    dest: '<%= yeoman.dist %>/images'
+                    dest: '<%= lucid.dist %>/images'
                 }]
             }
         },
@@ -281,9 +293,9 @@ module.exports = function(grunt) {
             dist: {
                 files: [{
                     expand: true,
-                    cwd: '<%= yeoman.app %>/images',
+                    cwd: '<%= lucid.app %>/images',
                     src: '{,*/}*.svg',
-                    dest: '<%= yeoman.dist %>/images'
+                    dest: '<%= lucid.dist %>/images'
                 }]
             }
         },
@@ -299,9 +311,9 @@ module.exports = function(grunt) {
                 },
                 files: [{
                     expand: true,
-                    cwd: '<%= yeoman.dist %>',
+                    cwd: '<%= lucid.dist %>',
                     src: ['*.html', 'views/{,*/}*.html'],
-                    dest: '<%= yeoman.dist %>'
+                    dest: '<%= lucid.dist %>'
                 }]
             }
         },
@@ -322,7 +334,7 @@ module.exports = function(grunt) {
         // Replace Google CDN references
         cdnify: {
             dist: {
-                html: ['<%= yeoman.dist %>/*.html']
+                html: ['<%= lucid.dist %>/*.html']
             }
         },
 
@@ -332,8 +344,8 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     dot: true,
-                    cwd: '<%= yeoman.app %>',
-                    dest: '<%= yeoman.dist %>',
+                    cwd: '<%= lucid.app %>',
+                    dest: '<%= lucid.dist %>',
                     src: [
                         '*.{ico,png,txt}',
                         '.htaccess',
@@ -341,30 +353,29 @@ module.exports = function(grunt) {
                         'views/{,*/}*.html',
                         'images/{,*/}*.{webp}',
                         'fonts/{,*/}*.*',
-                        'data/',
-                        '.tmp/scripts/scripts.js'
+                        'data/'
                     ]
                 }, {
                     expand: true,
                     cwd: '.tmp/images',
-                    dest: '<%= yeoman.dist %>/images',
+                    dest: '<%= lucid.dist %>/images',
                     src: ['generated/*']
                 }, {
                     expand: true,
                     cwd: '.',
                     src: 'bower_components/bootstrap-sass-official/assets/fonts/bootstrap/*',
-                    dest: '<%= yeoman.dist %>'
+                    dest: '<%= lucid.dist %>'
                 }]
             },
             styles: {
                 expand: true,
-                cwd: '<%= yeoman.app %>/styles',
+                cwd: '<%= lucid.app %>/styles',
                 dest: '.tmp/styles/',
                 src: '{,*/}*.css'
             },
             scripts: {
                 src: '.tmp/scripts/scripts.js',
-                dest: '<%= yeoman.dist %>/scripts/scripts.js'
+                dest: '<%= lucid.dist %>/scripts/scripts.js'
             }
         },
 
@@ -376,11 +387,11 @@ module.exports = function(grunt) {
             test: [
                 'compass'
             ],
-            dist: [
-                'compass:dist',
-                //'imagemin:dist',
-                //'svgmin'
-            ]
+            // dist: [
+            //     'compass:dist',
+            //     //'imagemin:dist',
+            //     //'svgmin'
+            // ]
         },
 
         // Test settings
@@ -400,10 +411,9 @@ module.exports = function(grunt) {
 
         grunt.task.run([
             'clean:server',
-            'wiredep',
             'concurrent:server',
             'autoprefixer',
-            //'babel:server',
+            'browserify:server',
             'connect:livereload',
             'watch'
         ]);
@@ -419,22 +429,15 @@ module.exports = function(grunt) {
 
     grunt.registerTask('build', [
         'clean:dist',
-        'wiredep', // compass etc?
-        'useminPrepare', // point usemin to the right files? usemin at the end to wait for other tasks
-        //'concurrent:dist', // Run some tasks in parallel for speed. (compass, imgmin, svgmin)
-        'compass:dist', // removed concurrent since not using svgmin
-        'autoprefixer', // Add vendor prefixed styles. Keeps it in .tmp
-        'concat:dist',
-        //'ngAnnotate', // Uses angular long form to make code safe for minification. Uses concat!!
-        'babel:dist',
-        'uglify:dist', // Turned off. Check if JS is minified
-        'copy:dist', // Copies remaining files to be used by other tasks. Check if this misses anything
+        'compass:dist',
+        'autoprefixer',
+        'browserify:dist',
+        'uglify:dist',
         'copy:scripts',
-        //'cdnify', // Replace google cdn references
-        'cssmin', // useminPrep is turned on, which uses this step? Takes .tmp files and moves them to dist
-        'filerev', // Renames everything for cacheing.
-        'usemin', // Performs rewrites based on filerev and the useminPrepare configuration
-        'htmlmin' // Minifies html
+        'copy:dist',
+        'cssmin',
+        'filerev',
+        'htmlmin'
     ]);
 
     grunt.registerTask('default', [

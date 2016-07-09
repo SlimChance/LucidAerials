@@ -17,27 +17,9 @@
     <meta name="msapplication-square150x150logo" content="images/Logo.jpg">
     <meta name="msapplication-wide310x150logo" content="images/Logo.jpg">
     <meta name="msapplication-square310x310logo" content="images/Logo.jpg">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css(.) styles/vendor.css -->
-    <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
-    <!-- endbower -->
-    <!-- endbuild -->
-    <!-- build:css(.tmp) styles/main.css -->
     <link rel="shortcut icon" href="images/Logo.jpg" />
-    <script src="scripts/pace.js"></script>
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script> -->
-    <!-- <link rel="stylesheet" href="styles/pace.css"> -->
+
     <link rel="stylesheet" href="styles/index.css" />
-    <!-- <link rel="stylesheet" media="screen and (min-width: 500px)" href="styles/main.css">
- -->
-    <!-- <link rel="stylesheet" media="screen and (max-width: 500px)" href="styles/phoneStyle.css"> -->
-    <!-- <link rel="stylesheet" href="styles/animate.css"> -->
-    <!-- <link rel="stylesheet" media="(max-width: 640px)" href="max-640px.css">
-    <link rel="stylesheet" media="(min-width: 640px)" href="min-640px.css">
-    <link rel="stylesheet" media="(orientation: portrait)" href="portrait.css">
-    <link rel="stylesheet" media="(orientation: landscape)" href="landscape.css"> -->
-    <!-- endbuild -->
     <base href="/">
 </head>
 
@@ -52,7 +34,7 @@
     <!-- Desktop Navigation -->
     <desktop-nav></desktop-nav>
 
-    <div class="view" ng-view="" ng-click="closeNav(); toggleFalse()" role="presentation" ng-cloak></div>
+    <div class="view" ng-view="" ng-click="closeNav(); toggleFalse()" role="presentation"></div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
@@ -89,10 +71,6 @@
             });
         }
     </script>
-    <!-- Transformicons -->
-    <script>
-        !function(n,r){"function"==typeof define&&define.amd?define(r):"object"==typeof exports?module.exports=r():n.transformicons=r()}(this||window,function(){"use strict";var n={},r="tcon-transform",t={transform:["click"],revert:["click"]},e=function(n){return"string"==typeof n?Array.prototype.slice.call(document.querySelectorAll(n)):"undefined"==typeof n||n instanceof Array?n:[n]},o=function(n){return"string"==typeof n?n.toLowerCase().split(" "):n},f=function(n,r,f){var c=(f?"remove":"add")+"EventListener",u=e(n),s=u.length,a={};for(var l in t)a[l]=r&&r[l]?o(r[l]):t[l];for(;s--;)for(var d in a)for(var v=a[d].length;v--;)u[s][c](a[d][v],i)},i=function(r){n.toggle(r.currentTarget)};return n.add=function(r,t){return f(r,t),n},n.remove=function(r,t){return f(r,t,!0),n},n.transform=function(t){return e(t).forEach(function(n){n.classList.add(r)}),n},n.revert=function(t){return e(t).forEach(function(n){n.classList.remove(r)}),n},n.toggle=function(t){return e(t).forEach(function(t){n[t.classList.contains(r)?"revert":"transform"](t)}),n},n});
-    </script>
 
     <!-- build:js(.) scripts/oldieshim.js -->
     <!--[if lt IE 9]>
@@ -101,36 +79,7 @@
     <![endif]-->
     <!-- endbuild -->
 
-    <!-- build:js({.tmp,app}) scripts/scripts.js -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.js"></script>
-    <script src="bower_components/angular-aria/angular-aria.js"></script>
-    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-    <script src="bower_components/angular-messages/angular-messages.js"></script>
-    <script src="bower_components/angular-resource/angular-resource.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="bower_components/angular-touch/angular-touch.js"></script>
-    <script src="bower_components/angular-material/angular-material.js"></script>
-    <script src="bower_components/ngSmoothScroll/angular-smooth-scroll.js"></script>
-    <script src="bower_components/angularUtils-pagination/dirPagination.js"></script>
-    <script src="bower_components/instafeed.js/instafeed.js"></script>
-    <script src="scripts/app.js"></script>
-    <script src="scripts/services/videoService.js"></script>
-    <script src="scripts/services/pictureService.js"></script>
-    <script src="scripts/directives/indexDirective.js"></script>
-    <script src="scripts/directives/homeDirective.js"></script>
-    <script src="scripts/directives/picturesDirective.js"></script>
-    <script src="scripts/directives/videosDirective.js"></script>
-    <script src="scripts/directives/twitterDirective.js"></script>
-    <script src="scripts/controllers/indexCtrl.js"></script>
-    <script src="scripts/controllers/homeCtrl.js"></script>
-    <script src="scripts/controllers/videosCtrl.js"></script>
-    <script src="scripts/controllers/picturesCtrl.js"></script>
-    <script src="scripts/controllers/contactCtrl.js"></script>
-    <!-- endbuild -->
+    <script src="../scripts/scripts.js"></script>
 </body>
 
 </html>
