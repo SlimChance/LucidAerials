@@ -18,9 +18,6 @@ require('angular-touch');
 require('angular-utils-pagination');
 require('bootstrap-sass');
 
-
-
-
 angular
     .module('LucidAerials', [
         'ngResource',
@@ -62,27 +59,20 @@ angular
     .service('VideoService', require('./services/videoService'))
     .service('PictureService', require('./services/pictureService'))
     .service('TransformiconService', require('./services/transformiconService'))
-    .directive('IndexDirective', require('./directives/indexDirective'))
-    .directive('HideScroll', require('./directives/homeDirective').HideScroll)
-    .directive('FadeOverlay', require('./directives/homeDirective').FadeOverlay)
-    .directive('HomeCtrl', require('./directives/homeCtrl'))
-    .directive('HomeCtrl', require('./directives/homeCtrl'))
-    .directive('HomeCtrl', require('./directives/homeCtrl'))
-    .directive('HomeCtrl', require('./directives/homeCtrl'))
+    .directive('hideScroll', require('./directives/homeDirective').hideScroll)
+    .directive('fadeOverlay', require('./directives/homeDirective').fadeOverlay)
+    .directive('mobileNav', require('./directives/indexDirective').mobileNav)
+    .directive('desktopNav', require('./directives/indexDirective').desktopNav)
+    .directive('mobileScrollHide', require('./directives/indexDirective').mobileScrollHide)
+    .directive('footer', require('./directives/indexDirective').footer)
+    .directive('modalClick', require('./directives/picturesDirective').modalClick)
+    .directive('imageDropdown', require('./directives/picturesDirective').imageDropdown)
+    .directive('twitterTimeline', require('./directives/twitterDirective'))
+    .directive('videoPlayButton', require('./directives/videosDirective').videoPlayButton)
+    .directive('scrollToCenter', require('./directives/videosDirective').scrollToCenter)
+    .directive('scrollToTop', require('./directives/videosDirective').scrollToTop)
+    .controller('ContactCtrl', require('./controllers/contactCtrl'))
     .controller('HomeCtrl', require('./controllers/homeCtrl'))
-    .controller('HomeCtrl', require('./controllers/homeCtrl'))
-    .controller('HomeCtrl', require('./controllers/homeCtrl'))
-    .controller('HomeCtrl', require('./controllers/homeCtrl'))
-    .controller('HomeCtrl', require('./controllers/homeCtrl'));
-
-require('./directives/indexDirective');
-require('./directives/homeDirective');
-require('./directives/picturesDirective');
-require('./directives/videosDirective');
-require('./directives/videosDirective');
-require('./directives/twitterDirective');
-require('./controllers/indexCtrl');
-
-require('./controllers/videosCtrl');
-require('./controllers/picturesCtrl');
-require('./controllers/contactCtrl');
+    .controller('IndexCtrl', require('./controllers/indexCtrl'))
+    .controller('PicturesCtrl', require('./controllers/picturesCtrl'))
+    .controller('VideosCtrl', require('./controllers/videosCtrl'));

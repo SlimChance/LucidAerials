@@ -1,6 +1,6 @@
 'use strict';
 
-function HideScroll($window) {
+function hideScroll($window) {
     'ngInject';
     return {
         restrict: 'A',
@@ -17,7 +17,7 @@ function HideScroll($window) {
     };
 }
 
-function FadeOverlay($timeout) {
+function fadeOverlay($timeout) {
     return {
         restrict: 'A',
         link: function(scope, element) {
@@ -39,6 +39,6 @@ function FadeOverlay($timeout) {
 }
 
 module.exports = {
-    HideScroll: HideScroll,
-    FadeOverlay: FadeOverlay
+    hideScroll: hideScroll,
+    fadeOverlay: fadeOverlay
 }
