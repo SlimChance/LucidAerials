@@ -3,8 +3,6 @@
 require('es5-shim');
 require('es5-sham');
 
-require('./pace');
-
 require('jquery');
 var angular = require('angular');
 require('angular-resource');
@@ -28,37 +26,41 @@ angular
         'ngAnimate',
         'ngMessages',
         'ngTouch',
+        'xml',
         'angularUtils.directives.dirPagination'
     ])
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider
             .when('/', {
                 templateUrl: 'views/home.html',
-                controller: 'HomeCtrl',
+                controller: 'homeCtrl',
                 controllerAs: 'home'
             })
             .when('/videos', {
                 templateUrl: 'views/videos.html',
-                controller: 'VideosCtrl',
+                controller: 'videosCtrl',
                 controllerAs: 'videos'
             })
             .when('/pictures', {
                 templateUrl: 'views/pictures.html',
-                controller: 'PicturesCtrl',
+                controller: 'picturesCtrl',
                 controllerAs: 'pics'
             })
             .when('/contact', {
                 templateUrl: 'views/contact.html',
-                controller: 'ContactCtrl',
+                controller: 'contactCtrl',
                 controllerAs: 'contact'
             })
             .otherwise({
                 redirectTo: '/'
             });
     }])
-    .service('VideoService', require('./services/videoService'))
-    .service('PictureService', require('./services/pictureService'))
-    .service('TransformiconService', require('./services/transformiconService'))
+    .config(function ($httpProvider) {
+        $httpProvider.interceptors.push('xmlHttpInterceptor');
+    })
+    .service('videoService', require('./services/videoService'))
+    .service('pictureService', require('./services/pictureService'))
+    .service('transformiconService', require('./services/transformiconService'))
     .directive('hideScroll', require('./directives/homeDirective').hideScroll)
     .directive('fadeOverlay', require('./directives/homeDirective').fadeOverlay)
     .directive('mobileNav', require('./directives/indexDirective').mobileNav)
@@ -71,8 +73,8 @@ angular
     .directive('videoPlayButton', require('./directives/videosDirective').videoPlayButton)
     .directive('scrollToCenter', require('./directives/videosDirective').scrollToCenter)
     .directive('scrollToTop', require('./directives/videosDirective').scrollToTop)
-    .controller('ContactCtrl', require('./controllers/contactCtrl'))
-    .controller('HomeCtrl', require('./controllers/homeCtrl'))
-    .controller('IndexCtrl', require('./controllers/indexCtrl'))
-    .controller('PicturesCtrl', require('./controllers/picturesCtrl'))
-    .controller('VideosCtrl', require('./controllers/videosCtrl'));
+    .controller('contactCtrl', require('./controllers/contactCtrl'))
+    .controller('homeCtrl', require('./controllers/homeCtrl'))
+    .controller('indexCtrl', require('./controllers/indexCtrl'))
+    .controller('picturesCtrl', require('./controllers/picturesCtrl'))
+    .controller('videosCtrl', require('./controllers/videosCtrl'));

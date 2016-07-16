@@ -1,6 +1,6 @@
 'use strict';
 
-function ContactCtrl($timeout) {
+function contactCtrl($timeout) {
     'ngInject'
     let vm = this; // contact
 
@@ -9,4 +9,4 @@ function ContactCtrl($timeout) {
     $timeout(() => twttr.widgets.load(), 500);
 }
 
-module.exports = ContactCtrl;
+module.exports = contactCtrl;

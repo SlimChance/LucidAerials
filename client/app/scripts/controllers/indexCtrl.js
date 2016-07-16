@@ -1,6 +1,6 @@
 'use strict';
 
-function IndexCtrl($scope, $location) {
+function indexCtrl($scope, $location) {
     'ngInject';
     $scope.navToggled = false;
 
@@ -21,4 +21,4 @@ function IndexCtrl($scope, $location) {
     };
 }
 
-module.exports = IndexCtrl;
+module.exports = indexCtrl;

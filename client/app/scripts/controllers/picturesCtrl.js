@@ -1,6 +1,6 @@
 'use strict';
 
-function PicturesCtrl(pictureService) {
+function picturesCtrl(pictureService) {
     'ngInject';
     let vm = this; // pics
 
@@ -12,11 +12,15 @@ function PicturesCtrl(pictureService) {
     vm.expand = expand;
     vm.getImage = getImage;
 
-    pictureService.getPictures().then((images) => {
-        vm.images = images;
-        console.log(vm.images);
-        //vm.lazyLoadImages = vm.images.slice(0, 12);
-    });
+    // pictureService.getVisitor().then((visitor) => {
+    //     console.log(visitor);
+    // });
+
+    // pictureService.getPictures().then((images) => {
+    //     vm.images = images;
+    //     console.log(vm.images);
+    //     //vm.lazyLoadImages = vm.images.slice(0, 12);
+    // });
 
     function grabImages() {
         vm.lazyLoadImages = vm.images.slice(0, vm.value);
@@ -41,4 +45,4 @@ function PicturesCtrl(pictureService) {
     };
 }
 
-module.exports = PicturesCtrl;
+module.exports = picturesCtrl;

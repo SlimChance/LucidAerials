@@ -1,6 +1,6 @@
 'use strict';
 
-function VideosCtrl($window, $scope, $timeout, $interval, $rootScope, $cacheFactory, $sce, videoService) {
+function videosCtrl($window, $scope, $timeout, $interval, $rootScope, $cacheFactory, $sce, videoService) {
     'ngInject';
     let vm = this, // videos
         screenWidth = $window.innerWidth;
@@ -164,4 +164,4 @@ function VideosCtrl($window, $scope, $timeout, $interval, $rootScope, $cacheFact
     });
 }
 
-module.exports = VideosCtrl;
+module.exports = videosCtrl;
