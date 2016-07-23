@@ -16,11 +16,11 @@ function picturesCtrl(pictureService) {
     //     console.log(visitor);
     // });
 
-    // pictureService.getPictures().then((images) => {
-    //     vm.images = images;
-    //     console.log(vm.images);
-    //     //vm.lazyLoadImages = vm.images.slice(0, 12);
-    // });
+    pictureService.getPhotoSet().then((images) => {
+        vm.images = images;
+        console.log(vm.images);
+        //vm.lazyLoadImages = vm.images.slice(0, 12);
+    });
 
     function grabImages() {
         vm.lazyLoadImages = vm.images.slice(0, vm.value);
