@@ -58,7 +58,7 @@ angular
     }])
     .config((jsonrpcConfigProvider) => {
         jsonrpcConfigProvider.set({
-            url: 'http://api.zenfolio.com/api/1.8/zfapi.asmx/LoadPhotoSet'
+            url: 'http://api.zenfolio.com/api/1.8/zfapi.asmx/LoadPhotoSet?photoSetId=908453492&level=2&includePhotos=true'
         });
     })
     .service('$soap', require('./services/angularSoapService'))

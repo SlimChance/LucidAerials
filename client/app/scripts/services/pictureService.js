@@ -13,6 +13,10 @@ function PictureService($resource, $soap, jsonrpc) {
         //     return $soap.post(apiUrl, 'LoadPhotoSet', { photoSetId: photoSetId, level: level, includePhotos: includePhotos });
         // },
         getPhotoSet: function() {
+            jsonrpc.setHeaders('main', {
+                'Content-Type': 'application/json'
+            });
+
             return jsonrpc.request('version', {});
         },
         getVisitor: function() {
