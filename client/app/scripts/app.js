@@ -15,7 +15,6 @@ require('angular-messages');
 require('angular-touch');
 require('angular-utils-pagination');
 require('bootstrap-sass');
-require('./services/jsonrpc');
 
 angular
     .module('LucidAerials', [
@@ -27,7 +26,6 @@ angular
         'ngAnimate',
         'ngMessages',
         'ngTouch',
-        'angular-jsonrpc-client',
         'angularUtils.directives.dirPagination'
     ])
     .config(['$routeProvider', function($routeProvider) {
@@ -56,12 +54,6 @@ angular
                 redirectTo: '/'
             });
     }])
-    .config((jsonrpcConfigProvider) => {
-        jsonrpcConfigProvider.set({
-            url: 'http://api.zenfolio.com/api/1.8/zfapi.asmx/LoadPhotoSet?photoSetId=908453492&level=2&includePhotos=true'
-        });
-    })
-    .service('$soap', require('./services/angularSoapService'))
     .service('videoService', require('./services/videoService'))
     .service('pictureService', require('./services/pictureService'))
     .service('transformiconService', require('./services/transformiconService'))

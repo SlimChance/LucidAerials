@@ -12,14 +12,9 @@ function picturesCtrl(pictureService) {
     vm.expand = expand;
     vm.getImage = getImage;
 
-    // pictureService.getVisitor().then((visitor) => {
-    //     console.log(visitor);
-    // });
-
-    pictureService.getPhotoSet().then((images) => {
+    pictureService.getRecentPhotos().get((images) => {
+        console.log(images);
         vm.images = images;
-        console.log(vm.images);
-        //vm.lazyLoadImages = vm.images.slice(0, 12);
     });
 
     function grabImages() {

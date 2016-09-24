@@ -81,11 +81,12 @@
         width: calc(50% - 10px);
         margin: 5px;
         overflow: hidden;
-        height: 325px;
+        height: 320px;
         background-size: cover;
         background-position: center;
         box-shadow: $material-shadow;
         border-radius: 3px;
+        background-size: contain;
     }
     .picture-description {
         display: none;
@@ -151,9 +152,9 @@
         width: 32%;
         margin: 5px;
         overflow: hidden;
-        height: 325px;
         box-shadow: $material-shadow;
         border-radius: 3px;
+        background-size: cover;
         &:hover {
             width: calc(32% + 10px);
             height: 330px;

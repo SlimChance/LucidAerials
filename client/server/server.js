@@ -2,20 +2,20 @@ var express = require('express');
 var instagram = require('instagram-node').instagram();
 var app = express();
 
-instagram.use({ access_token: '1553678469.bee79ae.81d8e2f20f9844ef9518f726d3e58e1f' });
-// instagram.use({
-//   client_id: 'bee79ae41b074846bac36e57446d1141',
-//   client_secret: 'a37a71f2c42e4596af83d0077e448192'
-// });
-
-console.log(instagram);
-
-var pics = instagram.user_media_recent('1553678469', function(err, medias, pagination, remaining, limit) {
-    console.log(medias);
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "http://localhost:9000");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
 });
 
-app.listen(8000,function(){
+instagram.use({ access_token: '1553678469.bee79ae.81d8e2f20f9844ef9518f726d3e58e1f' });
+
+app.get('/instagram-feed', function(req, res) {
+    instagram.user_media_recent('1553678469', function(err, medias, pagination, remaining, limit) {
+        res.send(medias);
+    });
+});
+
+app.listen(8000, () => {
   console.log("listening port 8000");
 });
-
-// https://api.instagram.com/v1/users/1553678469/media/recent/?access_token=1553678469.bee79ae.81d8e2f20f9844ef9518f726d3e58e1f
