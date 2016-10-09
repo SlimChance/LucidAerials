@@ -2,16 +2,17 @@
 
 require('es5-shim');
 require('es5-sham');
+require('json3');
 
 require('jquery');
 var angular = require('angular');
-require('angular-resource');
-require('angular-sanitize');
-require('angular-route');
-require('angular-cookies');
-require('angular-aria');
 require('angular-animate');
+require('angular-aria');
+require('angular-cookies');
 require('angular-messages');
+require('angular-resource');
+require('angular-route');
+require('angular-sanitize');
 require('angular-touch');
 require('angular-utils-pagination');
 require('bootstrap-sass');

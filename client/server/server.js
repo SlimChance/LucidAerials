@@ -1,6 +1,14 @@
 var express = require('express');
-var instagram = require('instagram-node').instagram();
+var https = require('https');
 var app = express();
+
+var host = 'https://api.instagram.com/v1';
+var user_id = '1553678469';
+var access_token = '1553678469.bee79ae.81d8e2f20f9844ef9518f726d3e58e1f';
+
+var instagram = {
+    user_media_recent_path: `${host}/users/self/media/recent/?access_token=${access_token}`
+};
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "http://localhost:9000");
@@ -8,11 +16,21 @@ app.use(function(req, res, next) {
   next();
 });
 
-instagram.use({ access_token: '1553678469.bee79ae.81d8e2f20f9844ef9518f726d3e58e1f' });
-
 app.get('/instagram-feed', function(req, res) {
-    instagram.user_media_recent('1553678469', function(err, medias, pagination, remaining, limit) {
-        res.send(medias);
+    var req = https.get(instagram.user_media_recent_path, function(response) {
+        var body = '';
+
+        response.on('data', function(chunk) {
+            body += chunk;
+        }).on('end', function(data) {
+            var parsed = JSON.parse(body);
+
+            res.send(parsed);
+        });
+    });
+
+    req.on('error', function(e) {
+        console.log(e);
     });
 });
 

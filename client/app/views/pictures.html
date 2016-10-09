@@ -1,5 +1,5 @@
-<div class="picture-wrapper" id="footer">
-    <div image-dropdown class="picture-repeat" index="$index" ng-class="{ 'expanded': pics.expanded == $index }" ng-repeat="picture in pics.images" ng-style="{'background-image':'url({{picture.images.low_resolution.url}})', 'height': {{picture.images.low_resolution.height}}}" ng-click="pics.expand($index)">
+<div class="picture-wrap" id="footer">
+    <div image-dropdown class="picture-repeat" index="$index" ng-class="{ 'expanded': pics.expanded == $index }" ng-repeat="picture in pics.images" ng-style="{ 'background-image': 'url({{picture.images.standard_resolution.url}})' }" ng-click="pics.expand($index)">
         <p class="picture-description">{{picture.caption.text}}</p>
     </div>
     <div class="load-more" ng-hide="allLoaded">

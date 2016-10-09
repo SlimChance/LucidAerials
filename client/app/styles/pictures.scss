@@ -1,7 +1,7 @@
 @import 'vars';
 
 @media (max-width: 490px) {
-  .picture-wrapper {
+  .picture-wrap {
       display: flex;
       position: relative;
       top: 55px;
@@ -63,7 +63,7 @@
 
 /* Landscape phone to portrait tablet */
 @media (min-width: 491px) and (max-width: 767px) {
-    .picture-wrapper {
+    .picture-wrap {
         display: flex;
         position: relative;
         flex-flow: row wrap;
@@ -91,7 +91,7 @@
     .picture-description {
         display: none;
     }
-    .picture-wrapper {
+    .picture-wrap {
         .cloned-image {
             // height defined in javascript
             width: 100%;
@@ -134,7 +134,7 @@
 
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 768px) {
-    .picture-wrapper {
+    .picture-wrap {
         display: flex;
         position: relative;
         flex-flow: row wrap;
@@ -145,30 +145,6 @@
         height: auto;
         overflow: hidden;
         cursor: default;
-    }
-    .picture-repeat {
-        position: relative;
-        order: 1;
-        width: 32%;
-        margin: 5px;
-        overflow: hidden;
-        box-shadow: $material-shadow;
-        border-radius: 3px;
-        background-size: cover;
-        &:hover {
-            width: calc(32% + 10px);
-            height: 330px;
-            margin: 0px;
-            transition: height .2s ease-in-out, width .2s ease-in-out, margin .2s ease-in-out;
-        }
-        img {
-          width: 100%;
-        }
-    }
-    .picture-description {
-        display: none;
-    }
-    .picture-wrapper {
         .cloned-image {
             // height defined in javascript
             width: 100%;
@@ -179,17 +155,43 @@
             cursor: default;
             box-shadow: none;
             position: relative;
-            &:hover {
-                width: 100%;
-                margin: 0px 0px 10px 0px;
-                cursor: default;
-            }
+            // &:hover {
+            //     width: 100%;
+            //     margin: 0px 0px 10px 0px;
+            //     cursor: default;
+            // }
             img {
               width: auto;
               box-shadow: $material-shadow;
               border-radius: 3px;
             }
         }
+    }
+    .picture-repeat {
+        position: relative;
+        order: 1;
+        width: 24%;
+        height: 325px;
+        margin: 10px auto;
+        overflow: hidden;
+        box-shadow: $material-shadow;
+        border-radius: 3px;
+        background-size: cover;
+        &:active, &:focus {
+          outline: none;
+        }
+        // &:hover {
+        //     width: calc(32% + 10px);
+        //     height: 330px;
+        //     margin: 0px;
+        //     transition: height .2s ease-in-out, width .2s ease-in-out, margin .2s ease-in-out;
+        // }
+        img {
+          width: 100%;
+        }
+    }
+    .picture-description {
+        display: none;
     }
     .load-more {
       order: 500;
