@@ -1,220 +1,282 @@
 @import 'vars';
-
 @media (max-width: 490px) {
   .picture-wrap {
-      display: flex;
-      position: relative;
-      top: 55px;
-      flex-flow: column wrap;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      background-color: $dark-grey;
-      overflow: hidden;
-      cursor: default;
-      .expanded {
-          height: calc(100vh - 10px);
-          width: calc(100vh - 20px);
-          transform: rotate(90deg);
-      }
+    display: flex;
+    position: relative;
+    top: 55px;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: $dark-grey;
+    overflow: hidden;
+    cursor: default;
+    .expanded {
+      height: calc(100vh - 10px);
+      width: calc(100vh - 20px);
+      transform: rotate(90deg);
+    }
   }
   .picture-repeat {
-      position: relative;
-      order: 1;
-      margin: 5px;
-      overflow: hidden;
-      height: 325px;
-      width: 100%;
-      background-size: cover;
-      background-position: center;
-      box-shadow: $material-shadow;
-      border-radius: 3px;
-      &:first-child {
-        margin-top: 0;
-      }
+    position: relative;
+    order: 1;
+    margin: 5px;
+    overflow: hidden;
+    height: 325px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    box-shadow: $material-shadow;
+    border-radius: 3px;
+    &:first-child {
+      margin-top: 0;
+    }
   }
   .picture-description {
-      display: none;
+    display: none;
   }
   .load-more {
-      order: 500;
-      width: 100%;
-      .load-more-btn {
-          margin: 10px 20px;
-          padding: 10px 20px;
-          border-radius: 3px;
-          background: $light-blue;
-          color: white;
-          border: none;
-          opacity: 1;
-          outline: 0;
-          font-size: 1.1em;
-          box-shadow: $material-shadow;
-          transition: opacity 0.5s ease-out;
-          &:hover {
-              background-color: $light-grey;
-          }
+    order: 500;
+    width: 100%;
+    .load-more-btn {
+      margin: 10px 20px;
+      padding: 10px 20px;
+      border-radius: 3px;
+      background: $light-blue;
+      color: white;
+      border: none;
+      opacity: 1;
+      outline: 0;
+      font-size: 1.1em;
+      box-shadow: $material-shadow;
+      transition: opacity 0.5s ease-out;
+      &:hover {
+        background-color: $light-grey;
       }
     }
+  }
   .last-item {
-      order: 5000;
+    order: 5000;
   }
 }
 
+
 /* Landscape phone to portrait tablet */
+
 @media (min-width: 491px) and (max-width: 767px) {
-    .picture-wrap {
-        display: flex;
-        position: relative;
-        flex-flow: row wrap;
-        justify-content: space-around;
-        align-items: flex-end;
-        text-align: center;
-        background-color: $dark-grey;
-        height: auto;
-        overflow: hidden;
-        cursor: default;
-    }
-    .picture-repeat {
-        position: relative;
-        order: 1;
-        width: calc(50% - 10px);
-        margin: 5px;
-        overflow: hidden;
-        height: 320px;
-        background-size: cover;
-        background-position: center;
-        box-shadow: $material-shadow;
-        border-radius: 3px;
-        background-size: contain;
-    }
-    .picture-description {
-        display: none;
-    }
-    .picture-wrap {
-        .cloned-image {
-            // height defined in javascript
-            width: 100%;
-            margin: 0px 0px 10px 0px;
-            transition: none;
-            cursor: defualt;
-            position: relative;
-            &:hover {
-                width: 100%;
-                height: 900px;
-                margin: 0px 0px 10px 0px;
-                cursor: defualt;
-            }
-        }
-    }
-    .load-more {
-      order: 500;
+  .picture-wrap {
+    display: flex;
+    position: relative;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: flex-end;
+    text-align: center;
+    background-color: $dark-grey;
+    height: auto;
+    overflow: hidden;
+    cursor: default;
+  }
+  .picture-repeat {
+    position: relative;
+    order: 1;
+    width: calc(50% - 10px);
+    margin: 5px;
+    overflow: hidden;
+    height: 320px;
+    background-size: cover;
+    background-position: center;
+    box-shadow: $material-shadow;
+    border-radius: 3px;
+    background-size: contain;
+  }
+  .picture-description {
+    display: none;
+  }
+  .picture-wrap {
+    .cloned-image {
+      // height defined in javascript
       width: 100%;
-      .load-more-btn {
-          margin: 10px 20px;
-          padding: 10px 20px;
-          border-radius: 3px;
-          background: $light-blue;
-          color: white;
-          border: none;
-          opacity: 1;
-          outline: 0;
-          font-size: 1.1em;
-          box-shadow: $material-shadow;
-          transition: opacity 0.5s ease-out;
-          &:hover {
-              background-color: $light-grey;
-          }
+      margin: 0px 0px 10px 0px;
+      transition: none;
+      cursor: defualt;
+      position: relative;
+      &:hover {
+        width: 100%;
+        height: 900px;
+        margin: 0px 0px 10px 0px;
+        cursor: defualt;
       }
     }
-    .last-item {
-        order: 5000;
+  }
+  .load-more {
+    order: 500;
+    width: 100%;
+    .load-more-btn {
+      margin: 10px 20px;
+      padding: 10px 20px;
+      border-radius: 3px;
+      background: $light-blue;
+      color: white;
+      border: none;
+      opacity: 1;
+      outline: 0;
+      font-size: 1.1em;
+      box-shadow: $material-shadow;
+      transition: opacity 0.5s ease-out;
+      &:hover {
+        background-color: $light-grey;
+      }
     }
+  }
+  .last-item {
+    order: 5000;
+  }
 }
 
+
 /* Portrait tablet to landscape and desktop */
+
 @media (min-width: 768px) {
-    .picture-wrap {
-        display: flex;
-        position: relative;
-        flex-flow: row wrap;
-        justify-content: space-around;
-        align-items: flex-end;
-        text-align: center;
-        background-color: $dark-grey;
-        height: auto;
-        overflow: hidden;
-        cursor: default;
-        .cloned-image {
-            // height defined in javascript
-            width: 100%;
-            height: auto;
-            margin: 0px 0px 10px 0px;
-            transition: none;
-            background-color: $dark-grey;
-            cursor: default;
-            box-shadow: none;
-            position: relative;
-            // &:hover {
-            //     width: 100%;
-            //     margin: 0px 0px 10px 0px;
-            //     cursor: default;
-            // }
-            img {
-              width: auto;
-              box-shadow: $material-shadow;
-              border-radius: 3px;
-            }
-        }
+  .picture-wrap {
+    display: flex;
+    position: relative;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: stretch;
+    text-align: center;
+    background-color: $dark-grey;
+    height: auto;
+    overflow: hidden;
+    cursor: default;
+  }
+  .picture-repeat {
+    position: relative;
+    order: 1;
+    width: calc(25vw - 40px);
+    margin: 20px;
+    height: auto;
+    overflow: hidden;
+    color: white;
+    background-color: $dark-grey;
+    box-shadow: $material-shadow;
+    &:active {
+      outline: none;
     }
-    .picture-repeat {
-        position: relative;
-        order: 1;
-        width: 24%;
-        height: 325px;
-        margin: 10px auto;
-        overflow: hidden;
-        box-shadow: $material-shadow;
-        border-radius: 3px;
-        background-size: cover;
-        &:active, &:focus {
-          outline: none;
-        }
-        // &:hover {
-        //     width: calc(32% + 10px);
-        //     height: 330px;
-        //     margin: 0px;
-        //     transition: height .2s ease-in-out, width .2s ease-in-out, margin .2s ease-in-out;
-        // }
-        img {
-          width: 100%;
-        }
-    }
-    .picture-description {
-        display: none;
-    }
-    .load-more {
-      order: 500;
-      text-align: center;
+    .picture {
+      height: 22vw;
       width: 100%;
-      .load-more-btn {
-          margin: 10px 20px;
-          padding: 10px 20px;
-          border-radius: 3px;
-          background: $light-blue;
-          color: white;
-          border: none;
-          opacity: 1;
-          outline: 0;
-          font-size: 1.1em;
-          box-shadow: $material-shadow;
-          transition: opacity 0.5s ease-out;
-          &:hover {
-              background-color: $light-grey;
-          }
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: black;
+      // border: 2px solid $light-blue;
+    }
+    .photo-details {
+      height: 40px;
+      padding: 6px 12px;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      background-color: $dark-grey;
+      align-items: center;
+      border: 2px solid $light-blue;
+      border-width: 0 0 3px 0;
+      .fa {
+        color: red;
       }
     }
-    .last-item {
-        order: 5000;
+    .comments {
+      height: auto;
+      padding: 6px 12px;
+      background-color: $dark-grey;
+      text-align: left;
+      text-overflow: ellipsis;
+      // border: 2px solid $light-blue;
+      .username {
+        color: $light-blue;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+      .caption {
+        height: auto;
+        width: 100%;
+        overflow: hidden;
+      }
+      .fa {
+        color: $light-blue;
+        font-size: 16px;
+        margin: 0 auto;
+      }
     }
+  }
+  .picture-description {
+    display: none;
+  }
+  .image-modal {
+    position: fixed;
+    top: 20px;
+    background-color: $dark-grey;
+    left: 20px;
+    height: calc(100vh - 40px);
+    width: calc(100vw - 40px);
+    z-index: 100;
+    display: flex;
+    flex-flow: row wrap;
+    .modal-close {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: inline-block;
+      padding: 5px;
+      margin: 10px;
+      font-size: 25px;
+      &:focus {
+        outline: none;
+      }
+      .fa-times {
+        width: 35px;
+      }
+    }
+    .modal-comments {
+      height: 100%;
+      width: 30%;
+      background-color: $light-grey;
+    }
+    .modal-image {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 70%;
+      height: 100%;
+    }
+    .image {
+      max-width: 100%;
+      max-height: 100%;
+      margin: 0 auto;
+    }
+    .back-arrow, .next-arrow {
+        position: absolute;
+        padding: 10px;
+        .fa {
+            font-size: 25px;
+            color: $light-blue;
+        }
+        &:hover {
+            cursor: pointer;
+        }
+        &:active, &:focus {
+            outline: none;
+        }
+    }
+    .back-arrow {
+        left: 0;
+    }
+    .next-arrow {
+        right: 0;
+    }
+  }
+  .last-item {
+    order: 5000;
+  }
 }

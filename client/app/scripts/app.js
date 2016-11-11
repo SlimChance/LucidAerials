@@ -16,6 +16,8 @@ require('angular-sanitize');
 require('angular-touch');
 require('angular-utils-pagination');
 require('bootstrap-sass');
+require('moment');
+require('angular-moment');
 
 angular
     .module('LucidAerials', [
@@ -27,6 +29,7 @@ angular
         'ngAnimate',
         'ngMessages',
         'ngTouch',
+        'angularMoment',
         'angularUtils.directives.dirPagination'
     ])
     .config(['$routeProvider', function($routeProvider) {

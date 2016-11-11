@@ -1,20 +1,27 @@
 'use strict';
 
-function picturesCtrl(pictureService) {
+function picturesCtrl($rootScope, pictureService) {
     'ngInject';
     let vm = this; // pics
 
     vm.expanded = null;
     vm.allLoaded = false;
     vm.value = 21;
+    vm.pictureService = pictureService;
 
     vm.grabImages = grabImages;
-    vm.expand = expand;
+    vm.openModal = openModal;
+    vm.closeModal = closeModal;
+    vm.prevImage = prevImage;
+    vm.nextImage = nextImage;
     vm.getImage = getImage;
 
     pictureService.getRecentPhotos().get((images) => {
-        vm.images = images.data;
-        console.log(images);
+        pictureService.pictures = images.data;
+    });
+
+    pictureService.getComments().get((comments) => {
+        pictureService.comments = comments;
     });
 
     function grabImages() {
@@ -26,9 +33,31 @@ function picturesCtrl(pictureService) {
         }
     };
 
-    function expand(index) {
-        vm.expanded = index;
-    };
+    function openModal(index, image) {
+        $rootScope.$emit('modal-open', true);
+        vm.modalState = true;
+        vm.activeImage = image;
+        vm.imageIndex = index;
+    }
+
+    function closeModal() {
+        $rootScope.$emit('modal-open', false);
+        vm.modalState = false;
+    }
+
+    function prevImage() {
+        if (vm.imageIndex !== 0) {
+            vm.imageIndex--;
+            vm.activeImage = pictureService.pictures[vm.imageIndex].images.standard_resolution.url;
+        }
+    }
+
+    function nextImage() {
+        if (vm.imageIndex !== pictureService.pictures.length - 1) {
+            vm.imageIndex++;
+            vm.activeImage = pictureService.pictures[vm.imageIndex].images.standard_resolution.url;
+        }
+    }
 
     function getImage(index, picture) {
         if (vm.expanded === index) {

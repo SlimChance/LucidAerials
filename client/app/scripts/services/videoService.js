@@ -43,14 +43,20 @@ function VideoService($q, $http, $rootScope, $cacheFactory, $timeout) {
     function createPlayer(elementId, index) {
         let videoId = vs.videos[index].snippet.resourceId.videoId,
             element = angular.element(elementId)[0];
+        let fails = 0;
 
         vs.busy = true;
 
         if (element) {
             $timeout(() => createYTPlayer(element, elementId, videoId), 0);
         } else {
-            console.log('element not defined, recreating');
-            $timeout(() => createPlayer(elementId, index), 500);
+            if (fails < 3) {
+                console.log('element not defined, recreating');
+                $timeout(() => {
+                    fails++;
+                    createPlayer(elementId, index);
+                }, 500);
+            }
         }
     }
 
