@@ -1,6 +1,6 @@
 <div class="picture-wrap" id="footer">
     <div class="picture-repeat" ng-repeat="picture in pics.pictureService.pictures">
-        <div class="picture" ng-style="{ 'background-image': 'url({{picture.images.standard_resolution.url}})' }" ng-click="pics.openModal($index, picture.images.standard_resolution.url)"></div>
+        <div class="picture" ng-style="{ 'background-image': 'url({{picture.images.standard_resolution.url}})' }" ng-click="pics.openModal($index, picture)"></div>
         <div class="photo-details">
             <div class="likes"><i class="fa fa-heart" aria-hidden="true"></i> {{picture.likes.count}}</div>
             <div class="time-ago" am-time-ago="{{picture.caption.created_time}} | amFromUnix"></div>
@@ -10,15 +10,19 @@
         </div>
     </div>
 
-    <div class="image-modal" ng-if="pics.modalState === true">
-        <div class="modal-close" ng-click="pics.closeModal()"><i class="fa fa-times" aria-hidden="true"></i></div>
-        <div class="modal-comments">
-            <div class="comment"></div>
-        </div>
-        <div class="modal-image">
-            <div class="back-arrow" ng-click="pics.prevImage()" ng-show="pics.imageIndex > 0"><i class="fa fa-arrow-left" aria-hidden="true"></i></div>
-            <img ng-src="{{pics.activeImage}}" alt="" class="image">
-            <div class="next-arrow" ng-click="pics.nextImage()" ng-show="pics.imageIndex !== (pics.pictureService.pictures.length - 1)"><i class="fa fa-arrow-right" aria-hidden="true"></i></div>
+    <div class="insta-modal" ng-if="pics.modalState === true">
+        <div class="modal-body">
+            <div class="modal-close" ng-click="pics.closeModal()"><i class="fa fa-times" aria-hidden="true"></i></div>
+            <div class="modal-comments">
+                <div class="comment" ng-repeat="comment in pics.activeImage.comments.body">
+                    {{comment.text}}
+                </div>
+            </div>
+            <div class="modal-image">
+                <div class="back-arrow" ng-click="pics.prevImage()" ng-show="pics.imageIndex > 0"><i class="fa fa-arrow-left" aria-hidden="true"></i></div>
+                <img ng-src="{{pics.activeImage.images.standard_resolution.url}}" alt="" class="image">
+                <div class="next-arrow" ng-click="pics.nextImage()" ng-show="pics.imageIndex !== (pics.pictureService.pictures.length - 1)"><i class="fa fa-arrow-right" aria-hidden="true"></i></div>
+            </div>
         </div>
     </div>
 

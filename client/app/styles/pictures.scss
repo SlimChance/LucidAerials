@@ -152,7 +152,7 @@
   .picture-repeat {
     position: relative;
     order: 1;
-    width: calc(25vw - 40px);
+    width: calc(25vw - 45px);
     margin: 20px;
     height: auto;
     overflow: hidden;
@@ -213,16 +213,30 @@
   .picture-description {
     display: none;
   }
-  .image-modal {
+  .insta-modal {
     position: fixed;
-    top: 20px;
-    background-color: $dark-grey;
-    left: 20px;
-    height: calc(100vh - 40px);
-    width: calc(100vw - 40px);
-    z-index: 100;
     display: flex;
-    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,.65);
+    z-index: 100;
+    animation: fade-in .2s linear;
+    &.ng-leave {
+      animation: fade-out .2s linear;
+    }
+    .modal-body {
+      padding: 0;
+      display: flex;
+      flex-flow: row wrap;
+      background-color: $dark-grey;
+      height: calc(100vh - 45px);
+      max-height: 640px;
+      width: calc(100vw - 45px);
+      max-width: 1200px;
+      box-shadow: $material-shadow;
+    }
     .modal-close {
       position: absolute;
       top: 0;
@@ -242,6 +256,10 @@
       height: 100%;
       width: 30%;
       background-color: $light-grey;
+      .comment {
+        color: white;
+        padding: 60px 10px 10px 10px;
+      }
     }
     .modal-image {
       position: relative;

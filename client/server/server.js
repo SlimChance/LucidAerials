@@ -12,6 +12,10 @@ var instagram = {
     comment_path: `${host}/media/${media_id}/comments?access_token=${access_token}`
 };
 
+function setCommentUrl(id) {
+    return `${host}/media/${id}/comments?access_token=${access_token}`;
+}
+
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "http://localhost:9000");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -37,7 +41,8 @@ app.get('/instagram-feed', function(req, res) {
 });
 
 app.get('/comments', function (req, res) {
-  var req = https.get(instagram.comment_path, function(response) {
+    var path = setCommentUrl(req.query.id);
+  var req = https.get(path, function(response) {
     var body = '';
 
     response.on('data', function(chunk) {

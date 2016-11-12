@@ -18,11 +18,16 @@ function picturesCtrl($rootScope, pictureService) {
 
     pictureService.getRecentPhotos().get((images) => {
         pictureService.pictures = images.data;
+
+        pictureService.pictures.forEach((picture) => {
+            pictureService.getComments(picture.id).get((comments) => {
+                picture.comments.body = comments.data;
+                console.log(comments);
+            });
+        })
     });
 
-    pictureService.getComments().get((comments) => {
-        pictureService.comments = comments;
-    });
+    
 
     function grabImages() {
         vm.lazyLoadImages = vm.images.slice(0, vm.value);
@@ -48,14 +53,14 @@ function picturesCtrl($rootScope, pictureService) {
     function prevImage() {
         if (vm.imageIndex !== 0) {
             vm.imageIndex--;
-            vm.activeImage = pictureService.pictures[vm.imageIndex].images.standard_resolution.url;
+            vm.activeImage = pictureService.pictures[vm.imageIndex];
         }
     }
 
     function nextImage() {
         if (vm.imageIndex !== pictureService.pictures.length - 1) {
             vm.imageIndex++;
-            vm.activeImage = pictureService.pictures[vm.imageIndex].images.standard_resolution.url;
+            vm.activeImage = pictureService.pictures[vm.imageIndex];
         }
     }
 

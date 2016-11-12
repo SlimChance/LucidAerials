@@ -12,7 +12,7 @@ function PictureService($resource) {
             return $resource('http://localhost:8000/instagram-feed');
         },
         getComments: (mediaId) => {
-            return $resource('http://localhost:8000/comments');
+            return $resource(`http://localhost:8000/comments?id=${mediaId}`);
         }
     };
 }
