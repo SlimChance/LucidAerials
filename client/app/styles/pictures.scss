@@ -170,6 +170,9 @@
       background-position: center;
       background-color: black;
       // border: 2px solid $light-blue;
+      &:focus {
+        outline: none;
+      }
     }
     .photo-details {
       height: 40px;
@@ -223,6 +226,9 @@
     background-color: rgba(0,0,0,.65);
     z-index: 100;
     animation: fade-in .2s linear;
+    &:focus {
+      outline: none;
+    }
     &.ng-leave {
       animation: fade-out .2s linear;
     }
@@ -243,7 +249,7 @@
       left: 0;
       display: inline-block;
       padding: 5px;
-      margin: 10px;
+      margin: 5px;
       font-size: 25px;
       &:focus {
         outline: none;
@@ -272,6 +278,9 @@
       max-width: 100%;
       max-height: 100%;
       margin: 0 auto;
+      &:focus {
+        outline: none;
+      }
     }
     .back-arrow, .next-arrow {
         position: absolute;

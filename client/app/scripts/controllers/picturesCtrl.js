@@ -16,18 +16,21 @@ function picturesCtrl($rootScope, pictureService) {
     vm.nextImage = nextImage;
     vm.getImage = getImage;
 
-    pictureService.getRecentPhotos().get((images) => {
-        pictureService.pictures = images.data;
+    function init() {
+        vm.busy = true;
 
-        pictureService.pictures.forEach((picture) => {
-            pictureService.getComments(picture.id).get((comments) => {
-                picture.comments.body = comments.data;
-                console.log(comments);
+        pictureService.getRecentPhotos().get((images) => {
+            pictureService.pictures = images.data;
+            vm.busy = false;
+
+            pictureService.pictures.forEach((picture) => {
+                pictureService.getComments(picture.id).get((comments) => {
+                    picture.comments.body = comments.data;
+                });
             });
-        })
-    });
-
-    
+        });
+    }
+    init();
 
     function grabImages() {
         vm.lazyLoadImages = vm.images.slice(0, vm.value);
@@ -45,9 +48,11 @@ function picturesCtrl($rootScope, pictureService) {
         vm.imageIndex = index;
     }
 
-    function closeModal() {
-        $rootScope.$emit('modal-open', false);
-        vm.modalState = false;
+    function closeModal(e, closeBtn) {
+        if (e.target.classList.contains('insta-modal') || closeBtn) {
+            $rootScope.$emit('modal-open', false);
+            vm.modalState = false;
+        }
     }
 
     function prevImage() {

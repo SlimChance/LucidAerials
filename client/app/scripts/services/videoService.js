@@ -41,6 +41,7 @@ function VideoService($q, $http, $rootScope, $cacheFactory, $timeout) {
     }
 
     function createPlayer(elementId, index) {
+        console.log(vs.videos[index]);
         let videoId = vs.videos[index].snippet.resourceId.videoId,
             element = angular.element(elementId)[0];
         let fails = 0;

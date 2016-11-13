@@ -1,4 +1,4 @@
-<div class="picture-wrap" id="footer">
+<div class="picture-wrap" id="footer" ng-class="{ 'busy': !pics.busy }">
     <div class="picture-repeat" ng-repeat="picture in pics.pictureService.pictures">
         <div class="picture" ng-style="{ 'background-image': 'url({{picture.images.standard_resolution.url}})' }" ng-click="pics.openModal($index, picture)"></div>
         <div class="photo-details">
@@ -10,9 +10,9 @@
         </div>
     </div>
 
-    <div class="insta-modal" ng-if="pics.modalState === true">
+    <div class="insta-modal" ng-if="pics.modalState === true" ng-click="pics.closeModal($event)">
         <div class="modal-body">
-            <div class="modal-close" ng-click="pics.closeModal()"><i class="fa fa-times" aria-hidden="true"></i></div>
+            <div class="modal-close" ng-click="pics.closeModal($event, true)"><i class="fa fa-times" aria-hidden="true"></i></div>
             <div class="modal-comments">
                 <div class="comment" ng-repeat="comment in pics.activeImage.comments.body">
                     {{comment.text}}
@@ -20,7 +20,7 @@
             </div>
             <div class="modal-image">
                 <div class="back-arrow" ng-click="pics.prevImage()" ng-show="pics.imageIndex > 0"><i class="fa fa-arrow-left" aria-hidden="true"></i></div>
-                <img ng-src="{{pics.activeImage.images.standard_resolution.url}}" alt="" class="image">
+                <img ng-src="{{pics.activeImage.images.standard_resolution.url}}" alt="" ng-click="pics.nextImage()" class="image">
                 <div class="next-arrow" ng-click="pics.nextImage()" ng-show="pics.imageIndex !== (pics.pictureService.pictures.length - 1)"><i class="fa fa-arrow-right" aria-hidden="true"></i></div>
             </div>
         </div>
