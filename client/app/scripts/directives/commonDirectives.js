@@ -1,16 +1,9 @@
 'use strict';
 
-function mobileNav() {
+function lcdNavigation() {
     return {
         restrict: 'E',
-        templateUrl: 'views/partials/mobileNav.html'
-    };
-}
-
-function desktopNav() {
-    return {
-        restrict: 'E',
-        templateUrl: 'views/partials/desktopNav.html'
+        templateUrl: 'views/partials/navigation.html'
     };
 }
 
@@ -47,8 +40,7 @@ function footer() {
 }
 
 module.exports = {
-    mobileNav: mobileNav,
-    desktopNav: desktopNav,
+    lcdNavigation: lcdNavigation,
     mobileScrollHide: mobileScrollHide,
     footer: footer
 }

@@ -1,0 +1,49 @@
+<div class="hamburger-wrap" ng-class="{ 'hamburger-wrap-open': common.navToggled }">
+    <button type="button" class="tcon tcon-menu--xbutterfly" ng-class="{ 'tcon-transform': common.navToggled }" aria-label="toggle menu" ng-click="common.toggleNav($event)">
+        <span class="tcon-menu__lines" aria-hidden="true"></span>
+        <span class="tcon-visuallyhidden">toggle menu</span>
+    </button>
+</div>
+
+<nav class="desktop-nav nav-wrap" ng-class="{ 'nav-wrap-open': common.navToggled }">
+    <div class="nav-item nav-home" ng-click="common.navigateTo('/'); common.closeNav()">
+        <span class="glyphicon glyphicon-home"></span><h3 class="text-center">Home</h3>
+    </div>
+    <div class="nav-item nav-videos" ng-click="common.navigateTo('/videos'); common.closeNav()">
+        <span class="glyphicon glyphicon-facetime-video"></span><h3 class="text-center">Videos</h3>
+    </div>
+    <div class="nav-item nav-pictures" ng-click="common.navigateTo('/pictures'); common.closeNav()">
+        <span class="glyphicon glyphicon-picture"></span><h3 class="text-center">Pictures</h3>
+    </div>
+    <div class="nav-item nav-contact" ng-click="common.navigateTo('/contact'); common.closeNav()">
+        <span class="glyphicon glyphicon-comment"></span><h3 class="text-center">Contact</h3>
+    </div>
+</nav>
+
+<div class="mobile-nav">
+    <div class="nav-wrapper" mobile-scroll-hide>
+        <div class="mobile-logo-wrapper" ng-click="common.navigateTo('/')">
+            <img class="mobile-logo" src="../images/c-transparent-logo-cropped.png" alt="Lucid Aerials Logo" height="35px" width="35px" align="middle">
+            <h3>SheaBurnsHimself</h3>
+        </div>
+        <div class="menu-wrapper" ng-class="{ 'menu-wrapper-toggled': navToggled }" ng-click="common.toggleNav($event)">
+            <div class="menu-bar1"></div>
+            <div class="menu-bar2"></div>
+            <div class="menu-bar3"></div>
+        </div>
+    </div>
+    <nav class="nav-options" ng-class="{ 'nav-options-toggled': navToggled }">
+        <div class="nav-home" ng-click="common.navigateTo('/')">
+            <span class="glyphicon glyphicon-home"></span><h3 class="nav-text">Home</h3>
+        </div>
+        <div class="nav-videos" ng-click="common.navigateTo('/videos')">
+            <span class="glyphicon glyphicon-facetime-video"></span><h3 class="nav-text">Videos</h3>
+        </div>
+        <div class="nav-pictures" ng-click="common.navigateTo('/pictures')">
+            <span class="glyphicon glyphicon-picture"></span><h3 class="nav-text">Pictures</h3>
+        </div>
+        <div class="nav-contact" ng-click="common.navigateTo('/contact')">
+            <span class="glyphicon glyphicon-comment"></span><h3 class="nav-text">Contact</h3>
+        </div>
+    </nav>
+</div>
