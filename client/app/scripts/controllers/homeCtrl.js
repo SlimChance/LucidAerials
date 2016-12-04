@@ -31,7 +31,6 @@ function HomeCtrl($scope, $window) {
     };
 
     function playVideo() {
-        console.log('play');
         video[0].play();
     };
 

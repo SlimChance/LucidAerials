@@ -314,6 +314,7 @@
                     text-decoration: none;
                     &:hover {
                         color: $light-blue;
+                        cursor: pointer;
                     }
                 }
             }
@@ -376,8 +377,13 @@
 
 /* Large desktop */
 @media (min-width: 1200px) {
+    footer {
+        box-shadow: $material-shadow;
+        z-index: 1;
+    }
     .footer-wrap {
         order: 5000;
+        background-color: $light-blue;
         .footer-nav {
             width: auto;
             & > li {
@@ -390,7 +396,7 @@
                     color: white;
                     text-decoration: none;
                     &:hover {
-                        color: $light-blue;
+                        color: $dark-grey;
                     }
                 }
             }
@@ -402,7 +408,7 @@
             margin: 20px;
             &:hover {
                 cursor: pointer;
-                color: $light-blue;
+                color: $dark-grey;
             }
         }
         .copyright {

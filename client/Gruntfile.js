@@ -30,10 +30,10 @@ module.exports = function(grunt) {
                     livereload: '<%= connect.options.livereload %>'
                 }
             },
-            jsTest: {
-                files: ['test/spec/{,*/}*.js'],
-                tasks: ['newer:jshint:test', 'karma']
-            },
+            // jsTest: {
+            //     files: ['test/spec/{,*/}*.js'],
+            //     tasks: ['newer:jshint:test', 'karma']
+            // },
             compass: {
                 files: ['<%= lucid.app %>/styles/{,*/}*.{scss,sass}'],
                 tasks: ['compass:server', 'autoprefixer']
@@ -91,23 +91,6 @@ module.exports = function(grunt) {
                 }
             }
         },
-
-        // babel: {
-        //     options: {
-        //       sourceMap: true,
-        //       compact: false
-        //     },
-        //     dist: {
-        //       files: {
-        //         '<%= lucid.dist %>/scripts/scripts.js': '<%= lucid.dist %>/scripts/scripts.js'
-        //       }
-        //     },
-        //     server: {
-        //         files: {
-        //             src: '<%= lucid.app %>/scripts/**/*.js'
-        //         }
-        //     }
-        // },
 
         browserify: {
             options: {
@@ -394,7 +377,7 @@ module.exports = function(grunt) {
 
         grunt.task.run([
             'clean:server',
-            'concurrent:server',
+            'compass:server',
             'autoprefixer',
             'browserify:server',
             'connect:livereload',
