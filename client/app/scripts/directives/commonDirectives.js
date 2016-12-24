@@ -32,15 +32,26 @@ function mobileScrollHide() {
     };
 }
 
+function lcdSocialMedia() {
+    return {
+        restrict: 'E',
+        templateUrl: 'views/partials/social-media.html'
+    };
+}
+
 function footer() {
     return {
         restrict: 'E',
-        templateUrl: 'views/partials/footer.html'
+        templateUrl: 'views/partials/footer.html',
+        scope: {
+            showSocial: '='
+        },
     };
 }
 
 module.exports = {
     lcdNavigation: lcdNavigation,
     mobileScrollHide: mobileScrollHide,
+    lcdSocialMedia: lcdSocialMedia,
     footer: footer
 }

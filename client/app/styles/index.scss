@@ -53,7 +53,11 @@ p {
     font-family: $roboto-font;
 }
 .view {
+    min-height: 100vh;
     position: relative;
+    &:focus {
+        outline: none;
+    }
 }
 .header-nav {
     position: relative;
