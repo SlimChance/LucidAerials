@@ -1,10 +1,10 @@
 'use strict';
 
-function hideScroll($window) {
+function lcdScrollHideArrow($window) {
     'ngInject';
     return {
         restrict: 'A',
-        link: function(scope, element) {
+        link: function (scope, element) {
             angular.element($window).bind('scroll', function() {
                 element.css({
                     'opacity': '0',
@@ -18,6 +18,7 @@ function hideScroll($window) {
 }
 
 function fadeOverlay($timeout) {
+    'ngInject';
     return {
         restrict: 'A',
         link: function(scope, element) {
@@ -47,24 +48,27 @@ function socialParallax($window) {
 
             // init
             if (!origElemWidth) {
-                socialWrap = element[0].children[0];
+                if (element[0].clientWidth > 490) {
+                    socialWrap = element[0].children[0];
 
-                socialWrap.style.width = '100vw';
-                origElemWidth = element[0].clientWidth / 1.75;
+                    origElemWidth = element[0].clientWidth / 1.5; // 1.5 starting ratio
+                    socialWrap.style.width = `${origElemWidth}px`;
 
-                let origSocialWidth = origElemWidth - 416;
-                ratio = origSocialWidth / 450;
+                    let origSocialWidth = origElemWidth - 300; // 300 ending elem width
+                    ratio = origSocialWidth / 420; // meet at 420 height   
+                }
             }
 
             angular.element($window).bind('scroll', function() {
-                 var scroll = this.scrollY;
+                if (socialWrap) {
+                    var scroll = this.scrollY;
 
-                 // meet at 450
-                 if (scroll < 450) {
-                     let socialWidth = (450 - scroll) * ratio + 416; // 416 ending elem width
-                     
-                     socialWrap.style.width = `${socialWidth}px`;
-                 }
+                    if (scroll < 420) {
+                        let socialWidth = (420 - scroll) * ratio + 300;
+                        
+                        socialWrap.style.width = `${socialWidth}px`;
+                    }
+                }
             });
         }
     };
@@ -79,10 +83,11 @@ function selfieParallax($window) {
 
             angular.element($window).bind('scroll', function() {
                 var scroll = this.scrollY;
-                var ratio = (800 - 350) / 50;
+                var ratio = (1000 - 400) / 70;
 
-                if (scroll > 350 && scroll < 800) {
-                    var temp = (800 - scroll) / ratio;
+                if (scroll > 400 && scroll < 1000) {
+                    var temp = (1000 - scroll) / ratio;
+                    
                     selfie.style.right = `-${temp}px`;
                 }
             });
@@ -91,7 +96,7 @@ function selfieParallax($window) {
 }        
 
 module.exports = {
-    hideScroll: hideScroll,
+    lcdScrollHideArrow: lcdScrollHideArrow,
     fadeOverlay: fadeOverlay,
     socialParallax: socialParallax,
     selfieParallax: selfieParallax

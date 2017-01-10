@@ -78,11 +78,13 @@
     .video-wrapper {
         .expanded {
             height: 80vh;
+            .text-wrap {
+                width: 30%;
+            }
             .video-title {
                 font-size: 2.00em;
                 display: inline-block;
                 color: white;
-                max-width: 85%;
                 position: absolute;
                 top: 100px;
                 left: 50%;
@@ -108,12 +110,8 @@
             }
             .video {
                 display: block;
-                position: absolute;
-                top: 29%;
-                left: 2.5%;
                 max-width: 100%;
-                min-height: 60%;
-                width: 95%;
+                width: 70%;
                 opacity: 0;
                 transition: opacity 0.3s ease-out;
                 transition-delay: 0.3s;
@@ -902,82 +900,84 @@
 
 /* Large desktop */
 @media (min-width: 1200px) {
-    .video-wrapper {
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: flex-start;
-        background-color: $dark-grey;
-        height: auto;
-        overflow: hidden;
-    }
-    .video-repeat {
-        display: flex;
-        flex-flow: row wrap;
-        align-content: space-around;
-        position: relative;
-        width: calc(33% - 8px);
-        overflow: hidden;
-        height: 350px;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        box-shadow: $material-shadow;
-        order: 2;
-        margin: 7px;
-        border-radius: 3px;
-        &:hover {
-            cursor: pointer;
-            .text-wrap {
-                transform: scale(1);
+    
+}
+
+.video-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    background-color: $dark-grey;
+    height: auto;
+    overflow: hidden;
+}
+.video-repeat {
+    display: flex;
+    flex-flow: row wrap;
+    align-content: space-around;
+    position: relative;
+    width: calc(33% - 8px);
+    overflow: hidden;
+    height: 350px;
+    box-shadow: $material-shadow;
+    order: 2;
+    margin: 7px;
+    border-radius: 3px;
+    &:hover {
+        cursor: pointer;
+        .text-wrap {
+            transform: scale(1);
+            opacity: 1;
+            border-radius: 0;
+            .video-title, .video-description {
                 opacity: 1;
-                border-radius: 0;
-                .video-title, .video-description {
-                    opacity: 1;
-                }
             }
         }
     }
-    .video-title {
-        color: white;
-        text-align: center;
-        margin-top: 20px;
-        padding: 0 10px;
-        font-size: 1.6em;
-        z-index: 1;
-        opacity: 1;
-        width: 100%;
-        font-family: $sans;
+    &:focus {
+        outline: none;
     }
-    .video-description {
-        display: block;
-        padding: 10px 20px;
-        border-top: 2px solid $light-blue;
-        color: white;
-        font-weight: 400;
-        font-family: $sans;
-    }
-    .text-wrap {
-        background-color: rgba(66,66,66,.75);
-        width: 100%;
-        position: absolute;
-        bottom: 0;
-        height: 100%;
-        z-index: 1;
-        opacity: 0;
-        border-radius: 100%;
-        transform: scale(0);
-        transition: all .2s ease-in-out;
-    }
-    .play-button {
-        display: none !important;
-    }
-    .video {
-        display: none;
-    }
-    .countdown-timer {
-        display: none;
-    }
-    .gradient {
+}
+.video-wrap {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.video-title {
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+    padding: 0 10px;
+    font-size: 1.6em;
+    z-index: 1;
+    opacity: 1;
+    width: 100%;
+    font-family: $sans;
+}
+.video-description {
+    display: block;
+    padding: 10px 20px;
+    border-top: 2px solid $light-blue;
+    color: white;
+    font-weight: 400;
+    font-family: $sans;
+}
+.text-wrap {
+    width: 100%;
+    bottom: 0;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    transform: scale(0);
+    transition: all .2s ease-in-out;
+}
+.play-button {
+    display: none !important;
+}
+.video {
+    display: none;
+    &:after {
+        content: '';
         opacity: .3;
         background: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
         height: 100%;
@@ -985,69 +985,54 @@
         position: absolute;
         bottom: 0;
     }
-    .video-wrapper {
-        .expanded {
-            height: 90vh;
-            width: 100%;
-            margin: 0 0 10px 0;
-            order: 0;
+}
+.countdown-timer {
+    display: none;
+}
+.video-wrapper {
+    .expanded {
+        height: 90vh;
+        width: 100%;
+        margin: 0 0 10px 0;
+        order: 0;
+        &:hover {
+            cursor: default;
+        }
+        .video-title {
+            font-size: 2.5em;
+            display: inline-block;
+            color: white;
+            font-family: $lora-font;
+            opacity: 1;
+            margin-top: 50px;
+        }
+        .text-wrap {
+            height: 100%;
+            width: 30%;
+            transform: scale(1);
+            opacity: 1;
+        }
+        .play-button {
+            display: block !important;
+            opacity: 1;
+            z-index: 2;
+            color: $light-blue;
+            font-size: 5em;
+            transition: opacity 0.5s ease-out;
             &:hover {
-                cursor: default;
+                color: $light-grey;
             }
-            .video-title {
-                font-size: 3.5em;
-                display: inline-block;
-                color: white;
-                max-width: 60%;
-                position: absolute;
-                top: 100px;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                text-shadow:
-                    -1px -1px 0 $light-grey,
-                    1px -1px 0 $light-grey,
-                    -1px 1px 0 $light-grey,
-                    1px 1px 0 $light-grey;
-                font-family: $lora-font;
-                opacity: 1;
+            &:focus {
+                outline: none;
             }
-            .text-wrap {
-                background: none;
-                height: 100%;
-                transform: scale(1);
-                opacity: 1;
-            }
-            .video-description {
-                display: none;
-            }
-            .play-button {
-                display: block !important;
-                opacity: 1;
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                z-index: 2;
-                color: $light-blue;
-                font-size: 6em;
-                transition: opacity 0.5s ease-out;
-                &:hover {
-                    color: $light-grey;
-                }
-            }
-            .video {
-                display: block;
-                position: absolute;
-                top: 200px;
-                left: 17.5%;
-                max-width: 100%;
-                min-height: 70%;
-                width: 65%;
-                opacity: 0;
-                transition: opacity 0.3s ease-out;
-                transition-delay: 0.3s;
-            }
-            .gradient {
+        }
+        .video-wrap {
+            width: 70%;
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            align-items: center;
+            &:after {
                 z-index: -1;
                 opacity: 0;
                 background: radial-gradient(circle, rgba(0,0,0,0), rgba(0,0,0,1));
@@ -1055,105 +1040,113 @@
                 width: calc(100% + 10px);
                 transition: opacity 0.3s ease-out;
             }
-            .countdown-timer {
-                flex-flow: column nowrap;
-                align-items: center;
-                justify-content: center;
-                color: white;
-                background-color: black;
-                position: absolute;
-                top: 200px;
-                left: 17.5%;
-                max-width: 100%;
-                min-height: 70%;
-                width: 65%;
-                z-index: 5;
-                .timer-title, .timer-seconds {
-                    padding: 5px;
-                    font-size: 1.5em;
-                }
-            }
         }
-    }
-    .subscribe {
-        z-index: 500;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-        order: 1;
-        width: 100%;
-        background-color: $dark-grey;
-        height: 50px;
-        box-shadow: $material-shadow;
-        border-top: 2px solid $light-blue;
-        border-bottom: 2px solid $light-blue;
-        padding: 20px;
-        .glyphicon-remove-circle {
-            color: $light-blue;
-            font-size: 1.5em;
-        }
-        p {
-            font-family: $sans;
-            margin: 5px;
-            font-size: 1.5em;
-            font-weight: 600;
-            color: $light-blue;
-        }
-        &.subscribe-removed {
+        .video {
             display: none;
+            width: 80%;
+            height: 70%;
+            opacity: 0;
+            transition: opacity 0.3s ease-out;
+            transition-delay: 0.3s;
         }
-    }
-    .pag-wrap {
-        order: 500;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        .pagination {
-            margin: 10px 20px;
-        }
-        ul {
-            box-shadow: $material-shadow;
-        }
-        li > a {
-            background-color: $light-blue;
-            border: 0;
+        .countdown-timer {
+            flex-flow: column nowrap;
+            align-items: center;
+            justify-content: center;
             color: white;
-            outline: 0;
-            font-size: 1.4em;
-            font-family: $sans;
-            padding: 10px 20px;
-            &:hover {
-                background-color: $dark-blue;
-                color: white;
+            background-color: black;
+            position: absolute;
+            top: 200px;
+            left: 17.5%;
+            max-width: 100%;
+            min-height: 70%;
+            width: 65%;
+            z-index: 5;
+            .timer-title, .timer-seconds {
+                padding: 5px;
+                font-size: 1.5em;
             }
         }
-        li.disabled > a {
-            background-color: $dark-grey;
-            &:hover {
-                background-color: $dark-grey;
-            }
-            &:active {
-                background-color: $dark-grey;
-            }
-            &:focus {
-                background-color: $dark-grey;
-            }
-        }
-        li.active > a {
+    }
+}
+.subscribe {
+    z-index: 500;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    order: 1;
+    width: 100%;
+    background-color: $dark-grey;
+    height: 50px;
+    box-shadow: $material-shadow;
+    border-top: 2px solid $light-blue;
+    border-bottom: 2px solid $light-blue;
+    padding: 20px;
+    .glyphicon-remove-circle {
+        color: $light-blue;
+        font-size: 1.5em;
+    }
+    p {
+        font-family: $sans;
+        margin: 5px;
+        font-size: 1.5em;
+        font-weight: 600;
+        color: $light-blue;
+    }
+    &.subscribe-removed {
+        display: none;
+    }
+}
+.pag-wrap {
+    order: 500;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    .pagination {
+        margin: 10px 20px;
+    }
+    ul {
+        box-shadow: $material-shadow;
+    }
+    li > a {
+        background-color: $light-blue;
+        border: 0;
+        color: white;
+        outline: 0;
+        font-size: 1.4em;
+        font-family: $sans;
+        padding: 10px 20px;
+        &:hover {
             background-color: $dark-blue;
-            &:hover {
-                background-color: $dark-blue;
-            }
-            &:active {
-                background-color: $dark-blue;
-            }
-            &:focus {
-                background-color: $dark-blue;
-            }
+            color: white;
         }
     }
-    .last-item {
-        order: 5000;
+    li.disabled > a {
+        background-color: $dark-grey;
+        &:hover {
+            background-color: $dark-grey;
+        }
+        &:active {
+            background-color: $dark-grey;
+        }
+        &:focus {
+            background-color: $dark-grey;
+        }
     }
+    li.active > a {
+        background-color: $dark-blue;
+        &:hover {
+            background-color: $dark-blue;
+        }
+        &:active {
+            background-color: $dark-blue;
+        }
+        &:focus {
+            background-color: $dark-blue;
+        }
+    }
+}
+.last-item {
+    order: 5000;
 }

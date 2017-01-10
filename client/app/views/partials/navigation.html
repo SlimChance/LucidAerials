@@ -24,15 +24,15 @@
     <div class="nav-wrapper" mobile-scroll-hide>
         <div class="mobile-logo-wrapper" ng-click="common.navigateTo('/')">
             <img class="mobile-logo" src="../images/c-transparent-logo-cropped.png" alt="Lucid Aerials Logo" height="35px" width="35px" align="middle">
-            <h3>SheaBurnsHimself</h3>
+            <h3>Lucid Aerials</h3>
         </div>
-        <div class="menu-wrapper" ng-class="{ 'menu-wrapper-toggled': navToggled }" ng-click="common.toggleNav($event)">
+        <div class="menu-wrapper" ng-class="{ 'menu-wrapper-toggled': common.navToggled }" ng-click="common.toggleNav($event)">
             <div class="menu-bar1"></div>
             <div class="menu-bar2"></div>
             <div class="menu-bar3"></div>
         </div>
     </div>
-    <nav class="nav-options" ng-class="{ 'nav-options-toggled': navToggled }">
+    <nav class="nav-options" ng-class="{ 'nav-options-toggled': common.navToggled }">
         <div class="nav-home" ng-click="common.navigateTo('/')">
             <span class="glyphicon glyphicon-home"></span><h3 class="nav-text">Home</h3>
         </div>

@@ -35,7 +35,7 @@ module.exports = function(grunt) {
             //     tasks: ['newer:jshint:test', 'karma']
             // },
             compass: {
-                files: ['<%= lucid.app %>/styles/{,*/}*.{scss,sass}'],
+                files: ['<%= lucid.app %>/styles/*.{scss,sass}'],
                 tasks: ['compass:server', 'autoprefixer']
             },
             gruntfile: {
@@ -132,7 +132,7 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     cwd: '.tmp/styles/',
-                    src: '{,*/}*.css',
+                    src: 'index.css',
                     dest: '.tmp/styles/'
                 }]
             }
@@ -226,7 +226,7 @@ module.exports = function(grunt) {
             dist: {
                 files: {
                     '<%= lucid.dist %>/styles/main.css': [
-                        '.tmp/styles/{,*/}*.css'
+                        '.tmp/styles/*.css'
                     ]
                 }
             }
@@ -337,7 +337,7 @@ module.exports = function(grunt) {
                 expand: true,
                 cwd: '<%= lucid.app %>/styles',
                 dest: '.tmp/styles/',
-                src: '{,*/}*.css'
+                src: '*.css'
             },
             scripts: {
                 src: '.tmp/scripts/scripts.js',

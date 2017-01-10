@@ -15,7 +15,6 @@ require('angular-route');
 require('angular-sanitize');
 require('angular-touch');
 require('angular-utils-pagination');
-require('bootstrap-sass');
 require('moment');
 require('angular-moment');
 
@@ -61,7 +60,7 @@ angular
     .service('videoService', require('./services/videoService'))
     .service('pictureService', require('./services/pictureService'))
     .service('transformiconService', require('./services/transformiconService'))
-    .directive('hideScroll', require('./directives/homeDirective').hideScroll)
+    .directive('lcdScrollHideArrow', require('./directives/homeDirective').lcdScrollHideArrow)
     .directive('fadeOverlay', require('./directives/homeDirective').fadeOverlay)
     .directive('socialParallax', require('./directives/homeDirective').socialParallax)
     .directive('selfieParallax', require('./directives/homeDirective').selfieParallax)

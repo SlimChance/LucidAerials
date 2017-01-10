@@ -17,12 +17,14 @@ function HomeCtrl($scope, $window) {
 
         if (ratio < 0.9) {
             //video.width(windowWidth - 17);
-            video.height(windowWidth * 0.85);
-            videoOverlay.height(windowWidth * 0.85);
+            video.height(windowWidth * 0.9);
+            videoOverlay.height((windowWidth * 0.9) - 40);
+            vm.hideArrow = true;
         } else {
             //video.width(windowWidth - 17);
             video.height(windowHeight);
             videoOverlay.height(windowHeight);
+            vm.hideArrow = false;
         }
 
         if (windowWidth >= 480) {

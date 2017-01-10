@@ -49,14 +49,15 @@
         ga('create', 'UA-XXXXX-X');
         ga('send', 'pageview');
     </script>
-    <script src="https://apis.google.com/js/client.js"></script>
-    <script src="https://use.fontawesome.com/115e9119cc.js"></script>
+    <script src="https://apis.google.com/js/client.js" async></script>
+    <script src="https://use.fontawesome.com/115e9119cc.js" async></script>
     <!-- Youtube init -->
     <script>
         var tag = document.createElement('script');
 
         // YouTube API
         tag.src = 'https://www.youtube.com/iframe_api';
+        tag.async = 1;
         var firstScriptTag = document.getElementsByTagName('script')[0];
         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
@@ -69,7 +70,7 @@
         }
     </script>
 
-    <script src="scripts/scripts.js"></script>
+    <script src="scripts/scripts.js" async></script>
 </body>
 
 </html>

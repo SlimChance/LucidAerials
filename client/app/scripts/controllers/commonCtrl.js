@@ -15,7 +15,7 @@ function commonCtrl($rootScope, $location) {
 
     vm.toggleNav = function(e) {
         e.stopPropagation();
-
+        
         vm.navToggled = !vm.navToggled;
     };
 
